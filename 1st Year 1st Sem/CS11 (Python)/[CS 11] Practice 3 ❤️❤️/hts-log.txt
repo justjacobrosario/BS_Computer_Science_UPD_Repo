@@ -1,0 +1,13 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 17 Jan 2026 18:41:13 at 202503304:extend-huge-jelly@https://oj.dcs.u.edu.ph/problem/cs11prac3a +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" 202503304:extend%2dhuge%2djelly@https://oj.dcs.u.edu.ph/problem/cs11prac3a -O1 "D:\BS COMPUTER SCIENCE JOURNEY\1st Year 1st Sem\CS11 (Python)\[CS 11] Practice 3 ____" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+18:41:22	Error: 	"Unable to get server's address: unknown error" (-5) after 2 retries at link primary/robots.txt (from primary/primary)
+18:41:22	Warning: 	Retry after error -5 (Unable to get server's address: No such host is known. ) at link primary/extend-huge-jelly@https://oj.dcs.u.edu.ph/problem/cs11prac3a (from primary/primary)
+18:41:24	Warning: 	Retry after error -5 (Unable to get server's address: unknown error) at link primary/extend-huge-jelly@https://oj.dcs.u.edu.ph/problem/cs11prac3a (from primary/primary)
+18:41:27	Error: 	"Unable to get server's address: unknown error" (-5) after 2 retries at link primary/extend-huge-jelly@https://oj.dcs.u.edu.ph/problem/cs11prac3a (from primary/primary)
+18:41:27	Warning: 	No data seems to have been transferred during this session! : restoring previous one!

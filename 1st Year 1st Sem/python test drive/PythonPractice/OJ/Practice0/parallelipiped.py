@@ -1,0 +1,1 @@
+def parallelepiped_volume((2, 0, 0), (0, 2, 0), (0, 0, 2))
