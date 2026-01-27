@@ -1,3 +1,5 @@
+# ginawa to sa ipaddd
+
 """ ■■■■■■■ TYPE HINTING ■■■■■■■ """
     # declares the type of variables and return values
 
