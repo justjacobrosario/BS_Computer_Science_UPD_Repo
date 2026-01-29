@@ -27,3 +27,9 @@ str = empty str, uppercase, lowercase, spaces, symbols, emojis
 list, set, dict, tuple = empty, singleton, dupes, some equal, all equal, all unique
 
 '''■ ■ ■ EDGE CASES ■ ■ ■'''
+
+# ■ Edge cases are unusual inputs with limits or special behavior when operated
+    # e.g. empty str, 0
+# ■ Boundary Value are edge cases within the limits of an input range
+    # e.g. 1 (boundary of all positive vals)
+    
