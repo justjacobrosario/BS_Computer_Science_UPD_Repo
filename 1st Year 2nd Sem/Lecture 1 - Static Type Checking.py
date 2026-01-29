@@ -76,8 +76,33 @@
                     # Optional for return value types in funcs
 
 
-
-
     # 2. Dynamic Type Checking : During execution ; done by default
     continue
+
+""" ■■■■■■■ TYPE HINTING SYNTAX ■■■■■■■ """
+
+''' 1. Type Inference'''
+    # giving specific return values
+    # use Literal() for fixed return vals
+    # use | as union operator
+
+def classify(n : int) -> (Literal["odd", "even"] | None):
+    if n % 2 == 0:
+        return "even"
+    if n % 2 != 0:
+        return "odd"
+    else:
+        return None
+
+''' 2. Type Alias '''
+    # give specific type hints
+
+# instead of
+
+map : list[list[int]] = [[1, 2], [3, 4]]
+
+# make aliases using type keyword
+
+type grid_matrix = list[list[int]]
+map : grid_matrix = [[1, 2], [3, 4]]
 
