@@ -26,5 +26,21 @@ def in_exactly_one(l, s1, s2):
 def sets_containing_range(x, y, intsets):
     return tuple(set for set in intsets if set in frozenset(range(x, y+1)))
 
-print(sets_containing_range(3, 6, (frozenset((3, 4, 5, 6, 7)), frozenset(()))))
-print(frozenset((3, 4, 5)) <= frozenset(range(3, 7)))
+#print(sets_containing_range(3, 6, (frozenset((3, 4, 5, 6, 7)), frozenset(()))))
+#print(frozenset((3, 4, 5)) <= frozenset(range(3, 7)))
+
+def text_file_bases(filenames):
+    return tuple(x[-4:] for x in filenames if x[-4:] == ".txt")
+
+print(text_file_bases((
+ 'hello.txt',
+ 'fromtheoutside.jpg',
+ 'lol.text',
+ 'lol.png.txt',
+ 'lol.png.png',
+ 'lol.txt.txt',
+ 'lol',
+ 'txt.txt.txt',
+ 'txt.txt.lol',
+ 'lolo.txt',
+)))

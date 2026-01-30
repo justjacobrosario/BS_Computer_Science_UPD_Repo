@@ -106,3 +106,6 @@ map : list[list[int]] = [[1, 2], [3, 4]]
 type grid_matrix = list[list[int]]
 map : grid_matrix = [[1, 2], [3, 4]]
 
+
+DONT KNOW
+reveal_type( )
