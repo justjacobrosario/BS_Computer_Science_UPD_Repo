@@ -39,7 +39,8 @@ _null = None
         # Complex Indexing ( <var>[ start (inclu.) : end (exclu.) : step(negative if reversed) ])
             am = name[2:4] # th
             enam = name[::-1] # nohtyP
-
+            # Indexes can overflow (e.g. (1, 2, 3)[:1000] is valid)
+            
         # Slicing <var>[ inclusive start : exclusive end ]
             first_3 = name[:3] # Pyt # notice that it exclusively chose 0th, 1th, 2th index (no 3th)
             last_3 = name[:3] # hon
