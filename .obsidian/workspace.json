@@ -11,14 +11,10 @@
             "id": "4e904f288916e86b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/Lecture_3_Separation_of_Concerns.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Lecture_3_Separation_of_Concerns"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1st Year 2nd Sem/Lecture_3_Separation_of_Concerns.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Lecture_3_Separation_of_Concerns"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1st Year 2nd Sem/Lecture_3_Separation_of_Concerns.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Lecture_3_Separation_of_Concerns"
+              "title": "Outgoing links"
             }
           },
           {
@@ -156,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1st Year 2nd Sem/Lecture_3_Separation_of_Concerns.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Lecture_3_Separation_of_Concerns"
+              "title": "Outline"
             }
           }
         ]
@@ -186,6 +179,8 @@
   },
   "active": "4e904f288916e86b",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/Lecture_3_Separation_of_Concerns.md",
+    "Untitled.canvas",
     "README.md"
   ]
 }
