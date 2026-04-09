@@ -101,7 +101,7 @@ class A:
 		self.b.f()
 ```
 
-7. COMPOSITION PRINCIPLE
+7: COMPOSITION PRINCIPLE
 ========================
 
 : Do D.I. and Forwarding only when necessary to maximize cohesion and minimize coupling
