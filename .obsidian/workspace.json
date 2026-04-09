@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "made in laptop"
             }
+          },
+          {
+            "id": "3d0f97424a4804d0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Scratch Notes.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Scratch Notes"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -210,10 +224,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b8308df3153ff68b",
+  "active": "3d0f97424a4804d0",
   "lastOpenFiles": [
-    "README.md",
     "made in laptop.md",
+    "Scratch Notes.md",
+    "README.md",
     "conflict-files-obsidian-git.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md",
     "Untitled.canvas",
