@@ -3,7 +3,7 @@
   "search": "",
   "showTags": false,
   "showAttachments": false,
-  "hideUnresolved": false,
+  "hideUnresolved": true,
   "showOrphans": true,
   "collapse-color-groups": false,
   "colorGroups": [
@@ -17,23 +17,14 @@
   ],
   "collapse-display": false,
   "showArrow": false,
-  "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1.42941787941788,
-  "lineSizeMultiplier": 2.83523908523909,
-<<<<<<< HEAD
+  "textFadeMultiplier": -1.4,
+  "nodeSizeMultiplier": 0.684659090909091,
+  "lineSizeMultiplier": 1.04659090909091,
   "collapse-forces": false,
-  "centerStrength": 0.425773195876289,
-  "repelStrength": 9.50515463917526,
-  "linkStrength": 0.545360824742268,
-  "linkDistance": 282,
-  "scale": 0.7132754626224388,
-=======
-  "collapse-forces": true,
-  "centerStrength": 0.518713248970312,
+  "centerStrength": 0.545454545454545,
   "repelStrength": 10,
   "linkStrength": 1,
-  "linkDistance": 250,
-  "scale": 1,
->>>>>>> origin/main
+  "linkDistance": 193,
+  "scale": 1.1169100783909875,
   "close": false
 }
