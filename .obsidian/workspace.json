@@ -193,10 +193,14 @@
             "id": "a50495b0fef0786d",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "L3_Separation_of_Concerns"
             }
           }
         ],
@@ -362,6 +366,7 @@
   },
   "active": "a50495b0fef0786d",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/Lec_1_and_2_TypeHinting_Debugging_UnitTesting.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
