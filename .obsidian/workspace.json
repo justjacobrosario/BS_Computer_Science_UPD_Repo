@@ -195,12 +195,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "Python  Algorithms.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Python  Algorithms"
             }
           }
         ],
@@ -387,7 +387,7 @@
   "active": "a50495b0fef0786d",
   "lastOpenFiles": [
     "Untitled 10.md",
-    "Untitled.md",
+    "Python  Algorithms.md",
     "L12_MVC_w_Pyxel.md",
     "L11_GameProgrammingBasics.md",
     "L10_OOPDesignPatterns.md",
