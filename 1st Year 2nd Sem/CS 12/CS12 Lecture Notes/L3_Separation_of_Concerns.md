@@ -1,3 +1,9 @@
+---
+year: 1
+subject: CS12
+field: programming
+---
+
 # CS 12 Lectures 1-2
 
 ## [[ LECTURE 2 : SEPARATION OF CONCERNS ]]
