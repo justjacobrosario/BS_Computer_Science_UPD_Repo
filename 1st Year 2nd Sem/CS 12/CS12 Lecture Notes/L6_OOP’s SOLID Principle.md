@@ -4,6 +4,7 @@ subject: CS12
 field: programming
 ---
 
+
 1: [S]ingle Responsibility Principle
 ====================================
 

@@ -3,6 +3,13 @@ year: 1
 subject: CS12
 field: programming
 ---
+[[L6_OOP’s SOLID Principle]]
+[[L7_SingleInheritance]]
+[[L8_SubtypeVariance_FunctionSubtyping]]
+[[L9_BehavioralSubtyping]]
+[[L10_OOPDesignPatterns]]
+[[L11_GameProgrammingBasics]]
+[[L12_MVC_w_Pyxel]]
 
 1: OOP NOT-SO-DEFINITION
 ========================

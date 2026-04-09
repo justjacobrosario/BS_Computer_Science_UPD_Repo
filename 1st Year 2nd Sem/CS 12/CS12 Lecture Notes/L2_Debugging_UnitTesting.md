@@ -3,6 +3,7 @@ year: 1
 subject: CS12
 field: programming
 ---
+[[L3_Separation_of_Concerns]]
 
 1: IDEALS OF A PROGRAM
 ======================

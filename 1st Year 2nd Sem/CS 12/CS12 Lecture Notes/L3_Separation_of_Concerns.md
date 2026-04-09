@@ -3,6 +3,7 @@ year: 1
 subject: CS12
 field: programming
 ---
+[[L4_Subtyping]]
 
 # CS 12 Lectures 1-2
 

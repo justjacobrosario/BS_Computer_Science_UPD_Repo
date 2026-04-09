@@ -11,7 +11,7 @@
       "query": "[\"subject\": cs12]",
       "color": {
         "a": 1,
-        "rgb": 6079462
+        "rgb": 16768829
       }
     },
     {
@@ -28,10 +28,10 @@
   "nodeSizeMultiplier": 1.42941787941788,
   "lineSizeMultiplier": 2.83523908523909,
   "collapse-forces": false,
-  "centerStrength": 0.524742268041237,
+  "centerStrength": 0.425773195876289,
   "repelStrength": 9.50515463917526,
   "linkStrength": 0.545360824742268,
   "linkDistance": 282,
-  "scale": 0.9999999999999981,
+  "scale": 0.7132754626224399,
   "close": false
 }
