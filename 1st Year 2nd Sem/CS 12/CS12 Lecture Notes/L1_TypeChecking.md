@@ -1,10 +1,10 @@
-1. TYPE HINTING
-===============
+1: TYPE HINTING
+==============
 
 - var : type = val
 - def f(param : type) -> returntype:
 
-2. TYPE CHECKING
+2: TYPE CHECKING
 =====================
 
 ## 1. Static Type Checking
@@ -15,7 +15,7 @@
 
 : Data types are checked while running the program
 
-3. TYPE INFERENCES
+3: TYPE INFERENCES
 ==================
 
 : Data types are sometimes complex with several datatypes in one thing

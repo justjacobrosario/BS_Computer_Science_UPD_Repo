@@ -29,7 +29,7 @@
               "state": {
                 "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "L1_TypeChecking"
@@ -216,7 +216,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9c9467c09970ce20",
+  "active": "5142a997a251c8a6",
   "lastOpenFiles": [
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Lec13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
