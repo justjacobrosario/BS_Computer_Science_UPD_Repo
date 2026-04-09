@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 9.md",
+                "file": "L12_MVC_w_Pyxel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 9"
+              "title": "L12_MVC_w_Pyxel"
             }
           },
           {
@@ -181,16 +181,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "L11_GameProgrammingBasics.md",
+                "file": "Untitled 10.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "L11_GameProgrammingBasics"
+              "title": "Untitled 10"
+            }
+          },
+          {
+            "id": "a50495b0fef0786d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
             }
           }
         ],
-        "currentTab": 12
+        "currentTab": 13
       },
       {
         "id": "cf1f8a0613e06f26",
@@ -370,8 +384,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d03d1e56db1ac817",
+  "active": "a50495b0fef0786d",
   "lastOpenFiles": [
+    "Untitled 10.md",
+    "Untitled.md",
+    "L12_MVC_w_Pyxel.md",
+    "L11_GameProgrammingBasics.md",
     "L10_OOPDesignPatterns.md",
     "L9_BehavioralSubtyping.md",
     "L8_SubtypeVariance_FunctionSubtyping.md",
@@ -381,9 +399,6 @@
     "L5_ObjectOrientedProgramming.md",
     "L4_Subtyping.md",
     "L2_Debugging_UnitTesting.md",
-    "Untitled 10.md",
-    "Untitled 9.md",
-    "L11_GameProgrammingBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
