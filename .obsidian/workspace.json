@@ -181,12 +181,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 10.md",
+                "file": "Python Basic Syntax.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Untitled 10"
+              "title": "Python Basic Syntax"
             }
           },
           {
@@ -195,12 +195,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python  Algorithms.md",
-                "mode": "source",
+                "file": "Python Basic Syntax.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Python  Algorithms"
+              "title": "Python Basic Syntax"
             }
           }
         ],
@@ -386,8 +386,8 @@
   },
   "active": "a50495b0fef0786d",
   "lastOpenFiles": [
-    "Untitled 10.md",
-    "Python  Algorithms.md",
+    "PythonAlgorithms.md",
+    "Python Basic Syntax.md",
     "L12_MVC_w_Pyxel.md",
     "L11_GameProgrammingBasics.md",
     "L10_OOPDesignPatterns.md",
