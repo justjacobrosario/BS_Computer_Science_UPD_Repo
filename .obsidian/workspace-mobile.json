@@ -11,10 +11,14 @@
             "id": "ce62528d51645138",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "README"
             }
           }
         ]
@@ -167,8 +171,9 @@
   },
   "active": "ce62528d51645138",
   "lastOpenFiles": [
-    "README.md",
     "made in laptop.md",
+    "/README.md",
+    "README.md",
     "/made in laptop.md",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/le_scratch.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects",
@@ -201,7 +206,6 @@
     "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
     "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
     "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md"
+    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md"
   ]
 }
