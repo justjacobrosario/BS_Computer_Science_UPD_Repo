@@ -11,10 +11,13 @@
             "id": "4e904f288916e86b",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "bases",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Untitled.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled"
             }
           }
         ]
@@ -179,7 +182,19 @@
   },
   "active": "4e904f288916e86b",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/Lecture_3_Separation_of_Concerns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Welcome.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Untitled.base",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Lecture_3_Separation_of_Concerns.md",
+    "1st Year 2nd Sem/CS 12/Pyxel_Projects/screensaver.py",
+    "1st Year 2nd Sem/CS 12/Pyxel_Projects/pyxel_test.py",
+    "1st Year 2nd Sem/CS 12/Pyxel_Projects/le_scratch.py",
+    "1st Year 2nd Sem/CS 12/Pyxel_Projects/flappy.py",
+    "1st Year 2nd Sem/CS 12/Pyscript_Projects",
+    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/view.cpython-314.pyc",
+    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/model_part1.cpython-314.pyc",
+    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/common_types.cpython-314.pyc",
+    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/controller.cpython-314.pyc",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Lec13_HTMLAndDOM.md",
     "Untitled.canvas",
     "README.md"
   ]
