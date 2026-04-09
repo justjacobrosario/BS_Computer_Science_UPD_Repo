@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"90f57a5e178977f3","type":"group","x":-1080,"y":-200,"width":1840,"height":1430,"label":"CS12"},
+		{"id":"1eb6e01f25e5348a","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md","x":-580,"y":1160,"width":292,"height":50},
+		{"id":"96ee524707665d1d","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md","x":-1000,"y":-116,"width":252,"height":52},
+		{"id":"fe4cf64a77fa5b7e","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md","x":-996,"y":104,"width":352,"height":52},
+		{"id":"1e204205f1e437eb","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics.md","x":-470,"y":609,"width":392,"height":50},
+		{"id":"67873ad1e722ec6e","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel.md","x":-474,"y":769,"width":400,"height":50},
+		{"id":"1fe9efc9bfd65a7c","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md","x":-250,"y":193,"width":272,"height":50},
+		{"id":"0c3e25c9e69b8e98","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping.md","x":-250,"y":268,"width":512,"height":61},
+		{"id":"38e6b4ac0c37a441","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md","x":-28,"y":44,"width":332,"height":50},
+		{"id":"dc55f867fc086a23","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md","x":148,"y":193,"width":312,"height":50},
+		{"id":"c57e907916add047","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming.md","x":-480,"y":-65,"width":412,"height":50},
+		{"id":"830c47df1b70a232","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md","x":-996,"y":243,"width":372,"height":50},
+		{"id":"67e4202ca54f76e5","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md","x":-996,"y":360,"width":200,"height":50},
+		{"id":"32958cdc17b5c9f1","type":"file","file":"1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns.md","x":-480,"y":440,"width":312,"height":50}
+	],
+	"edges":[
+		{"id":"8876c033a772b215","fromNode":"96ee524707665d1d","fromSide":"bottom","toNode":"fe4cf64a77fa5b7e","toSide":"top"},
+		{"id":"3704421a2663b752","fromNode":"c57e907916add047","fromSide":"bottom","toNode":"38e6b4ac0c37a441","toSide":"top"},
+		{"id":"7a6676826649e5c4","fromNode":"1fe9efc9bfd65a7c","fromSide":"top","toNode":"38e6b4ac0c37a441","toSide":"bottom"},
+		{"id":"bde2ebef76f3204c","fromNode":"0c3e25c9e69b8e98","fromSide":"top","toNode":"38e6b4ac0c37a441","toSide":"bottom"},
+		{"id":"2e6d403c6f9a34f5","fromNode":"dc55f867fc086a23","fromSide":"top","toNode":"38e6b4ac0c37a441","toSide":"bottom"},
+		{"id":"f500fb83d64dc1c2","fromNode":"32958cdc17b5c9f1","fromSide":"top","toNode":"c57e907916add047","toSide":"bottom"},
+		{"id":"69366a6327d3dfae","fromNode":"38e6b4ac0c37a441","fromSide":"top","toNode":"c57e907916add047","toSide":"bottom"},
+		{"id":"d657b3184442f1f4","fromNode":"c57e907916add047","fromSide":"bottom","toNode":"1e204205f1e437eb","toSide":"top"},
+		{"id":"089baf10c88b9b6b","fromNode":"67873ad1e722ec6e","fromSide":"top","toNode":"1e204205f1e437eb","toSide":"bottom"},
+		{"id":"a11e0d6b7148ab9c","fromNode":"fe4cf64a77fa5b7e","fromSide":"bottom","toNode":"830c47df1b70a232","toSide":"top"},
+		{"id":"a34d68144ca9187b","fromNode":"67e4202ca54f76e5","fromSide":"top","toNode":"830c47df1b70a232","toSide":"bottom"}
+	]
+}
