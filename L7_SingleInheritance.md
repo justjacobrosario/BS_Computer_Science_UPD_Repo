@@ -5,7 +5,7 @@ field: programming
 ---
 
 
-1. SUBCLASSING
+1: SUBCLASSING
 ==============
 
 : act of inheriting the attr and methods of a base class to its child classes
@@ -25,13 +25,13 @@ d = Dog(name = "Askal")
 d.move()
 ```
 
-2. METHOD OVERRIDING
+2: METHOD OVERRIDING
 ====================
 
 : when a subclass overrides a function, it will become a "derived function"
 : derived functions don't influence base functions from the parent class and other siblings
 
-3. METHOD RESOLUTION ORDERING
+3: METHOD RESOLUTION ORDERING
 =============================
 
 : when a function is called, function traces from the child class then its immediate parent class and so on until it traces the def of the func
@@ -56,13 +56,13 @@ d = D()
 d.f() # it will print the immediate latest def of f() which is 'fahh'
 ```
 
-4. super() IN OVERRIDING INITIALIZER FUNC
+4: super() IN OVERRIDING INITIALIZER FUNC
 =========================================
 
 : when a child class overrides the __init__ function of its parent, its attributes won't be automatically inherited anymore
 : you can manually inherit selected attr of parent's initializer using super().__init__(attr1, attr2,...)
 
-5. COMPOSITION OVER INHERITANCE
+5: COMPOSITION OVER INHERITANCE
 ===============================
 
 : composition lightly uses a behavior of a class B to a class A
