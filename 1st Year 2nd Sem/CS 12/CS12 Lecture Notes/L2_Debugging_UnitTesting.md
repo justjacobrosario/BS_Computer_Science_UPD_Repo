@@ -3,14 +3,15 @@ year: 1
 subject: CS12
 field: programming
 ---
+
 1: IDEALS OF A PROGRAM
 ======================
 
-2. Bug-free
-3. Easy to understand
-4. Easy to modify
+1. Bug-free
+2. Easy to understand
+3. Easy to modify
 
-5. DEBUG BY IDENTIFYING EQUIVALENCE PARTITIONS AND EDGE CASES
+2: DEBUG BY IDENTIFYING EQUIVALENCE PARTITIONS AND EDGE CASES
 ==============================================================
 
 ## 1. Equivalence Partitions (aka value intervals)

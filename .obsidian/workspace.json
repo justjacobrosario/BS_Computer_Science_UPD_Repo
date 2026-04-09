@@ -193,14 +193,10 @@
             "id": "a50495b0fef0786d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "L2_Debugging_UnitTesting"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ],
@@ -366,8 +362,8 @@
   },
   "active": "a50495b0fef0786d",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
