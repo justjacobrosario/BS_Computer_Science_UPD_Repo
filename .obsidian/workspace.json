@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 8.md",
+                "file": "L11_GameProgrammingBasics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 8"
+              "title": "L11_GameProgrammingBasics"
             }
           },
           {
@@ -181,12 +181,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "L10_OOPDesignPatterns.md",
+                "file": "L11_GameProgrammingBasics.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "L10_OOPDesignPatterns"
+              "title": "L11_GameProgrammingBasics"
             }
           }
         ],
@@ -372,6 +372,7 @@
   },
   "active": "d03d1e56db1ac817",
   "lastOpenFiles": [
+    "L10_OOPDesignPatterns.md",
     "L9_BehavioralSubtyping.md",
     "L8_SubtypeVariance_FunctionSubtyping.md",
     "L7_SingleInheritance.md",
@@ -382,8 +383,7 @@
     "L2_Debugging_UnitTesting.md",
     "Untitled 10.md",
     "Untitled 9.md",
-    "Untitled 8.md",
-    "L10_OOPDesignPatterns.md",
+    "L11_GameProgrammingBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
