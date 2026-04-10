@@ -127,7 +127,6 @@ field: programming
 
 ```
 
-  
 
 ## 2. What is Document Object Model (DOM)
 

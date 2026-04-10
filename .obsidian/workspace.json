@@ -71,7 +71,7 @@
               "state": {
                 "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "L13_HTMLAndDOM"
@@ -167,6 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +177,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for L13_HTMLAndDOM"
             }
           },
           {
@@ -185,11 +186,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from L13_HTMLAndDOM"
             }
           },
           {
@@ -254,7 +256,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3d0f97424a4804d0",
+  "active": "b8308df3153ff68b",
   "lastOpenFiles": [
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
