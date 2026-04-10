@@ -22,5 +22,10 @@ f("B")
 
 ```
 
+### 1) Blocking Operations
+: default python function calls are blocking operations as it blocks succeeding line of codes to run
+: (i.e. it must be completed before next operation is executed. Python runs operations from top to bottom)
+
 ## 3. Asynchronous Programming
-: 
+: Prevents freezing by proceeding to the next line of codes while the previous code requests for data at the same time.
+ 
