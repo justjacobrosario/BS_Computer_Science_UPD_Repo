@@ -54,7 +54,7 @@ json_sample_obj = '''
 }
 '''
 
-my_dict = json.load(json_sample_obj)
+my_dict = json.loads(json_sample_obj)
 
 print(my_dict) # { "name": "Jacob", "age": 19 }
 print(my_dict[name]) # "Jacob"
