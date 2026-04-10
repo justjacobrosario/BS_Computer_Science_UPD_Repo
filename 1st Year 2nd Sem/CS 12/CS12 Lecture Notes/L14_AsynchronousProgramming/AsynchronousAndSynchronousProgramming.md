@@ -31,6 +31,3 @@ f("B")
 ## 3. Asynchronous Programming
 : Prevents freezing by proceeding to the next line of codes while the previous code requests for data at the same time.
 
-<link rel = "stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css">
-<script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
-<py-config>["packages"]<py-config>

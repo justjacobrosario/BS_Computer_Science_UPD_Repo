@@ -17,6 +17,8 @@ field: programming
     <link rel="stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css">
 
     <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
+    
+    <py-config>packages=["library_name"]</py-config>
 
 <!-- above are to import pyscript. -->
 <!--NOTE: link tag is self-closed while script tag is open-close pair -->
