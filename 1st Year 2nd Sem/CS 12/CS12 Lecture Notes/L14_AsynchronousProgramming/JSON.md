@@ -83,9 +83,14 @@ print(json_str) # prints JSON str version of data
 3. json.loads() and json.dumps() are inverses
 
 ## 4. API
+
+### What are APIs
 : Application Programming Interface (API)
-: Defined means of interaction with program or usage of code
-: i.e. defining how programs interact with your data
+: Defines or gives rules on how programs interact with another.
+
+(e.g. ABCs and Protocols gives rules of what attributes and methods an object must have to interact with another object)
 
 #### API Endpoint
-: the API's URL to access data
+
+: URL commonly consisting of JSON object (a hashmap)
+: a JSON object is an API because it defines what a certain key will return (i.e. keys return a specific value)
