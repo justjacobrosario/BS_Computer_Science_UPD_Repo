@@ -42,6 +42,8 @@ json_sample_obj = '''
 ```
 
 ### 2. Parsing str/byte JSON Obj to Python dict
+
+##### `import json`
 #### `var_name = json.loads(json_obj_var)`
 
 ```python
@@ -62,6 +64,7 @@ print(my_dict[name]) # "Jacob"
 
 ### 3. Parsing JSON from API response to Python dict
 
+##### `import requests`
 #### `var_name = response.json()`
 
 ```python
