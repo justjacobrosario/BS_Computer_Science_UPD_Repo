@@ -11,10 +11,12 @@ field: programming
 : Requesting data causes the program to freeze (i. e. users are unable to interact with other elements until a request is settled, which is not ideal in making websites)
 
 ```python
+import time
 
 def f(letter):
 	for num in range(5):
 		print(f"{num+1}{letter}")
+			time.sleep(1)
 f("A")
 f("B")
 # A1 A2 A3 A4 B1 B2 B3 B4
