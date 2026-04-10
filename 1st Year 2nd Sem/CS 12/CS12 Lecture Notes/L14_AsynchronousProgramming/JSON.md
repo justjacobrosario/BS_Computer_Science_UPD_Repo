@@ -43,7 +43,11 @@ field: programming
 
 :  json and requests are preinstalled libraries
 : lets python programs seriealize or deserialize JSON raw data into a python object/var
-### 1) Parsing str/byte JSON Obj to Python dict
+
+### 1) Parsing API response to JSON dict_string
+
+
+### 1) Parsing JSON dict_string to Python dict
 
 ##### `import json`
 #### `var_name = json.loads(json_obj_var)`
@@ -64,7 +68,7 @@ print(my_dict) # { "name": "Jacob", "age": 19 }
 print(my_dict[name]) # "Jacob"
 ```
 
-### 2) Parsing JSON from API response to Python dict
+### 2) Auto-Parsing JSON from API response to Python dict
 
 
 ##### `import requests`
