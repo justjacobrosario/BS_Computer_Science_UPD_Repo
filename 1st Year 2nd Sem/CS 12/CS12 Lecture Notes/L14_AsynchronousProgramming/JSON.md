@@ -86,3 +86,6 @@ print(json_str) # prints JSON str version of data
 : Application Programming Interface (API)
 : Defined means of interaction with program or usage of code
 : i.e. defining how programs interact with your data
+
+#### API Endpoint
+: the API's URL to access data
