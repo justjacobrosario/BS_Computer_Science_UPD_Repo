@@ -55,7 +55,7 @@ field: programming
 	: title is the text that pops when a tag is hovered
 
   
-## ==5. HTML Input Elements==
+## 5. HTML Input Elements
 
   
 ### 1. `<input type="text">`
