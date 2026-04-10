@@ -60,17 +60,17 @@
             }
           },
           {
-            "id": "ecb21166d8ab8c84",
+            "id": "1b5e531731074e1e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "JSON"
+              "title": "AsynchronousAndSynchronousProgramming"
             }
           }
         ],
@@ -164,7 +164,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,7 +174,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for JSON"
+              "title": "Backlinks for AsynchronousAndSynchronousProgramming"
             }
           },
           {
@@ -183,12 +183,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from JSON"
+              "title": "Outgoing links from AsynchronousAndSynchronousProgramming"
             }
           },
           {
@@ -254,13 +254,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ecb21166d8ab8c84",
+  "active": "1b5e531731074e1e",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
@@ -285,7 +286,6 @@
     "1st Year 1st Sem/python test drive/Python Review Repo/main_python_refresher.md",
     "1st Year 2nd Sem/Lec_1_and_2_TypeHinting_Debugging_UnitTesting.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Untitled.base",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/screensaver.py",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/pyxel_test.py",
