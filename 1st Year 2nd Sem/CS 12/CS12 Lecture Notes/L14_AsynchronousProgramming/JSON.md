@@ -25,9 +25,24 @@ field: programming
 ### Deserialization
 : converting byte/string data into complex data objs
 
-## 3. JSON Python Library
+## 3. API
 
-: We deserialize JSON raw data into a python object/var using json and requests libraries
+### What are APIs
+: Application Programming Interface (API)
+: Defines or gives rules on how programs interact with another.
+
+(e.g. ABCs and Protocols gives rules of what attributes and methods an object must have to interact with another object)
+
+#### API Endpoint
+
+: URL commonly consisting of JSON object (a hashmap)
+: a JSON object is an API because it defines what a certain key will return (i.e. keys return a specific value)
+
+: in Python, we use json, requests, httpx libraries to utilize API endpoints in python programs
+## 4. json and requests Python Library
+
+:  json and requests are preinstalled libraries
+: lets python programs seriealize or deserialize JSON raw data into a python object/var
 ### 1. Parsing str/byte JSON Obj to Python dict
 
 ##### `import json`
@@ -50,6 +65,7 @@ print(my_dict[name]) # "Jacob"
 ```
 
 ### 2. Parsing JSON from API response to Python dict
+
 
 ##### `import requests`
 #### `var_name = response.json()`
@@ -82,15 +98,11 @@ print(json_str) # prints JSON str version of data
 2.  Raises `json.decoder.JSONDecodeError` if string is not valid JSON data for json.loads()
 3. json.loads() and json.dumps() are inverses
 
-## 4. API
 
-### What are APIs
-: Application Programming Interface (API)
-: Defines or gives rules on how programs interact with another.
+## 5. httpx libraries
 
-(e.g. ABCs and Protocols gives rules of what attributes and methods an object must have to interact with another object)
+: third-party library including HTTP client for Python 3
+: provides sync and async APIs (i.e. lets python program extract and use API endpoints)
 
-#### API Endpoint
+`pip install httpx`
 
-: URL commonly consisting of JSON object (a hashmap)
-: a JSON object is an API because it defines what a certain key will return (i.e. keys return a specific value)
