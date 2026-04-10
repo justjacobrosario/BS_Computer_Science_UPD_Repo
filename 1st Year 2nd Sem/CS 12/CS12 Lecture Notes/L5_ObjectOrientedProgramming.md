@@ -50,7 +50,7 @@ class Juan:
 3: OOP BUZZWORDS
 ================
 
-## 1. Abstraction
+## 1. [[Abstraction]]
 
 : using abstract objects (Protocols or ABCs) to interface subtype classes with similar properties
 
