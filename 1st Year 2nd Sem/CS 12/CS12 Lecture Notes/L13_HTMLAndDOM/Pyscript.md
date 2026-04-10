@@ -41,3 +41,12 @@ field: programming
 
 ## Display webpage in local server
 : suppose the html and python files are settled
+
+in terminal
+```bash
+cd "to the folder of the html and py files"
+python -m http.server 8000
+```
+
+in browser
+type `http://localhost:8000`

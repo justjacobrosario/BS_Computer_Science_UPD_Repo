@@ -25,3 +25,37 @@ field: programming
 ### Deserialization
 : converting byte/string data into complex data objs
 
+## 3. JSON Python Library
+
+### 1. JSON Object in '''...'''
+
+```python
+import json
+
+json_sample_obj = '''
+{
+"name": "Jacob",
+"age": 19
+}
+'''
+
+```
+
+### 2. JSON Obj to Python dict
+#### `var_name = json.loads(json_obj_var)`
+
+```python
+import json
+
+json_sample_obj = '''
+{
+"name": "Jacob",
+"age": 19
+}
+'''
+
+my_dict = json.load(json_sample_obj)
+
+print(my_dict) # { "name": "Jacob", "age": 19 }
+print(my_dict[name]) # "Jacob"
+```
