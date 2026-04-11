@@ -71,3 +71,70 @@ def color():
 		print(color)
 		yield
 ```
+
+### 4) asyncio library for asynchronous programming
+
+#### 1] `async` keyword
+: labels that a line of code, or function is to be asynchronous
+: `async def ...` marks the function as a coroutine
+
+#### 2] `await` keyword
+: pauses the current coroutine function (like yield), then unpauses the when the awaited line finishes
+
+
+```python
+import asyncio
+
+async def letter():
+    for letter in ['A', 'E', 'I', 'O', 'U']:
+        print(letter)
+        await asyncio.sleep(0) # literally like yield
+
+# async keyword says letter() will be used asynchronously
+```
+
+```python
+import asyncio
+
+
+async def letter():
+    for letter in ['A', 'E', 'I', 'O', 'U']:
+        print(letter)
+        await asyncio.sleep(0) # literally like yield
+        
+async def number():
+    for number in [1, 2, 3, 4, 5]:
+        print(number)
+        await asyncio.sleep(0)
+
+async def color():
+    for color in ['🔴', '🟠', '🟡','🟢','🔵']:
+        print(color)
+        await asyncio.sleep(0)
+
+async def main():
+    await asyncio.gather(*[letter(), number(), color()])
+    print('Done')
+
+asyncio.run(main())
+
+'''
+prints:
+A
+1
+🔴
+E
+2
+🟠
+I
+3
+🟡
+O
+4
+🟢
+U
+5
+🔵
+'''
+
+```
