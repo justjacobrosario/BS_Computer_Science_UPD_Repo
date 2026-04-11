@@ -54,3 +54,9 @@ let
 ### 3) Coroutines
 : Non-blocking operations that can pause its executions and unpause it
 : like generators ( `yield` pauses it and `next` unpauses it )
+
+```python
+def f():
+	for letter in ['A', 'E', 'I', ]:
+		
+```
