@@ -44,10 +44,26 @@ field: programming
 :  json and requests are preinstalled libraries
 : lets python programs seriealize or deserialize JSON raw data into a python object/var
 
-### 1) Parsing API response to JSON dict_string
+### 1) [.text property] Parsing API response to JSON dict_string
 
+in html
+`<py-config>packages=["httpx"]</py-config>`
+in python
+##### `import httpx`
+#### `_dic = _json_response.text`
 
-### 1) Parsing JSON dict_string to Python dict
+```python
+import httpx
+
+API_ENDPOINT = "https://somewebsite.com/"
+
+_json_reponse = httpx.get(API_ENDPOINT)
+_dic = _json_reponse.text
+
+print(_dic) # dict str format of the data
+```
+
+### 2) [.loads() method] Parsing JSON dict_string to Python dict
 
 ##### `import json`
 #### `var_name = json.loads(json_obj_var)`
@@ -68,8 +84,7 @@ print(my_dict) # { "name": "Jacob", "age": 19 }
 print(my_dict[name]) # "Jacob"
 ```
 
-### 2) Auto-Parsing JSON from API response to Python dict
-
+### 3) [.json() method] Auto-Parsing JSON from API response to Python dict
 
 ##### `import requests`
 #### `var_name = response.json()`
@@ -82,7 +97,7 @@ data = response.json()
 print(data) # prints dict version of API data
 ```
 
-### 3) Serializing Python dict to JSON str
+### 4) [.dumps()] Serializing Python dict to JSON str
 ##### `import json`
 #### `var_name = json.dumps(python_dic)`
 
@@ -96,7 +111,7 @@ print(json_str) # prints JSON str version of data
 
 ```
 
-### 4) Notes in deserializing JSON to Python
+### 5) Notes in deserializing JSON to Python
 
 1. JSON `null` becomes Python's `None`
 2.  Raises `json.decoder.JSONDecodeError` if string is not valid JSON data for json.loads()
