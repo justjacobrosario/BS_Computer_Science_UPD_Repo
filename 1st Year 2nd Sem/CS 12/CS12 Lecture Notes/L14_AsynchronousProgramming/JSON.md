@@ -141,12 +141,12 @@ print(json_str) # prints JSON str version of data
 ##### `API_ENDPOINT = "https://API_url/`
 
 ### 2) extracting API response
-#### `api_response = httpx.get(API_ENDPOINT`)
+##### `api_response = httpx.get(API_ENDPOINT`)
 ### 3) parsing api_response into a Python dict
-#### `data_dict = api_response.json()`
+##### `data_dict = api_response.json()`
 or
-#### `json_str_dict = api_response.text`
-#### `data_dict = json.loads(json_str_dict)`
+##### `json_str_dict = api_response.text`
+##### `data_dict = json.loads(json_str_dict)`
 ## 6. Deserialization by Asynchronous Programming (via httpx and asyncio libraries)
 
 ### Another important library: asyncio library
@@ -176,7 +176,8 @@ or
 : param filters data (e.g. if param = {"sex":"male"}, it only get dict elements where the sex is male)
 : setting param={} just get all elements without conditions
 
-### 4) 
+### 4) deserialize API response into Python dict
+##### `data_dict = api_response.json()`
 
 | **Libraries** | **Method/s**                    | **Propert/ies** | Keyword/s    |
 | ------------- | ------------------------------- | --------------- | ------------ |
