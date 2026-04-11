@@ -13,10 +13,11 @@ field: programming
 Visual:
 let 
 🟦 = operation A
+🟩 = operation B
+🟨 = operation C
 
-
-
-🟦🟩
+🟦🟦🟦 🟩🟩🟩 🟨🟨🟨
+* one operation then another
 
 ```python
 import time
