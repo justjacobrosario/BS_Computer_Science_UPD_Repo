@@ -10,6 +10,14 @@ field: programming
 : Before the next line runs, the current line must finish first
 : Requesting data causes the program to freeze (i. e. users are unable to interact with other elements until a request is settled, which is not ideal in making websites)
 
+Visual:
+let 
+🟦 = operation A
+
+
+
+🟦🟩
+
 ```python
 import time
 
