@@ -200,7 +200,7 @@ async def get_data(ev):
 	async with httpx.AsyncClient() as my_client:
 		data = await my_client.get(API_ENDPOINT, param={})
 		result = data.json()
-print(result) # dict version of the json data
+	print(result) # dict version of the json data
 	
 ```
 
