@@ -31,3 +31,5 @@ f("B")
 ## 3. Asynchronous Programming
 : Prevents freezing by proceeding to the next line of codes while the previous code requests for data at the same time.
 
+### 2) Non-Blocking Operations
+: python lines where whenever it waits for a request, the program still proceeds to the next lines

@@ -63,7 +63,7 @@ _dic = _json_reponse.text
 print(_dic) # dict str format of the data
 ```
 
-### 2) [.loads() method] Parsing JSON dict_string to Python dict
+### 2) [json.loads() method] Parsing JSON dict_string to Python dict
 
 ##### `import json`
 #### `var_name = json.loads(json_obj_var)`
@@ -97,7 +97,7 @@ data = response.json()
 print(data) # prints dict version of API data
 ```
 
-### 4) [.dumps()] Serializing Python dict to JSON str
+### 4) [json.dumps()] Serializing Python dict to JSON str
 ##### `import json`
 #### `var_name = json.dumps(python_dic)`
 
@@ -117,8 +117,10 @@ print(json_str) # prints JSON str version of data
 2.  Raises `json.decoder.JSONDecodeError` if string is not valid JSON data for json.loads()
 3. json.loads() and json.dumps() are inverses
 
+## 5. Synchronous Programming 
 
-## 5. httpx and asyncio libraries
+
+## 5. Asynchronous Programming via httpx and asyncio libraries
 
 ### 1) httpx library
 : third-party library including HTTP client for Python 3
