@@ -56,7 +56,15 @@ let
 : like generators ( `yield` pauses it and `next` unpauses it )
 
 ```python
-def f():
-	for letter in ['A', 'E', 'I', ]:
+def letter():
+	for letter in ['A', 'E', 'I', 'O', 'U']:
+		print(letter)
+		yield
 		
+def number():
+	for number in [1, 2, 3, 4, 5]:
+		print(number)
+		yield
+
+def co
 ```
