@@ -67,5 +67,7 @@ def number():
 		yield
 
 def color():
-	for color in ['🔴', ']
+	for color in ['🔴', '🟠', '🟡','🟢','🔵']:
+		print(color)
+		yield
 ```
