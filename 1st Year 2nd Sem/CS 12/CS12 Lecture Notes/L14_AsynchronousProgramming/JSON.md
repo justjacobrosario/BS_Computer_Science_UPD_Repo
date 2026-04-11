@@ -155,6 +155,13 @@ or
 : * refer to [[L14_AsyncronousProgramming]] for more info about the term
 : literally means asynchronous input/output process
 
+
+| **Libraries** | **Method/s**                    | **Propert/ies** | Keyword/s    |
+| ------------- | ------------------------------- | --------------- | ------------ |
+| httpx         | .AsyncClient(), .get(), .json() |                 |              |
+| asyncio       |                                 |                 | async, await |
+
+
 ### 1) define event handler func as asynchronous
 ##### `async def _func_name(ev):`
 
@@ -171,18 +178,14 @@ or
 ### 3) await getting the API response in API endpoint
 
 ##### `_data = await client.get(API_ENDPOINT, param={})`
-: NOTE: do this in the async with block
+: NOTE: do this in the `async with` block
 : the await keyword prompts that the async client getting the response may take long, so the program will treat it asynchronously
 : param filters data (e.g. if param = {"sex":"male"}, it only get dict elements where the sex is male)
 : setting param={} just get all elements without conditions
 
 ### 4) deserialize API response into Python dict
 ##### `data_dict = api_response.json()`
-
-| **Libraries** | **Method/s**                    | **Propert/ies** | Keyword/s    |
-| ------------- | ------------------------------- | --------------- | ------------ |
-| httpx         | .AsyncClient(), .get(), .json() |                 |              |
-| asyncio       |                                 |                 | async, await |
+: NOTE: do this in the `aync with` block
 
 : one can extract the JSON object in the api endpoint and use it in the python program like this
 
@@ -193,13 +196,11 @@ import asyncio
 API_ENDPOINT = "https://some_website.com/"
 
 async def get_data(ev):
-	result = []
 	
 	async with httpx.AsyncClient() as my_client:
 		data = await my_client.get(API_ENDPOINT, param={})
-		result.append(data.json())
-
-print(result) # [dict version of the json data]
+		result = data.json()
+print(result) # dict version of the json data
 	
 ```
 
