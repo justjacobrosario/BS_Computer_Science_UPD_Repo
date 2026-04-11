@@ -48,10 +48,10 @@ let
 
 🟦🟩🟨🟦🟩🟨🟦🟩🟨
 * one operation pauses and unpauses to interleave one another
-### 2) Non-Blocking Operations
+### 1) Non-Blocking Operations
 : python lines where whenever it waits for a request, the program still proceeds to the next lines
 
-### 3) Coroutines
+### 2) Coroutines
 : Non-blocking operations that can pause its executions and unpause it
 : like generators ( `yield` pauses it and `next` unpauses it )
 
@@ -72,7 +72,7 @@ def color():
 		yield
 ```
 
-### 4) asyncio library for asynchronous programming
+### 3) asyncio library for asynchronous programming
 
 #### 1] `async` keyword
 : labels that a line of code, or function is to be asynchronous

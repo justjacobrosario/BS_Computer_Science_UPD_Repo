@@ -102,7 +102,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -192,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,7 +202,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for AsynchronousAndSynchronousProgramming"
+              "title": "Backlinks for L14_AsyncronousProgramming"
             }
           },
           {
@@ -211,12 +211,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from AsynchronousAndSynchronousProgramming"
+              "title": "Outgoing links from L14_AsyncronousProgramming"
             }
           },
           {
@@ -282,11 +282,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ec94b09770797a33",
+  "active": "c9ca487459d90548",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
