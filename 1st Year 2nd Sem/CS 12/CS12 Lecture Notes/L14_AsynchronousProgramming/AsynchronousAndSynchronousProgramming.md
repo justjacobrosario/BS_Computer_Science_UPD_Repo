@@ -17,7 +17,7 @@ let
 🟨 = operation C
 
 🟦🟦🟦 🟩🟩🟩 🟨🟨🟨
-* one operation first then another
+* one operation finishes first then another
 
 ```python
 import time
@@ -40,6 +40,14 @@ f("B")
 ## 3. Asynchronous Programming
 : Prevents freezing by proceeding to the next line of codes while the previous code requests for data at the same time.
 
+Visual:
+let 
+🟦 = operation A
+🟩 = operation B
+🟨 = operation C
+
+🟦🟩🟨🟦🟩🟨🟦🟩🟨
+* one operation pauses and unpauses to interleave one another
 ### 2) Non-Blocking Operations
 : python lines where whenever it waits for a request, the program still proceeds to the next lines
 
