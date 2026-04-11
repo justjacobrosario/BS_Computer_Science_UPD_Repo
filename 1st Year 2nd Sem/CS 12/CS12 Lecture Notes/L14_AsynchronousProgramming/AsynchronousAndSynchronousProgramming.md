@@ -17,7 +17,7 @@ let
 🟨 = operation C
 
 🟦🟦🟦 🟩🟩🟩 🟨🟨🟨
-* one operation then another
+* one operation first then another
 
 ```python
 import time
