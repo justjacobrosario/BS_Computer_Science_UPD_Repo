@@ -36,4 +36,4 @@ f("B")
 
 ### 3) Coroutines
 : Non-blocking operations that can pause its executions and unpause it
-: like generators
+: like generators ( `yield` pauses it and `next` unpauses it )
