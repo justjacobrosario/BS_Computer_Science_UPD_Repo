@@ -97,6 +97,10 @@ data = response.json()
 print(data) # prints dict version of API data
 ```
 
+: NOTE: Actually, we can pase JSON API response to Python dict by
+1. JSON API Response -> JSON str_dict using `.text`property
+2.  JSON str_dict -> Python dict using `json.loads()` method
+
 ### 4) [json.dumps()] Serializing Python dict to JSON str
 ##### `import json`
 #### `var_name = json.dumps(python_dic)`
