@@ -66,5 +66,6 @@ def number():
 		print(number)
 		yield
 
-def co
+def color():
+	for color in [']
 ```
