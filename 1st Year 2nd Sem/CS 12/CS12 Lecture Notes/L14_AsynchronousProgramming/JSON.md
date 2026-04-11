@@ -39,10 +39,16 @@ field: programming
 : a JSON object is an API because it defines what a certain key will return (i.e. keys return a specific value)
 
 : in Python, we use json, requests, httpx libraries to utilize API endpoints in python programs
-## 4. json and requests Python Library
+## 4. Parsing Online API response into usable Python object (via json and requests libraries)
 
 :  json and requests are preinstalled libraries
 : lets python programs seriealize or deserialize JSON raw data into a python object/var
+
+### Another important library: httpx library
+: third-party library including HTTP client for Python 3
+: provides sync and async APIs (i.e. lets python program extract and use API endpoints)
+
+`pip install httpx`
 
 ### 1) [.text property] Parsing API response to JSON dict_string
 
@@ -121,17 +127,35 @@ print(json_str) # prints JSON str version of data
 2.  Raises `json.decoder.JSONDecodeError` if string is not valid JSON data for json.loads()
 3. json.loads() and json.dumps() are inverses
 
-## 5. Synchronous Programming 
+## 5. Other libraries 
+## 5. Deserialization by Synchronous Programming 
 
+: we can deserialize an API response to a Python object by  using the libraries:
 
-## 5. Asynchronous Programming via httpx and asyncio libraries
+| **Libraries** | **Method/s**    | **Propert/ies** |
+| ------------- | --------------- | --------------- |
+| httpx         | .get(), .json() | .text           |
+| json          | .loads()        |                 |
 
-### 1) httpx library
-: third-party library including HTTP client for Python 3
-: provides sync and async APIs (i.e. lets python program extract and use API endpoints)
+### 1) setting the variable of the API
+##### `API_ENDPOINT = "https://API_url/`
 
-`pip install httpx`
+### 2) extracting API response
+#### `api_response = httpx.get(API_ENDPOINT`)
+### 3) parsing api_response into a Python dict
+#### `data_dict = api_response.json()`
+or
+#### `json_str_dict = api_response.text`
+#### `data_dict = json.loads(json_str_dict)`
+## 6. Deserialization by Asynchronous Programming (via httpx and asyncio libraries)
 
+### Another important library: asyncio library
+
+: preinstalled library that lets python program run asynchronously
+: * refer to [[L14_AsyncronousProgramming]] for more info about the term
+: literally means asynchronous input/output process
+
+### 1) define event handler func as asynchronous
 #### 1] `httpx.AsyncClient()`
 : a multitasking browser inside the code that can get the data in the API Endpoint
 
@@ -139,11 +163,7 @@ print(json_str) # prints JSON str version of data
 : using the browser_client_name, it gets the specified parameters ( {} means all params) inside the api_endpoint
 : this is where time is slow (needs to do smth for the program to not freeze bc of waiting)
 
-### 2) asyncio library
 
-: preinstalled library that lets python program run asynchronously
-: * refer to [[L14_AsyncronousProgramming]] for more info about the term
-: literally means asynchronous input/output process
 
 #### 1] `async def _func_name(ev):`
 
@@ -161,6 +181,11 @@ print(json_str) # prints JSON str version of data
 
 
 ### 3) asynchronous event handler function using asyncio and httpx
+
+| **Libraries** | **Method/s**                    | **Propert/ies** | Keyword/s    |
+| ------------- | ------------------------------- | --------------- | ------------ |
+| httpx         | .AsyncClient(), .get(), .json() |                 |              |
+| asyncio       |                                 |                 | async, await |
 
 : one can extract the JSON object in the api endpoint and use it in the python program like this
 
