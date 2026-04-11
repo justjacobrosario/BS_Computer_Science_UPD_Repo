@@ -33,3 +33,7 @@ f("B")
 
 ### 2) Non-Blocking Operations
 : python lines where whenever it waits for a request, the program still proceeds to the next lines
+
+### 3) Coroutines
+: Non-blocking operations that can pause its executions and unpause it
+: like generators
