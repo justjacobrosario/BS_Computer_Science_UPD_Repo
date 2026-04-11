@@ -156,31 +156,27 @@ or
 : literally means asynchronous input/output process
 
 ### 1) define event handler func as asynchronous
-#### 1] `httpx.AsyncClient()`
-: a multitasking browser inside the code that can get the data in the API Endpoint
-
-#### 2] `_browser_client_name.get("_api_endpoint_url_str", params = {})`
-: using the browser_client_name, it gets the specified parameters ( {} means all params) inside the api_endpoint
-: this is where time is slow (needs to do smth for the program to not freeze bc of waiting)
-
-
-
-#### 1] `async def _func_name(ev):`
+##### `async def _func_name(ev):`
 
 : defines an event handler function to be asynchronous 
 ( i.e. whenever a line requests something and waits, the function doesnt freeze but instead proceeds to the next lines)
 
-#### 2] `async with _file_address as _file_name:`
+### 2) open a local browser to get the API response as asynchronous
 
-: opens a file and treats its block asynchronously
+##### `async with httpx.AyncClient as _client:`
 
-#### 3] `await`
+: opens an Async client and treats its block asynchronously
+: Async client is a multitasking browser inside the code that can get the data in the API Endpoint
 
-: keyword that prompts the code on its right to be asynchronously run
-(i.e. in await ..., the ... code tend to request something which takes time, so await prompts the program to see this as an asynchronous code to not freeze and proceed to the next line)
+### 3) await getting the API response in API endpoint
 
+##### `_data = await client.get(API_ENDPOINT, param={})`
+: NOTE: do this in the async with block
+: the await keyword prompts that the async client getting the response may take long, so the program will treat it asynchronously
+: param filters data (e.g. if param = {"sex":"male"}, it only get dict elements where the sex is male)
+: setting param={} just get all elements without conditions
 
-### 3) asynchronous event handler function using asyncio and httpx
+### 4) 
 
 | **Libraries** | **Method/s**                    | **Propert/ies** | Keyword/s    |
 | ------------- | ------------------------------- | --------------- | ------------ |
