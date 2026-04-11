@@ -79,8 +79,15 @@ def color():
 : `async def ...` marks the function as a coroutine
 
 #### 2] `await` keyword
-: pauses the current coroutine function (like yield), then unpauses the when the awaited line finishes
+: pauses the current coroutine function (like yield), runs the next operation then unpauses when the awaited line finishes
 
+e.g. `await download_for_2_secs()` : it pauses and unpauses after finishing the download_for_2_secs()`
+
+#### 3] asyncio.sleep()
+: method to give a delay in await line
+: do await asyncio.sleep(0) to only pause and proceed to next operation without delay
+
+e.g. `await asyncio.sleep(0)` : since no delay, it simply pauses the current coroutine, runs the next operation, and unpauses it
 
 ```python
 import asyncio
@@ -90,8 +97,11 @@ async def letter():
         print(letter)
         await asyncio.sleep(0) # literally like yield
 
-# async keyword says letter() will be used asynchronously
 ```
+
+#### 4] await asyncio.gather(*[coroutine calls])
+
+: in a main couroutine, asynchronously call the other coroutines using this
 
 ```python
 import asyncio

@@ -81,7 +81,7 @@
               "state": {
                 "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "AsynchronousAndSynchronousProgramming"
