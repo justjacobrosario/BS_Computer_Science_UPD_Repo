@@ -8,17 +8,10 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "[\"subject\":CS12]",
+      "query": "",
       "color": {
         "a": 1,
-        "rgb": 6021202
-      }
-    },
-    {
-      "query": "[\"field\":programming]",
-      "color": {
-        "a": 1,
-        "rgb": 16770893
+        "rgb": 14701138
       }
     }
   ],
@@ -32,6 +25,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 193,
-  "scale": 1.4433732262710943,
+  "scale": 1.5417115836254918,
   "close": true
 }

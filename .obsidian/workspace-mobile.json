@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "L13_HTMLAndDOM"
             }
           }
         ]
@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "README.md",
+            "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -171,9 +171,12 @@
   },
   "active": "ce62528d51645138",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
+    "README.md",
     "made in laptop.md",
     "/README.md",
-    "README.md",
     "/made in laptop.md",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/le_scratch.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects",
@@ -187,15 +190,12 @@
     "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/view.cpython-314.pyc",
     "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/controller.cpython-314.pyc",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md",
