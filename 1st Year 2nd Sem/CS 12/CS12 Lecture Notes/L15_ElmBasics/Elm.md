@@ -201,5 +201,6 @@ day =
 		5 -> "Thursday"
 		6 -> "Friday"
 		7 -> "Saturday"
-		_ -> "Unknown Day" -- always add _ case to cover all possibilities --
+		_ -> "Unknown Day" 
+		-- always add _ case to cover all possibilities --
 ```
