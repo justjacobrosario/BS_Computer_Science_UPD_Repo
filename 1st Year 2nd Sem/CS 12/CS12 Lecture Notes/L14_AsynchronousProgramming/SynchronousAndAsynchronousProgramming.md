@@ -73,7 +73,7 @@ Done
 
 : instead of yield and next(), we use `await` keyword to pause the coroutine, then unpause once the line after it is finished running/loading/compiling
 
-e.g.
+e.g. # Note, learn this in ![[httpxModuleForAsynchronousProgramming]]
 ```python
 import asyncio
 
