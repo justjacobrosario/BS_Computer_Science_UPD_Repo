@@ -87,7 +87,12 @@ Done
 ## 3. Online API-based Asynchronous Programming
 
 ### Declaring the API endpoint as a var (shortcut)
-: instead of manually copy pasting the API endpoint for every corotu
+: instead of manually copy pasting the API endpoint for every coroutine, just make a variable for it
+
+e.g.
+```python
+POKE_API_ENDPOINT = "https://pokeapi.co/api/v2/pokemon" # incomplete, must be https://pokeapi.co/api/v2/pokemon/{id or name}
+```
 ### 1) defining Coroutines
 : same thing like this
 
@@ -138,3 +143,5 @@ async def fetch_rand_poke(ev):
     poke_container.innerText = poke_name
     
 ```
+
+: overall, whenever this event handler coroutine is called, it randomly gets a pokemon datus, then di
