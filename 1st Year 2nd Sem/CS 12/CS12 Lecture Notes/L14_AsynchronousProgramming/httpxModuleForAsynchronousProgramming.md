@@ -58,9 +58,28 @@ async def letter():
 : inside this, the coroutines is gathered using `asyncio.gather()` like this
 
 ```python
+import asyncio
+
+async def letter():
+    for letter in ['A', 'E', 'I', 'O', 'U']:
+        print(letter)
+        await asyncio.sleep(0) # literally like yield
+        
+async def number():
+    for number in [1, 2, 3, 4, 5]:
+        print(number)
+        await asyncio.sleep(0)
+
+async def color():
+    for color in ['🔴', '🟠', '🟡','🟢','🔵']:
+        print(color)
+        await asyncio.sleep(0)
+
 async def main():
     await asyncio.gather(*[letter(), number(), color()])
     print('Done')
+
+asyncio.run(main())
     
 '''
 that prints:
