@@ -96,5 +96,12 @@ async def fetch_pokemon(ev): # ev means its an eventhandler coroutine
 ### 2) plotting initial coroutine body (before getting the API response)
 : simply define the coroutine body that runs before getting the API response
 
+e.g.
+```python
+async def fetch_rand_poke(ev):
+    rand_id = random.randint(1, 1000)
+    params = {} # no conditions for the API to filter
+```
+
 ### 2) getting the API response into the python code
 : after the `async` keyword, its line of code must open the API in an async client browser like this
