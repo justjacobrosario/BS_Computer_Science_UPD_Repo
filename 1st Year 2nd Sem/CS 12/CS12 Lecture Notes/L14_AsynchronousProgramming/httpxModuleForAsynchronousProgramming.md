@@ -144,4 +144,4 @@ async def fetch_rand_poke(ev):
     
 ```
 
-: overall, whenever this event handler coroutine is called, it randomly gets a pokemon datus, then di
+: overall, whenever this event handler coroutine is called, it randomly gets a pokemon datus, then display its name
