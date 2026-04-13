@@ -46,13 +46,13 @@ _dic = _api_response.json()
 print(_dic) # prints the pyhton dic version of _api_response
 ```
 
-### 2) json.loads() : JSON dict str to Python dict
+### 2) json.loads() : JSON str to Python dict
 ##### `import json`
 #### `_dic = json.loads(_json_dict_str)
 `
 e.g.
 ```python
-_json_dict_str = '''
+_json_str = '''
 {
 "keychuchu":"valuechuchu"; ...
 }'''
@@ -61,7 +61,7 @@ _dic = json.loads(_json_dict_str)
 print(_dic) # prints the pyhton dic version of _api_response
 ```
 
-### 3) json.dumps() : Serializing Python dict to JSON dict str
+### 3) json.dumps() : Serializing Python dict to JSON str
 
  ##### `import json`
 #### `_json_dict_str = json.dumps(_dic)`
