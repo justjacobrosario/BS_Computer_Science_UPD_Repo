@@ -201,3 +201,61 @@ z = Array.fromList [1, 2, 3, 4, 5, 6, 7, 8, 9] -- -- another Array.Array number
 w = Array.slice 2 4 z
 -- w = Array.fromList [3,4] : Array.Array number
 ```
+
+
+#### #### 8] `Array.empty : Array a`
+: gives an empty array
+
+e.g.
+```elm
+> c = Array.empty
+Array.fromList [] : Array.Array a
+```
+
+
+#### #### 9] `Array.repeat : Int -> a -> Array a`
+: repeats `a` n times in an array
+
+
+#### #### 10] `Array.isEmpty : Array a -> Bool`
+: gives an empty array
+
+e.g.
+```elm
+c = Array.fromList [1, 2, 3]
+verdict = Array.isEmpty c
+-- verdict == True
+```
+
+#### #### 10] `Array.length : Array a -> Int`
+: gives length of arr
+: basically like Python's len()
+
+#### #### 11] `Array.push : a -> Array a -> Array a`
+: adds `a` on the rightmost (last) position
+: similar to Python's .append()
+
+e.g.
+```elm
+u = Array.fromList [4,5,6]
+new_u = Array.push 8 u
+-- new_u = Array.fromList [4,5,6,8]
+```
+
+
+#### #### 12] `Array.toList : Array a -> List a`
+: basically converts an `Array.Array a` into `List a`
+
+
+#### #### 13] `Array.toIndexedList : Array a -> List (Int, a)`
+: converts an `Array.Array a` into a `List (Int, a)` where each `a` is partnered with its index
+
+e.g.
+```elm
+z = Array.fromList [1,2,3,4,5,6,7,8,9]
+z_enumerated = Array.toIndexedList z
+
+-- z_enumerated = [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(7,8),(8,9)] : List ( Int, number )
+```
+
+
