@@ -154,3 +154,52 @@ x = x + 3
 -- error --
 ```
 
+#### 3] Statement vs Expression
+: statement does not returns a number and cannot be assigned to a variable
+: expression returns a number and can be assigned to a variable
+
+: `else if` statements are elif counterparts in Python
+
+```elm
+--statement--
+funcName: Int -> Bool
+
+--expression--
+x = if x > 0 then "positive" else if x == 0 then "zero" else "negative"
+```
+
+#### 4] Case Expression
+: like in python's
+```python
+day = match dayNum:
+		case 1 :
+		 "Sunday"
+		case 2 :
+		 "Monday"
+		case 3 :
+		 "Tuesday"
+		case 4 :
+		 "Wednesday"
+		case 5 :
+		 "Thursday"
+		case 6 :
+		 "Friday"
+		case 7 :
+		 "Saturday"
+		 case _ :
+		 "Unknown Day" 
+```
+
+in elm:
+```elm
+day = 
+	case dayNum of
+		1 -> "Sunday"
+		2 -> "Monday"
+		3 -> "Tuesday"
+		4 -> "Wednesday"
+		5 -> "Thursday"
+		6 -> "Friday"
+		7 -> "Saturday"
+		_ -> "Unknown Day" -- always add _ case to cover all possibilities --
+```
