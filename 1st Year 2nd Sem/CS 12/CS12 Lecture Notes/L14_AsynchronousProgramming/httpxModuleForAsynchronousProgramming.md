@@ -29,6 +29,8 @@ async def letter():
 ### 3) plotting the await line
 : use `await` before the line of code where the coroutine must be paused, and then unpaused once that line of code is finished operating/loading
 
+: if you just want to give a time delay between pausing and unpausing, 
+
 e.g.
 ```python
 async def letter():
