@@ -52,3 +52,48 @@ async def letter():
         await asyncio.sleep(0) # literally like yield in generators
         ...
 ```
+
+### 5) Gathering and calling Coroutines in order
+: After defining all coroutines, they can be gathered in a main coroutine
+: inside this, the coroutines is gathered using `asyncio.gather()` like this
+
+```python
+async def main():
+    await asyncio.gather(*[letter(), number(), color()])
+    print('Done')
+    
+'''
+that prints:
+A
+1
+🔴
+E
+2
+🟠
+I
+3
+🟡
+O
+4
+🟢
+U
+5
+🔵
+Done
+'''
+```
+
+
+## 3. Online API-based Asynchronous Programming
+### 1) defining Coroutines
+: same thing like this
+
+e.g. 
+```python
+async def fetch_pokemon(ev): # ev means its an eventhandler coroutine
+```
+
+
+
+### 2) getting the API response into the python code
+: after the `await` keyword, its line of code must open the API in an async client browser like this
