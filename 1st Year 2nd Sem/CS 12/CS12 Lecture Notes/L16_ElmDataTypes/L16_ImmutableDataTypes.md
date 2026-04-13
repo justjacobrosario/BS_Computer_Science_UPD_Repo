@@ -39,3 +39,65 @@ e.g.
 List.range 1 5 -- [1, 2, 3, 4, 5]
 List.range 5 1 -- [] : empty if higher first num
 ```
+
+## 3. `(:) : a -> List a -> List a`
+: pronounced cons
+: prepends (adds to leftmost) `a` to the list
+
+### 1) Function Call Style
+```elm
+x = (::) 1 [2, 3, 4] -- x = [1, 2, 3, 4]
+```
+### 2) Infix Style
+```elm
+x = 1 :: [2, 3, 4] -- x = [1, 2, 3, 4]
+```
+
+: essentially, lists is a chain of cons
+```elm
+[1, 2, 3] = 1 :: (2 :: [3])
+```
+
+# 3: Maybe Syntax
+
+: `Maybe a` : Container type representing the presence or abscence of `a`
+: also called Option or Optional
+: `Maybe` can have two possibilities:
+1. `Just a` value: Presence of `a`
+2. `Nothing`: Absent
+
+```elm
+x = Just 10 -- Maybe Int
+y = Just "hello" -- y : Maybe String
+z = Just [1, 2, 3] -- z : Maybe (List Int)
+w = Nothing -- w : Maybe a
+
+-- List.maximum : List Int -> Maybe Int
+a = List.maximum [10,100,20,30] -- Just 100
+b = List.maximum [] -- Nothing
+```
+
+### Handling `Maybe` Values
+#### Option 1] Pattern matching via `case`
+```elm
+unwrap : Maybe a -> String
+unwrap box =
+	case box of
+	Just gift ->
+	"The box contains " ++ Debug.toString gift
+	
+	Nothing ->
+	"The box is empty"
+```
+
+#### Option 2] `Maybe.withDefault`
+
+: `Maybe.withDefault : a -> Maybe b -> Debug
+: if `Maybe b` is `Just b` then `b`
+
+```elm
+x =
+-- String.toInt "-123" : String -> Maybe Int
+-- Maybe.withDefault 0 (String.toInt "-123")
+Maybe.withDefault 0 (String.toInt "-123")
+```
