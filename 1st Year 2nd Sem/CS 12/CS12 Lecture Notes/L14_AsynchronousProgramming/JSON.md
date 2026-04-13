@@ -29,6 +29,7 @@ field: programming
 ### 1) `import json`
 ### 2) `import httpx`
 
+
 ## 4. Serialization & Deserialization in Python
 : To extract data from web APIs to our local program
 
@@ -36,5 +37,11 @@ field: programming
 ##### `import json`
 #### `_dic = json.loads(_json_dict_str)`
 
-### 2) Serializing Python dict to JSON
- 
+### 2) Serializing Python dict to JSON dict str
+
+ ##### `import json`
+#### `_json_dict_str = json.dumps(_dic)`
+
+### 3) 
+
+
