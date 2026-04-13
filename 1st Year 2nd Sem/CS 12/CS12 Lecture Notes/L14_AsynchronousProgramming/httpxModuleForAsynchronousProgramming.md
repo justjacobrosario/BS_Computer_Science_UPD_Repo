@@ -7,7 +7,7 @@ field: programming
 : can be used for synchronous and asynchronous programming (see [SynchronousAndAsynchronousProgramming](app://obsidian.md/SynchronousAndAsynchronousProgramming))
 : also uses builtin asyncio module `import asyncio` to do asynchronous programming
 
-## 2. Asynchronous Programming Setup
+## 2. Basic Offline Asynchronous Programming Setup
 
 ### 1) defining Coroutines
 : use `async keyword` to label that this function is a coroutine (Functions that can pause and unpause)
@@ -17,4 +17,5 @@ e.g.
 async def letter():
 ```
 
-### 2) 
+### 2) plotting function body
+: it
