@@ -4,53 +4,78 @@
     "type": "split",
     "children": [
       {
-        "id": "08fb41a96a98973c",
+        "id": "79738aa7b356290b",
         "type": "tabs",
         "children": [
           {
-            "id": "a50495b0fef0786d",
+            "id": "4cbd40cbc9115ae3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           },
           {
-            "id": "0da77554255c9a80",
+            "id": "5fd462046e0cba54",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           },
           {
-            "id": "b8308df3153ff68b",
+            "id": "40c05a0dc66e1f45",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "ec405353eb6b2f8e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "made in laptop.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "made in laptop"
+              "title": "Pyscript"
+            }
+          },
+          {
+            "id": "ec94b09770797a33",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "L13_HTMLAndDOM"
+            }
+          },
+          {
+            "id": "1b5e531731074e1e",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -59,6 +84,22 @@
     "id": "80cedc85af335826",
     "type": "split",
     "children": [
+      {
+        "id": "ac7691c1a9ba0e8c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d0f97424a4804d0",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      },
       {
         "id": "b643acb12f551da0",
         "type": "tabs",
@@ -82,7 +123,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "abstrac",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -107,7 +148,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -123,6 +164,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +174,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for L14_AsyncronousProgramming"
             }
           },
           {
@@ -141,11 +183,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "linksCollapsed": false,
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
+                "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from L14_AsyncronousProgramming"
             }
           },
           {
@@ -154,7 +197,7 @@
             "state": {
               "type": "tag",
               "state": {
-                "sortOrder": "frequency",
+                "sortOrder": "alphabetical",
                 "useHierarchy": true,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,7 +234,8 @@
               "title": "Outline"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -210,32 +254,38 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b8308df3153ff68b",
+  "active": "4cbd40cbc9115ae3",
   "lastOpenFiles": [
-    "README.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM",
     "made in laptop.md",
+    "Untitled.md",
+    "Abstraction.md",
+    "README.md",
+    "Scratch Notes.md",
     "conflict-files-obsidian-git.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md",
     "Untitled.canvas",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md",
     "Untitled 1.canvas",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
     "2026-04-09.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
     "1st Year 1st Sem/python test drive/Python Review Repo/main_python_refresher.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
     "1st Year 2nd Sem/Lec_1_and_2_TypeHinting_Debugging_UnitTesting.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Welcome.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Untitled.base",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/screensaver.py",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/pyxel_test.py",
@@ -243,8 +293,6 @@
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/flappy.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects",
     "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/view.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/model_part1.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/common_types.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/controller.cpython-314.pyc"
+    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/model_part1.cpython-314.pyc"
   ]
 }
