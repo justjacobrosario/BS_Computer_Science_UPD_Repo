@@ -34,12 +34,12 @@ field: programming
 : To extract data from web APIs to our local program
 
 
-| keyword used    | type     | operation                        | operation                        |
-| --------------- | -------- | -------------------------------- | -------------------------------- |
-| .json()         | method   | API JSON Response -> Python dict | API JSON Response -> Python dict |
-| .text           | property | API JSON Response -> JSON str    | API JSON Response -> JSON str    |
-| json.loads(...) | method   | JSON str -> Python dict          | JSON str -> Python dict          |
-| json.dumps(...) | method   | Python dict -> JSON str          | Python dict -> JSON str          |
+| library imported | keyword used    | type     | operation                        |
+| ---------------- | --------------- | -------- | -------------------------------- |
+| import httpx     | .json()         | method   | API JSON Response -> Python dict |
+| impot httpx      | .text           | property | API JSON Response -> JSON str    |
+| import json      | json.loads(...) | method   | JSON str -> Python dict          |
+| import json      | json.dumps(...) | method   | Python dict -> JSON str          |
 
 ### 1) .json() : API JSON response to Python dict
 ##### `import httpx`
