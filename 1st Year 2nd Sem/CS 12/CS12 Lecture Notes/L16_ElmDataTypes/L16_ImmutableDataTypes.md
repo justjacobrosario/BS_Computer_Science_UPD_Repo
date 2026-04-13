@@ -151,5 +151,53 @@ Maybe.withDefault 0 (String.toInt "-123")
 ```
 
 # 4: Array Syntax
-: builtin datatype (no need to import)
-: a container for random-access 
+: `import Array
+: a container for random-access processing of a list of values
+: faster in indexing than lists
+: similar to python's tuple
+: has no literal, its simply a version of a `List a` object
+
+e.g. 
+```elm
+Array.fromList [1, 2, 3] -- not (1,2,3)
+```
+
+: `Array.fromList List a` has a type of `Array.Array a`
+
+```elm
+import Array
+u = Array.fromList [4, 5, 6]
+Array.fromList [4,5,6] -- Array.Array number
+```
+
+#### 5] `Array.get : Int -> Array a -> Maybe a`
+: gets element of index i (first int param) 0-indexed
+: similar to Python's .index()
+
+e.g.
+```elm
+u = Array.fromList [4,5,6] -- another Array.Array number
+y = Array.get 0 u
+-- y = Just 4 : Maybe number
+```
+
+#### 6] `Array.set : Int -> a -> Array a -> Maybe a`
+: sets/changes element of index i (first int param) 0-indexed into `a`
+: it is only valid if the index i has an existing value
+
+e.g.
+```elm
+u = Array.fromList [4,5,6] -- another Array.Array number
+y = Array.set 0 1 u
+-- y = Array.fromList [1, 5, 6] : Array.Array number
+```
+
+#### #### 7] `Array.slice : Int -> Int -> Array a -> Array a`
+: slices a subarray starting from index i (first int param) to index j-1 (second int param - 1)
+
+e.g.
+```elm
+z = Array.fromList [1, 2, 3, 4, 5, 6, 7, 8, 9] -- -- another Array.Array number
+w = Array.slice 2 4 z
+-- w = Array.fromList [3,4] : Array.Array number
+```
