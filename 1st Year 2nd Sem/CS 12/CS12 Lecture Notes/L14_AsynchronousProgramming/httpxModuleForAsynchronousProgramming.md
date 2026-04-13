@@ -93,7 +93,8 @@ e.g.
 async def fetch_pokemon(ev): # ev means its an eventhandler coroutine
 ```
 
-
+### 2) getting the API response into the python code
+: after the `async` keyword, its line of code must open the API in an async client browser like this
 
 ### 2) getting the API response into the python code
-: after the `await` keyword, its line of code must open the API in an async client browser like this
+: after the `async` keyword, its line of code must open the API in an async client browser like this
