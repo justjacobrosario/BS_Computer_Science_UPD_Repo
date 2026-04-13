@@ -208,3 +208,29 @@ day =
 		-- always add _ case to cover all possibilities --
 ```
 
+#### 5] `let` `in` expression
+: `let` is where the function body is located
+: `in` is the counterpart of python's return, but with new line
+
+: Note: variables declared in a `let` block is only accessible in that block
+
+```elm
+isPositive: Int -> Bool
+isPositive x =
+	if x == 0 then "zero"
+	else if x > 0
+		let
+			response = 
+				if (modBy 2 x) == 0 then "even positive" 
+				else "odd positive"
+		in --return--
+			response
+	else
+		response = 
+				if (modBy 2 x) == 0 then "even negative" 
+				else "odd negative"
+		in --return--
+		response
+```
+
+
