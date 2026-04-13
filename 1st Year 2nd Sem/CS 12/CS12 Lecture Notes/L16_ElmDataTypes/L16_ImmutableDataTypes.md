@@ -92,8 +92,9 @@ unwrap box =
 
 #### Option 2] `Maybe.withDefault`
 
-: `Maybe.withDefault : a -> Maybe b -> Debug
-: if `Maybe b` is `Just b` then `b`
+: `Maybe.withDefault : a -> Maybe a -> a` where `a` is a type (not a value)
+: if `Maybe a` is `Just a` then `a`
+: else it would be the 1st param `a`
 
 ```elm
 x =
