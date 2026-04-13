@@ -104,5 +104,21 @@ async def fetch_rand_poke(ev):
 ```
 
 ### 2) getting the API response into the python code
-: use an `async with` block (you're gonna open a file online asynchronou)
+: use an `async with` block (i.e. you're gonna open a file online asynchronously)
 : after the `async` keyword, its line of code must open the API in an async client browser like this
+
+e.g.
+```python
+async def fetch_rand_poke(ev):
+    rand_id = random.randint(1, 1000)
+    params = {} # no conditions for the API to filter
+
+
+    async with httpx.AsyncClient() as client:
+        res = await client.get(f"{POKE_API_ENDPOINT}/{rand_id}", params=params)
+```
+
+### 3) plotting other function body lines (if there are any)
+: yes, you still can operate more lines after unpausing from the `await` line
+: Note: these lines might be operated earlier or later depending on the other operation from other function calls before it
+
