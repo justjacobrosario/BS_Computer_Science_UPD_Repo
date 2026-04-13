@@ -59,22 +59,9 @@ print(_dic) # prints the pyhton dic version of _api_response
 e.g.
 ```python
 _api_response = httpx.get(API_ENDPOINT_URL)
-_dic = _api_response.json()
+_json_str = _api_response.text
 
-print(_dic) # prints the pyhton dic version of _api_response
-### 3) json.loads() : JSON str to Python dict
-##### `import json`
-#### `_dic = json.loads(_json_dict_str)
-`
-e.g.
-```python
-_json_str = '''
-{
-"keychuchu":"valuechuchu"; ...
-}'''
-_dic = json.loads(_json_dict_str)
-
-print(_dic) # prints the pyhton dic version of _api_response
+print(_dic) # prints the json str version of _api_response
 ```
 ### 3) json.loads() : JSON str to Python dict
 ##### `import httpx`
@@ -84,19 +71,6 @@ e.g.
 ```python
 _api_response = httpx.get(API_ENDPOINT_URL)
 _dic = _api_response.json()
-
-print(_dic) # prints the pyhton dic version of _api_response
-### 3) json.loads() : JSON str to Python dict
-##### `import json`
-#### `_dic = json.loads(_json_dict_str)
-`
-e.g.
-```python
-_json_str = '''
-{
-"keychuchu":"valuechuchu"; ...
-}'''
-_dic = json.loads(_json_dict_str)
 
 print(_dic) # prints the pyhton dic version of _api_response
 ```
