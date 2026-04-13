@@ -41,4 +41,13 @@ async def letter():
 ```
 
 ### 4) plotting other function body lines
-: yes, you still can 
+: yes, you still can operate more lines after unpausing from the `await` line
+
+e.g.
+```python
+async def letter():
+    for letter in ['A', 'E', 'I', 'O', 'U']:
+        print(letter)
+        await asyncio.sleep(0) # literally like yield in generators
+        print('letter printed')
+```
