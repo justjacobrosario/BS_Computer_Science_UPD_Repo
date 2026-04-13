@@ -151,3 +151,5 @@ Maybe.withDefault 0 (String.toInt "-123")
 ```
 
 # 4: Array Syntax
+: builtin datatype (no need to import)
+: a container for random-access 
