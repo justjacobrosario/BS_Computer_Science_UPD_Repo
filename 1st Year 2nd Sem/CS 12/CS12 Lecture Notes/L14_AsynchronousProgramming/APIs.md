@@ -1,6 +1,8 @@
 ---
 field: programming
 ---
-## 1. JSON (JavaScript Object Notation)
-: Standardized way of encoding data as text on the web
-: syntax of web data encoding
+## 1. Application Programming Interface (API)
+: defines how a program interacts with another
+
+e.g.
+ - ABCs and Protocols are APIs such that it gives a template/rules 
