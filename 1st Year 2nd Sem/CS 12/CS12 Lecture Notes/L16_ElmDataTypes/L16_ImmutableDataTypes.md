@@ -150,3 +150,4 @@ x =
 Maybe.withDefault 0 (String.toInt "-123")
 ```
 
+# 4: Array Syntax
