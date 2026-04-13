@@ -21,9 +21,9 @@ field: programming
 : e.g. JSON, XML, binary
 
 ### Serialization
-: converting complex data objs to byte/string format
+: converting complex data objs to raw byte/string format
 ### Deserialization
-: converting byte/string data into complex data objs
+: converting raw byte/string data into complex data objs
 
 ## 3. 
 
