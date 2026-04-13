@@ -20,5 +20,19 @@ async def letter():
 ### 2) plotting function body
 : yes
 
+e.g.
+```python
+async def letter():
+    for letter in ['A', 'E', 'I', 'O', 'U']:
+        print(letter)
+```
 ### 3) plotting the await line
-: use `await` before the line of code where the coroutine must be paused, and then unpaused once that line of code is finished operatin
+: use `await` before the line of code where the coroutine must be paused, and then unpaused once that line of code is finished operating/loading
+
+e.g.
+```python
+async def letter():
+    for letter in ['A', 'E', 'I', 'O', 'U']:
+        print(letter)
+        await asyncio.sleep(0) # literally like yield in generators
+```
