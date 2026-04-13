@@ -32,5 +32,6 @@ field: programming
 ## 4. Serialization & Deserialization in Python
 : To extract data from web APIs to our local program
 
-### 1) Deserializing JSON obj to Python dict (JSON obj is the )
+### 1) Deserializing JSON dict str to Python dict
+#### `_dic_ = json.loads()`
  
