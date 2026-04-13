@@ -33,5 +33,8 @@ field: programming
 : To extract data from web APIs to our local program
 
 ### 1) Deserializing JSON dict str to Python dict
-#### `_dic_ = json.loads()`
+##### `import json`
+#### `_dic = json.loads(_json_dict_str)`
+
+### 2) Serializing Python dict to JSON
  
