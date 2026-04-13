@@ -58,6 +58,7 @@ x = 1 :: [2, 3, 4] -- x = [1, 2, 3, 4]
 [1, 2, 3] = 1 :: (2 :: [3])
 ```
 
+## 4.
 # 3: Maybe Syntax
 
 : `Maybe a` : Container type representing the presence or abscence of `a`
@@ -102,3 +103,4 @@ x =
 -- Maybe.withDefault 0 (String.toInt "-123")
 Maybe.withDefault 0 (String.toInt "-123")
 ```
+
