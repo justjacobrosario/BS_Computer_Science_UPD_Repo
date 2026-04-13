@@ -37,8 +37,9 @@ field: programming
 | keyword used    | type     | operation                        |
 | --------------- | -------- | -------------------------------- |
 | .json()         | method   | API JSON Response -> Python dict |
-| .text           | property | API JSON Response -> dict        |
+| .text           | property | API JSON Response -> JSON str    |
 | json.loads(...) | method   | JSON str -> Python dict          |
+| json.dumps(...) | method   | Python dict -> JSON str          |
 
 ### 1) .json() : API JSON response to Python dict
 ##### `import httpx`
@@ -51,7 +52,7 @@ _dic = _api_response.json()
 
 print(_dic) # prints the pyhton dic version of _api_response
 ```
-
+### 2) json.loads() : JSON str to Python dict
 ### 2) json.loads() : JSON str to Python dict
 ##### `import json`
 #### `_dic = json.loads(_json_dict_str)
@@ -73,6 +74,7 @@ print(_dic) # prints the pyhton dic version of _api_response
 #### `_json_dict_str = json.dumps(_dic)`
 
 i..e. basically inverse of json.loads
+
 ### 3) JSON SERIALIZATION NOTES
 #### 1] JSON `null` becomes Python `None`
 #### 2] raises `json.decorder.JSONDecodeError` if supposed json dict str is not valid 
