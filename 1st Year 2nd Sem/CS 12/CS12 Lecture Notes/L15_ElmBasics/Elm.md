@@ -165,7 +165,10 @@ x = x + 3
 funcName: Int -> Bool
 
 --expression--
-x = if x > 0 then "positive" else if x == 0 then "zero" else "negative"
+x = 
+if x > 0 then "positive" 
+else if x == 0 then "zero" 
+else "negative"
 ```
 
 #### 4] Case Expression
@@ -204,3 +207,4 @@ day =
 		_ -> "Unknown Day" 
 		-- always add _ case to cover all possibilities --
 ```
+
