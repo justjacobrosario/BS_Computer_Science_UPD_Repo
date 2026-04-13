@@ -104,4 +104,5 @@ async def fetch_rand_poke(ev):
 ```
 
 ### 2) getting the API response into the python code
+: use an `async with` block (you're gonna open a file online asynchronou)
 : after the `async` keyword, its line of code must open the API in an async client browser like this
