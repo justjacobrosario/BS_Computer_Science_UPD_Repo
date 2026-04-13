@@ -26,5 +26,6 @@ field: programming
 : converting raw byte/string data into complex data objs
 
 ## 3. JSON-based Python Libraries
-###
+### 1) `import json
+### 2) `
  
