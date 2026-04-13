@@ -8,23 +8,30 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "",
+      "query": "[\"subject\":cs12]",
       "color": {
         "a": 1,
-        "rgb": 14701138
+        "rgb": 10485637
+      }
+    },
+    {
+      "query": "path:\"1st Year 2nd Sem/CS 12/CS12 Lecture Notes\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14731602
       }
     }
   ],
   "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": -1.4,
-  "nodeSizeMultiplier": 0.684659090909091,
-  "lineSizeMultiplier": 1.04659090909091,
+  "nodeSizeMultiplier": 1.30717255717256,
+  "lineSizeMultiplier": 3.77245322245322,
   "collapse-forces": false,
-  "centerStrength": 0.545454545454545,
-  "repelStrength": 10,
+  "centerStrength": 0.799376299376299,
+  "repelStrength": 20,
   "linkStrength": 1,
-  "linkDistance": 193,
-  "scale": 1.302062339123631,
-  "close": true
+  "linkDistance": 142,
+  "scale": 0.6316046762907473,
+  "close": false
 }
