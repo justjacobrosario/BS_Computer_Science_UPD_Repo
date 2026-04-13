@@ -8,54 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4cbd40cbc9115ae3",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
-          },
-          {
-            "id": "5fd462046e0cba54",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
-          },
-          {
-            "id": "40c05a0dc66e1f45",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "L12_MVC_w_Pyxel"
-            }
-          },
-          {
-            "id": "ec405353eb6b2f8e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Pyscript"
-            }
-          },
-          {
             "id": "ec94b09770797a33",
             "type": "leaf",
             "state": {
@@ -89,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L14_AsynchronousProgramming"
+              "title": "JSON"
             }
           },
           {
@@ -126,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -310,20 +262,20 @@
   },
   "active": "8cb823c558cbc8d0",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/main2.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/config.json",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/index.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/pokemon.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/main.py",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
     "Quick Notes.md",
     "Programming Quick Notes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics/L11_GameProgrammingBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics",
