@@ -213,6 +213,7 @@ day =
 : `in` is the counterpart of python's return, but with new line
 
 : Note: variables declared in a `let` block is only accessible in that block
+: Note: Shadowing variables (variable name is used outside the function, then used again inside) will be flagged, avoid using the same name
 
 ```elm
 isPositive: Int -> Bool
