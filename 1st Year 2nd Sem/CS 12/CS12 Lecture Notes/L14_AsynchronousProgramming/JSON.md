@@ -34,6 +34,11 @@ field: programming
 : To extract data from web APIs to our local program
 
 
+| keyword used | type   | operation                        |
+| ------------ | ------ | -------------------------------- |
+| .json()      | method | API JSON Response -> Python dict |
+| .l           |        |                                  |
+
 ### 1) .json() : API JSON response to Python dict
 ##### `import httpx`
 #### `_dic = _api_response.json()`
