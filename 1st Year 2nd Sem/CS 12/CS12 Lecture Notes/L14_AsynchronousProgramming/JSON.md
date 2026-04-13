@@ -27,7 +27,9 @@ field: programming
 
 ## 3. JSON-based Python Libraries
 ### 1) `import json`
+: basically third-pamodule for interpreting json
 ### 2) `import httpx`
+: a third
 
 
 ## 4. Serialization & Deserialization in Python
@@ -52,6 +54,7 @@ _dic = _api_response.json()
 
 print(_dic) # prints the pyhton dic version of _api_response
 ```
+
 ### 2) .text : API JSON Response to JSON str
 ##### `import httpx`
 #### `_json_str = _api_response.text`
