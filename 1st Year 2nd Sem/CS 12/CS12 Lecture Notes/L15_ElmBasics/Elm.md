@@ -253,3 +253,14 @@ combination x y =
 		numerator // denominator
 
 ```
+
+#### 7] Pipeline Operator `|>`
+```elm
+x |> f |> y
+-- same as --
+x
+|> f
+|> y
+-- same as --
+y (f x)
+```
