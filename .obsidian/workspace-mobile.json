@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "L13_HTMLAndDOM"
+              "title": "README"
+            }
+          },
+          {
+            "id": "ce9f79c4c973885b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming Quick Notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Programming Quick Notes"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -169,43 +184,43 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ce62528d51645138",
+  "active": "ce9f79c4c973885b",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
-    "README.md",
-    "made in laptop.md",
-    "/README.md",
-    "/made in laptop.md",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/le_scratch.py",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/pyxel_test.py",
-    "1st Year 2nd Sem/CS 12/CS 12 Take Home Labs/lab-exercise-6-mjolnir-vs-simplemole",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/screensaver.py",
-    "2026-04-09.md",
-    "1st Year 2nd Sem/CS 12/CS 12 Take Home Labs/lab-exercise-5-dj_jacob",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/common_types.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/model_part1.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/view.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/controller.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns.md",
-    "/2026-04-09.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping.md",
-    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance.md"
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle",
+    "Scratch Notes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping/L8_SubtypeVariance_FunctionSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting/L2_Debugging_UnitTesting.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns/L3_Separation_of_Concerns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking/L1_TypeChecking.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking",
+    "Untitled.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics/L11_GameProgrammingBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping/L9_BehavioralSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping/L4_Subtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns/L10_OOPDesignPatterns.md",
+    "/Untitled.md",
+    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
+    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
+    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
+    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns/L3_Separation_of_Concerns.md",
+    "/1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting/L2_Debugging_UnitTesting.md"
   ]
 }
