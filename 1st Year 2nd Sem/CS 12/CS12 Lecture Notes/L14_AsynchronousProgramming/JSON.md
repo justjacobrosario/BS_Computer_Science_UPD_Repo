@@ -25,3 +25,5 @@ field: programming
 ### Deserialization
 : converting byte/string data into complex data objs
 
+## 3. 
+
