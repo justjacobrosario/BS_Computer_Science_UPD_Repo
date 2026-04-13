@@ -42,7 +42,8 @@ async def letter():
 
 ### 4) plotting other function body lines (if there are any)
 : yes, you still can operate more lines after unpausing from the `await` line
-: Note: these lines might be operated earlier or 
+: Note: these lines might be operated earlier or later depending on the other operation from other function calls before it
+
 e.g.
 ```python
 async def letter():
