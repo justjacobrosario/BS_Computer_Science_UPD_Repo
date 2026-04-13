@@ -105,7 +105,7 @@
               "state": {
                 "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "APIs"
@@ -117,16 +117,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "JSON"
+              "title": "SynchronousAndAsynchronousProgramming"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -308,11 +308,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d6394138585253df",
+  "active": "8cb823c558cbc8d0",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/main2.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/config.json",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/index.html",
@@ -345,7 +346,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
-    "made in laptop.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]

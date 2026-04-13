@@ -30,7 +30,7 @@ field: programming
 : basically a third-party module for interpreting json
 ### 2) `import httpx`
 : a third-party module that quickly interprets json files and apis
-: can be used for synchronous and asynchronous programming (see ![[SynchronousAndAsynchronous]])
+: can be used for synchronous and asynchronous programming (see ![[SynchronousAndAsynchronousProgramming]])
 
 
 ## 4. Serialization & Deserialization in Python
