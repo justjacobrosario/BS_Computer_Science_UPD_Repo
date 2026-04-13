@@ -27,9 +27,10 @@ field: programming
 
 ## 3. JSON-based Python Libraries
 ### 1) `import json`
-: basically third-pamodule for interpreting json
+: basically a third-party module for interpreting json
 ### 2) `import httpx`
-: a third
+: a third-party module that quickly interprets json files and apis
+: can be used for synchronous and asynchronous programming (see ![[SynchronousAndAsynchronous]])
 
 
 ## 4. Serialization & Deserialization in Python
