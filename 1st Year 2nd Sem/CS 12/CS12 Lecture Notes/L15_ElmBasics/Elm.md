@@ -234,4 +234,22 @@ isPositive x =
 		response
 ```
 
+#### 6] Declaring Functions
+##### A. Define function name and type hint
+```elm
+combination: Int -> Int -> Int -- the last data type refers to the return type--
+combination x y =
 
+-- just like def isPositive(x:int, y:int) -> bool: in Python --
+```
+##### B. Do the function body
+```elm
+combination: Int -> Int -> Int
+combination x y =
+	let
+		numerator = factorial x -- like python's factorial(x) --
+		denominator = (factorial (x - y)) * (factorial y)
+	in
+		numerator // denominator
+
+```
