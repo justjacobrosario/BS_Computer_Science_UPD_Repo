@@ -85,6 +85,9 @@ Done
 
 
 ## 3. Online API-based Asynchronous Programming
+
+### Declaring the API endpoint as a var (shortcut)
+: instead of manually copy pasting the API endpoint for every corotu
 ### 1) defining Coroutines
 : same thing like this
 
@@ -122,3 +125,16 @@ async def fetch_rand_poke(ev):
 : yes, you still can operate more lines after unpausing from the `await` line
 : Note: these lines might be operated earlier or later depending on the other operation from other function calls before it
 
+```python
+async def fetch_rand_poke(ev):
+    rand_id = random.randint(1, 1000)
+    params = {} # no conditions for the API to filter
+
+
+    async with httpx.AsyncClient() as client:
+        res = await client.get(f"{POKE_API_ENDPOINT}/{rand_id}", params=params)
+    res_dict = res.json()
+    poke_name = res_dict["name"]
+    poke_container.innerText = poke_name
+    
+```
