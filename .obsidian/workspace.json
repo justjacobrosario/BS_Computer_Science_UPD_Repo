@@ -31,10 +31,14 @@
             "id": "40c05a0dc66e1f45",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "L12_MVC_w_Pyxel"
             }
           },
           {
@@ -69,13 +73,32 @@
             "id": "1b5e531731074e1e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "L14_AsyncronousProgramming"
+            }
+          },
+          {
+            "id": "8cb823c558cbc8d0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "JSON"
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -87,6 +110,7 @@
       {
         "id": "ac7691c1a9ba0e8c",
         "type": "tabs",
+        "dimension": 27.85515320334262,
         "children": [
           {
             "id": "3d0f97424a4804d0",
@@ -103,6 +127,7 @@
       {
         "id": "b643acb12f551da0",
         "type": "tabs",
+        "dimension": 72.14484679665738,
         "children": [
           {
             "id": "bd3644d0e3d7b851",
@@ -148,7 +173,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 339.5
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -254,45 +279,45 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4cbd40cbc9115ae3",
+  "active": "8cb823c558cbc8d0",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics/L11_GameProgrammingBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns/L10_OOPDesignPatterns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping/L9_BehavioralSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping/L8_SubtypeVariance_FunctionSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping/L4_Subtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns/L3_Separation_of_Concerns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting/L2_Debugging_UnitTesting.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking/L1_TypeChecking.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/AsynchronousAndSynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM",
     "made in laptop.md",
     "Untitled.md",
     "Abstraction.md",
     "README.md",
-    "Scratch Notes.md",
-    "conflict-files-obsidian-git.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle.md",
     "Untitled.canvas",
-    "Untitled 1.canvas",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting.md",
-    "2026-04-09.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking.md",
-    "1st Year 1st Sem/python test drive/Python Review Repo/main_python_refresher.md",
-    "1st Year 2nd Sem/Lec_1_and_2_TypeHinting_Debugging_UnitTesting.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Untitled.base",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/screensaver.py",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/pyxel_test.py",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/le_scratch.py",
-    "1st Year 2nd Sem/CS 12/Pyxel_Projects/flappy.py",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/view.cpython-314.pyc",
-    "1st Year 2nd Sem/CS 12/Mock_Hopes/__pycache__/model_part1.cpython-314.pyc"
+    "Untitled 1.canvas"
   ]
 }
