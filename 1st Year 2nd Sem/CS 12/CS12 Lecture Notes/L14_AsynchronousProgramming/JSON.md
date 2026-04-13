@@ -34,12 +34,12 @@ field: programming
 : To extract data from web APIs to our local program
 
 
-| keyword used    | type     | operation                        |
-| --------------- | -------- | -------------------------------- |
-| .json()         | method   | API JSON Response -> Python dict |
-| .text           | property | API JSON Response -> JSON str    |
-| json.loads(...) | method   | JSON str -> Python dict          |
-| json.dumps(...) | method   | Python dict -> JSON str          |
+| keyword used    | type     | operation                        | operation                        |
+| --------------- | -------- | -------------------------------- | -------------------------------- |
+| .json()         | method   | API JSON Response -> Python dict | API JSON Response -> Python dict |
+| .text           | property | API JSON Response -> JSON str    | API JSON Response -> JSON str    |
+| json.loads(...) | method   | JSON str -> Python dict          | JSON str -> Python dict          |
+| json.dumps(...) | method   | Python dict -> JSON str          | Python dict -> JSON str          |
 
 ### 1) .json() : API JSON response to Python dict
 ##### `import httpx`
@@ -53,7 +53,16 @@ _dic = _api_response.json()
 print(_dic) # prints the pyhton dic version of _api_response
 ```
 ### 2) json.loads() : JSON str to Python dict
-### 2) json.loads() : JSON str to Python dict
+##### `import httpx`
+#### `_json_str = _api_response.text`
+
+e.g.
+```python
+_api_response = httpx.get(API_ENDPOINT_URL)
+_dic = _api_response.json()
+
+print(_dic) # prints the pyhton dic version of _api_response
+### 3) json.loads() : JSON str to Python dict
 ##### `import json`
 #### `_dic = json.loads(_json_dict_str)
 `
@@ -68,14 +77,14 @@ _dic = json.loads(_json_dict_str)
 print(_dic) # prints the pyhton dic version of _api_response
 ```
 
-### 3) json.dumps() : Serializing Python dict to JSON str
+### 4) json.dumps() : Serializing Python dict to JSON str
 
  ##### `import json`
 #### `_json_dict_str = json.dumps(_dic)`
 
 i..e. basically inverse of json.loads
 
-### 3) JSON SERIALIZATION NOTES
+### 5) JSON SERIALIZATION NOTES
 #### 1] JSON `null` becomes Python `None`
 #### 2] raises `json.decorder.JSONDecodeError` if supposed json dict str is not valid 
 
