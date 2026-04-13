@@ -112,7 +112,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -294,15 +294,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d6394138585253df",
+  "active": "8cb823c558cbc8d0",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/main2.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/config.json",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/index.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/pokemon.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/main.py",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsyncronousProgramming.md",
     "Quick Notes.md",
     "Programming Quick Notes.md",
@@ -318,7 +318,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping/L8_SubtypeVariance_FunctionSubtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
