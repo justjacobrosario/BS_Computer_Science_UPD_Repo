@@ -25,5 +25,6 @@ field: programming
 ### Deserialization
 : converting raw byte/string data into complex data objs
 
-## 3. 
-
+## 3. JSON-based Python Libraries
+###
+ 
