@@ -264,3 +264,11 @@ x
 -- same as --
 y (f x)
 ```
+e.g.
+```elm
+List.sort (List.range 6 7)
+-- same as --
+6 7
+|> List.range
+|> List.sort
+```
