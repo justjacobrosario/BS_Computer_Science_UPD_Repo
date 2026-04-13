@@ -69,6 +69,6 @@ print(_dic) # prints the pyhton dic version of _api_response
 i..e. basically inverse of json.loads
 ### 3) JSON SERIALIZATION NOTES
 #### 1] JSON `null` becomes Python `None`
-#### 2] raises `json.decorder.JSONDecodeError` if supposed json dict str is not valid
+#### 2] raises `json.decorder.JSONDecodeError` if supposed json dict str is not valid 
 
 
