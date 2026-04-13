@@ -122,3 +122,35 @@ main =
 | \|\|   | OR        |
 |        |           |
 
+### 5) Calling Functions
+: elm calls functions with parameters without parentheses
+
+```elm
+toFloat 1
+round 1.5
+String.fromInt 1
+min 1.2 1.55
+```
+
+### 6) Variable declaration
+
+#### 1] Variable Naming
+: instead of Python's snake_case, Elm declares variables using camelCase
+: still must not start with a number and -
+: still indentation-sensitive
+
+#### 2] Reassignment
+: Elm can reassign variables to a concrete value
+```elm
+x = 2
+x = 3
+-- x is 3 --
+```
+
+: Elm CANNOT reassign variables with other variables
+```elm
+x = 3
+x = x + 3
+-- error --
+```
+
