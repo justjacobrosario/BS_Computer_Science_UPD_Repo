@@ -58,7 +58,53 @@ x = 1 :: [2, 3, 4] -- x = [1, 2, 3, 4]
 [1, 2, 3] = 1 :: (2 :: [3])
 ```
 
-## 4.
+## 4. Other `List` Functions
+
+#### 1] `List.append : List a -> List a -> List a`
+: combines two lst1, lst2
+: different from python's .append(). It is more like .extend()
+
+#### 2] `List.concat : List (List a) -> List a``
+: flattens `List (List a) -> List a`
+
+#### 3] `List.sort : List a` 
+: simply sorts elements ascendingly
+
+#### 4] `List.take: Int -> List a -> List a`
+: takes the first leftmost n number of elements
+
+e.g.
+```elm
+x = [4, 5, 6, 8, 9, 0]
+List.take 3 x
+-- [4,5,6] : First 3 elements taken
+```
+
+#### 5] `List.drop: Int -> List a -> List a`
+: removes the first leftmost n number of elements
+
+e.g.
+```elm
+x = [4, 5, 6, 8, 9, 0]
+List.drop 3 x
+-- [8, 9, 0] : First 3 elements dropped
+```
+
+: NOTE: using these functions does not mutate the list, it only makes a copy of it
+
+#### 6] `List.maximum: List a -> Maybe`
+: removes the first leftmost n number of elements
+
+e.g.
+```elm
+x = [4, 5, 6, 8, 9, 0]
+List.maximum x
+-- Just 9 : Maybe number
+y = []
+List.maximum y
+-- Nothing : Maybe comparable
+```
+
 # 3: Maybe Syntax
 
 : `Maybe a` : Container type representing the presence or abscence of `a`
