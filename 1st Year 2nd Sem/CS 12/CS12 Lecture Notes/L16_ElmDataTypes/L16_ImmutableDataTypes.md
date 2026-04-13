@@ -105,6 +105,9 @@ List.maximum y
 -- Nothing : Maybe comparable
 ```
 
+#### 7] `List.filter : (a->Bool) -> List a -> List b`
+: takes predicate (condition/s that must be True for an element to be kept) and a list
+
 # 3: Maybe Syntax
 
 : `Maybe a` : Container type representing the presence or abscence of `a`
@@ -257,5 +260,10 @@ z_enumerated = Array.toIndexedList z
 
 -- z_enumerated = [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(7,8),(8,9)] : List ( Int, number )
 ```
+
+
+# 5: Immutability of Containers (Recalled)
+: Remember that Elm is a pure language, where variables, values, and containers are strictly incapable of mutating
+: adding, removing, sorting, and modifying an existing container does not mutate it, but it only returns a copy of it with its modification/s
 
 
