@@ -27,7 +27,7 @@ async def letter():
         print(letter)
 ```
 ### 3) plotting the await line
-: use `await` before the line of code where the coroutine must be paused, and then unpaused once that line of code is finished operating/loading
+: use `await` before the line of code where the coroutine must be paused, and then unpaused once that line of code is finished operating/loading AND the other current operation is finished
 
 : if you just want to give a time delay between pausing and unpausing, use `asyncio.sleep(num_of_sec_before_unpausing)`
 : just set `asyncio.sleep(0)` for just pausing it then unpausing after the other current operation
@@ -39,3 +39,6 @@ async def letter():
         print(letter)
         await asyncio.sleep(0) # literally like yield in generators
 ```
+
+### 4) plotting other function body lines
+: yes, you still can 
