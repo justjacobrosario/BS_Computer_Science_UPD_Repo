@@ -286,7 +286,17 @@ z_enumerated = Array.toIndexedList z
 : Remember that Elm is a pure language, where variables, values, and containers are strictly incapable of mutating
 : adding, removing, sorting, and modifying an existing container does not mutate it, but it only returns a copy of it with its modification/s
 
-# 7: List Filter Examples
+# 7: List.Filter Examples
 
+```elm
+filterDivisibleBy: List Int -> Int -> List Int
+filterDivisibleBy given_list n =
+    let
+        div_by_n = List.filter (\x -> (modBy n x) == 0) given_list
+    in
+        div_by_n
+        
+-- notice that modBy n x is like x%n
+```
 
 

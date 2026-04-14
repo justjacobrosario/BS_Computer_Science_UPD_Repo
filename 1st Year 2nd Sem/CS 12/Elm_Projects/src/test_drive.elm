@@ -24,3 +24,10 @@ squareEach given_list =
         squared = List.map (\x -> x^2) given_list
     in
         squared
+
+filterDivisibleBy: List Int -> Int -> List Int
+filterDivisibleBy given_list n =
+    let
+        div_by_n = List.filter (\x -> (modBy n x) == 0) given_list
+    in
+        div_by_n
