@@ -19,6 +19,9 @@ field: programming
 5. `Char exposing (Char)`
 6. `Debug`
 
+
+# 2:
+
 # 2: List Syntax
 : `List x` is a sequence of values of type  `x`
 : List elements must have the same type (Homogenous)
