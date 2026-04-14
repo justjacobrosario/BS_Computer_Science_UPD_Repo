@@ -295,8 +295,9 @@ filterDivisibleBy given_list n =
         div_by_n = List.filter (\x -> (modBy n x) == 0) given_list
     in
         div_by_n
-        
--- notice that modBy n x is like x%n
+              
+-- modBy n x = remainder of x/n. notice that the first param n must not be 0
+-- notice that modBy n x is like x%n in Python
 ```
 
 
