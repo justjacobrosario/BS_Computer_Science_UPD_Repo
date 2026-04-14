@@ -20,7 +20,17 @@ field: programming
 6. `Debug`
 
 
-# 2:
+# 2: Lambda functions and map
+## `(\x -> expression)`
+
+: basically like in Python's lambda function, whenever you map a collection, you execute a certain function to each element, such that it returns True or False
+
+e.g.
+
+```elm
+allDivisibleBy: List Int -> Int -> Bool
+all
+```
 
 # 2: List Syntax
 : `List x` is a sequence of values of type  `x`
