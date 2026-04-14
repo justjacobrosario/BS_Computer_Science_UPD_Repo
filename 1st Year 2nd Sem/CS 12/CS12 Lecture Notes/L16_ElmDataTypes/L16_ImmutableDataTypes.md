@@ -300,4 +300,14 @@ filterDivisibleBy given_list n =
 -- notice that modBy n x is like x%n in Python
 ```
 
+# 8: Tuples
+## 1. Destructuring Bind in Tuples
+: can only be done in the let block
 
+```elm
+answer =
+	let
+		(x, _, z) = tuple_data -- Underscore for "don't care"
+	in
+		x + z
+```
