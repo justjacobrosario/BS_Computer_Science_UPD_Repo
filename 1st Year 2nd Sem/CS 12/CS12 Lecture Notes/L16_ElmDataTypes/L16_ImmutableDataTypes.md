@@ -25,11 +25,18 @@ field: programming
 
 : basically like in Python's lambda function, whenever you map a collection, you execute a certain function to each element, such that it returns True or False
 
+: one usage of lambda functions is using `List.map` or `Array.map` or
+
 e.g.
 
 ```elm
-allDivisibleBy: List Int -> Int -> Bool
-all
+squareEach: List Int -> List Int
+squareEach given_list =
+    let 
+        squared = List.map (\x -> x^2) given_list
+        -- every element is ran in (\x -> x^2)
+    in
+        squared
 ```
 
 # 2: List Syntax

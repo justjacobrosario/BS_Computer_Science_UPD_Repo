@@ -16,3 +16,11 @@ evenOnly list=
         new_list = List.filter (\a -> (modBy 2 a) == 0) list
     in
         new_list
+
+
+squareEach: List Int -> List Int
+squareEach given_list =
+    let 
+        squared = List.map (\x -> x^2) given_list
+    in
+        squared
