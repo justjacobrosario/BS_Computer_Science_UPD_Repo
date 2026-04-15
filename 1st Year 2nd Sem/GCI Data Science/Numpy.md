@@ -148,6 +148,7 @@ axis [1, 2, 3]
  0   [4, 5, 6]
  ↓	 [7, 8, 9]
  
+ axis 0: per row
  axis 1: per column
 ```
 
@@ -162,4 +163,10 @@ grid = np.array([
 [7, 8, 9]])
 
 mean_per_row = np.mean(grid, axis=0)
+# [mean of [1, 2, 3], mean of [4, 5, 6], mean of [7, 8, 9]]
+# array([4, 5, 6])
 ```
+
+#### 2] Indexing
+: same with python `list[list]` indexing
+: `grid[row num][col num] -> grid[idx in axis 0][idx in axis 1]`
