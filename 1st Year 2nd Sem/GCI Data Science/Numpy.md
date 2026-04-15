@@ -138,4 +138,6 @@ print(grid[row][col]) # returns 1 (the 0th row and 0th column)
 #### 1] All index-based operations
 #### 2] All scalar operations
 
-### 2. Axis
+### 2. Axis 
+
+: like x-axis and y-axis but numbers
