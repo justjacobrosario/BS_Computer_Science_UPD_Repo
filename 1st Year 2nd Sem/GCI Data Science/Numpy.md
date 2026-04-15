@@ -147,6 +147,8 @@ print(grid[row][col]) # returns 1 (the 0th row and 0th column)
 axis [1, 2, 3]
  0   [4, 5, 6]
  ↓	 [7, 8, 9]
+ 
+ axis 1: per column
 ```
 
 #### 1] Aggregation Function
@@ -159,5 +161,5 @@ grid = np.array([
 [4, 5, 6],
 [7, 8, 9]])
 
-mean_per_row = 
+mean_per_row = np.mean(grid, axis=0)
 ```
