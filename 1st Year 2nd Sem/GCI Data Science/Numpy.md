@@ -153,3 +153,11 @@ axis [1, 2, 3]
 : aggre funcs only process a line of elements
 : one can aggregate per axis
 
+```python
+grid = np.array([
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]])
+
+mean_per_row = 
+```
