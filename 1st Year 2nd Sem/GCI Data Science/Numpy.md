@@ -1,4 +1,5 @@
-
+[[Python Basic Syntax]]
+[[PythonAlgorithms]]
 
 
 
