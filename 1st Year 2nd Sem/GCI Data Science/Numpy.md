@@ -63,6 +63,6 @@ an_array = np.array(a_list)
 ```python
 a = np.array([1, 2, 3])
 b = np.array([2, 4, 6])
-_sum = np.add(a, b) # [1+2, 2+4, 3+6] -> [3, 6, 9]
+_sum = np.add(a, b) # [1+2, 2+4, 3+6] -> array([3, 6, 9])
 ```
 
