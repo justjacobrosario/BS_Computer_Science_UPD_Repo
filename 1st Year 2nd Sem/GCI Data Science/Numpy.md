@@ -11,9 +11,9 @@
 e.g. `list`, `tuple`, ...
 
 #### 2] 2-Dimensional
-: 
+: Can go left to right, and up and down via rows and columns
+e.g.  matrices, `list[list]]`, ...
 
-: 
 
 ## 1. `List`
 : data type that manages values (elements) in sequense using indexes.
