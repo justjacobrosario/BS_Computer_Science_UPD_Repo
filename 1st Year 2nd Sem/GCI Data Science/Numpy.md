@@ -170,3 +170,20 @@ mean_per_row = np.mean(grid, axis=0)
 #### 2] Indexing
 : same with python `list[list]` indexing
 : `grid[row num][col num] -> grid[idx in axis 0][idx in axis 1]`
+
+#### 4] Boolean Return Function
+
+```python
+grid = np.array([
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]])
+is_even = grid % 2 == 0
+print(is_even)
+'''
+array([
+[False,  True, False],
+[ True, False,  True],
+[False,  True, False]])
+'''
+```
