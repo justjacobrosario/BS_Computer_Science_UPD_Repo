@@ -140,4 +140,16 @@ print(grid[row][col]) # returns 1 (the 0th row and 0th column)
 
 ### 2. Axis 
 
-: like x-axis and y-axis but numbers
+: like x-axis/col and y-axis/row but numbers
+
+```md
+	 axis 1 -> 
+axis [1, 2, 3]
+ 0   [4, 5, 6]
+ ↓	 [7, 8, 9]
+```
+
+#### 1] Aggregation Function
+: aggre funcs only process a line of elements
+: one can aggregate per axis
+
