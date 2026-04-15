@@ -107,7 +107,32 @@ b = a + 1
 
 # 5: 2-Dimensional Arrays
 
-## 1. 
+## 1. Python's `list[list]`
+: basically, to have 2-dimensions, u can nest a list to another list
 
+```python
+grid = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+# or just grid = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
 
+row, col = (0, 0)
+print(grid[row][col]) # returns 1 (the 0th row and 0th column)
+```
+
+## 2. Numpy's `np.ndarray`
+: yes, `np.ndarray` objects can be 1 or 2 dimensional
+
+```python
+grid = np.array([
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+])
+
+row, col = (0, 0)
+print(grid[row][col]) # returns 1 (the 0th row and 0th column)
+```
 
