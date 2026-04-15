@@ -6,6 +6,7 @@
 
 ## 1. `List`
 
+
 ### 1) `numpy.ndarray`
 
 : can only store values of same type
