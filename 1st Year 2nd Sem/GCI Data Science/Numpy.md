@@ -15,4 +15,6 @@ e.g. `list`, `tuple`, ...
 e.g.  matrices, `list[list]]`, ...
 
 
-# 
+# 2: Data Mining
+: process of extracting useful info and inferences and patterns from large datasets
+
