@@ -60,12 +60,11 @@ an_array = np.array(a_list)
 : log(a)
 ##### `np.sin(a)` and other trig funcs,
 #### 2] index-based arithmetic operations
+: adds/subtracts/multiply/divide an element of ndarray a to the element of the same index of ndarray b
 ##### `np.add(a, b)`, 
 ##### `np.subtract(a, b)`, 
 ##### `np.multiply(a, b)`, 
 ##### `np.divide(a, b)`,
-
-: adds/subtracts/multiply/divide an element of ndarray a to the element of the same index of ndarray b
 
 ```python
 a = np.array([1, 2, 3])
@@ -74,16 +73,15 @@ _sum = np.add(a, b) # [1+2, 2+4, 3+6] -> array([3, 6, 9])
 ```
 
 #### 3] index-based comparison operations
+: same thing, operations are index-based
 ##### `np.equal(a, b)`, 
 ##### `np.greater(a, b)`, 
 ##### `np.less(a, b)`, 
 
-: same thing, operations are index-based
-
 #### 4] scalar operations
+: basically operates each element into the specified number
 ##### `an_np_ndarray + or - or * or / or // some_number`
 
-: basically operates each element into the specified number
 ```python
 a = np.array([1, 2, 3])
 b = a + 1
