@@ -2,10 +2,16 @@
 
 
 
-# 1: 1-Dimensional Arrays
+# 1: Dimensional Analysis
+
+: basically how 
+
+: 
 
 ## 1. `List`
+: data type that manages values (elements) in sequense using indexes.
 
+:
 
 ### 1) `numpy.ndarray`
 
