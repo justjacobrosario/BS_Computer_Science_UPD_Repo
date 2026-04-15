@@ -36,6 +36,33 @@ e.g.  matrices, `list[list]]`, ...
 ## 1. Python `list`
 : default datatype that  contains multiple values separated by commas
 
-## 2. Numpy's `np.array`
+## 2. Numpy's `np.ndarray`
 
 : numpy's version of `list`
+: can only store values of same type
+: easy arithmetic operations in between ndarrays
+
+### 1) `np.array(a_list)`
+: convert a `list` into a `np.ndarray`
+```python
+import numpy as np
+a_list = [1, 2, 3]
+an_array = np.array(a_list)
+```
+
+### 2) Universal functions for `np.ndarray` objects
+
+#### 1] index-based operations
+#### `np.add(a, b)`, 
+#### `np.subtract(a, b)`, 
+#### `np.multiply(a, b)`, 
+#### `np.divide(a, b)`
+
+: adds/subtracts/multiply/divide an element of ndarray a to the element of the same index of ndarray b
+
+```python
+a = np.array([1, 2, 3])
+b = np.array([2, 4, 6])
+_sum = np.add(a, b) # [1+2, 2+4, 3+6] -> [3, 6, 9]
+```
+
