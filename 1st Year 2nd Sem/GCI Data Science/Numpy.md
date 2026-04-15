@@ -31,7 +31,7 @@ e.g.  matrices, `list[list]]`, ...
 2. universal functions allow complex calculations than manually using loops to iterate computations
 3. fast calculations (C language made)
 
-# 4: 1-Dimensional Analysis
+# 4: 1-Dimensional Arrays
 
 ## 1. Python `list`
 : default datatype that  contains multiple values separated by commas
@@ -54,16 +54,16 @@ an_array = np.array(a_list)
 
 #### 1] per element operations
 : process the operations on all element
-#### `np.exp(a)`,
+##### `np.exp(a)`,
 : e^a
-#### `np.log(a)`,
+##### `np.log(a)`,
 : log(a)
-#### `np.sin(a)` and other trig funcs,
+##### `np.sin(a)` and other trig funcs,
 #### 2] index-based arithmetic operations
-#### `np.add(a, b)`, 
-#### `np.subtract(a, b)`, 
-#### `np.multiply(a, b)`, 
-#### `np.divide(a, b)`,
+##### `np.add(a, b)`, 
+##### `np.subtract(a, b)`, 
+##### `np.multiply(a, b)`, 
+##### `np.divide(a, b)`,
 
 : adds/subtracts/multiply/divide an element of ndarray a to the element of the same index of ndarray b
 
@@ -74,11 +74,40 @@ _sum = np.add(a, b) # [1+2, 2+4, 3+6] -> array([3, 6, 9])
 ```
 
 #### 3] index-based comparison operations
-#### `np.equal(a, b)`, 
-#### `np.greater(a, b)`, 
-#### `np.less(a, b)`, 
+##### `np.equal(a, b)`, 
+##### `np.greater(a, b)`, 
+##### `np.less(a, b)`, 
 
 : same thing, operations are index-based
 
 #### 4] scalar operations
-`an_np_ndarray + or - or `
+##### `an_np_ndarray + or - or * or / or // some_number`
+
+: basically operates each element into the specified number
+```python
+a = np.array([1, 2, 3])
+b = a + 1
+# b will be array([2, 3, 4]) since 1 is added to each element
+```
+
+#### 5] aggregate functions
+: aggregates elements of an np.ndarray into a single value
+##### `np.max(a)`
+: max num
+##### `np.mean(a)`
+: mean num
+##### `np.sum(a)`
+: sum
+##### `np.std(a)`
+: standard deviation
+
+#### 6] indexing and slincing `np.ndarray` objects
+: basically same for list indexing and slicing
+
+
+# 5: 2-Dimensional Arrays
+
+## 1. 
+
+
+
