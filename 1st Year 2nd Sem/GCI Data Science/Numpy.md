@@ -52,11 +52,18 @@ an_array = np.array(a_list)
 
 ### 2) Universal functions for `np.ndarray` objects
 
-#### 1] index-based operations
+#### 1] per element operations
+: process the operations on all element
+#### `np.exp(a)`,
+: e^a
+#### `np.log(a)`,
+: log(a)
+#### `np.sin(a)` and other trig funcs,
+#### 2] index-based arithmetic operations
 #### `np.add(a, b)`, 
 #### `np.subtract(a, b)`, 
 #### `np.multiply(a, b)`, 
-#### `np.divide(a, b)`
+#### `np.divide(a, b)`,
 
 : adds/subtracts/multiply/divide an element of ndarray a to the element of the same index of ndarray b
 
@@ -66,3 +73,12 @@ b = np.array([2, 4, 6])
 _sum = np.add(a, b) # [1+2, 2+4, 3+6] -> array([3, 6, 9])
 ```
 
+#### 3] index-based comparison operations
+#### `np.equal(a, b)`, 
+#### `np.greater(a, b)`, 
+#### `np.less(a, b)`, 
+
+: same thing, operations are index-based
+
+#### 4] scalar operations
+`an_np_ndarray + or - or `
