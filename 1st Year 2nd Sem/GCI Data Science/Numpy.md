@@ -4,7 +4,14 @@
 
 # 1: Dimensional Analysis
 
-: basically how 
+: basically how data is analysed, arranged, and marked.
+
+#### 1] 1-Dimensional
+: It goes leftmost to rightmost
+e.g. `list`, `tuple`, ...
+
+#### 2] 2-Dimensional
+: 
 
 : 
 
