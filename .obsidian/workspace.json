@@ -177,7 +177,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -283,7 +284,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bd3644d0e3d7b851",
+  "active": "299ea33135c2bcd2",
   "lastOpenFiles": [
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
