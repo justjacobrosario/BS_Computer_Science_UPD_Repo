@@ -137,3 +137,5 @@ print(grid[row][col]) # returns 1 (the 0th row and 0th column)
 ### 1. Universal Functions
 #### 1] All index-based operations
 #### 2] All scalar operations
+
+### 2. Axis
