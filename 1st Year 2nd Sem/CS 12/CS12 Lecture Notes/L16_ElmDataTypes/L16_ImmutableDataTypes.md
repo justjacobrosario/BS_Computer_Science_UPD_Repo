@@ -136,6 +136,14 @@ e.g.
 ```elm
 x = [4, 5, 6, 8, 9, 0]
 List.foldl (+) 0 [1, 2, 3] -- 6
+{- like this
+"list_elem + initial/latest_return_val"
+
+1(elem) + 0(init)       -> 1
+2(elem) + 1(return_val) -> 3
+3(elem) + 3(return_val) -> 6
+-}
+
 ```
 
 ```elm
