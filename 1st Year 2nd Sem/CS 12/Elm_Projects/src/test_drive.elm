@@ -185,7 +185,7 @@ sortedSongsOfArtist : List Track -> String -> List(String, Int)
 sortedSongsOfArtist tracks artistName =
     let
         theirTracks = List.filter (\a -> a.artist == artistName) tracks
-        dateTitle = List.map (\b -> (b.year, b.title)) tracks
+        dateTitle = List.map (\b -> (b.year, b.title)) theirTracks
     in
     dateTitle
         |> List.sort
