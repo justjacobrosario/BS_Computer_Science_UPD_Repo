@@ -1,6 +1,32 @@
 module Test_drive exposing (..)
 
 
+
+removeAt : Int -> List comparable -> List comparable
+removeAt i lst =
+    let
+        helper n (idx, res) =
+            if idx == i then
+                (idx - 1, res)
+            else
+                (idx + 1, n :: res)
+
+    in
+    if i < 0 then
+        lst
+    else if i >= List.length lst then
+        lst
+    else
+        lst
+            |> List.foldl helper (0, [])
+            |> Tuple.second
+            |> List.reverse
+
+
+
+
+
+
 insertAt : Int -> comparable -> List comparable -> List comparable
 insertAt i x lst =
     let
