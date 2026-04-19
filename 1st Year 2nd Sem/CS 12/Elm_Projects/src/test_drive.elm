@@ -172,7 +172,7 @@ songsOfArtists tracks artists =
                     List.map .title foundTracks
             in
             -- combine the newly found titles with the previously found titles
-            foundTitles :: currentTitles
+            currentTitles ++ foundTitles
     in
     -- start with an empty list and accumulate all titles by going through each of the artist names
     List.foldl accumulateTitles [] artists
