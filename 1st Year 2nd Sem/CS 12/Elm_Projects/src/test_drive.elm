@@ -6,7 +6,7 @@ insertAt i x lst =
     let
         helper n (idx, res) =
             if idx == i then
-                (i, x :: n :: res)
+                (idx + 1, n :: x :: res)
             else
                 (idx + 1, n :: res)
             
@@ -18,8 +18,9 @@ insertAt i x lst =
         lst
     else
         lst
-            |> List.foldr helper (0, [])
+            |> List.foldl helper (0, [])
             |> Tuple.second
+            |> List.reverse
 
 
 
