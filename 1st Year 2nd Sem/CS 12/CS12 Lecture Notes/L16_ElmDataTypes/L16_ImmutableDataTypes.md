@@ -151,6 +151,28 @@ List.foldl (\x acc -> x :: acc) [] [1,2,3]
 -- [1] then [2, 1] then [3,2,1]
 ```
 
+```elm
+insertAt : Int -> comparable -> List comparable -> List comparable
+insertAt i x lst =
+    let
+        helper n (idx, res) =
+            if idx == i then
+                (idx + 1, n :: x :: res)
+            else
+                (idx + 1, n :: res)
+            
+
+    in
+    if i < 0 then
+        lst
+    else if i >= List.length lst then
+        lst
+    else
+        lst
+            |> List.foldl helper (0, [])
+            |> Tuple.second
+            |> List.reverse
+```
 # 4: Maybe Syntax
 
 : `Maybe a` : Container type representing the presence or abscence of `a`
