@@ -1,5 +1,5 @@
 module Test_drive exposing (..)
-
+import Dict exposing (Dict)
 
 removeAt : Int -> List comparable -> List comparable
 removeAt i lst =
@@ -74,6 +74,7 @@ compress lst =
 -- ---------------------------
 
 
+
 type Genre
     = Pop
     | Rock
@@ -128,5 +129,6 @@ countAtYear : List Track -> String -> Int
 countAtYear lst yr_str =
     let
         yr_int = Maybe.withDefault 0 (String.toInt yr_str)
+        new_lst = List.filter (\x -> (Maybe.withDefault 0 (Dict.get "year" x)) == yr_int) lst
     in
-        yr_int
+        new_lst
