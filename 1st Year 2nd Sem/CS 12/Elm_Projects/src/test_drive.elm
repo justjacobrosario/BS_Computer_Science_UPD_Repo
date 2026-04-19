@@ -129,6 +129,6 @@ countAtYear : List Track -> String -> Int
 countAtYear lst yr_str =
     let
         yr_int = Maybe.withDefault 0 (String.toInt yr_str)
-        new_lst = List.filter (\x -> (Maybe.withDefault 0 (Dict.get "year" x)) == yr_int) lst
+        new_lst = List.filter (\x -> (x.year) == yr_int) lst
     in
-        new_lst
+        List.length new_lst
