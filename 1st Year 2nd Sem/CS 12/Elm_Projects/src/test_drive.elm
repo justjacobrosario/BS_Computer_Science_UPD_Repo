@@ -1,7 +1,6 @@
 module Test_drive exposing (..)
 
 
-
 removeAt : Int -> List comparable -> List comparable
 removeAt i lst =
     let
@@ -67,3 +66,62 @@ compress lst =
     lst
         |> List.foldr upd (Nothing, [])
         |> Tuple.second
+
+
+
+
+
+-- ---------------------------
+
+
+type Genre
+    = Pop
+    | Rock
+    | Electronic
+    | Other
+
+type alias Track =
+    { title : String
+    , artist : String
+    , genre : Genre
+    , year : Int
+    }
+
+songsData : String                      -- TSV String (note that this can be changed)
+songsData =
+    "Genre\tTitle\tArtist\tYear\nPop\tPeaches\tJustin Bieber\t2021\nPop\tHold On\tJustin Bieber\t2021\nRock\tDreams\tFleetwood Mac\t1977\nPop\tGhost\tJustin Bieber\t2021\nElectronic\tMidnight City\tM83\t2011\nPop\tStay\tThe Kid LAROI\t2021\nPop\tDrivers License\tOlivia Rodrigo\t2021\nPop\tGood 4 U\tOlivia Rodrigo\t2021\nPop\tDeja Vu\tOlivia Rodrigo\t2021\nPop\tVampire\tOlivia Rodrigo\t2023"
+
+
+
+stringToGenre : String -> Genre         -- converts a Genre String to a Tag Union
+stringToGenre str =
+    case str of
+        "Pop" -> Pop
+        "Rock" -> Rock
+        "Electronic" -> Electronic
+        _ -> Other
+
+
+
+parseRow : String -> Track              -- helper function for parsing a single row of the TSV string to a Track entry
+parseRow row =
+    case String.split "\t" row of
+        [ songGenre, songTitle, songArtist, songYear ] ->
+            { title = songTitle
+            , artist = songArtist
+            , genre = stringToGenre songGenre
+            , year = Maybe.withDefault 0 (String.toInt songYear)
+            }
+
+        _ ->
+            { title = "Unknown", artist = "Unknown", genre = Other, year = 0 }
+
+
+parseTSV : String -> List Track         -- parses the TSV string
+parseTSV data =
+    data
+        |> String.split "\n"
+        |> List.drop 1 -- Remove the header row
+        |> List.map parseRow
+
+-- countAtYear : List Track -> String -> Int
