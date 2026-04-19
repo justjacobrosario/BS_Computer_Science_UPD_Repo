@@ -145,3 +145,34 @@ popSongs lst =
         titles = List.map (\x -> x.title) just_pop
     in
         titles
+
+
+-- --------------------------------
+
+artistTracks : List Track -> String -> List Track
+artistTracks tracks artistName =
+    let
+        isTargetArtist track =
+            track.artist == artistName
+    in
+    List.filter (\x -> isTargetArtist x ) tracks
+
+-- Fill in the blanks to complete the songsOfArtists function that uses the artistTrack helper function
+songsOfArtists : List Track -> List String -> List String
+songsOfArtists tracks artists =
+    let
+        accumulateTitles artistName currentTitles =
+            let
+                -- insert lines of code to get all track records of an artist
+                foundTracks =
+                    artistTracks tracks artistName
+
+                -- extract the titles from those tracks
+                foundTitles =
+                    List.map .title foundTracks
+            in
+            -- combine the newly found titles with the previously found titles
+            foundTitles :: currentTitles
+    in
+    -- start with an empty list and accumulate all titles by going through each of the artist names
+    List.foldl accumulateTitles [] artists
