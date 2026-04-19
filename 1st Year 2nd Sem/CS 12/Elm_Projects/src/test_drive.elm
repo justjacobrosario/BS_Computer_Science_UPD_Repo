@@ -124,4 +124,9 @@ parseTSV data =
         |> List.drop 1 -- Remove the header row
         |> List.map parseRow
 
--- countAtYear : List Track -> String -> Int
+countAtYear : List Track -> String -> Int
+countAtYear lst yr_str =
+    let
+        yr_int = Maybe.withDefault 0 (String.toInt yr_str)
+    in
+        yr_int
