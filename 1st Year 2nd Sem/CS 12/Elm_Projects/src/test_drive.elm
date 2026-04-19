@@ -1,7 +1,7 @@
 module Test_drive exposing (..)
 import Array
 
-compress : List String -> List String
+compress : List comparable -> List comparable
 compress lst =
     let
         upd n (prev, res) =
