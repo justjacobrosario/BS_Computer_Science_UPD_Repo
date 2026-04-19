@@ -74,9 +74,6 @@ compress lst =
 -- ---------------------------
 
 
-module CS12252lab09d exposing (countAtYear)
-import Dict exposing (Dict)
-
 
 type Genre
     = Pop
@@ -135,3 +132,13 @@ countAtYear lst yr_str =
         new_lst = List.filter (\x -> (x.year) == yr_int) lst
     in
         List.length new_lst
+
+
+-- ----------------------------
+
+popSongs : List Track -> List String
+popSongs lst =
+    let
+        titles = List.map (\x -> x.title) lst
+    in
+        titles
