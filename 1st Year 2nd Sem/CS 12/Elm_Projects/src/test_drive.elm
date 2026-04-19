@@ -4,11 +4,12 @@ module Test_drive exposing (..)
 insertAt : Int -> comparable -> List comparable -> List comparable
 insertAt i x lst =
     let
-        helper n (idx, new, elm_i, res) =
-            if elm_i == idx then
-                (idx, new, elm_i, n :: res)
+        helper n (idx, res) =
+            if idx == i then
+                (i, x :: n :: res)
             else
-                (idx, new, elm_i + 1, res)
+                (idx + 1, n :: res)
+            
 
     in
     if i < 0 then
@@ -17,7 +18,9 @@ insertAt i x lst =
         lst
     else
         lst
-            |> List.foldl helper (i, x, 0, [])
+            |> List.foldr helper (0, [])
+            |> Tuple.second
+
 
 
 
