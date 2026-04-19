@@ -136,9 +136,12 @@ countAtYear lst yr_str =
 
 -- ----------------------------
 
+
+
 popSongs : List Track -> List String
 popSongs lst =
     let
-        titles = List.map (\x -> x.title) lst
+        just_pop = List.filter (\x -> x.genre == Pop) lst
+        titles = List.map (\x -> x.title) just_pop
     in
         titles
