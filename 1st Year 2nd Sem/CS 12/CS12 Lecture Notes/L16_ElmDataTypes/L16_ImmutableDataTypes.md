@@ -128,6 +128,21 @@ List.maximum y
 #### 7] `List.filter : (a->Bool) -> List a -> List b`
 : takes predicate (condition/s that must be True for an element to be kept) and a list
 
+#### 8] `List.foldl` and `List.foldr -- just reversed`
+like `List.foldl function initial list`
+: it runs the function from the initial to the leftmost element of list, then the returned value will then be used to run the function with the next element (left to right)
+
+e.g.
+```elm
+x = [4, 5, 6, 8, 9, 0]
+List.foldl (+) 0 [1, 2, 3] -- 6
+```
+
+```elm
+List.foldl (\x acc -> x :: acc) [] [1,2,3]
+-- [1] then [2, 1] then [3,2,1]
+```
+
 # 4: Maybe Syntax
 
 : `Maybe a` : Container type representing the presence or abscence of `a`
