@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Python Basic Syntax"
+              "title": "Elm"
             }
           },
           {
@@ -177,7 +177,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -286,6 +287,9 @@
   "active": "299ea33135c2bcd2",
   "lastOpenFiles": [
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
     "Untitled.md",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
     "1st Year 2nd Sem/GCI Data Science",
@@ -297,12 +301,10 @@
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/config.json",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/Elm_Projects/elm-stuff/0.19.1/Test_drive.elmi",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/httpxModuleForAsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
@@ -320,7 +322,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L4_Subtyping/L4_Subtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns/L3_Separation_of_Concerns.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting/L2_Debugging_UnitTesting.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]

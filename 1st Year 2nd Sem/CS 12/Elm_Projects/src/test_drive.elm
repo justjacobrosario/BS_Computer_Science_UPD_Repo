@@ -1,10 +1,17 @@
 module Test_drive exposing (..)
 import Array
 
-gridder : Int -> Int -> Array.Array number
-gridder r c =
+compress : List String -> List String
+compress lst =
     let
-        x = Array.fromList [1, 2, 3]
-        grid = List.repeat r (List.range 1 c)
+        upd n (prev, res) =
+            case prev of
+                Just p ->
+                    if p == n then
+                        (prev, res)
+                    else
+                        (Just n, n :: res)
+                Nothing ->
+                    (n, [n])
     in
-        x
+        (List.foldl upd (Nothing, []) lst)
