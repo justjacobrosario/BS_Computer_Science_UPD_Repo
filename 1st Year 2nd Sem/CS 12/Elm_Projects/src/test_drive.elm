@@ -74,6 +74,9 @@ compress lst =
 -- ---------------------------
 
 
+module CS12252lab09d exposing (countAtYear)
+import Dict exposing (Dict)
+
 
 type Genre
     = Pop
