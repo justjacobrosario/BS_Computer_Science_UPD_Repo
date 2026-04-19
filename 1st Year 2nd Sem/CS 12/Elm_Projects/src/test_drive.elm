@@ -14,4 +14,7 @@ compress lst =
                 Nothing ->
                     (n, [n])
     in
-        (List.foldl upd (Nothing, []) lst)
+    lst
+        |> List.foldl upd (Nothing, [])
+        |> Tuple.second
+        |> List.reverse
