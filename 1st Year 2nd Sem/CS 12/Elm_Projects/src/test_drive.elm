@@ -1,5 +1,4 @@
 module Test_drive exposing (..)
-import Array
 
 compress : List comparable -> List comparable
 compress lst =
@@ -12,9 +11,8 @@ compress lst =
                     else
                         (Just n, n :: res)
                 Nothing ->
-                    (n, [n])
+                    (Just n, [n])
     in
     lst
-        |> List.foldl upd (Nothing, [])
+        |> List.foldr upd (Nothing, [])
         |> Tuple.second
-        |> List.reverse
