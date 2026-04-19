@@ -176,3 +176,18 @@ songsOfArtists tracks artists =
     in
     -- start with an empty list and accumulate all titles by going through each of the artist names
     List.foldl accumulateTitles [] artists
+
+
+
+-- ---------------------------------------------------
+
+sortedSongsOfArtist : List Track -> String -> List(String, Int)
+sortedSongsOfArtist tracks artistName =
+    let
+        theirTracks = List.filter (\a -> a.artist == artistName) tracks
+        dateTitle = List.map (\b -> (b.year, b.title)) tracks
+    in
+    dateTitle
+        |> List.sort
+        |> List.reverse
+        |> List.map (\(g, h) -> (h, g))
