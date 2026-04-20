@@ -21,12 +21,19 @@ def fold(REDUCER, STARTING_VALUE, elems):
 	
 '''
 fold(func, init_val, _list)
-func(init_val, 1st_elem) -> res
-func(res, 2nd_elem) -> res
-func(res, ..._elem) -> res (final)
+
+func(1st_elem, init_val) -> res # initial_val ALWAYS 2nd arg
+func(2nd_elem, res) -> res
+...
+func(res, ..._elem, res) -> res (final)
 
 its like func(func(func(init_val, 1st_elem), 2nd_elem)), ..._elem)
 '''
 ```
 
+## 3. Fold in Elm
+
+### 1) `List.foldl : (a -> b -> b) -> b -> List a -> b`
+
+: basically `List.foldl reducer init_val _list -> final_result`
 
