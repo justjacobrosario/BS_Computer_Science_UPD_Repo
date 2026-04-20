@@ -2,5 +2,6 @@
   "promptDelete": false,
   "attachmentFolderPath": "./",
   "newFileLocation": "current",
-  "newFileFolderPath": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes"
+  "newFileFolderPath": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes",
+  "alwaysUpdateLinks": true
 }

@@ -4,4 +4,5 @@ subject: CS12
 field: programming
 ---
 
-2
+# 1: Records 
+![[Elm_Records]]
