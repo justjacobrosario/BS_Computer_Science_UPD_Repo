@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Elm"
+              "title": "Elm_FoldlAndFoldr"
             }
           },
           {
@@ -120,7 +120,7 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -301,11 +301,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cebf70420e84e66b",
+  "active": "299ea33135c2bcd2",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecordsFoldRecursion.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion",
@@ -338,7 +339,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
