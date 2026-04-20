@@ -36,4 +36,37 @@ its like func(func(func(init_val, 1st_elem), 2nd_elem)), ..._elem)
 ### 1) `List.foldl : (a -> b -> b) -> b -> List a -> b`
 
 : basically `List.foldl reducer init_val _list -> final_result`
+: folds from leftmost element to rightmost element starting from the initial value
+: init_val is also called as the "identity"
+	 e.g. the identity  for sum is 0, for product is 1, for append is []
+	 
 
+```elm
+my_sum : List Int -> Int
+my_sum lst =
+    let
+        my_add next prev =
+            next + prev
+    in
+        List.foldl my_add 0 lst -- my_add is reducer, 0 is init_val, lst is the list of elems
+
+{-
+lst = [1, 2, 3, 4]
+List.foldl my_add 0 lst
+
+my_add next prev
+my_add 1 0 -> 1
+my_add 2 1 -> 3
+my_add 3 3 -> 6
+	my_add 4 6 -> 10
+
+-}
+
+```
+
+
+### 2) `List.foldr : (a -> b -> b) -> b -> List a -> b`
+
+: like `List.foldl` but it is from rightmost element to leftmost element starting from the initial value
+
+### 3) Intermediate State
