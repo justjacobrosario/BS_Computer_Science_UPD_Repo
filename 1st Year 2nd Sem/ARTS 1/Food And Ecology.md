@@ -9,6 +9,10 @@
 
 # $ PRESENTATION
 1. Guess the Food ice breaker
-2. 
+2. Guide Question/s (Objectives)
+3. Define Local Food
+	1. proximity
+	2. regional specialty
+4. Theory of environmental aethetics
 
 # 2] Food and Ecology
