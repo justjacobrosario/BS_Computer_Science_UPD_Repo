@@ -97,12 +97,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Elm_FoldlAndFoldr"
+              "title": "Elm_Records"
+            }
+          },
+          {
+            "id": "8ee7bbe015249e02",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/ARTS 1/Food And Ecology.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Food And Ecology"
             }
           },
           {
@@ -120,7 +134,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -301,12 +315,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "299ea33135c2bcd2",
+  "active": "8ee7bbe015249e02",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
+    "1st Year 2nd Sem/ARTS 1/Food And Ecology.md",
+    "1st Year 2nd Sem/ARTS 1",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion",
@@ -321,7 +337,6 @@
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/main.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/config.json",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index.html",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
@@ -338,7 +353,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping/L8_SubtypeVariance_FunctionSubtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
