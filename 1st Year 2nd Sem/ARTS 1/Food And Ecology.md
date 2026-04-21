@@ -6,4 +6,9 @@
 
 ## 3. Diaspora
 
+
+# $ PRESENTATION
+1. Guess the Food ice breaker
+2. 
+
 # 2] Food and Ecology
