@@ -13,6 +13,9 @@
 3. Define Local Food
 	1. proximity
 	2. regional specialty
+	per readingg
 4. Theory of environmental aethetics
+5. Conclusion
 
 # 2] Food and Ecology
+
