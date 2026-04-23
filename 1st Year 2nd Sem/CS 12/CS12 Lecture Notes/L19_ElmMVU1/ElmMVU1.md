@@ -66,4 +66,38 @@ view model =
 		
 ```
 
-### 4) Combine Model + View
+### 4) Combine Model + View + Update + Msg + Main
+
+```elm
+import Browser
+import Html exposing (Html, button, div, p, text)
+import Html.Events exposing (onClick)
+
+type alias Model = Int
+
+init = 0
+
+type Msg
+	= MsgIncrement
+	| MsgDecrement
+	
+--
+
+view : Model -> Html Msg
+view model =
+	div []
+		[ button [ onClick MsgIncrement ] [ text "+" ]
+		, p [] [ text (String.fromInt model) ]
+		, button [ onClick MsgDecrement ] [ text "-" ]
+		]
+
+--
+
+update : Msg -> Model -> Model
+update msg model =
+case msg of
+MsgIncrement ->
+model + 1
+MsgDecrement ->
+model - 1
+```
