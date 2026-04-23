@@ -113,6 +113,5 @@ main =
 ## 3. MVU (Model, View, Update)
 : also called TEA (The Elm Architecture)
 	- Model: State of the program
-	View: UI based on state
-
-• Update: State update via messages
+	- View: UI based on state
+	- Update: State update via messages
