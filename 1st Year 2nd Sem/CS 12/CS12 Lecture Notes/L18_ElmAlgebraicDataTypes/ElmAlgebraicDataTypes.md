@@ -52,3 +52,19 @@ Sex = "Male" | "Female"
 
 in `Sex` it has cardinality of |`Sex`| = 1 + 1 = 2
 
+## 2. Algebraic Data Types
+: Data types composing of other data types using AND and/or OR
+: composed of sum and/or product  types
+
+### 1) Tagged Union
+: basically a sum type, where its values are called "tags"
+
+```elm
+type Subject
+	= CS12 -- these are tags
+	| CS31
+	| Math22
+	| GE
+	| PE
+```
+
