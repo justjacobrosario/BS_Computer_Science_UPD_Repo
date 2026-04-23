@@ -127,3 +127,16 @@ main =
 	- Model: State of the program
 	- View: UI based on state
 	- Update: State update via messages
+
+### 1) MVU Characteristics
+
+#### 1] Model and Msg are IMMUTABLE data
+: since Elm is a functional program (no mutable datatypes)
+
+#### 2] View and Update Functions are PURE
+: doesnt mutate a data
+
+#### 3] Easy to Debug
+: since all updating states are within Model
+
+## 3. View Function Making (Indepth)
