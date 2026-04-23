@@ -105,3 +105,25 @@ type PageState
 
 
 ### 2) Pattern Matching
+
+```elm
+
+toSlotStr : CrsSection -> String
+toSlotStr section =
+	let
+		-- makes a string fraction for display
+		StrFractionizer nume deno =
+			(String.fromInt nume) ++ "/" ++ (String.fromInt deno) -- e.g. "20/40"
+	in
+	case section.slots of
+		-- basically match what to return depending on value of section.slots
+		WithSlots left ->
+			"OPEN" ++ (StrFractionizer left section.capacity) --e.g. "OPEN 3/20"
+		Full ->
+			"FULL" ++ (StrFractionizer section.capacity section.capacity) --e.g. "FULL 20/20"
+		Overbooked val ->
+			"OVERBOOKED" ++ (StrFractionizer val section.capacity) --e.g. "OVERBOOKED 23/20"
+		Dissolved ->
+			"DISSOLVED" --e.g. "DISSOLVED"
+
+```
