@@ -33,7 +33,7 @@ in `Student` type alias, lit composes of `didSleep` AND `didntSleep`, which are 
 
 so the cardinality |`Student`| = |`didSleep`| x |`didntSleep`| = 2 x 2 = 4
 
-### 3) Union of Literal Types
+### 2) Union of Literal Types
 : a Literal Type only has a single concrete value
 
 in python:
@@ -46,8 +46,9 @@ in elm:
 Sex = "Male" | "Female"
 ```
 
-#### 2] Sum Type
+#### 1] Sum Type
 : Union of literal types can be seen as a sum type (since its a conjunction OR of types)
 : Since a there is a literal type OR another literal type, the OR operation makes it a sum of their cardinalities
 
 in `Sex` it has cardinality of |`Sex`| = 1 + 1 = 2
+
