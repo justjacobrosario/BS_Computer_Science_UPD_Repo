@@ -7,6 +7,32 @@ field: programming
 : think of types as sets of values
 e.g. Bool = {True, False}
 
+: thinking types as sets of values gives us the ability to get their "cardinalities"
+: an ideal type maps exactly n possibilities to n values
+
+e.g. 
+```elm
+-- Lets say we need to make a type for Color, which is better
+
+type ColorV1
+	= Red
+	| Orange
+	| Yellow
+	| Green
+	| Blue
+	| Indigo
+	| Violet
+	
+type ColorV2 =
+	{ isRed : Bool
+	, isOrange : Bool
+	, isYellow : Bool
+	, isGreen : Bool
+	, isBlue : Bool
+	, isIndigo : Bool
+	, isViolet : Bool}
+```
+
 ### 1) Composite Type
 : Types composoed of other Types
 : basically like generic types in Python

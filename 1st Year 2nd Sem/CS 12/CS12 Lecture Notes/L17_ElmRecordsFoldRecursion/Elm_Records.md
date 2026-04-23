@@ -23,6 +23,7 @@ type Genre
 ```
 
 ## 3. `type alias`
+: has subvalues (keys)
 : like Protocols for classes in Python but for making records
 : declare a certain set of  key-value_type pair with its type name
 

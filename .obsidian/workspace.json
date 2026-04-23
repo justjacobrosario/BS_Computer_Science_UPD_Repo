@@ -139,12 +139,40 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "ElmAlgebraicDataTypes"
+              "title": "L17_ElmRecords,Fold,Recursion"
+            }
+          },
+          {
+            "id": "adc2759853e8d6c2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/L19_ElmMVU1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "L19_ElmMVU1"
+            }
+          },
+          {
+            "id": "5470b3c62ad03f4b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "ElmMVU1"
             }
           },
           {
@@ -162,7 +190,7 @@
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -344,15 +372,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ca9f7b84d8ac13ea",
+  "active": "5470b3c62ad03f4b",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/L19_ElmMVU1.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/ARTS 1/Food And Ecology.md",
@@ -368,7 +399,6 @@
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/data.json",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/main.py",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/config.json",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index.html",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
@@ -380,8 +410,6 @@
     "Quick Notes.md",
     "Programming Quick Notes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics/L11_GameProgrammingBasics.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns/L10_OOPDesignPatterns.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping/L9_BehavioralSubtyping.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
