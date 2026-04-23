@@ -107,5 +107,12 @@ main =
 	Browser.sandbox
 		{ init = init
 		, update = update
-		, view = view }
+		, view = view } -- like pyxel in python
 ```
+
+## 3. MVU (Model, View, Update)
+: also called TEA (The Elm Architecture)
+	- Model: State of the program
+	View: UI based on state
+
+• Update: State update via messages
