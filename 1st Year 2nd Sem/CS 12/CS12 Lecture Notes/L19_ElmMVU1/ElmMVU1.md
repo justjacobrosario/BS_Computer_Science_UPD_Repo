@@ -95,9 +95,17 @@ view model =
 
 update : Msg -> Model -> Model
 update msg model =
-case msg of
-MsgIncrement ->
-model + 1
-MsgDecrement ->
-model - 1
+	case msg of
+		MsgIncrement ->
+			model + 1
+		MsgDecrement ->
+			model - 1
+			
+--
+-- main is like the controller (combines all components)
+main =
+	Browser.sandbox
+		{ init = init
+		, update = update
+		, view = view }
 ```
