@@ -68,3 +68,40 @@ type Subject
 	| PE
 ```
 
+: it can also compose of function calls
+
+```elm
+type CrsSectionSlots
+	= WithSlots Int
+	| Full
+	| Overbooked Int
+	| Dissolved
+
+-- can be used like this
+type alias CrsSection =
+	{ course : String
+	, section : String
+	, capacity : Int
+	, slots : CrsSectionSlots
+	}
+	
+{-
+example =
+{ course = "CS 12"
+, section = "TCD"
+, capacity = 80
+, slots = WithSlots 14 }
+-}
+```
+
+: can also compose of records
+
+```elm
+type PageState
+	= Loading
+	| PageReady PageData -- Record
+	| PageError ErrorData -- Record
+```
+
+
+### 2) Pattern Matching
