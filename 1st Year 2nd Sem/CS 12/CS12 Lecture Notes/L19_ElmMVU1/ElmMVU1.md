@@ -67,6 +67,16 @@ view model =
 ```
 
 ### 4) Combine Model + View + Update + Msg + Main
+: basically  combines all components in a `main` function
+
+#### Browser.sandbox
+: every `main` function has `Browser.sandbox` which is a loop (like pyxel's view-update loop) that cycles like this
+
+	1. Msg (I/O happens)
+	2. Update (Output is processed in update func)
+	3. Model (Model is changed to another updated version)
+	4. View (Visualizes the Model in HTML)
+	5. Repeats
 
 ```elm
 import Browser
@@ -108,6 +118,8 @@ main =
 		{ init = init
 		, update = update
 		, view = view } -- like pyxel in python
+		
+
 ```
 
 ## 3. MVU (Model, View, Update)
