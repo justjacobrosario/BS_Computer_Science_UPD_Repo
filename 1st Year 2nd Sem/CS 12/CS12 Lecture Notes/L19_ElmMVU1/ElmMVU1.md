@@ -54,5 +54,16 @@ update msg model =
 import Html exposing (Html, button, div, text)
 import Html.Events exposing (onClick)
 
-view : Model -> H
+view : Model -> Html Msg
+view model =
+	-- Will explain parts in detail later
+	div []
+		-- Children
+		[ button [ onClick MsgIncrement ] [ text "+" ]
+		, p [] [ text (String.fromInt model) ]
+		, button [ onClick MsgDecrement ] [ text "-" ]
+		]
+		
 ```
+
+### 4) Combine Model + View
