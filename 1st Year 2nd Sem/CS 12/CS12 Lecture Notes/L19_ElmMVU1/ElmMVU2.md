@@ -89,6 +89,7 @@ Http.get
 
 ```elm
 init : () -> (Model, Cmd Msg)
+init _ = (InitJo)
 ```
 
 ```elm
