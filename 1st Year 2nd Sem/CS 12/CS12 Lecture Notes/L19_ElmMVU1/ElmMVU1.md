@@ -140,3 +140,32 @@ main =
 : since all updating states are within Model
 
 ## 3. View Function Making (Indepth)
+: view returns `HTML Msg` which is a DOM tree (makes HTML tags and implement it in the page) 
+
+### 1) HTML tags
+`import Html exposing (name_the_tags_to_use)`
+: tags are like functions which has params (typically attributes and children tags)
+: `tag -> List attributes -> List other_tags -> Html obj`
+```elm
+import Html exposing (div)
+
+div [ background-color Red ]
+	[ p [] [text "Hello" ]
+	, p [] [text "Hi"]
+	]
+```
+
+### 2) HTML events, processes
+`import Html.Events exposing (name_the_events_to_use)`
+: events are attributes of some tags (like buttons)
+
+: avents are like functions which has params (basically a value)
+: `tag -> List attributes -> List other_tags -> Html obj`
+```elm
+import Html exposing (div)
+import Html.Events exposing (onClick)
+
+div [ background-color Red ]
+	[ button [onClick Incrementtt] [ text = "+"]
+	]
+```
