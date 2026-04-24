@@ -85,11 +85,11 @@ Http.get
 : Like Model, Cmd Msg must have a value at the start of the runtime of the webpage, so there are two options that we can do to initialize both the Model and the Cmd Msg
 
 ##### OPTION 1: Make an init function
-: basically make an init function that returns initialized values for Model and Cmd Msg
+: basically make an init function that returns initialized value for Model and calls Cmd Msg
 
 ```elm
 init : () -> (Model, Cmd Msg)
-init _ = (InitJo)
+init _ = (init_val_of_Model, )
 ```
 
 ```elm
