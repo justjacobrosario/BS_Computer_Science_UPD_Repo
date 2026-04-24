@@ -85,10 +85,17 @@ Http.get
 : Like Model, Cmd Msg must have a value at the start of the runtime of the webpage, so there are two options that we can do to initialize both the Model and the Cmd Msg
 
 ##### OPTION 1: Make an init function
+: basically make an init function that returns initialized values for Model and Cmd Msg
 ```elm
 init : () -> (Model, Cmd Msg) -- Now (1) a function and (2) returns a tuple
 init _ = (LoadingJoke, getJoke) -- getJoke is executed on program start
 -- this will give an initial value for the Model and the Cmd Msg
+```
 
-
+##### OPTION 2: Change the Update
+: initially 
+```elm
+init : () -> (Model, Cmd Msg) -- Now (1) a function and (2) returns a tuple
+init _ = (LoadingJoke, getJoke) -- getJoke is executed on program start
+-- this will give an initial value for the Model and the Cmd Msg
 ```
