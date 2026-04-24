@@ -118,11 +118,15 @@ update : Msg -> Model -> (Model, Cmd Msg) -- Now returns a tuple
 update : Msg -> Model -> (Model, Cmd Msg) -- Now returns a tuple
 update msg model =
 	case msg of
-	MsgGotJoke result ->
+		MsgGotJoke result ->
 	case result of
-	Ok joke -> (ShowingJoke joke, Cmd.none)
-	Err err -> (ErrorPage (Debug.toString err), Cmd.none)
+		Ok joke -> (ShowingJoke joke, Cmd.none)
+		Err err -> (ErrorPage (Debug.toString err), Cmd.none)
 
 view : Model -> Html m -- Same as before
 view model =
+	case model of
+		LoadingJoke -> text "Loading joke..."
+		ShowingJoke joke -> text joke
+		ErrorPage error -> text error
 ```
