@@ -86,8 +86,13 @@ Http.get
 
 ##### OPTION 1: Make an init function
 : basically make an init function that returns initialized values for Model and Cmd Msg
+
 ```elm
-init : () -> (Model, Cmd Msg) -- Now (1) a function and (2) returns a tuple
+init : () -> (Model, Cmd Msg)
+```
+
+```elm
+init : () -> (Model, Cmd Msg) -- returns the initial value of Model and Cmd Msg
 init _ = (LoadingJoke, getJoke) -- getJoke is executed on program start (to fetch data from API)
 
 -- this will give an initial value for the Model and the Cmd Msg
