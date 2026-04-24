@@ -78,4 +78,6 @@ Http.get
 ```
 
 #### 2] Cmd Msg
-: like model, Cmd Msg is an object that updates through time
+: like Model, Cmd Msg is an object (but is fetche from an API) that also updates through time
+
+: Like Model, Cmd msg 
