@@ -94,10 +94,10 @@ init _ = (init_val_of_Model, APIFetcher)
 
 ```elm
 type Model
-= LoadingJoke -- State when data is being fetched
-(start)
-| ShowingJoke String -- State when data fetch succeeds
-| ErrorPage String -- State when data fetch fails
+	= LoadingJoke -- State when data is being fetched
+	(start)
+	| ShowingJoke String -- State when data fetch succeeds
+	| ErrorPage String -- State when data fetch fails
 
 type Msg = MsgGotJoke (Result Http.Error String)
 
@@ -112,5 +112,17 @@ init _ = (LoadingJoke, getJoke) -- getJoke is executed on program start (to fetc
 : now, we have to return a tuple of updated (Model, Cmd Msg)
 ```elm
 update : Msg -> Model -> (Model, Cmd Msg) -- Now returns a tuple
+```
 
+```elm
+update : Msg -> Model -> (Model, Cmd Msg) -- Now returns a tuple
+update msg model =
+	case msg of
+	MsgGotJoke result ->
+	case result of
+	Ok joke -> (ShowingJoke joke, Cmd.none)
+	Err err -> (ErrorPage (Debug.toString err), Cmd.none)
+
+view : Model -> Html m -- Same as before
+view model =
 ```
