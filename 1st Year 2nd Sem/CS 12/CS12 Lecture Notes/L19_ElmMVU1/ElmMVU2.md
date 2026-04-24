@@ -89,6 +89,7 @@ Http.get
 ```elm
 init : () -> (Model, Cmd Msg) -- Now (1) a function and (2) returns a tuple
 init _ = (LoadingJoke, getJoke) -- getJoke is executed on program start
+
 -- this will give an initial value for the Model and the Cmd Msg
 ```
 
