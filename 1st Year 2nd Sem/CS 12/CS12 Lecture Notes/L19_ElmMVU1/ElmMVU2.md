@@ -62,7 +62,7 @@ type Msg
 ```
 
 : when implemented, like this
- ```elm
+```elm
 import Http
 
 type Msg
@@ -76,4 +76,3 @@ Http.get
 , expect = Http.expectString MsgGotJoke
 }
 ```
-
