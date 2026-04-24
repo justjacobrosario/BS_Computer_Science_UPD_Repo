@@ -93,7 +93,15 @@ init _ = (init_val_of_Model, APIFetcher)
 ```
 
 ```elm
-init : () -> (Model, Cmd Msg) -- returns the initial value of Model and Cmd Msg
+type Model
+= LoadingJoke -- State when data is being fetched
+(start)
+| ShowingJoke String -- State when data fetch succeeds
+| ErrorPage String -- State when data fetch fails
+
+type Msg = MsgGotJoke (Result Http.Error String)
+
+init : () -> (Model, Cmd Msg) -- returns the initial value of Model and data fetcher for Cmd Msg
 init _ = (LoadingJoke, getJoke) -- getJoke is executed on program start (to fetch data from API)
 
 -- this will give an initial value for the Model and the Cmd Msg
