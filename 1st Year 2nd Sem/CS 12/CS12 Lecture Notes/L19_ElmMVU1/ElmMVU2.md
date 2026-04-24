@@ -76,3 +76,6 @@ Http.get
 , expect = Http.expectString MsgGotJoke
 }
 ```
+
+#### 2] Cmd Msg
+: like model, it is a 
