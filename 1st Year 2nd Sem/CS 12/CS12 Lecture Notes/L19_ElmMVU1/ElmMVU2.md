@@ -80,4 +80,7 @@ Http.get
 #### 2] Cmd Msg
 : like Model, Cmd Msg is an object (but is fetche from an API) that also updates through time
 
-: By default, we give Model an , Cmd Msg must have a value at the start of the runtime of the webpage, so there are two options that we can do to initialize both the Model and the Cmd Msg
+: By default, we give Model an initial value (like `value = 0` for the counter web app)
+
+: Like Model,  Cmd Msg must have a value at the start of the runtime of the webpage, so there are two options that we can do to initialize both the Model and the Cmd Msg
+
