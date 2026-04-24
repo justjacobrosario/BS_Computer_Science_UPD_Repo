@@ -53,6 +53,7 @@ div []
 type Result error value
 	= Ok value
 	| Err error
+-- dont implement this, not needed to implement
 ```
 
 : `MsgURLVal` must have a `Result` value like this in the Msg type
