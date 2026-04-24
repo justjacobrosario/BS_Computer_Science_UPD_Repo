@@ -82,5 +82,11 @@ Http.get
 
 : By default, we give Model an initial value (like `value = 0` for the counter web app)
 
-: Like Model,  Cmd Msg must have a value at the start of the runtime of the webpage, so there are two options that we can do to initialize both the Model and the Cmd Msg
+: Like Model, Cmd Msg must have a value at the start of the runtime of the webpage, so there are two options that we can do to initialize both the Model and the Cmd Msg
 
+##### OPTION 1: Make an init function
+```elm
+init : () -> (Model, Cmd Msg) -- Now (1) a function and (2) returns a tuple
+init _ = (LoadingJoke, getJoke) -- getJoke is executed on
+program start
+```
