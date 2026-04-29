@@ -10,8 +10,11 @@ field: programming
 	check  by `gcc --version`
 : workflow:
 ```
-(1. make file) -> ( 2. compile file) -> (3)
-filename.c -> `gcc filename.c -o hello` -> hello -> `./hello`
+filename.c -> (1. make file) -> 
+`gcc filename.c -o hello` -> (2. compile file) -> 
+hello -> (3. makes a binary executable)
+`./hello` -> (4. runs the executable)
+
 ```
 ### 1) Compiling
 `gcc filename.c -o hello`
@@ -22,22 +25,15 @@ filename.c -> `gcc filename.c -o hello` -> hello -> `./hello`
 : NOTE : You must  recompile then run the code for any revision
 
 ## 3. C Initial Points
-### 1) `#include <stdio.h>`
+: these are the usuals, consists of terms, syntax, and the usual template of a C program
+### 1) Preprocessor Directive
+`#include <stdio.h>`
 : like import lines in Python
-### 2) `int main() {}`
-: `main` function is always called 
-: returns  0
+: loads standard I/O library
+#### Preprocessor `#`
+: lines starting with `#` is processed even before compilation
 
-```c
-#include <stdio.h>
-
-int main() {
-    printf("Hello, wordsald!\n");
-	return 0
-}
-```
-
-### 3) Variables
+### 2) Variables
 #### 1] Declaration
 : before giving a value, variables must first be defined with its data type
 : snake_case like Python
@@ -49,12 +45,25 @@ int b, c:
 
 #### 2] Assignment
 
-### 4) Functions
+### 3) Functions
 ```
 <return_type> <func_name>(<arg_type> <arg_name>, ...) {
 <body>
 }
 ```
 : compared to Python, return type is mentioned first, the parameters are type-value pairs, and the body (consists of statements) is enclosed with { }
-### 5) Statements
+### 4) Statements
 : Statements (except for the last line of a function) end with a semicolon
+### 5) Entry point
+`int main() {}`
+: basically a `main` function that is always called 
+: returns 0 (can be remove ONLY for `main`)
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, wordsald!\n");
+	return 0
+}
+```
