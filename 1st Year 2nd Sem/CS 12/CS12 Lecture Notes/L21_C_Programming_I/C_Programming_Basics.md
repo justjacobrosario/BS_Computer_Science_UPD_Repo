@@ -18,4 +18,32 @@ field: programming
 : NOTE : You must  recompile then run the code for any revision
 
 ## 3. C Initial Points
-#### 1] `#include <stdio.h>`
+### 1) `#include <stdio.h>`
+: like import lines in Python
+### 2) `int main() {}`
+: `main` function is always called 
+: returns  0
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, wordsald!\n");
+	return 0
+}
+```
+
+### 3) Variables
+#### 1] Declaration
+
+
+
+### 4) Functions
+```
+<return_type> <func_name>(<arg_type> <arg_name>, ...) {
+<body>
+}
+```
+: compared to Python, return type is mentioned first, the parameters are type-value pairs, and the body (consists of statements) is enclosed with { }
+### 5) Statements
+: Statements (except for the last line of a function) end with a semicolon
