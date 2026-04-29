@@ -44,12 +44,17 @@ hello -> (3. makes a binary executable)
 : can be done separately or simultaneously with declaration
 
 ```c
-int a:
-a = 1
+// separated
+int a;
+a = 1;
 
-int b, c:
+// declared and assigned 
+int b = 2;
 
-int c = 
+// can declare and assign multipl
+int c = 3, d = 4;
+
+
 ```
 
 
