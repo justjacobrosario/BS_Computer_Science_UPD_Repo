@@ -8,7 +8,11 @@ field: programming
 ## 2. Compiling and Running C Program
 : considering that gcc is installed in the terminal
 	check  by `gcc --version`
-
+: workflow:
+```
+(make file) -> (compilefile)
+filename.c -> `gcc filename.c -o hello` -> hello -> `./hello`
+```
 ### 1) Compiling
 `gcc filename.c -o hello`
 
