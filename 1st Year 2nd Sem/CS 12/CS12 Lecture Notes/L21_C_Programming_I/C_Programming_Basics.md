@@ -46,8 +46,8 @@ hello -> (3. makes a binary executable)
 #### 3] Constantiating
 `const <var_type> <var_name> = <value>`
 : ONLY if variable value is meant to be constant
-: making variables
-
+: making variables constant is kept constant by the compiler
+: usually uppercase
 
 ```c
 // separated
@@ -61,7 +61,7 @@ int b = 2;
 int c = 3, d = 4;
 
 // can make variables constant
-
+const int ABSOLUTE_ZERO = 0
 ```
 
 
