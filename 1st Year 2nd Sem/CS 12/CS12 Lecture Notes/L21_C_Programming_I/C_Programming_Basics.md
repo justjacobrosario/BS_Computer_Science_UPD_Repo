@@ -10,7 +10,7 @@ field: programming
 	check  by `gcc --version`
 : workflow:
 ```
-(make file) -> (compilefile)
+(1. make file) -> ( 2. compile file) -> (3)
 filename.c -> `gcc filename.c -o hello` -> hello -> `./hello`
 ```
 ### 1) Compiling
