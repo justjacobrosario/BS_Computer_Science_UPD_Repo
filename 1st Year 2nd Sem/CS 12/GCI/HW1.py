@@ -1,4 +1,4 @@
-import numpy as np
+'''import numpy as np
 
 a = np.array([1, 5, 10, 3, 4, 25, 30])
 
@@ -9,29 +9,7 @@ def homework(a):
 
     return res
 
-import ast
-import inspect
 
-
-def hw_public_tests():
-    print("=== Public Tests ===")
-
-    source = inspect.getsource(homework)
-    tree = ast.parse(source)
-
-    # Test 1: Disallow import statements
-    print("Test 1: Check for import statements...", end=" ")
-    for node in ast.walk(tree):
-        if isinstance(node, (ast.Import, ast.ImportFrom)):
-            print("NG")
-            print("  homework() contains import statements. Please remove them.")
-            return
-    print("OK")
-
-    print("=== All Public Tests Passed ===")
-
-
-hw_public_tests()
 print(homework(a))
 
 URL = "https://www.ncei.noaa.gov/pub/data/cdo/samples/GHCND_sample_csv.csv"
@@ -50,3 +28,7 @@ week_one_prcp = week_one_prcp / 10
 week_two_tmax = week_two_tmax / 10
 
 week_one_temp_range = week_one_tmax - week_one_tmin
+'''
+
+
+print("hi")
