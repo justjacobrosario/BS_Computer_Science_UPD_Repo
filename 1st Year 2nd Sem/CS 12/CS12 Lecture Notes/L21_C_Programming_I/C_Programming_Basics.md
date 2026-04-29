@@ -37,11 +37,12 @@ hello -> (3. makes a binary executable)
 #### 1] Declaration
 : before giving a value, variables must first be defined with its data type
 : snake_case like Python
-
+: when we only declare variables, 
 ```c
 int a:
 int b, c:
 ```
+
 
 #### 2] Assignment
 
