@@ -43,6 +43,10 @@ hello -> (3. makes a binary executable)
 : basically assigning values to variables
 : can be done separately or simultaneously with declaration
 
+#### 3] Constantiating
+: ONLY if variable value is meant to be constant
+
+
 ```c
 // separated
 int a;
@@ -51,7 +55,7 @@ a = 1;
 // declared and assigned 
 int b = 2;
 
-// can declare and assign multipl
+// can declare and assign multiple variables w same type
 int c = 3, d = 4;
 
 
