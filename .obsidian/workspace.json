@@ -181,12 +181,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ElmMVU1"
+              "title": "Elm_Records"
             }
           },
           {
@@ -387,17 +387,17 @@
   },
   "active": "40f036e8f0c01e28",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU2.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/L19_ElmMVU1.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU2.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/L19_ElmMVU1.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/ARTS 1/Food And Ecology.md",

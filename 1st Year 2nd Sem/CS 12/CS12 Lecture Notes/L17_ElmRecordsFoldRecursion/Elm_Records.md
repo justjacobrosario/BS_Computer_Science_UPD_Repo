@@ -1,5 +1,5 @@
 ## 1. Records 
-: Collection of values with fixed key names (like dict but the keys are dynamic)
+: Collection of values with fixed key names (like dict in syntax but the keys are dynamic, and like a class where the keys are the properties)
 
 ```elm
 { artist : "Eraserheads"
