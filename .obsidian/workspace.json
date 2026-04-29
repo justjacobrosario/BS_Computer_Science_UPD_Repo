@@ -8,203 +8,34 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ec94b09770797a33",
+            "id": "4be095897794b093",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L13_HTMLAndDOM"
+              "title": "C_Programming_Basics"
             }
           },
           {
-            "id": "1b5e531731074e1e",
+            "id": "88e3bf9906b7a6d9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L14_AsynchronousProgramming"
-            }
-          },
-          {
-            "id": "6fa206c8307756e0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Elm"
-            }
-          },
-          {
-            "id": "8cb823c558cbc8d0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "L15_ElmBasics"
-            }
-          },
-          {
-            "id": "89e95d1291d8f22f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "L16_ImmutableDataTypes"
-            }
-          },
-          {
-            "id": "9ffd3782aa65aec2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "L16_ImmutableDataTypes"
-            }
-          },
-          {
-            "id": "299ea33135c2bcd2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Elm_Records"
-            }
-          },
-          {
-            "id": "8ee7bbe015249e02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "PythonAlgorithms"
-            }
-          },
-          {
-            "id": "5fcf59892157cc2f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "L18_ElmAlgebraicDataTypes"
-            }
-          },
-          {
-            "id": "ca9f7b84d8ac13ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "L17_ElmRecords,Fold,Recursion"
-            }
-          },
-          {
-            "id": "adc2759853e8d6c2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/L19_ElmMVU1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "L19_ElmMVU1"
-            }
-          },
-          {
-            "id": "5470b3c62ad03f4b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "ElmMVU1"
-            }
-          },
-          {
-            "id": "40f036e8f0c01e28",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU2.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ElmMVU2"
-            }
-          },
-          {
-            "id": "cebf70420e84e66b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Elm_Records"
+              "title": "C_Programming_Basics"
             }
           }
-        ],
-        "currentTab": 12
+        ]
       }
     ],
     "direction": "vertical"
@@ -385,44 +216,44 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "40f036e8f0c01e28",
+  "active": "4be095897794b093",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU2.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/ElmMVU2.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/L20_MVU2_API.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/L19_ElmMVU1.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/Untitled.md",
+    "Untitled.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1",
     "1st Year 2nd Sem/ARTS 1/Food And Ecology.md",
     "1st Year 2nd Sem/ARTS 1",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "Untitled.md",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
     "1st Year 2nd Sem/GCI Data Science",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/hi_love.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index - Copy.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/pyscript.toml",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/data.json",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/main.py",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/config.json",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/httpxModuleForAsynchronousProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
-    "Quick Notes.md",
-    "Programming Quick Notes.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
