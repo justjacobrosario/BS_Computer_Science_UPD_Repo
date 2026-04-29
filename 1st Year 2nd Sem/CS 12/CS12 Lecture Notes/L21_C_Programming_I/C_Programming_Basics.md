@@ -43,7 +43,7 @@ int a:
 int b, c:
 ```
 
-#### 4]
+#### 2] Assignment
 
 ### 4) Functions
 ```
