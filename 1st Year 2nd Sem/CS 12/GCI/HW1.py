@@ -52,11 +52,14 @@ Blocks:
 🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉"""
 
 form_dic = dict()
-
+names = []
 form_lines = formatted.split("\n")
 
 for i, line in enumerate(form_lines):
-    if i%3 == 2:
-        form_dic = form_dic | {i:line}
+    if i%3 == 1:
+        names.append(line.replace(" ", "_"))
+    '''if i%3 == 2:
+                    form_dic = form_dic | {i:line}'''
 
-print(form_dic)
+#print(form_dic)
+print(names)
