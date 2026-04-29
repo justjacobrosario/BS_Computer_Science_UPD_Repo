@@ -51,15 +51,15 @@ Double-Struck:
 Blocks:
 🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉"""
 
-form_dic = dict()
-names = []
+form_dic = []
+form_names = ['Bold_(sans):', 'Italic_Bold_(serif):', 'Italic_Bold_(sans):', 'Medieval_Bold:', 'Double-Struck:', 'Blocks:']
+
 form_lines = formatted.split("\n")
+acc = 0
 
 for i, line in enumerate(form_lines):
-    if i%3 == 1:
-        names.append(line.replace(" ", "_"))
-    '''if i%3 == 2:
-                    form_dic = form_dic | {i:line}'''
+    if i%3 == 2:
+        form_dic.append((form_names[acc],line))
+        acc += 1
 
-#print(form_dic)
-print(names)
+print(form_dic)
