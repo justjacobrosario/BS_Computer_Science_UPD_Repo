@@ -40,11 +40,14 @@ hello -> (3. makes a binary executable)
 : when we only declare variables, useless memory called "garbage" is there
 
 #### 2] Assignment
-: basically 
+: basically assigning values to variables
+: can be done separately or simultaneously with declaration
 
 ```c
 int a:
 int b, c:
+
+a = 1
 ```
 
 
