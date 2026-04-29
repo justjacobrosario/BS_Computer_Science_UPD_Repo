@@ -44,7 +44,9 @@ hello -> (3. makes a binary executable)
 : can be done separately or simultaneously with declaration
 
 #### 3] Constantiating
+`const <var_type> <var_name> = <value>`
 : ONLY if variable value is meant to be constant
+: making variables
 
 
 ```c
@@ -58,6 +60,7 @@ int b = 2;
 // can declare and assign multiple variables w same type
 int c = 3, d = 4;
 
+// can make variables constant
 
 ```
 
