@@ -35,8 +35,15 @@ int main() {
 
 ### 3) Variables
 #### 1] Declaration
+: before giving a value, variables must first be defined with its data type
+: snake_case like Python
 
+```c
+int a:
+int b, c:
+```
 
+#### 4]
 
 ### 4) Functions
 ```
