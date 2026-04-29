@@ -45,9 +45,11 @@ hello -> (3. makes a binary executable)
 
 ```c
 int a:
+a = 1
+
 int b, c:
 
-a = 1
+int c = 
 ```
 
 
