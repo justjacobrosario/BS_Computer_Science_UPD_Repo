@@ -37,7 +37,7 @@ hello -> (3. makes a binary executable)
 #### 1] Declaration
 : before giving a value, variables must first be defined with its data type
 : snake_case like Python
-: when we only declare variables, useless memory called "garbage" is there
+: when we only declare variables, useless random memory called "garbage" is there, which gives certain bytes of memory the moment variables are declared (even if theres no value yet!)
 
 #### 2] Assignment
 : basically assigning values to variables
