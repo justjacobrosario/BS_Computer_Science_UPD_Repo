@@ -51,14 +51,18 @@ int b, c:
 <body>
 }
 ```
-: compared to Python, return type is mentioned first, the parameters are type-value pairs, and the body (consists of statements) is enclosed with { }
+: compared to Python, 
+	- return type is mentioned first, 
+	- the parameters are type-value pairs, and 
+	- the body (consists of statements) is enclosed with { }
 ### 4) Statements
 : Statements (except for the last line of a function) end with a semicolon
-### 5) Entry point
+### 5) Entry Point
 `int main() {}`
-: basically a `main` function that is always called 
+: basically the `main` function that is always called 
 : returns 0 (can be remove ONLY for `main`)
 
+: this is a basic C program
 ```c
 #include <stdio.h>
 
