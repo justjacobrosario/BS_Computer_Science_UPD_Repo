@@ -89,4 +89,5 @@ Context: The liturgy (mass) celebrated in Earth, joins the heavenly liturgy by t
 
 i.e. the church body in Earth and Heaven worship God. And commemorating the saints joins earthly liturgies to heavenly liturgies
 
-## C,  
+## C. Old Testament Precedent: A righteous departed leader prays for Israel
+
