@@ -87,4 +87,4 @@ i.e. the saints offers the prayer of the believers of earth towards God.
 
 Context: The liturgy (mass) celebrated in Earth, joins the heavenly liturgy by the commemoration (recognition) of the saints.
 
-i.e. the church body in Earth and Heaven worship God. And commemorating the saints, 
+i.e. the church body in Earth and Heaven worship God. And commemorating the saints joins earthly liturgies to heavenly liturgies
