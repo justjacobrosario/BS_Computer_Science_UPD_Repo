@@ -38,3 +38,4 @@ Implication: The church as a whole (church militant, suffering, and triumphant) 
 >**CCC 953**:
 >	“In the _sanctorum communio_, ’None of us lives to himself, and none of us dies to himself.’ ’If one member suffers, all suffer together; if one member is honored, all rejoice together. Now you are the body of Christ and individually members of it.”‘
 
+Implication: Asking a saint to pray for you is the same as asking your friend to pray for you
