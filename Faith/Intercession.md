@@ -13,3 +13,10 @@ field: theology
 
 Context & Implication: St. Paul said to the believers in Rome that nothing, even death, can separate us from the love of God.
 
+### 2. Scriptural Basis
+
+> - **CCC 954**
+	“The three states of the Church. ’When the Lord comes in glory, and all his angels with him, death will be no more and all things will be subject to him. But at the present time some of his disciples are pilgrims on earth. Others have died and are being purified, while still others are in glory, contemplating ‘in full light, God himself triune and one, exactly as he is’… All of us, however, in varying degrees and in different ways share in the same charity towards God and our neighbours, and we all sing the one hymn of glory to our God.”
+
+Implication: The church is one family (communion of saints) consisting the Church Militant (in Earth), Church Suffering (in Purgatory), and Church  Triumphant (in Heaven)
+
