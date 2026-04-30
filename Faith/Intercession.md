@@ -44,9 +44,33 @@ i.e. Intercession to the saints refers to asking the church family in heaven to 
 
 # II. The Saints has awareness and is capable to intercede
 
+## A. The cloud of witnesses in heaven are actively watching us
 ### 1. Scriptural Basis
 
 > - Hebrews 12:1
 > 	**1** Therefore, since we are surrounded by so great a cloud of witnesses, let us rid ourselves of every burden and sin that clings to us and persevere in running the race that lies before us.
 
-Context: St. Paul talks about the church as a body in the christians in Corinth
+Context: The cloud of witnesses refers to the saints and the prophets mentioned in Hebrews 11. The Greek word for “witnesses” (μάρτυρες) implies more than passive spectators; they are aware of our race.
+
+### 2. Church Basis
+
+>**CCC 2683**
+>	“The witnesses who have preceded us into the kingdom, especially those whom the Church recognizes as saints, share in the living tradition of prayer by the example of their lives, the transmission of their writings, and their prayer today. They contemplate God, praise him and constantly care for those whom they have left on earth.”
+
+>**Lumen Gentium 50**
+>	“Exactly as Christian communion among our fellow pilgrims brings us closer to Christ, so our communion with the saints joins us to Christ, from whom as from its fountain and head issues all grace, and the life of the People of God itself.”
+
+Implication: The saints in heaven is not unconscious or unaware. They are fully alive in Christ, actively aware (as witnesses) of our current struggles in life, where they always care for those christians remaining on Earth.
+
+i.e. Asking someone to pray for you is encouraged by Jesus. That someone can be anyone, especially to the saints in heaven who already succeeded in life with Christ and who will certainly care for you than any living person in Earth.
+
+## B. The saints in Heaven can directly offer prays to God
+
+### 1. Scriptural Basis
+
+> - Revelation 5:8
+> 	**8** When he took it, the four living creatures and the twenty-four elders fell down before the Lamb. Each held a harp and golden bowls filled with incense, which are the prayers of the holy ones.
+
+Context: This is a part of the heavenly visions of St. John of Patmos.
+
+Implication: The sealed scroll, which the Lamb (Jesus) is deemed worthy of opening it, are the prayers of the saints. This gives importance of the believers' prayers before God
