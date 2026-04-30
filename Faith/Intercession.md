@@ -85,4 +85,6 @@ i.e. the saints offers the prayer of the believers of earth towards God.
 > **Lumen Gentium 50**
 	> “For just as Christian communion among wayfarers brings us closer to Christ, so our companionship with the saints joins us to Christ … we seek from the saints ’example in their way of life, fellowship in their communion, and aid by their intercession.’”
 
-Context: The liturgy
+Context: The liturgy (mass) celebrated in Earth, joins the heavenly liturgy by the commemoration (recognition) of the saints.
+
+i.e. the church body in Earth and Heaven worship God. And commemorating the saints, 
