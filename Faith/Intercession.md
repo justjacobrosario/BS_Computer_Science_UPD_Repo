@@ -39,3 +39,14 @@ Implication: The church as a whole (church militant, suffering, and triumphant) 
 >	“In the _sanctorum communio_, ’None of us lives to himself, and none of us dies to himself.’ ’If one member suffers, all suffer together; if one member is honored, all rejoice together. Now you are the body of Christ and individually members of it.”‘
 
 Implication: Asking a saint to pray for you is the same as asking your friend to pray for you
+
+i.e. Intercession to the saints refers to asking the church family in heaven to pray for you, made possible from Christ conquering death, connecting the Church to both realm.
+
+# II. The Saints has awareness and is capable to intercede
+
+### 1. Scriptural Basis
+
+> - Hebrews 12:1
+> 	**1** Therefore, since we are surrounded by so great a cloud of witnesses, let us rid ourselves of every burden and sin that clings to us and persevere in running the race that lies before us.
+
+Context: St. Paul talks about the church as a body in the christians in Corinth
