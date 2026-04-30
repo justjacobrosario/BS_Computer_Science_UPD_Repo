@@ -71,6 +71,6 @@ i.e. Asking someone to pray for you is encouraged by Jesus. That someone can be 
 > - Revelation 5:8
 > 	**8** When he took it, the four living creatures and the twenty-four elders fell down before the Lamb. Each held a harp and golden bowls filled with incense, which are the prayers of the holy ones.
 
-Context: This is a part of the heavenly visions of St. John of Patmos.
+Context: This is a part of the heavenly visions of St. John of Patmos. The 24 elders represents the faithful in the Old and New Testament (the saints)
 
 Implication: The sealed scroll, which the Lamb (Jesus) is deemed worthy of opening it, are the prayers of the saints. This gives importance of the believers' prayers before God
