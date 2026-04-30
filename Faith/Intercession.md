@@ -73,4 +73,6 @@ i.e. Asking someone to pray for you is encouraged by Jesus. That someone can be 
 
 Context: This is a part of the heavenly visions of St. John of Patmos. The 24 elders represents the faithful in the Old and New Testament (the saints)
 
-Implication: The sealed scroll, which the Lamb (Jesus) is deemed worthy of opening it, are the prayers of the saints. This gives importance of the believers' prayers before God
+Implication: The sealed scroll, which the Lamb (Jesus) is deemed worthy of opening it, are the prayers of the saints. This gives importance of the believers' prayers before God.
+
+i.e. the saints offers the prayer of the believers of earth towards God.
