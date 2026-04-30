@@ -22,6 +22,20 @@
             }
           },
           {
+            "id": "bd9801c21a12f739",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Faith/Intercession.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Intercession"
+            }
+          },
+          {
             "id": "88e3bf9906b7a6d9",
             "type": "leaf",
             "state": {
@@ -35,7 +49,8 @@
               "title": "C_Programming_Basics"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -216,8 +231,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4be095897794b093",
+  "active": "bd9801c21a12f739",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
+    "Faith/Intercession.md",
+    "made in laptop.md",
+    "Faith",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/ElmMVU2.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
@@ -226,7 +245,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/L18_ElmAlgebraicDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
@@ -236,7 +254,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/Untitled.md",
-    "Untitled.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1",
@@ -249,11 +266,9 @@
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/hi_love.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index - Copy.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/pyscript.toml",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/data.json",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/httpxModuleForAsynchronousProgramming.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
