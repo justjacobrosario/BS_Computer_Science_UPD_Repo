@@ -76,3 +76,13 @@ Context: This is a part of the heavenly visions of St. John of Patmos. The 24 el
 Implication: The sealed scroll, which the Lamb (Jesus) is deemed worthy of opening it, are the prayers of the saints. This gives importance of the believers' prayers before God.
 
 i.e. the saints offers the prayer of the believers of earth towards God.
+
+### 1. Church Basis
+
+>**CCC 1370** 
+>	“To the offering of Christ are united not only the members still here on earth, but also those already in the glory of heaven. In communion with and commemorating the Blessed Virgin Mary and all the saints, the Church offers the Eucharistic sacrifice.”
+
+> **Lumen Gentium 50**
+	> “For just as Christian communion among wayfarers brings us closer to Christ, so our companionship with the saints joins us to Christ … we seek from the saints ’example in their way of life, fellowship in their communion, and aid by their intercession.’”
+
+Context: This is a part of the heavenly visions of St. John of Patmos. The 24 elders represents the faithful in the Old and New Testament (the saints)
