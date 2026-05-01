@@ -118,7 +118,7 @@ int main() {
 
 NOTE: C has no boolean, only use 0 and 1
 
-## 4) Control Structures
+## 4. Control Structures
 ```c
 if (x > 0) {
     printf("positive\n");
@@ -158,7 +158,7 @@ for i in range(5):
     print(i)
 ```
 
-## 5) printf and Functions
+## 5. printf and Functions
 
 ### 1) printf
 : similar to Python's `print(f" ... ")`
@@ -266,7 +266,7 @@ void show_sum(int a, int b) {
 ```
 
 
-
+## 6. 
 
 
 
