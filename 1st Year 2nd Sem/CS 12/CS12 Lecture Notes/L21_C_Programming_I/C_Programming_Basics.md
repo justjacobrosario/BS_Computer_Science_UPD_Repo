@@ -171,18 +171,20 @@ print(f"{x} + {y} = {x+y}")
 in C:
 ```c
 printf("%d + %d = %d\n", x, y, x+y);
+//     string to print,  vars, expression
+// order of vars must be the same to the type hints
 ```
 
-| data type           | type hint                               |
-| ------------------- | --------------------------------------- |
-| Signed Int          | %d                                      |
-| Unsigned Int        | %u                                      |
-| Single ASCII char   | %c                                      |
-| String (char array) | %s                                      |
-| Float/double        | %f                                      |
-| long/long long      | %ld / %lld                              |
-| Hex                 | %x                                      |
-| Special elements    | newline: \n<br>tab: \t<br>null char: \0 |
+| data type                                                                               | type hint                               |
+| --------------------------------------------------------------------------------------- | --------------------------------------- |
+| Signed Int                                                                              | %d                                      |
+| Unsigned Int                                                                            | %u                                      |
+| Single ASCII char                                                                       | %c                                      |
+| String (char array)                                                                     | %s                                      |
+| Float/double                                                                            | %f                                      |
+| long/long long                                                                          | %ld / %lld                              |
+| Hex                                                                                     | %x                                      |
+| Special elements<br>(these are added in the type part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
 ### 2) Functions
 : In python functions can:
 	1. optional return type
@@ -190,14 +192,41 @@ printf("%d + %d = %d\n", x, y, x+y);
 	3. can do higher-order funcs
 
 : in C, functions:
-	1. need return type
+	1. need return type (except for voids)
 	2. defined outside any code blocks / funcs
 	3. no higher-order funcs
 	4. order is vital, parameters must have value, or at least has a prototype
 
 #### 1] Defining Functions
+: for functions  that has a return value, simply type the return type on the first line of the func
+
 ```c
-void square(int n){
-	printf("%)
+#include <stdio.h>
+
+int return_square(int n){
+    return n * n;
 }
+int main() {
+    
+printf("%d\n",return_square(2));
+// i addded \n to just make a new line for aesthetics
+
+}
+
+```
+
+: for functions that doesnt return anything (like when it only prints things), make the first keyword be `void`
+
+```c
+#include <stdio.h>
+
+void print_square(int n){
+    printf("%d\n", n*n); // n*n is seen as a single int, thats why only one %d
+    // i addded \n to just make a new line for aesthetics
+}
+
+int main() {
+    print_square(2);
+}
+
 ```
