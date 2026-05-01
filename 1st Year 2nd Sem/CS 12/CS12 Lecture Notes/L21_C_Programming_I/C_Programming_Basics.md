@@ -231,4 +231,5 @@ int main() {
 
 ```
 
-#### 3]
+#### 3] function prototype
+: in C, params and functions can only be used if it alread
