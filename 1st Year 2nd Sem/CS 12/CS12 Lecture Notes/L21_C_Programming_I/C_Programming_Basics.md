@@ -246,11 +246,24 @@ void show_sum(int a, int b) {
 }
 
 int main() {
-    show_sum(1, 2); // ✅ defined above
+    show_sum(1, 2); // func is defined above
 }
 ```
 
+via prototype:
 
+```c
+// Prototype: return type + name + arg types
+void show_sum(int, int);
+
+int main() {
+    show_sum(1, 2); // ✅ prototype above
+}
+
+void show_sum(int a, int b) {
+    printf("%d + %d = %d\n", a, b, a+b);
+}
+```
 
 
 
