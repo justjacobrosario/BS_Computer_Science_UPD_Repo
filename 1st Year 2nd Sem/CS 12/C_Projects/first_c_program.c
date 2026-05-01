@@ -1,9 +1,8 @@
 #include <stdio.h>
-int square(int n){
-    //printf("%d*%d", n*n);
-    return n * n;
+void print_square(int n){
+    printf("%d\n", n*n); // n*n is seen as a single int, thats why only one %d
 }
+
 int main() {
-    
-printf("%d",square(2));
+    print_square(2);
 }
