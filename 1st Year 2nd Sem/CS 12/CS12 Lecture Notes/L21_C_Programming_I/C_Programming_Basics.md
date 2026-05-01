@@ -232,4 +232,31 @@ int main() {
 ```
 
 #### 3] function prototype
-: in C, params and functions can only be used if it alread
+: in C, params and functions can only be used if it already has been defined
+
+: however, calling functions before defining it can be valid via prototypes
+
+: prototypes basically defines the return type and parameter of the function (without the body yet)
+
+e.g.
+
+```c
+void show_sum(int a, int b) {
+    printf("%d + %d = %d\n", a, b, a+b);
+}
+
+int main() {
+    show_sum(1, 2); // ✅ defined above
+}
+```
+
+
+
+
+
+
+
+
+
+
+
