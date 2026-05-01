@@ -257,7 +257,7 @@ via prototype:
 void show_sum(int, int);
 
 int main() {
-    show_sum(1, 2); // ✅ prototype above
+    show_sum(1, 2); // func prototype above
 }
 
 void show_sum(int a, int b) {
