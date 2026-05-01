@@ -1,6 +1,9 @@
 #include <stdio.h>
-
+int square(int n){
+    //printf("%d*%d", n*n);
+    return n * n;
+}
 int main() {
-    printf("Hello, wordsadsld!\n");
-
+    
+printf("%d",square(2));
 }

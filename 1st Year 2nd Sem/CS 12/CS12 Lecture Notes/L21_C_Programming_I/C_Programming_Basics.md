@@ -159,3 +159,45 @@ for i in range(5):
 ```
 
 ## 5) printf and Functions
+
+### 1) printf
+: similar to Python's `print(f" ... ")`
+in Python:
+```python
+print(f"{x} + {y} = {x+y}")
+```
+
+: it is type-variable pair
+in C:
+```c
+printf("%d + %d = %d\n", x, y, x+y);
+```
+
+| data type           | type hint                               |
+| ------------------- | --------------------------------------- |
+| Signed Int          | %d                                      |
+| Unsigned Int        | %u                                      |
+| Single ASCII char   | %c                                      |
+| String (char array) | %s                                      |
+| Float/double        | %f                                      |
+| long/long long      | %ld / %lld                              |
+| Hex                 | %x                                      |
+| Special elements    | newline: \n<br>tab: \t<br>null char: \0 |
+### 2) Functions
+: In python functions can:
+	1. optional return type
+	2. can be defined anywhere (even inside functions)
+	3. can do higher-order funcs
+
+: in C, functions:
+	1. need return type
+	2. defined outside any code blocks / funcs
+	3. no higher-order funcs
+	4. order is vital, parameters must have value, or at least has a prototype
+
+#### 1] Defining Functions
+```c
+void square(int n){
+	printf("%)
+}
+```
