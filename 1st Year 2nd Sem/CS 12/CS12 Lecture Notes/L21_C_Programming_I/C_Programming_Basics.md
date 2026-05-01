@@ -96,3 +96,65 @@ int main() {
 
 
 ## 3. Operators and Control Structures
+
+### 1) Arithmetic Operators
+`+, -, *, /, %`
+
+### 2) Comparison Operators
+`==, !=, <, >, <=, >=`
+
+### 3) Logical Operators
+`&& || !`
+
+### 4) Bitwise Operators
+`& | ^ ~ << >>`
+
+### 5) Compound Assignments
+: increments, ...
+`+= -= *= /=`
+
+### 6) Post Compound Assignments
+: increment by 1, ...
+
+NOTE: C has no boolean, only use 0 and 1
+
+## 4) Control Structures
+```c
+if (x > 0) {
+    printf("positive\n");
+} else if (x == 0) {
+    printf("zero\n");
+} else {
+    printf("negative\n");
+}
+
+// while
+while (x > 0) {
+    x--;
+}
+
+// for (condition in parens!)
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", i);
+}
+```
+
+when compared to Python:
+```python
+# if-elif-else
+if x > 0:
+    print("positive")
+elif x == 0:
+    print("zero")
+else:
+    print("negative")
+
+# while
+while x > 0:
+    x -= 1
+
+# for range
+for i in range(5):
+    print(i)
+```
+
