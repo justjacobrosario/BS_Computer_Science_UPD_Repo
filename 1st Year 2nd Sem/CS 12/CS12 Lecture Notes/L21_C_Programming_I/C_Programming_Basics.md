@@ -266,7 +266,7 @@ void show_sum(int a, int b) {
 ```
 
 
-## 6. 
+## 6. Top-level, scope, and #define
 
 
 
