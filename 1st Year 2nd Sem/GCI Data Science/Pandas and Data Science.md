@@ -105,7 +105,8 @@ dtype: int64
 ```
 
 : left part is the indices, and the right are the values
-: `dtype`
+: `dtype`tells the data type
+
 
 ### 2) DataFrame
 : 2-Dimension
