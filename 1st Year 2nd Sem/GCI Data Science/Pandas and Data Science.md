@@ -316,7 +316,37 @@ Name: Name, Length: 17562, dtype: str
 '''
 ```
 
-#### 4] Extracting only a row/s
-`data_frame_var[index_i : index_f]`
 
-#### 5] Extracting a row in-detail
+#### 4] Extracting a row/s
+`data_frame_var.loc[index_num]`
+:if only one row, this returns a series, else a data frame
+: if mulitple rows, the index slicing here is INCLUSIVE
+
+```python
+print(anime_data.head().loc[0:3])
+
+'''
+   MAL_ID                             Name Score  ... Score-3 Score-2 Score-1
+0       1                     Cowboy Bebop  8.78  ...  1357.0   741.0  1580.0
+1       5  Cowboy Bebop: Tengoku no Tobira  8.39  ...   221.0   109.0   379.0
+2       6                           Trigun  8.24  ...   664.0   316.0   533.0
+3       7               Witch Hunter Robin  7.27  ...   353.0   164.0   131.0
+
+[4 rows x 35 columns]
+'''
+```
+
+`data_frame_var.loc[index_num, [col1, col2]]`
+: you can only view needed columns
+
+```python
+print(anime_data.head().loc[0:3, ["Name", "Score"]])
+
+'''
+                              Name Score
+0                     Cowboy Bebop  8.78
+1  Cowboy Bebop: Tengoku no Tobira  8.39
+2                           Trigun  8.24
+3               Witch Hunter Robin  7.27
+'''
+```

@@ -39,5 +39,6 @@ anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.
 
 #print(anime_data)
 
-print(anime_data.head()[4:5])
-print(anime_data.head().loc[4])
+
+print(anime_data.head().iloc[0:3])
+print(anime_data.head().loc[0:3])
