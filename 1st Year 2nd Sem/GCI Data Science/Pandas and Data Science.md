@@ -57,6 +57,14 @@ subfield: data science
 : enables processing various types of data
 : i.e. can handle data like as if you were using Excel
 
+libraries used
+```python
+import numpy as np
+import numpy.random as random
+import pandas as pd
+from pandas import Series, DataFrame
+```
+
 ## 1. Pros and Cons
 
 ### 1) Pros
@@ -75,11 +83,18 @@ subfield: data science
 : only has rows
 ```md
                column 1
-       index    ID
-row 1    0      100
-row 2    1      101
-row 3    2      102
+       index    Val
+row 1    0      2
+row 2    1      4
+row 3    2      6
 ```
+
+e.g.
+```python
+series = Series([2, 4, 6, 8, 10])
+```
+
+
 
 ### 2) DataFrame
 : 2-Dimension
