@@ -173,6 +173,9 @@ mean_per_row = np.mean(grid, axis=0)
 ##### a. Default Indexing
 in a form:
 `grid[row num][col num]`
+	1. grid is sliced by first bracket (impling row num)
+	2. then in that row num, it is sliced again inside (col num)
+	NOTE: if a bracket is not single value, the row num-col num concept is not applicable
 
 ```python
 grid = np.array([
@@ -181,7 +184,8 @@ grid = np.array([
 [7, 8, 9]])
 
 print(grid[0][1]) # 2 
-print(grid[0:2][1]) # [4 5 6]
+print(grid[0:2][1]) 
+# slice to [[1 2 3],[4 5 6]] then [4 5 6]
 
 ```
 
@@ -204,9 +208,6 @@ print(grid[[0, 1], 1])
 
 ```
 
-
-
-
 #### 4] Boolean Return Function
 
 ```python
@@ -214,8 +215,8 @@ grid = np.array([
 [1, 2, 3],
 [4, 5, 6],
 [7, 8, 9]])
-is_even = grid % 2 == 0
-print(is_even)
+is_even_grid = grid % 2 == 0
+print(is_even_grid)
 '''
 array([
 [False,  True, False],
