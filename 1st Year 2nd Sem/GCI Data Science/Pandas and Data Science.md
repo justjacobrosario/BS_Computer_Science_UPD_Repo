@@ -108,18 +108,52 @@ dtype: int64
 : `dtype`tells the data type
 
 #### 1] Change the index
+```python
+series = Series(
+	[2, 4, 6, 8, 10],
+	index=['A', 'B', 'C', 'D', 'E']
+	)
 
+print(series)
+'''
+series = Series(
+	[2, 4, 6, 8, 10],
+	index=['A', 'B', 'C', 'D', 'E']
+	)
+
+print(series)
+'''
+```
+
+#### 2] .values and .index
+```python
+series = Series(
+	[2, 4, 6, 8, 10],
+	index=['A', 'B', 'C', 'D', 'E']
+	)
+
+print(series.values)
+# [ 2  4  6  8 10]
+```
 
 ### 2) DataFrame
 : 2-Dimension
 : has rows and columns
 ```md
                column 1    column 2
-       index    ID          NAME
-row 1    0      100         Juan
-row 2    1      101         Jacob
-row 3    2      102         JJ
+       index    FIRST       LAST
+row 1    0      Juan        Dela Cruz
+row 2    1      Jacob       Rosario
+row 3    2      John        Cena
 ```
 
+
+: in a form of a dictionary
+```python
+
+```
+
+
 ## 3. Data Extraction
+
 

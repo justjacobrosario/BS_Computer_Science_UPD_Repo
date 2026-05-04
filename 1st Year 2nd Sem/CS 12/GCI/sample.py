@@ -5,7 +5,7 @@ from pandas import Series, DataFrame
 
 series = Series(
 	[2, 4, 6, 8, 10],
-	index=[A, B, C, D, E]
+	index=['A', 'B', 'C', 'D', 'E']
 	)
 
-print(series)
+print(series.values)
