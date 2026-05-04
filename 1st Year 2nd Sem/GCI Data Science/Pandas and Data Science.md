@@ -295,8 +295,8 @@ memory usage: 4.7 MB
 
 :basically switch rows to columns and vice-versa
 
-#### 3] Extracting only a column
-`data_frame_var["column_name"]`
+#### 3] Extracting only a column/s
+`data_frame_var["column_name, ..."]`
 
 ```python
 print(anime_data["Name"])
@@ -315,3 +315,8 @@ print(anime_data["Name"])
 Name: Name, Length: 17562, dtype: str
 '''
 ```
+
+#### 4] Extracting only a row/s
+`data_frame_var[index_i : index_f]`
+
+#### 5] Extracting a row in-detail
