@@ -15,4 +15,4 @@ dataframe = DataFrame(
 	}
 	)
 
-print(dataframe)
+print(dataframe.index)
