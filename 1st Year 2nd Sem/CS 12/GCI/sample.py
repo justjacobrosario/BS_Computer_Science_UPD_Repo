@@ -39,4 +39,4 @@ anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.
 
 #print(anime_data)
 
-print(anime_data.info())
+anime_data.info()

@@ -233,3 +233,59 @@ print(anime_data.head())
 '''
 ```
 
+### 2) Data frame advanced methods
+
+#### 1] Number and type of data per column
+`.info()`
+
+```python
+anime_data = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
+
+anime_data.info()
+
+"""
+RangeIndex: 17562 entries, 0 to 17561
+Data columns (total 35 columns):
+ #   Column         Non-Null Count  Dtype
+---  ------         --------------  -----
+ 0   MAL_ID         17562 non-null  int64
+ 1   Name           17562 non-null  str  
+ 2   Score          17562 non-null  str  
+ 3   Genres         17562 non-null  str  
+ 4   English name   17562 non-null  str  
+ 5   Japanese name  17562 non-null  str  
+ 6   Type           17562 non-null  str  
+ 7   Episodes       17562 non-null  str  
+ 8   Aired          17562 non-null  str  
+ 9   Premiered      17562 non-null  str  
+ 10  Producers      17562 non-null  str  
+ 11  Licensors      17562 non-null  str  
+ 12  Studios        17562 non-null  str  
+ 13  Source         17562 non-null  str  
+ 14  Duration       17562 non-null  str  
+ 15  Rating         17562 non-null  str  
+ 16  Ranked         17562 non-null  str  
+ 17  Popularity     17562 non-null  int64
+ 18  Members        17562 non-null  int64
+ 19  Favorites      17562 non-null  int64
+ 20  Watching       17562 non-null  int64
+ 21  Completed      17562 non-null  int64
+ 22  On-Hold        17562 non-null  int64
+ 23  Dropped        17562 non-null  int64
+ 24  Plan to Watch  17562 non-null  int64
+ 25  Score-10       17562 non-null  str  
+ 26  Score-9        17562 non-null  str  
+ 27  Score-8        17562 non-null  str  
+ 28  Score-7        17562 non-null  str  
+ 29  Score-6        17562 non-null  str  
+ 30  Score-5        17562 non-null  str  
+ 31  Score-4        17562 non-null  str  
+ 32  Score-3        17562 non-null  str  
+ 33  Score-2        17562 non-null  str  
+ 34  Score-1        17562 non-null  str  
+dtypes: int64(9), str(26)
+memory usage: 4.7 MB
+"""
+```
+
+: basically tells if the data of each column has a count (non-null) or not (null), the data type (dtype), etc
