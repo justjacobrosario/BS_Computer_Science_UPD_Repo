@@ -31,4 +31,10 @@ r = requests.get(url, stream=True)
 # read and extract
 z = zipfile.ZipFile(io.BytesIO(r.content))
 z.extractall()
-print(r)
+
+
+anime_data = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
+anime_list = pd.read_csv('MyAnimeList-Database-master/data/animelist.csv')
+anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.csv')
+
+print(anime_list)

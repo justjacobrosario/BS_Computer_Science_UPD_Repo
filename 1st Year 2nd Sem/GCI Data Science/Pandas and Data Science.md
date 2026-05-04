@@ -205,9 +205,6 @@ r = requests.get(url, stream=True)
 # read and extract
 z = zipfile.ZipFile(io.BytesIO(r.content))
 z.extractall()
-```
+# basically the file is in the same folder
 
-#### 2] View file in terminal
-```bash
-!sudo apt-get install tree
 ```
