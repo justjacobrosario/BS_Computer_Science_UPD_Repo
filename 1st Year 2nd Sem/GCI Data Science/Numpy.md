@@ -170,7 +170,42 @@ mean_per_row = np.mean(grid, axis=0)
 
 #### 2] Indexing
 : same with python `list[list]` indexing
-: `grid[row num][col num] -> grid[idx in axis 0][idx in axis 1]`
+##### a. Default Indexing
+in a form:
+`grid[row num][col num]`
+
+```python
+grid = np.array([
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]])
+
+print(grid[0][1]) # 2 
+print(grid[0:2][1]) # [4 5 6]
+
+```
+
+##### b. Advanced Indexing (Selected Cells)
+: in a form:
+`grid[[row num/s], [col num/s]]`
+(basically enables multiple row/col to be listed)
+(see the indexes as a form of lists)
+
+1. Multiple selected cells in a col/row
+```python
+grid = np.array([
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]])
+
+print(grid[[0], 1]) # [2]
+print(grid[[0:2], 1]) # errorrrr, slicing is not working
+print(grid[[0, 1], 1])
+
+```
+
+
+
 
 #### 4] Boolean Return Function
 

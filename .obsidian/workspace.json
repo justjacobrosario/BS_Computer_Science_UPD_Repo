@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
+                "file": "1st Year 2nd Sem/GCI Data Science/Numpy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C_Programming_Basics"
+              "title": "Numpy"
             }
           }
         ],
@@ -86,7 +86,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#define",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -107,8 +107,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -221,9 +220,11 @@
   },
   "active": "88e3bf9906b7a6d9",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/GCI/sample.py",
+    "1st Year 2nd Sem/CS 12/GCI/HW1.exe",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
     "Faith/Intercession.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/L20_MVU2_API.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
     "Faith/Untitled.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "made in laptop.md",
@@ -254,9 +255,7 @@
     "1st Year 2nd Sem/GCI Data Science",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/hi_love.html",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index - Copy.html",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/pyscript.toml",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
