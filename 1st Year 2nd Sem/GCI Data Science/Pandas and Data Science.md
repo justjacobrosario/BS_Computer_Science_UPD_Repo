@@ -289,3 +289,29 @@ memory usage: 4.7 MB
 ```
 
 : basically tells if the data of each column has a count (non-null) or not (null), the data type (dtype), etc
+
+#### 2] Transposition
+`.T`
+
+:basically switch rows to columns and vice-versa
+
+#### 3] Extracting only a column
+`data_frame_var["column_name"]`
+
+```python
+print(anime_data["Name"])
+'''
+0                           Cowboy Bebop
+1        Cowboy Bebop: Tengoku no Tobira
+2                                 Trigun
+3                     Witch Hunter Robin
+4                         Bouken Ou Beet
+                      ...               
+17557    Daomu Biji Zhi Qinling Shen Shu
+17558                       Mieruko-chan
+17559    Higurashi no Naku Koro ni Sotsu
+17560        Yama no Susume: Next Summit
+17561                      Scarlet Nexus
+Name: Name, Length: 17562, dtype: str
+'''
+```
