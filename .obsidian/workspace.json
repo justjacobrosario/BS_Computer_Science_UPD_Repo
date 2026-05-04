@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "Numpy"
             }
+          },
+          {
+            "id": "d782ac5116012f4c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Pandas and Data Science"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -111,8 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -218,8 +231,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "88e3bf9906b7a6d9",
+  "active": "d782ac5116012f4c",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
+    "1st Year 2nd Sem/GCI Data Science/Numpy.md",
+    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/CS 12/GCI/sample.py",
     "1st Year 2nd Sem/CS 12/GCI/HW1.exe",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
@@ -250,11 +266,8 @@
     "1st Year 2nd Sem/ARTS 1/Food And Ecology.md",
     "1st Year 2nd Sem/ARTS 1",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "1st Year 2nd Sem/GCI Data Science/Numpy.md",
     "1st Year 2nd Sem/GCI Data Science",
     "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/hi_love.html",
-    "1st Year 2nd Sem/CS 12/Pyscript_Projects/for_tasha/index - Copy.html",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
