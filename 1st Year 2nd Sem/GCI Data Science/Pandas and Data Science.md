@@ -150,12 +150,13 @@ row 3    2      John        Cena
 
 : in a form of a dictionary
 ```python
-dataframe = DataFrame(
-	{
+raw = {
 	"FIRST" : ["Juan", "Jacob", "John"],
 	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
 	}
-	)
+processed = Dataframe(raw)
+
+print(processed)
 '''
    FIRST       LAST
 0   Juan  Dela Cruz
