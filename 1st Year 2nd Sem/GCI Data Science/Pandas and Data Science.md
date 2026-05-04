@@ -150,7 +150,18 @@ row 3    2      John        Cena
 
 : in a form of a dictionary
 ```python
-
+dataframe = DataFrame(
+	{
+	"FIRST" : ["Juan", "Jacob", "John"],
+	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
+	}
+	)
+'''
+   FIRST       LAST
+0   Juan  Dela Cruz
+1  Jacob    Rosario
+2   John       Cena
+'''
 ```
 
 

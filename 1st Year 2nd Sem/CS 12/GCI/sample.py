@@ -8,4 +8,11 @@ series = Series(
 	index=['A', 'B', 'C', 'D', 'E']
 	)
 
-print(series.values)
+dataframe = DataFrame(
+	{
+	"FIRST" : ["Juan", "Jacob", "John"],
+	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
+	}
+	)
+
+print(dataframe)
