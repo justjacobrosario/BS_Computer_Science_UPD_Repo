@@ -154,7 +154,7 @@ raw = {
 	"FIRST" : ["Juan", "Jacob", "John"],
 	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
 	}
-processed = Dataframe(raw)
+processed = DataFrame(raw)
 
 print(processed)
 '''
@@ -165,6 +165,22 @@ print(processed)
 '''
 ```
 
+#### 1] Change the index
+: same thing using `index=[...]`
+
+#### 2] Dataframe methods
+: `.index`, `.values`, `.columns`
+```python
+raw = {
+	"FIRST" : ["Juan", "Jacob", "John"],
+	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
+	}
+processed = DataFrame(raw, index=["a", "b", "c"])
+
+print("index: ", processed.index)
+print("values: ", processed.values)
+print("columns: ", processed.columns)
+```
 
 ## 3. Data Extraction
 

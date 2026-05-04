@@ -8,11 +8,13 @@ series = Series(
 	index=['A', 'B', 'C', 'D', 'E']
 	)
 
-dataframe = DataFrame(
-	{
+raw = {
 	"FIRST" : ["Juan", "Jacob", "John"],
 	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
 	}
-	)
+processed = DataFrame(raw, index=["a", "b", "c"])
 
-print(dataframe.index)
+print("index: ", processed.index)
+print("values: ", processed.values)
+print("columns: ", processed.columns)
+print("rows: ", processed.rows)
