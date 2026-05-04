@@ -107,6 +107,8 @@ dtype: int64
 : left part is the indices, and the right are the values
 : `dtype`tells the data type
 
+#### 1] Change the index
+
 
 ### 2) DataFrame
 : 2-Dimension
