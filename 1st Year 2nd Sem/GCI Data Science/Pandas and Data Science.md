@@ -182,11 +182,15 @@ print("values: ", processed.values)
 print("columns: ", processed.columns)
 ```
 
+#### 3] Previewing a large Data frame
+: u can use `.head()` to view some column and rows
+: `.head(n)` where n is the number of rows itll display
+
 ## 3. Data Extraction
 
 ### 1) Downloading ZIP files
 
-:imports
+: additional imports
 ```python
 import requests, zipfile
 from io import StringIO
@@ -209,4 +213,23 @@ z.extractall()
 
 ```
 
-#### 2] Reading 
+#### 2] Reading as a DataFrame
+`panda.read_csv("file_name.csv")`
+
+```python
+anime_data = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
+
+print(anime_data.head())
+
+'''
+   MAL_ID                             Name Score  ... Score-3 Score-2 Score-1
+0       1                     Cowboy Bebop  8.78  ...  1357.0   741.0  1580.0
+1       5  Cowboy Bebop: Tengoku no Tobira  8.39  ...   221.0   109.0   379.0
+2       6                           Trigun  8.24  ...   664.0   316.0   533.0
+3       7               Witch Hunter Robin  7.27  ...   353.0   164.0   131.0
+4       8                   Bouken Ou Beet  6.98  ...    83.0    50.0    27.0
+
+[5 rows x 35 columns]
+'''
+```
+
