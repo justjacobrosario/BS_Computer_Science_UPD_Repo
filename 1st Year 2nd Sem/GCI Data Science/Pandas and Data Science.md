@@ -208,3 +208,5 @@ z.extractall()
 # basically the file is in the same folder
 
 ```
+
+#### 2] Reading 
