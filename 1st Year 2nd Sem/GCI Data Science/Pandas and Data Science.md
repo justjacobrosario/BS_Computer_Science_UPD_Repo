@@ -72,4 +72,22 @@ subfield: data science
 
 ### 1) Series
 : 1-Dimension
-	: 
+
+```md
+               column 1
+       index    ID
+row 1    0      100
+row 2    1      101
+row 3    2      102
+```
+
+### 2) DataFrame
+: 2-Dimension
+
+```md
+               column 1    column 2
+       index    ID          NAME
+row 1    0      100         Juan
+row 2    1      101         Jacob
+row 3    2      102         JJ
+```
