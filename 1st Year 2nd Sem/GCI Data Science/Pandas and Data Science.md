@@ -184,4 +184,30 @@ print("columns: ", processed.columns)
 
 ## 3. Data Extraction
 
+### 1) Downloading ZIP files
 
+:imports
+```python
+import requests, zipfile
+from io import StringIO
+import io
+```
+
+#### 1] Download and extract data from the URL
+
+```python
+
+url = 'https://github.com/Hernan4444/MyAnimeList-Database/archive/refs/heads/master.zip'
+
+# donwload from url
+r = requests.get(url, stream=True)
+
+# read and extract
+z = zipfile.ZipFile(io.BytesIO(r.content))
+z.extractall()
+```
+
+#### 2] View file in terminal
+```bash
+!sudo apt-get install tree
+```

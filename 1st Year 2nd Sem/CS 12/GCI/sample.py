@@ -14,7 +14,21 @@ raw = {
 	}
 processed = DataFrame(raw, index=["a", "b", "c"])
 
-print("index: ", processed.index)
+'''print("index: ", processed.index)
 print("values: ", processed.values)
-print("columns: ", processed.columns)
-print("rows: ", processed.rows)
+print("columns: ", processed.columns)'''
+
+
+import requests, zipfile
+from io import StringIO
+import io
+
+url = 'https://github.com/Hernan4444/MyAnimeList-Database/archive/refs/heads/master.zip'
+
+# donwload from url
+r = requests.get(url, stream=True)
+
+# read and extract
+z = zipfile.ZipFile(io.BytesIO(r.content))
+z.extractall()
+print(r)
