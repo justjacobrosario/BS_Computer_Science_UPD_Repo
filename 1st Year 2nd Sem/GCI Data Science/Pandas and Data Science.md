@@ -92,9 +92,20 @@ row 3    2      6
 e.g.
 ```python
 series = Series([2, 4, 6, 8, 10])
+print(series)
+
+"""
+0     2
+1     4
+2     6
+3     8
+4    10
+dtype: int64
+"""
 ```
 
-
+: left part is the indices, and the right are the values
+: `dtype`
 
 ### 2) DataFrame
 : 2-Dimension
