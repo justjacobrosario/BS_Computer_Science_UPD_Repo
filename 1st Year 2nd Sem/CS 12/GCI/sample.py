@@ -39,7 +39,12 @@ anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.
 
 #print(anime_data)
 
-
-print(anime_data.head().iloc[0:3])
-print(anime_data.head().loc[0, "Name"])
-print(anime_data.head().at[0, "Name"])
+data1 = {
+    'id': ['0', '1', '2', '3', '4', '6', '8', '11', '12', '13'],
+    'city': ['Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo', 'Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982, 1991, 1988, 1990, 1995, 1981],
+    'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
+}
+df1 = DataFrame(data1)
+filtered = print(df1[(df1["city"] == "Tokyo")])
+print(filtered)

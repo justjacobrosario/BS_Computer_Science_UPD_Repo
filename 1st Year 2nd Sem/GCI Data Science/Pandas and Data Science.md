@@ -362,8 +362,52 @@ anime_data['Score'] = 0
 #### 6] Extracting Data with Conditions
 : basically just use conditional operators  and the condition itself
 
+: one can return a DataFrame of bools depending on the condition
 e.g.
 ```python
-print(anime_list[anime_list['Name'] != "Unknown"])
+data1 = {
+    'id': ['0', '1', '2', '3', '4', '6', '8', '11', '12', '13'],
+    'city': ['Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo', 'Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982, 1991, 1988, 1990, 1995, 1981],
+    'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
+}
+df1 = DataFrame(data1)
+filtered = print(df1["city"] == "Tokyo")
+filtered
+
+'''
+0     True
+1    False
+2    False
+3    False
+4     True
+5     True
+6    False
+7    False
+8    False
+9     True
+Name: city, dtype: bool
+'''
 ```
 
+: by indexing the condition to the dataframe itself, you are filtering the rows that is true to the condition/s
+e.g.
+```python
+data1 = {
+    'id': ['0', '1', '2', '3', '4', '6', '8', '11', '12', '13'],
+    'city': ['Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo', 'Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982, 1991, 1988, 1990, 1995, 1981],
+    'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
+}
+df1 = DataFrame(data1)
+filtered = print(df1[(df1["city"] == "Tokyo")])
+filtered
+
+'''
+   id   city  birth_year     name
+0   0  Tokyo        1990  Hiroshi
+4   4  Tokyo        1982   Steeve
+5   6  Tokyo        1991   Mituru
+9  13  Tokyo        1981   Mitsuo
+'''
+```
