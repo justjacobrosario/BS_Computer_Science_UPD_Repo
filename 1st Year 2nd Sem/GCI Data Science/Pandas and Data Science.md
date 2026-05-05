@@ -359,4 +359,10 @@ print(anime_data.head().loc[0:3, ["Name", "Score"]])
 anime_data['Score'] = 0
 ```
 
-#### 6] Extracting Data with S
+#### 6] Extracting Data with Conditions
+: basically just use conditional operators  and the condition itself
+
+e.g.
+```python
+print(anime_list[anime_list['Name'] != "Unknown"])
+```
