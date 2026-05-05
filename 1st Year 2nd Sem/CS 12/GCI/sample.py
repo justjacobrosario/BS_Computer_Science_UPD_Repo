@@ -55,6 +55,19 @@ data3 = {
 }
 df3 = DataFrame(data3)
 
+# Preparing data 2
+data2 = {
+    'id': ['100', '101', '102', '105', '107'],
+    'math': [50, 43, 33, 76, 98],
+    'english': [90, 30, 20, 50, 30],
+    'sex': ['M','F','F','M','M'],
+    'index_num': [0, 1, 2, 3, 4]
+}
+df2 = DataFrame(data2)
+df2
 
-concat = pd.concat([df1, df3], ignore_index = True)
+concat = pd.concat([df1, df2])
+concat2 = pd.concat([df1, df2], axis=1)
 print(concat)
+print()
+print(concat2)

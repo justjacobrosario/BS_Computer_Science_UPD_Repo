@@ -606,3 +606,72 @@ print(concat)
 concat = pd.concat([df1, df3], ignore_index=True, sort= True)
 print(concat)
 ```
+
+: we can also concat dataframes vertically
+```python
+data2 = {
+    'id': ['100', '101', '102', '105', '107'],
+    'math': [50, 43, 33, 76, 98],
+    'english': [90, 30, 20, 50, 30],
+    'sex': ['M','F','F','M','M'],
+    'index_num': [0, 1, 2, 3, 4]
+}
+df2 = DataFrame(data2)
+df2
+
+concat = pd.concat([df1, df2])
+concat2 = pd.concat([df1, df2], axis=1)
+print(concat)
+print()
+print(concat2)
+
+'''
+    id      city  birth_year     name  math  english  sex  index_num
+0    0     Tokyo      1990.0  Hiroshi   NaN      NaN  NaN        NaN
+1    1     Osaka      1989.0    Akiko   NaN      NaN  NaN        NaN
+2    2     Kyoto      1992.0     Yuki   NaN      NaN  NaN        NaN
+3    3  Hokkaido      1997.0   Satoru   NaN      NaN  NaN        NaN
+4    4     Tokyo      1982.0   Steeve   NaN      NaN  NaN        NaN
+5    6     Tokyo      1991.0   Mituru   NaN      NaN  NaN        NaN
+6    8     Osaka      1988.0      Aoi   NaN      NaN  NaN        NaN
+7   11     Kyoto      1990.0    Tarou   NaN      NaN  NaN        NaN
+8   12  Hokkaido      1995.0   Suguru   NaN      NaN  NaN        NaN
+9   13     Tokyo      1981.0   Mitsuo   NaN      NaN  NaN        NaN
+0  100       NaN         NaN      NaN  50.0     90.0    M        0.0
+1  101       NaN         NaN      NaN  43.0     30.0    F        1.0
+2  102       NaN         NaN      NaN  33.0     20.0    F        2.0
+3  105       NaN         NaN      NaN  76.0     50.0    M        3.0
+4  107       NaN         NaN      NaN  98.0     30.0    M        4.0
+
+   id      city  birth_year     name   id  math  english  sex  index_num
+0   0     Tokyo        1990  Hiroshi  100  50.0     90.0    M        0.0
+1   1     Osaka        1989    Akiko  101  43.0     30.0    F        1.0
+2   2     Kyoto        1992     Yuki  102  33.0     20.0    F        2.0
+3   3  Hokkaido        1997   Satoru  105  76.0     50.0    M        3.0
+4   4     Tokyo        1982   Steeve  107  98.0     30.0    M        4.0
+5   6     Tokyo        1991   Mituru  NaN   NaN      NaN  NaN        NaN
+6   8     Osaka        1988      Aoi  NaN   NaN      NaN  NaN        NaN
+7  11     Kyoto        1990    Tarou  NaN   NaN      NaN  NaN        NaN
+8  12  Hokkaido        1995   Suguru  NaN   NaN      NaN  NaN        NaN
+9  13     Tokyo        1981   Mitsuo  NaN   NaN      NaN  NaN        NaN
+'''
+```
+: notice that when we set axis=1, it horizontally stacks df1 and df2
+
+
+#### 3] Removing Duplicates
+: to check for duplicates
+```python
+anime_data["Name"].duplicated()
+```
+
+: to get sum of duplicates
+```python
+anime_data["Name"].duplicated().sum()
+```
+
+: to remove duplicates
+```python
+anime_data["Name"].drop_duplicates()
+```
+NOTE: it's `.drop_duplicates()` with an s on the end
