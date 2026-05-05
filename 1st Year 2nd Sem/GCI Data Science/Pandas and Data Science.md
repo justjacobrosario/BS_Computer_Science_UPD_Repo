@@ -233,7 +233,7 @@ print(anime_data.head())
 '''
 ```
 
-### 2) Data frame advanced methods
+### 2) Data frame extraction methods
 
 #### 1] Number and type of data per column
 `.info()`
@@ -438,3 +438,8 @@ df1.sort_values(by="birth_year", ascending=True)
 9  13     Tokyo        1981   Mitsuo
 '''
 ```
+
+
+### 3) DataFrame modifying methods
+#### 1] Merging Data
+`pd.merge()`
