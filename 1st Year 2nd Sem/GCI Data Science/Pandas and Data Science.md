@@ -419,3 +419,5 @@ filtered
 #### 8] Sorting Values
 : Series and DataFrame objects can be sorted
 
+##### 1. Sort by Index via `.sort_index()`
+##### 2. Sort by values via `.sort_values(by="column_name", ascending"True")`
