@@ -1,5 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    printf("what");
+    int d = (((5 | 1) & 3) ^ 5) << 3;
+    printf("%d", d);
 }
