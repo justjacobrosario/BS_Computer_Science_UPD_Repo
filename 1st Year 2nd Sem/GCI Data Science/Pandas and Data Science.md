@@ -422,3 +422,19 @@ filtered
 ##### 1. Sort by Index via `.sort_index()`
 ##### 2. Sort by values via `.sort_values(by="column_name", ascending=True)`
 e.g.
+```python
+df1.sort_values(by="birth_year", ascending=True)
+'''
+   id      city  birth_year     name
+0   0     Tokyo        1990  Hiroshi
+1   1     Osaka        1989    Akiko
+2   2     Kyoto        1992     Yuki
+3   3  Hokkaido        1997   Satoru
+4   4     Tokyo        1982   Steeve
+5   6     Tokyo        1991   Mituru
+6   8     Osaka        1988      Aoi
+7  11     Kyoto        1990    Tarou
+8  12  Hokkaido        1995   Suguru
+9  13     Tokyo        1981   Mitsuo
+'''
+```
