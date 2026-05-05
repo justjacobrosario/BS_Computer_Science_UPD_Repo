@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
+                "file": "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "C_Programming_Basics"
+              "title": "Pandas and Data Science"
             }
           }
         ],
@@ -125,8 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -234,6 +233,8 @@
   },
   "active": "d782ac5116012f4c",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/C_Projects/lab11a.exe",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
     "1st Year 2nd Sem/CS 12/C_Projects/lab11a.c",
     "1st Year 2nd Sem/CS 12/C_Projects/lab11a.py",
     "1st Year 2nd Sem/CS 12/C_Projects/first_c_program.exe",
@@ -247,10 +248,8 @@
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/html",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/animelist.csv",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/anime_with_synopsis.csv",
-    "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/anime.csv",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
     "Faith/Intercession.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/L20_MVU2_API.md",
     "Faith/Untitled.md",
