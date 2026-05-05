@@ -8,9 +8,13 @@ int max_value(int w, int n, const int *c, const int *v) {
 
     for (int i = 0; i < n; i++) {
         if (c[i] <= w) {
-            printf("fahh");
+            new = w - c[i] + v[i];
+            if (new > res) {
+                res = new;
+            }
         }
     }
+    return res;
 }
 
 int main(){
