@@ -46,5 +46,5 @@ data1 = {
     'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
 }
 df1 = DataFrame(data1)
-filtered = print(df1[(df1["city"] == "Tokyo")])
-print(filtered)
+df1.sort_values(by="birth_year", ascending=False)
+print(df1)
