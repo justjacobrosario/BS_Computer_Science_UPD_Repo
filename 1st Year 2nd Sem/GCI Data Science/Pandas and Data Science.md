@@ -521,7 +521,7 @@ print(merged)
 : notice that the "MAL_ID" is the common column between them, so thats the key on which to merge
 
 ##### 2. Merging relative to index
-`.join()`
+`.join([dataframe1, dataframe2])`
 
 ```python
 merged = pd.join(anime_data, anime_synop)
@@ -534,4 +534,75 @@ print(merged)
 : it concatenates data frames vertically
 e.g.
 ```python
+data1 = {
+    'id': ['0', '1', '2', '3', '4', '6', '8', '11', '12', '13'],
+    'city': ['Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo', 'Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982, 1991, 1988, 1990, 1995, 1981],
+    'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
+}
+df1 = DataFrame(data1)
+
+data3 = {
+    'id': ['117', '118', '119', '120', '125'],
+    'city': ['Chiba', 'Kanagawa', 'Tokyo', 'Fukuoka', 'Okinawa'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982],
+    'name': ['Suguru', 'Kouichi', 'Satochi', 'Yukie', 'Akari']
+}
+df3 = DataFrame(data3)
+
+
+concat = pd.concat([df1, df3])
+print(concat)
+
+
+'''
+    id      city  birth_year     name
+0    0     Tokyo        1990  Hiroshi
+1    1     Osaka        1989    Akiko
+2    2     Kyoto        1992     Yuki
+3    3  Hokkaido        1997   Satoru
+4    4     Tokyo        1982   Steeve
+5    6     Tokyo        1991   Mituru
+6    8     Osaka        1988      Aoi
+7   11     Kyoto        1990    Tarou
+8   12  Hokkaido        1995   Suguru
+9   13     Tokyo        1981   Mitsuo
+0  117     Chiba        1990   Suguru
+1  118  Kanagawa        1989  Kouichi
+2  119     Tokyo        1992  Satochi
+3  120   Fukuoka        1997    Yukie
+4  125   Okinawa        1982    Akari
+'''
+```
+: however notice that the index is clunky and inconsistent
+
+to fix that
+```python
+concat = pd.concat([df1, df3], ignore_index=True)
+print(concat)
+
+
+'''
+     id      city  birth_year     name
+0     0     Tokyo        1990  Hiroshi
+1     1     Osaka        1989    Akiko
+2     2     Kyoto        1992     Yuki
+3     3  Hokkaido        1997   Satoru
+4     4     Tokyo        1982   Steeve
+5     6     Tokyo        1991   Mituru
+6     8     Osaka        1988      Aoi
+7    11     Kyoto        1990    Tarou
+8    12  Hokkaido        1995   Suguru
+9    13     Tokyo        1981   Mitsuo
+10  117     Chiba        1990   Suguru
+11  118  Kanagawa        1989  Kouichi
+12  119     Tokyo        1992  Satochi
+13  120   Fukuoka        1997    Yukie
+14  125   Okinawa        1982    Akari
+```
+: we can also sort the column alphabetically
+
+```python
+concat = pd.concat([df1, df3], ignore_index=True, sort= True)
+print(concat)
 ```

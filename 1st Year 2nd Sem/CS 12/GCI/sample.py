@@ -39,10 +39,22 @@ anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.
 
 #print(anime_data)
 
-'''print(anime_data.head())
-print(anime_list.head())
-print(anime_synop.head())
-'''
-pd.set_option('display.max_columns', 7) 
-merged = pd.merge(anime_data, anime_synop)
-print(merged)
+data1 = {
+    'id': ['0', '1', '2', '3', '4', '6', '8', '11', '12', '13'],
+    'city': ['Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo', 'Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982, 1991, 1988, 1990, 1995, 1981],
+    'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
+}
+df1 = DataFrame(data1)
+
+data3 = {
+    'id': ['117', '118', '119', '120', '125'],
+    'city': ['Chiba', 'Kanagawa', 'Tokyo', 'Fukuoka', 'Okinawa'],
+    'birth_year': [1990, 1989, 1992, 1997, 1982],
+    'name': ['Suguru', 'Kouichi', 'Satochi', 'Yukie', 'Akari']
+}
+df3 = DataFrame(data3)
+
+
+concat = pd.concat([df1, df3], ignore_index = True)
+print(concat)
