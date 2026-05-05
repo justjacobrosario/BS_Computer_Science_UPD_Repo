@@ -350,3 +350,13 @@ print(anime_data.head().loc[0:3, ["Name", "Score"]])
 3               Witch Hunter Robin  7.27
 '''
 ```
+
+
+#### 5] Assigning and Replacing Values
+: like in Python dicts, assigning a value to a new key will make a new key-value pair, while referring to an existing key replaces the existing value
+
+```python
+anime_data['Score'] = 0
+```
+
+#### 6] Extracting Data with S

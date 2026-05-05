@@ -42,7 +42,7 @@
               "type": "markdown",
               "state": {
                 "file": "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
@@ -125,7 +125,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "66e400bb331c8521",
