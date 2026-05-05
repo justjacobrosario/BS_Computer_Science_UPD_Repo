@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
-                "mode": "source",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Pandas and Data Science"
+              "title": "C_Programming_Basics"
             }
           }
         ],
@@ -125,7 +125,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -233,6 +234,7 @@
   },
   "active": "d782ac5116012f4c",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/readme.md",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/watching_status.csv",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/readme.md",
@@ -246,7 +248,6 @@
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/All Scrapping process.ipynb",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
-    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics.md",
     "Faith/Intercession.md",
