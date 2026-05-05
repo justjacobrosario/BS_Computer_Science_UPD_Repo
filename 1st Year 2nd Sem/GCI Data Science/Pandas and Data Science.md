@@ -183,8 +183,16 @@ print("columns: ", processed.columns)
 ```
 
 #### 3] Previewing a large Data frame
+
+##### 1. Setting column or row limit
+```python
+pd.set_option('display.max_columns', 6) 
+pd.set_option('display.max_rows', 7) 
+```
+##### 2. Simple preview via `.head()`
 : u can use `.head()` to view some column and rows
 : `.head(n)` where n is the number of rows itll display
+
 
 ## 3. Data Extraction
 
@@ -442,4 +450,88 @@ df1.sort_values(by="birth_year", ascending=True)
 
 ### 3) DataFrame modifying methods
 #### 1] Merging Data
+: lets use anime_list, anime_data, anime_synop as sample dataframes
+```python
+print(anime_data.head())
+'''
+   MAL_ID                             Name Score  ... Score-3 Score-2 Score-1
+0       1                     Cowboy Bebop  8.78  ...  1357.0   741.0  1580.0
+1       5  Cowboy Bebop: Tengoku no Tobira  8.39  ...   221.0   109.0   379.0
+2       6                           Trigun  8.24  ...   664.0   316.0   533.0
+3       7               Witch Hunter Robin  7.27  ...   353.0   164.0   131.0
+4       8                   Bouken Ou Beet  6.98  ...    83.0    50.0    27.0
+'''
+print(anime_list.head())
+'''
+   user_id  anime_id  rating  watching_status  watched_episodes
+0        0        67       9                1                 1
+1        0      6702       7                1                 4
+2        0       242      10                1                 4
+3        0      4898       0                1                 1
+4        0        21      10                1                 0
+'''
+print(anime_synop.head())
+'''
+   MAL_ID  ...                                          sypnopsis
+0       1  ...  In the year 2071, humanity has colonized sever...
+1       5  ...  other day, another bounty—such is the life of ...
+2       6  ...  Vash the Stampede is the man with a $$60,000,0...
+3       7  ...  ches are individuals with special powers like ...
+4       8  ...  It is the dark century and the people are suff...
+'''
+```
+
+##### 1. Merging relative to the intersection (inner join)
 `pd.merge()`
+: by default it merges the 'inner join' part (only data that is presentin both two DataFrame is seen)
+e.g.
+```python
+pd.set_option('display.max_columns', 7) 
+merged = pd.merge(anime_data, anime_synop)
+print(merged)
+'''
+       MAL_ID                             Name    Score  ...  Score-2  \
+0           1                     Cowboy Bebop     8.78  ...    741.0   
+1           5  Cowboy Bebop: Tengoku no Tobira     8.39  ...    109.0   
+2           6                           Trigun     8.24  ...    316.0   
+3           7               Witch Hunter Robin     7.27  ...    164.0   
+4           8                   Bouken Ou Beet     6.98  ...     50.0   
+...       ...                              ...      ...  ...      ...   
+16209   48481  Daomu Biji Zhi Qinling Shen Shu  Unknown  ...  Unknown   
+16210   48483                     Mieruko-chan  Unknown  ...  Unknown   
+16211   48488  Higurashi no Naku Koro ni Sotsu  Unknown  ...  Unknown   
+16212   48491      Yama no Susume: Next Summit  Unknown  ...  Unknown   
+16213   48492                    Scarlet Nexus  Unknown  ...  Unknown   
+
+       Score-1                                          sypnopsis  
+0       1580.0  In the year 2071, humanity has colonized sever...  
+1        379.0  other day, another bounty—such is the life of ...  
+2        533.0  Vash the Stampede is the man with a $$60,000,0...  
+3        131.0  ches are individuals with special powers like ...  
+4         27.0  It is the dark century and the people are suff...  
+...        ...                                                ...  
+16209  Unknown  No synopsis information has been added to this...  
+16210  Unknown  ko is a typical high school student whose life...  
+16211  Unknown          Sequel to Higurashi no Naku Koro ni Gou .  
+16212  Unknown                          New Yama no Susume anime.  
+16213  Unknown  Solar calendar year 2020: grotesque organisms ...  
+'''
+```
+: since this datafram is too wide, it is cut in half in display
+: notice that the "MAL_ID" is the common column between them, so thats the key on which to merge
+
+##### 2. Merging relative to index
+`.join()`
+
+```python
+merged = pd.join(anime_data, anime_synop)
+print(merged)
+```
+
+#### 2] Concatenating DataFrames
+##### 1. Default concatenation
+`pd.concat()`
+: it concatenates data frames vertically
+e.g.
+```python
+```
