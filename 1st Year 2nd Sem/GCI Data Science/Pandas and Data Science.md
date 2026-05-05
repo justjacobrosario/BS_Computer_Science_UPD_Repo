@@ -413,4 +413,9 @@ filtered
 ```
 
 #### 7] Checking for missing data `nan` (null)
-`.isnull()` returns a dataframe 
+`.isnull()` returns a dataframe of bools regarding if the cell is `nan` or not
+
+
+#### 8] Sorting Values
+: Series and DataFrame objects can be sorted
+
