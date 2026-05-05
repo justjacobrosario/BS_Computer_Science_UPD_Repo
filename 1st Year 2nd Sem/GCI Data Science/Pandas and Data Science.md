@@ -412,3 +412,5 @@ filtered
 '''
 ```
 
+#### 7] Checking for missing data `nan` (null)
+`.isnull()` returns a dataframe 
