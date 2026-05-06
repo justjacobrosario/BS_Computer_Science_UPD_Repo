@@ -26,4 +26,4 @@ anime_data_extracted['Score'] = pd.to_numeric(anime_data_extracted['Score'])
 def homework(anime_data_extracted: pd.DataFrame) -> pd.Series:
 	...
 
-print(anime_data_extracted)
+print(anime_data_extracted["Type"])
