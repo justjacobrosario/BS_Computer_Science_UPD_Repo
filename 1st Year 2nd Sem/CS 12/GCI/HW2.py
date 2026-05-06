@@ -28,8 +28,11 @@ def homework(anime_data_extracted: pd.DataFrame) -> pd.Series:
 	types = anime_data_extracted["Type"].unique()
 	new = dict()
 	for type in types:
-		...
+		new[type] = anime_data_extracted[(anime_data_extracted["Type"] == type)]["Score"].mean()
+	return new
 
+#print(anime_data_extracted["Type"].unique())
+#print(anime_data_extracted[(anime_data_extracted["Type"] == type)]["Score"].mean())
 
-print(anime_data_extracted["Type"].unique())
-print(anime_data_extracted[(anime_data_extracted["Type"] == "Music")]["Score"].mean())
+result = homework(anime_data_extracted)
+print(result)
