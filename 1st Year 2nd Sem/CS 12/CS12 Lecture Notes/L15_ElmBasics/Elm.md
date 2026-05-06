@@ -2,274 +2,349 @@
 field: programming
 ---
 
-## 1. Elm Programming Language
+# Lecture 15: Elm Basics
 
-: Functional programming language for front-end web apps
-: Safe type system (since no runtime errors)
+> Based on CS 12 lecture discussions and personal notes. Some concepts and examples are adapted and expanded from course materials.
 
-### 2) Functional Programming Language
-: Purely immutable data (cannot mutate, modify a value of an element)
-: Statically typed (Type-hint must always be reflected by its value)
-: No for and while loops, only recursion
+---
 
-### 3) Installment
-#### 1] Online via Ellie
-#### 2] Locally via installing it in terminal
+# 1. The Elm Programming Language
 
-### 4) Elm Interactive Mode
-: to code using elm in terminal, type `elm repl`
-: counterpart of `python3 interactive mode`
+Elm is a functional programming language designed for building front-end web applications. It was created by Evan Czaplicki in 2012 and is available at [https://elm-lang.org/](https://elm-lang.org/).
 
-## 2. Elm Syntax
+Key characteristics:
 
-### 1) Main Function
-: Like python, defines various functions and then generally runs a main function
+- **Purely immutable** — data cannot be changed once defined
+- **Statically typed** — all types must be consistent and are checked at compile time
+- **No runtime errors** — the type system catches mistakes before the program runs
+- **No loops** — `for` and `while` loops do not exist; recursion is used instead
 
-e.g. Note: Don't focus the specific  syntax and words, there, this is just to show that there exists a main function
-```elm
-module Main exposing (main)
+---
 
-import Browser
-import Html exposing (Html, button, div, text)
-import Html.Events exposing (onClick)
+## 1.1 Running Elm
 
+There are two ways to use Elm:
 
-type alias Model =
-    { count : Int }
+1. **Online** — via [Ellie](https://ellie-app.com/), a browser-based Elm editor
+2. **Locally** — by installing Elm and running `elm repl` in the terminal (similar to Python's interactive mode)
 
+---
 
-initialModel : Model
-initialModel =
-    { count = 0 }
+# 2. Built-in Data Types
 
+|Type|Example Values|
+|---|---|
+|Bool|`True`, `False`|
+|Int|`-140`, `0`, `150`|
+|Float|`1.25`, `-1.0`|
+|Char|`'a'`, `'\\'`, `'🙈'`|
+|String|`"hello"`, `""`, `"""multi\nline\nstring"""`|
 
-type Msg
-    = Increment
-    | Decrement
+---
 
+# 3. Operators
 
-update : Msg -> Model -> Model
-update msg model =
-    case msg of
-        Increment ->
-            { model | count = model.count + 1 }
+## Arithmetic
 
-        Decrement ->
-            { model | count = model.count - 1 }
+|Symbol|Operation|Notes|
+|---|---|---|
+|`+`|Addition||
+|`-`|Subtraction||
+|`*`|Multiplication||
+|`/`|Division|Always returns `Float`|
+|`//`|Floor Division|Returns `Int`|
+|`^`|Exponentiation|Right-associative: `2^3^2 == 512`|
 
+## Comparison
 
-view : Model -> Html Msg
-view model =
-    div []
-        [ button [ onClick Increment ] [ text "+1" ]
-        , div [] [ text <| String.fromInt model.count ]
-        , button [ onClick Decrement ] [ text "-1" ]
-        ]
+|Symbol|Operation|
+|---|---|
+|`==`|Equal|
+|`/=`|Not equal|
+|`<`|Less than|
+|`<=`|Less than or equal|
+|`>`|Greater than|
+|`>=`|Greater than or equal|
 
+> Note: `/=` is Elm's inequality operator, unlike Python's `!=`.
 
-main : Program () Model Msg
-main =
-    Browser.sandbox
-        { init = initialModel
-        , view = view
-        , update = update
-        }
+## Logical
 
-```
+|Symbol|Operation|
+|---|---|
+|`&&`|AND|
+|`\|`|OR|
+|`not`|NOT (this is a function, not an operator)|
 
-### 2) importing libraries
-: Like in python, elm also imports libraries via `import _library_name exposing (_methods)`
+---
 
-: useful html libraries
-#### 1] `import Html exposing (_html_tags)`
- 
-### 3) Built-in Data Types
+# 4. Calling Functions
 
-| Type  | Values                                  |
-| ----- | --------------------------------------- |
-| Bool  | True, False                             |
-| Int   | 1, -1                                   |
-| Float | -1.0, 1.23                              |
-| Char  | 'a', '\', '😃'                          |
-| Str   | 'hello', <br>'''multi-line<br>string''' |
-
-### 4) Operators
-
-- Arithmetic
-
-| Symbol | Operation            |
-| ------ | -------------------- |
-| +      | add                  |
-| -      | subtract             |
-| *      | multiply             |
-| /      | divide               |
-| //     | floor divide         |
-| ^      | exponent (raised to) |
-- Comparison
-
-| Symbol | Operation   |
-| ------ | ----------- |
-| ==     | equal       |
-| /==    | unequal     |
-| <=     | gt or equal |
-| <      | gt          |
-| >=     | lt or equal |
-| >      | lt          |
-- Logical
-
-| Symbol | Operation |
-| ------ | --------- |
-| &&     | AND       |
-| \|\|   | OR        |
-|        |           |
-
-### 5) Calling Functions
-: elm calls functions with parameters without parentheses
+Functions are called by placing arguments directly after the function name — no parentheses needed.
 
 ```elm
-toFloat 1
-round 1.5
-String.fromInt 1
-min 1.2 1.55
+toFloat 1           -- returns Float 1.0
+round 1.5           -- returns Int 2
+String.fromInt 1    -- returns "1"
+String.fromFloat 0.1 -- returns "0.1"
+Debug.toString True -- returns "True"
+min 1.2 1.55        -- returns 1.2
 ```
 
-### 6) Variable declaration
+More built-in functions: [https://package.elm-lang.org/packages/elm/core/latest/Basics](https://package.elm-lang.org/packages/elm/core/latest/Basics)
 
-#### 1] Variable Naming
-: instead of Python's snake_case, Elm declares variables using camelCase
-: still must not start with a number and -
-: still indentation-sensitive
+---
 
-#### 2] Reassignment
-: Elm can reassign variables to a concrete value
-```elm
-x = 2
-x = 3
--- x is 3 --
-```
+# 5. Variables
 
-: Elm CANNOT reassign variables with other variables
-```elm
-x = 3
-x = x + 3
--- error --
-```
+## 5.1 Naming Rules
 
-#### 3] Statement vs Expression
-: statement does not returns a number and cannot be assigned to a variable
-: expression returns a number and can be assigned to a variable
+- Must start with a **lowercase letter**
+- Convention: use **camelCase** (e.g., `isWeekend`, not `is_weekend`)
+- Must **not be indented** at the global level
+- Indentation is significant
 
-: `else if` statements are elif counterparts in Python
+## 5.2 Immutability and Reassignment
+
+Elm variables **cannot be reassigned**. Once a variable is bound to a value, it stays that way.
 
 ```elm
---statement--
-funcName: Int -> Bool
-
---expression--
-x = 
-if x > 0 then "positive" 
-else if x == 0 then "zero" 
-else "negative"
+-- Invalid in Elm
+year = 2023
+year = year + 1  -- Error!
 ```
 
-#### 4] Case Expression
-: like in python's
-```python
-day = match dayNum:
-		case 1 :
-		 "Sunday"
-		case 2 :
-		 "Monday"
-		case 3 :
-		 "Tuesday"
-		case 4 :
-		 "Wednesday"
-		case 5 :
-		 "Thursday"
-		case 6 :
-		 "Friday"
-		case 7 :
-		 "Saturday"
-		 case _ :
-		 "Unknown Day" 
-```
+Since there is no reassignment, Elm also has **no `while` or `for` loops**. All repetition must be expressed through recursion or library functions.
 
-in elm:
-```elm
-day = 
-	case dayNum of
-		1 -> "Sunday"
-		2 -> "Monday"
-		3 -> "Tuesday"
-		4 -> "Wednesday"
-		5 -> "Thursday"
-		6 -> "Friday"
-		7 -> "Saturday"
-		_ -> "Unknown Day" 
-		-- always add _ case to cover all possibilities --
-```
+---
 
-#### 5] `let` `in` expression
-: `let` is where the function body is located
-: `in` is the counterpart of python's return, but with new line
+# 6. Statements vs Expressions
 
-: Note: variables declared in a `let` block is only accessible in that block
-: Note: Shadowing variables (variable name is used outside the function, then used again inside) will be flagged, avoid using the same name
+A **statement** does not evaluate to a value and cannot be assigned to a variable.
+
+A **expression** evaluates to a value and can be assigned.
+
+> In Elm, almost everything is an expression.
+
+Variable declaration itself is the main exception — it is a statement.
+
+---
+
+# 7. Conditionals
+
+## 7.1 If Expression
+
+`if` in Elm is an expression, so it always returns a value. An `else` branch is always required.
 
 ```elm
-isPositive: Int -> Bool
-isPositive x =
-	if x == 0 then "zero"
-	else if x > 0
-		let
-			response = 
-				if (modBy 2 x) == 0 then "even positive" 
-				else "odd positive"
-		in --return--
-			response
-	else
-		response = 
-				if (modBy 2 x) == 0 then "even negative" 
-				else "odd negative"
-		in --return--
-		response
+mood =
+    if isWeekend then
+        "happy"
+    else
+        "sad"
+
+-- One-liner form
+mood = if isWeekend then "happy" else "sad"
 ```
 
-#### 6] Declaring Functions
-##### A. Define function name and type hint
-```elm
-combination: Int -> Int -> Int -- the last data type refers to the return type--
-combination x y =
+`else if` chaining is also supported:
 
--- just like def isPositive(x:int, y:int) -> bool: in Python --
-```
-##### B. Do the function body
 ```elm
-combination: Int -> Int -> Int
-combination x y =
-	let
-		numerator = factorial x -- like python's factorial(x) --
-		denominator = (factorial (x - y)) * (factorial y)
-	in
-		numerator // denominator
-
+mood =
+    if isRaining then
+        "gloomy"
+    else if hasExam then
+        "scared"
+    else if isWeekend then
+        "happy"
+    else
+        "sad"
 ```
 
-#### 7] Pipeline Operator `|>`
+---
+
+## 7.2 Case Expression
+
+`case` performs pattern matching against a value.
+
 ```elm
-x |> f |> y
--- same as --
-x
-|> f
-|> y
--- same as --
-y (f x)
+day =
+    case n of
+        1 -> "Sunday"
+        2 -> "Monday"
+        3 -> "Tuesday"
+        4 -> "Wednesday"
+        5 -> "Thursday"
+        6 -> "Friday"
+        7 -> "Saturday"
+        _ -> "Unknown day"  -- catch-all; always include this
 ```
-e.g.
+
+Rules:
+
+- Patterns must be more indented than the `case` line
+- All patterns must share the same level of indentation
+- `_` is the wildcard/catch-all pattern
+
+---
+
+# 8. Let Expression and Scoping
+
+`let` allows intermediate values to be declared within a local scope. The `in` keyword marks the body — the single expression that the whole `let` block evaluates to.
+
 ```elm
-List.sort (List.range 6 7)
--- same as --
-6 7
-|> List.range
-|> List.sort
+let
+    varName1 = expression1
+    varName2 = expression2
+in
+bodyExpression
 ```
+
+Example:
+
+```elm
+z =
+    let
+        x = 11
+        y = x + 1  -- earlier declarations can be referenced
+    in
+    x + y  -- x and y are only accessible here
+```
+
+> Variables declared inside `let` are not accessible outside it.
+
+---
+
+## 8.1 Shadowing
+
+Elm flags **shadowing** — when a variable name defined in an inner scope matches one in an outer scope.
+
+```elm
+mood = "excited"  -- global definition
+
+yourMood =
+    let
+        mood =  -- shadows global `mood`; this will be flagged
+            if isRaining then "gloomy"
+            else if hasExam then "scared"
+            else if isWeekend then "happy"
+            else "sad"
+    in
+    mood
+```
+
+Shadowing is typically a source of subtle bugs and should be avoided.
+
+---
+
+# 9. Declaring Functions
+
+## 9.1 Basic Syntax
+
+```elm
+functionName arg1 arg2 ... argN =
+    functionBody  -- single expression
+```
+
+Example — unary function:
+
+```elm
+double n =
+    n * 2
+```
+
+Example — binary function:
+
+```elm
+combination n k =
+    let
+        num = factorial n
+        den = (factorial k) * (factorial (n - k))
+    in
+    num // den
+```
+
+---
+
+## 9.2 Type Signatures
+
+Type signatures describe the input and output types of a function. The last type listed is always the return type.
+
+```elm
+functionName : TypeArg1 -> TypeArg2 -> ReturnType
+```
+
+Examples:
+
+```elm
+double : Int -> Int
+double n =
+    n * 2
+
+combination : Int -> Int -> Int
+combination n k =
+    let
+        num = factorial n
+        den = (factorial k) * (factorial (n - k))
+    in
+    num // den
+```
+
+---
+
+## 9.3 Type Inference
+
+Elm can automatically infer types from usage, even without an explicit signature:
+
+```elm
+combination n k =
+    let
+        num = factorial n
+        den = (factorial k) * (factorial (n - k))
+    in
+    num // den
+```
+
+From this, Elm infers:
+
+- `n` and `k` are `Int` (because `factorial` takes `Int`)
+- The return type is `Int` (because `//` returns `Int`)
+
+Passing the wrong types causes a compile-time error:
+
+```elm
+combination 4 "2"  -- Error: second argument must be Int, not String
+```
+
+---
+
+# 10. Pipeline Operator
+
+## 10.1 Forward Pipeline `|>`
+
+`x |> f` is equivalent to `f x`. Think of it as the direction data flows.
+
+```elm
+-- Standard form
+List.reverse (List.range 1 5)
+
+-- Pipelined form
+List.range 1 5
+    |> List.reverse
+```
+
+This makes code read as a sequence of transformations, left to right, which is much clearer for multi-step operations.
+
+## 10.2 Backward Pipeline `<|`
+
+`f <| x` is also equivalent to `f x`, but flows right to left. This is useful for removing nested parentheses.
+
+```elm
+-- With parentheses
+List.reverse (List.range 1 5)
+
+-- With backward pipeline
+List.reverse <| List.range 1 5
+```
+
+> `<|` is less commonly used than `|>`.
