@@ -3,19 +3,11 @@ year: 1
 subject: CS12
 field: programming
 ---
-# Immutable Data Types and Collections in Elm
+# Lecture 16 Immutable Data Types and Collections in Elm
 
 > Based on CS 12 lecture discussions and personal notes.  
 > Some concepts and examples are adapted and expanded from course materials.
 
----
-
-```yaml
-year: 1
-subject: CS12
-field: programming
-language: Elm
-```
 
 # 1. Modules
 
