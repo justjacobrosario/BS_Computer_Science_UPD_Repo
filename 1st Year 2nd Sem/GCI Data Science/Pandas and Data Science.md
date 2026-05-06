@@ -447,6 +447,9 @@ df1.sort_values(by="birth_year", ascending=True)
 '''
 ```
 
+#### 8] Other Data Frame Methods
+##### 1. `df_name["column_name"].unique()`
+: returns an array of unique vals in that column
 
 ### 3) DataFrame modifying methods
 #### 1] Merging Data
