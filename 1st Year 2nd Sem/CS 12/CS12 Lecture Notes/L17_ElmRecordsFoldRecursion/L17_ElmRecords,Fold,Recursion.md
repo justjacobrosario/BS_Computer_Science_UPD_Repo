@@ -1,8 +1,7 @@
----
+
 
 ## year: 1 subject: CS12 field: programming
 
-[[Lec_16_Notes]]
 
 # 1: RECORDS
 
@@ -42,7 +41,7 @@ type alias Track =
     }
 ```
 
-### b. Creating/Instantiating
+### b. Creation/Instantiation
 
 ```elm
 x =
@@ -52,12 +51,14 @@ x =
     }
 ```
 
-### c. Accessing a field
+### c. Accessing fields
 
 : `record.key`
 
 ```elm
-x = { artist = "Eraserheads", genre = Pop, title = "Huling El Bimbo" }
+x = { artist = "Eraserheads"
+	, genre = Pop
+	, title = "Huling El Bimbo" }
 
 xsGenre = x.genre  -- Pop
 xsTitle = x.title  -- "Huling El Bimbo"
