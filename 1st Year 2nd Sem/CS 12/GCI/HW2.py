@@ -26,12 +26,13 @@ pd.set_option('display.max_columns', 6)
 
 def homework(anime_data_extracted: pd.DataFrame) -> pd.Series:
 	types = anime_data_extracted["Type"].unique()
-	new = dict()
+	new = []
 	for type in types:
-		new[type] = anime_data_extracted[(anime_data_extracted["Type"] == type)]["Score"].mean()
+		new.append(anime_data_extracted[(anime_data_extracted["Type"] == type)]["Score"].mean())
 	new = DataFrame(new)
 	return new
 
+print(anime_data_extracted)
 #print(anime_data_extracted["Type"].unique())
 #print(anime_data_extracted[(anime_data_extracted["Type"] == type)]["Score"].mean())
 
