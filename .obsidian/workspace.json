@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "L15_ElmBasics"
+              "title": "L17_ElmRecords,Fold,Recursion"
             }
           }
         ],
@@ -247,8 +247,9 @@
   },
   "active": "aa7f66d3e4650b60",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
@@ -279,7 +280,6 @@
     "1st Year 2nd Sem/CS 12/C_Projects/lab11a.c",
     "1st Year 2nd Sem/CS 12/C_Projects/lab11a.py",
     "1st Year 2nd Sem/CS 12/C_Projects/first_c_program.exe",
-    "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/readme.md",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/watching_status.csv",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/rating_complete.csv",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/html/5.zip",

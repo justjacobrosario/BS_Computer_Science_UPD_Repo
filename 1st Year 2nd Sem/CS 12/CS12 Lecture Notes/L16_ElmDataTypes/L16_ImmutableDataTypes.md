@@ -3,853 +3,356 @@ year: 1
 subject: CS12
 field: programming
 ---
-# Lecture 16 Immutable Data Types and Collections in Elm
-
-> Based on CS 12 lecture discussions and personal notes.  
-> Some concepts and examples are adapted and expanded from course materials.
 
 
-# 1. Modules
+# 1: Collection of Functions and Types
+#### 1] importing specific method
+### `import ModuleName exposing (Type1, func1, func2, ...)`
+#### 2] importing library completely
+### `import ModuleName exposing (..)`
 
-A **module** is a collection of related:
-
-- functions
-    
-- types
-    
-- values
-    
-
-Similar to Python imports.
-
----
-
-## 1.1 Importing Specific Functions or Types
-
-```elm
-import ModuleName exposing (Type1, func1, func2)
-```
-
-Example:
-
-```elm
-import Array exposing (Array, fromList)
-```
-
-This imports:
-
-- `Array`
-    
-- `fromList`
-    
-
-without needing to prefix them with `Array.`
-
----
-
-## 1.2 Importing Everything from a Module
-
-```elm
-import ModuleName exposing (..)
-```
-
-Example:
-
-```elm
-import List exposing (..)
-```
-
-This imports everything from `List`.
-
----
-
-## 1.3 Importing Only the Module
-
-```elm
-import ModuleName
-```
-
-Example:
-
-```elm
-import Array
-```
-
-Functions must then be accessed using the module prefix:
-
-```elm
-Array.fromList [1,2,3]
-```
-
----
-
-## 1.4 Modules Imported by Default
-
-Elm automatically imports these modules:
-
+#### 4] no need to import libaries (builtin)
 1. `Basics exposing (..)`
-    
 2. `List exposing (List, (::))`
-    
-3. `Maybe exposing (Maybe(..))`
-    
+3. `Maybe exposing (Maybe(..))` # Maybe type and all its variants
 4. `String exposing (String)`
-    
 5. `Char exposing (Char)`
-    
-6. `Tuple`
-    
-7. `Debug`
-    
+6. `Debug`
 
----
 
-# 2. Lambda Functions
+# 2: Lambda functions and map
+## `(\x -> expression)`
 
-Lambda functions are anonymous functions.
+: basically like in Python's lambda function, whenever you map a collection, you execute a certain function to each element, such that it returns True or False
 
-Syntax:
+: one usage of lambda functions is using `List.map` or `Array.map` or
+
+e.g.
 
 ```elm
-\x -> expression
+squareEach: List Int -> List Int
+squareEach given_list =
+    let 
+        squared = List.map (\x -> x^2) given_list
+        -- every element is ran in (\x -> x^2)
+    in
+        squared
 ```
 
-Example:
+# 3: List Syntax
+: `List x` is a sequence of values of type  `x`
+: List elements must have the same type (Homogenous)
+e.g.
+`List Int`, `List String`, `List (List Int)`
 
+## 1. `List.repeat : Int -> a -> List a`
+
+e.g.
 ```elm
-\x -> x ^ 2
+List.repeat 3 "hi" -- ["hi", "hi", "hi"]
 ```
 
-This means:
+## 2. `List.range : Int -> Int -> List Int`
 
+e.g.
 ```elm
-f x = x ^ 2
+List.range 1 5 -- [1, 2, 3, 4, 5]
+List.range 5 1 -- [] : empty if higher first num
 ```
 
-but without naming the function.
+## 3. `(:) : a -> List a -> List a`
+: pronounced cons
+: prepends (adds to leftmost) `a` to the list
 
----
-
-## 2.1 Using Lambdas with `List.map`
-
-`List.map` applies a function to every element of a list.
-
+### 1) Function Call Style
 ```elm
-squareEach : List Int -> List Int
-squareEach givenList =
-    List.map (\x -> x ^ 2) givenList
+x = (::) 1 [2, 3, 4] -- x = [1, 2, 3, 4]
 ```
-
-Example:
-
+### 2) Infix Style
 ```elm
-squareEach [1,2,3]
--- [1,4,9]
+x = 1 :: [2, 3, 4] -- x = [1, 2, 3, 4]
 ```
 
-Important:
-
-- `List.map` transforms elements
-    
-- the number of elements stays the same
-    
-- `map` does NOT filter elements
-    
-
----
-
-# 3. Lists
-
-## 3.1 List Basics
-
+: essentially, lists is a chain of cons
 ```elm
-List a
+[1, 2, 3] = 1 :: (2 :: [3])
 ```
 
-A list containing values of type `a`.
+## 4. Other `List` Functions
 
-Lists are:
+#### 1] `List.append : List a -> List a -> List a`
+: combines two lst1, lst2
+: different from python's .append(). It is more like .extend()
 
-- ordered
-    
-- homogeneous (all elements must have the same type)
-    
-- immutable
-    
+#### 2] `List.concat : List (List a) -> List a``
+: flattens `List (List a) -> List a`
 
-Examples:
+#### 3] `List.sort : List a` 
+: simply sorts elements ascendingly
 
+#### 4] `List.take: Int -> List a -> List a`
+: takes the first leftmost n number of elements
+
+e.g.
 ```elm
-List Int
-List String
-List (List Int)
+x = [4, 5, 6, 8, 9, 0]
+List.take 3 x
+-- [4,5,6] : First 3 elements taken
 ```
 
----
+#### 5] `List.drop: Int -> List a -> List a`
+: removes the first leftmost n number of elements
 
-# 3.2 Creating Lists
-
+e.g.
 ```elm
-[]
-[1,2,3]
-["a", "b"]
+x = [4, 5, 6, 8, 9, 0]
+List.drop 3 x
+-- [8, 9, 0] : First 3 elements dropped
 ```
 
----
+: NOTE: using these functions does not mutate the list, it only makes a copy of it
 
-## 3.3 `List.repeat`
+#### 6] `List.maximum: List a -> Maybe`
+: removes the first leftmost n number of elements
 
+e.g.
 ```elm
-List.repeat : Int -> a -> List a
+x = [4, 5, 6, 8, 9, 0]
+List.maximum x
+-- Just 9 : Maybe number
+y = []
+List.maximum y
+-- Nothing : Maybe comparable
 ```
 
-Creates a list containing the value repeated `n` times.
+#### 7] `List.filter : (a->Bool) -> List a -> List b`
+: takes predicate (condition/s that must be True for an element to be kept) and a list
 
-Example:
+#### 8] `List.foldl` and `List.foldr -- just reversed`
+like `List.foldl function initial list`
+: it runs the function from the initial to the leftmost element of list, then the returned value will then be used to run the function with the next element (left to right)
 
+e.g.
 ```elm
-List.repeat 3 "hi"
--- ["hi", "hi", "hi"]
+x = [4, 5, 6, 8, 9, 0]
+List.foldl (+) 0 [1, 2, 3] -- 6
+{- like this
+"list_elem + initial/latest_return_val"
+
+1(elem) + 0(init)       -> 1
+2(elem) + 1(return_val) -> 3
+3(elem) + 3(return_val) -> 6
+-}
+
 ```
-
----
-
-## 3.4 `List.range`
-
-```elm
-List.range : Int -> Int -> List Int
-```
-
-Creates a list from `start` to `end` inclusive.
-
-Example:
-
-```elm
-List.range 1 5
--- [1,2,3,4,5]
-```
-
-```elm
-List.range 5 1
--- []
-```
-
----
-
-## 3.5 The Cons Operator `(::)`
-
-```elm
-(::) : a -> List a -> List a
-```
-
-Pronounced:
-
-> “cons”
-
-Adds an element to the FRONT of a list.
-
----
-
-### Function-call Style
-
-```elm
-(::) 1 [2,3,4]
--- [1,2,3,4]
-```
-
----
-
-### Infix Style
-
-```elm
-1 :: [2,3,4]
--- [1,2,3,4]
-```
-
----
-
-Lists can be viewed as chains of cons operations:
-
-```elm
-[1,2,3]
-== 1 :: (2 :: (3 :: []))
-```
-
----
-
-# 3.6 Common List Functions
-
-## `List.append`
-
-```elm
-List.append : List a -> List a -> List a
-```
-
-Combines two lists.
-
-```elm
-List.append [1,2] [3,4]
--- [1,2,3,4]
-```
-
-Similar to Python list concatenation.
-
----
-
-## `List.concat`
-
-```elm
-List.concat : List (List a) -> List a
-```
-
-Flattens a list of lists.
-
-```elm
-List.concat [[1,2],[3,4]]
--- [1,2,3,4]
-```
-
----
-
-## `List.sort`
-
-```elm
-List.sort : List comparable -> List comparable
-```
-
-Sorts values in ascending order.
-
-```elm
-List.sort [3,1,2]
--- [1,2,3]
-```
-
----
-
-## `List.take`
-
-```elm
-List.take : Int -> List a -> List a
-```
-
-Gets the first `n` elements.
-
-```elm
-List.take 3 [4,5,6,8,9]
--- [4,5,6]
-```
-
----
-
-## `List.drop`
-
-```elm
-List.drop : Int -> List a -> List a
-```
-
-Removes the first `n` elements.
-
-```elm
-List.drop 3 [4,5,6,8,9]
--- [8,9]
-```
-
----
-
-## `List.maximum`
-
-```elm
-List.maximum : List comparable -> Maybe comparable
-```
-
-Returns:
-
-- `Just value` if the list is non-empty
-    
-- `Nothing` if the list is empty
-    
-
-Example:
-
-```elm
-List.maximum [4,5,6]
--- Just 6
-```
-
-```elm
-List.maximum []
--- Nothing
-```
-
----
-
-## `List.filter`
-
-```elm
-List.filter : (a -> Bool) -> List a -> List a
-```
-
-Keeps only elements satisfying the predicate.
-
-Example:
-
-```elm
-List.filter (\x -> modBy 2 x == 0) [1,2,3,4]
--- [2,4]
-```
-
-Important:
-
-- `filter` can reduce the number of elements
-    
-- unlike `map`
-    
-
----
-
-# 3.7 Folding Lists
-
-## `List.foldl`
-
-```elm
-List.foldl : (a -> b -> b) -> b -> List a -> b
-```
-
-Processes the list from LEFT to RIGHT.
-
-Pattern:
-
-```elm
-List.foldl function initialValue list
-```
-
-Example:
-
-```elm
-List.foldl (+) 0 [1,2,3]
--- 6
-```
-
-Evaluation:
-
-```text
-1 + 0 = 1
-2 + 1 = 3
-3 + 3 = 6
-```
-
----
-
-## Reversing Using `foldl`
 
 ```elm
 List.foldl (\x acc -> x :: acc) [] [1,2,3]
--- [3,2,1]
-```
-
-Explanation:
-
-```text
-[]
-[1]
-[2,1]
-[3,2,1]
-```
-
----
-
-# 4. Maybe Type
-
-## 4.1 What is `Maybe`?
-
-```elm
-Maybe a
-```
-
-A container representing:
-
-- the presence of a value
-    
-- or the absence of a value
-    
-
-Two possibilities:
-
-1. `Just value`
-    
-2. `Nothing`
-    
-
----
-
-## Examples
-
-```elm
-x = Just 10
--- Maybe Int
+-- [1] then [2, 1] then [3,2,1]
 ```
 
 ```elm
-y = Just "hello"
--- Maybe String
+insertAt : Int -> comparable -> List comparable -> List comparable
+insertAt i x lst =
+    let
+        helper n (idx, res) =
+            if idx == i then
+                (idx + 1, n :: x :: res)
+            else
+                (idx + 1, n :: res)
+            
+
+    in
+    if i < 0 then
+        lst
+    else if i >= List.length lst then
+        lst
+    else
+        lst
+            |> List.foldl helper (0, [])
+            |> Tuple.second
+            |> List.reverse
 ```
+# 4: Maybe Syntax
+
+: `Maybe a` : Container type representing the presence or abscence of `a`
+: also called Option or Optional
+: `Maybe` can have two possibilities:
+1. `Just a` value: Presence of `a`
+2. `Nothing`: Absent
 
 ```elm
-z = Nothing
--- Maybe a
+x = Just 10 -- Maybe Int
+y = Just "hello" -- y : Maybe String
+z = Just [1, 2, 3] -- z : Maybe (List Int)
+w = Nothing -- w : Maybe a
+
+-- List.maximum : List Int -> Maybe Int
+a = List.maximum [10,100,20,30] -- Just 100
+b = List.maximum [] -- Nothing
 ```
 
----
-
-# 4.2 Handling `Maybe`
-
-## Option 1: Pattern Matching
-
+### Handling `Maybe` Values
+#### Option 1] Pattern matching via `case`
 ```elm
 unwrap : Maybe a -> String
 unwrap box =
-    case box of
-        Just gift ->
-            "The box contains " ++ Debug.toString gift
-
-        Nothing ->
-            "The box is empty"
+	case box of
+	Just gift ->
+	"The box contains " ++ Debug.toString gift
+	
+	Nothing ->
+	"The box is empty"
 ```
 
----
+#### Option 2] `Maybe.withDefault`
 
-## Option 2: `Maybe.withDefault`
-
-```elm
-Maybe.withDefault : a -> Maybe a -> a
-```
-
-Returns:
-
-- the contained value if it exists
-    
-- otherwise the default value
-    
-
-Example:
+: `Maybe.withDefault : a -> Maybe a -> a` where `a` is a type (not a value)
+: if `Maybe a` is `Just a` then `a`
+: else it would be the 1st param `a`
 
 ```elm
+x =
+-- String.toInt "-123" : String -> Maybe Int
+-- Maybe.withDefault 0 (String.toInt "-123")
 Maybe.withDefault 0 (String.toInt "-123")
--- -123
 ```
 
+# 5: Array Syntax
+: `import Array
+: a container for random-access processing of a list of values
+: faster in indexing than lists
+: similar to python's tuple
+: has no literal, its simply a version of a `List a` object
+
+e.g. 
 ```elm
-Maybe.withDefault 0 (String.toInt "abc")
--- 0
+Array.fromList [1, 2, 3] -- not (1,2,3)
 ```
 
----
-
-# 5. Arrays
-
-## 5.1 Array Basics
-
-Arrays are optimized for:
-
-- random access
-    
-- indexed lookup
-    
-
-Compared to lists:
-
-- arrays are better for indexing
-    
-- lists are better for recursive traversal
-    
-
----
-
-## Important Clarification
-
-Arrays are NOT the same as Python tuples.
-
-Elm arrays:
-
-- are collections of same-type values
-    
-- are indexed
-    
-- are mutable in concept but immutable in implementation
-    
-
-Python tuples are:
-
-- fixed ordered collections
-    
-- not specifically optimized for indexing structures like Elm arrays
-    
-
----
-
-## Creating Arrays
+: `Array.fromList List a` has a type of `Array.Array a`
 
 ```elm
 import Array
+u = Array.fromList [4, 5, 6]
+Array.fromList [4,5,6] -- Array.Array number
 ```
 
+#### 5] `Array.get : Int -> Array a -> Maybe a`
+: gets element of index i (first int param) 0-indexed
+: similar to Python's .index()
+
+e.g.
 ```elm
-Array.fromList [1,2,3]
+u = Array.fromList [4,5,6] -- another Array.Array number
+y = Array.get 0 u
+-- y = Just 4 : Maybe number
 ```
 
-Type:
+#### 6] `Array.set : Int -> a -> Array a -> Maybe a`
+: sets/changes element of index i (first int param) 0-indexed into `a`
+: it is only valid if the index i has an existing value
 
+e.g.
 ```elm
-Array.Array Int
+u = Array.fromList [4,5,6] -- another Array.Array number
+y = Array.set 0 1 u
+-- y = Array.fromList [1, 5, 6] : Array.Array number
 ```
 
----
+#### #### 7] `Array.slice : Int -> Int -> Array a -> Array a`
+: slices a subarray starting from index i (first int param) to index j-1 (second int param - 1)
 
-# 5.2 Array Functions
-
-## `Array.get`
-
+e.g.
 ```elm
-Array.get : Int -> Array a -> Maybe a
+z = Array.fromList [1, 2, 3, 4, 5, 6, 7, 8, 9] -- -- another Array.Array number
+w = Array.slice 2 4 z
+-- w = Array.fromList [3,4] : Array.Array number
 ```
 
-Gets the element at index `i`.
 
+#### #### 8] `Array.empty : Array a`
+: gives an empty array
+
+e.g.
+```elm
+> c = Array.empty
+Array.fromList [] : Array.Array a
+```
+
+
+#### #### 9] `Array.repeat : Int -> a -> Array a`
+: repeats `a` n times in an array
+
+
+#### #### 10] `Array.isEmpty : Array a -> Bool`
+: gives an empty array
+
+e.g.
+```elm
+c = Array.fromList [1, 2, 3]
+verdict = Array.isEmpty c
+-- verdict == True
+```
+
+#### #### 10] `Array.length : Array a -> Int`
+: gives length of arr
+: basically like Python's len()
+
+#### #### 11] `Array.push : a -> Array a -> Array a`
+: adds `a` on the rightmost (last) position
+: similar to Python's .append()
+
+e.g.
 ```elm
 u = Array.fromList [4,5,6]
-Array.get 0 u
--- Just 4
+new_u = Array.push 8 u
+-- new_u = Array.fromList [4,5,6,8]
 ```
 
-Important:
 
-- similar to Python indexing (`arr[i]`)
-    
-- NOT similar to Python `.index()`
-    
+#### #### 12] `Array.toList : Array a -> List a`
+: basically converts an `Array.Array a` into `List a`
 
-Python `.index(x)` searches for the POSITION of `x`.
 
----
+#### #### 13] `Array.toIndexedList : Array a -> List (Int, a)`
+: converts an `Array.Array a` into a `List (Int, a)` where each `a` is partnered with its index
 
-## `Array.set`
+e.g.
+```elm
+z = Array.fromList [1,2,3,4,5,6,7,8,9]
+z_enumerated = Array.toIndexedList z
+
+-- z_enumerated = [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(7,8),(8,9)] : List ( Int, number )
+```
+
+
+# 6: Immutability of Containers (Recalled)
+: Remember that Elm is a pure language, where variables, values, and containers are strictly incapable of mutating
+: adding, removing, sorting, and modifying an existing container does not mutate it, but it only returns a copy of it with its modification/s
+
+# 7: List.Filter Examples
 
 ```elm
-Array.set : Int -> a -> Array a -> Array a
+filterDivisibleBy: List Int -> Int -> List Int
+filterDivisibleBy given_list n =
+    let
+        div_by_n = List.filter (\x -> (modBy n x) == 0) given_list
+    in
+        div_by_n
+              
+-- modBy n x = remainder of x/n. notice that the first param n must not be 0
+-- notice that modBy n x is like x%n in Python
 ```
 
-Returns a NEW array with the modified value.
-
-```elm
-u = Array.fromList [4,5,6]
-Array.set 0 1 u
--- Array.fromList [1,5,6]
-```
-
----
-
-## `Array.slice`
-
-```elm
-Array.slice : Int -> Int -> Array a -> Array a
-```
-
-Gets elements from index `start` to `end - 1`.
-
-```elm
-Array.slice 2 4 (Array.fromList [1,2,3,4,5])
--- Array.fromList [3,4]
-```
-
----
-
-## `Array.empty`
-
-```elm
-Array.empty : Array a
-```
-
-Creates an empty array.
-
-```elm
-Array.empty
-```
-
----
-
-## `Array.repeat`
-
-```elm
-Array.repeat : Int -> a -> Array a
-```
-
-Repeats a value `n` times.
-
----
-
-## `Array.isEmpty`
-
-```elm
-Array.isEmpty : Array a -> Bool
-```
-
-Checks if an array is empty.
-
-```elm
-Array.isEmpty (Array.fromList [1,2,3])
--- False
-```
-
-```elm
-Array.isEmpty Array.empty
--- True
-```
-
----
-
-## `Array.length`
-
-```elm
-Array.length : Array a -> Int
-```
-
-Returns the length.
-
----
-
-## `Array.push`
-
-```elm
-Array.push : a -> Array a -> Array a
-```
-
-Adds an element to the END.
-
-```elm
-Array.push 8 (Array.fromList [4,5,6])
--- Array.fromList [4,5,6,8]
-```
-
----
-
-## `Array.toList`
-
-```elm
-Array.toList : Array a -> List a
-```
-
-Converts an array into a list.
-
----
-
-## `Array.toIndexedList`
-
-```elm
-Array.toIndexedList : Array a -> List (Int, a)
-```
-
-Pairs each element with its index.
-
-Example:
-
-```elm
-Array.toIndexedList (Array.fromList [10,20,30])
--- [(0,10),(1,20),(2,30)]
-```
-
----
-
-# 6. Immutability
-
-Elm is a pure functional language.
-
-This means:
-
-- variables cannot mutate
-    
-- values cannot mutate
-    
-- containers cannot mutate
-    
-
-Operations such as:
-
-- adding
-    
-- removing
-    
-- sorting
-    
-- updating
-    
-
-return NEW containers instead of modifying old ones.
-
-Example:
-
-```elm
-x = Array.fromList [10,20,30]
-y = Array.set 2 100 x
-```
-
-Result:
-
-```elm
-x == Array.fromList [10,20,30]
-y == Array.fromList [10,20,100]
-```
-
-`x` remains unchanged.
-
----
-
-# 7. Filtering Example
-
-```elm
-filterDivisibleBy : List Int -> Int -> List Int
-filterDivisibleBy givenList n =
-    List.filter (\x -> modBy n x == 0) givenList
-```
-
-Example:
-
-```elm
-filterDivisibleBy [1,2,3,4,5,6] 2
--- [2,4,6]
-```
-
----
-
-# 8. Tuples
-
-Tuples store grouped values.
-
-Examples:
-
-```elm
-(Int, String)
-(Int, String, Bool)
-```
-
-Unlike lists:
-
-- tuple elements may have different types
-    
-- tuples usually store a fixed number of related values
-    
-
----
-
-# 8.1 Tuple Destructuring
+# 8: Tuples
+## 1. Destructuring Bind in Tuples
+: can only be done in the let block
 
 ```elm
 answer =
-    let
-        (x, _, z) = tupleData
-    in
-    x + z
+	let
+		(x, _, z) = tuple_data -- Underscore for "don't care"
+	in
+		x + z
 ```
-
-`_` means:
-
-> “ignore this value”
