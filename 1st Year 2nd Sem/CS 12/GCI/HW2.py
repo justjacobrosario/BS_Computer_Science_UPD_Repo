@@ -22,8 +22,14 @@ anime_data = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
 anime_data_extracted = anime_data[anime_data['Score'] != 'Unknown'].copy()
 anime_data_extracted['Score'] = pd.to_numeric(anime_data_extracted['Score'])
 
+pd.set_option('display.max_columns', 6) 
 
 def homework(anime_data_extracted: pd.DataFrame) -> pd.Series:
-	...
+	types = anime_data_extracted["Type"].unique()
+	new = dict()
+	for type in types:
+		...
+
 
 print(anime_data_extracted["Type"].unique())
+print(anime_data_extracted[(anime_data_extracted["Type"] == "Music")]["Score"].mean())
