@@ -1,11 +1,13 @@
-
-
-## year: 1 subject: CS12 field: programming
+---
+year: 1
+subject: CS12
+field: programming
+---
 
 
 # 1: RECORDS
 
-: collection of values with FIXED key names : like a python dict but keys are static (not dynamic) : like a python class where keys are the properties
+: collection of values with FIXED key name : like a python dicts but keys are static (not dynamic) : like a python class where keys are the properties
 
 ```elm
 { artist = "Eraserheads"
@@ -16,7 +18,7 @@
 
 ## 1. `type` — Custom Types
 
-: makes a new type with a set of possible values : like python's Enum
+: make a new type with a set of possible values : like pythons Enum
 
 ```elm
 type Genre
@@ -29,7 +31,7 @@ type Genre
 
 ## 2. `type alias` — Record Type Definition
 
-: gives a name to a fixed set of key-type pairs : like a Protocol/dataclass in python but for records : defines what keys a record must have and their value types
+: gives a name to a fixed set of key-type pairs : like a Protocol/dataclass in python but for record : defines what keys a record must have and their value types
 
 ### a. Defining
 
@@ -80,11 +82,13 @@ newX = { x | title = "Magasin", genre = Indie }
 
 # 2: FOLD
 
-: abstraction of the for-each aggregation pattern : aka reduce, accumulate, aggregate : a function runs on the initial value and first element, returns a result, then runs again on that result and next element, and so on : like folding paper, each fold stacks onto the last one, accumulating thickness until the final fold
+: aka reduce, accumulate, aggregate 
+: a function runs on the initial value and first element, returns a result, then runs again on that result and next element, and so on 
+: like folding paper, each fold stacks onto the last one, accumulating thickness until the final fold
 
 ## 1. Common Loop Pattern in Python
 
-: many loops share this same structure:
+: many loop share this same structure:
 
 ```python
 # sum
@@ -112,9 +116,9 @@ def fold(reducer, starting_value, elems):
         result = reducer(elem, result)
     return result
 
-# reducer       -> function applied each iteration
+# reducer       -> function applid each iteration
 # starting_value -> initial result before any element processed
-# elems         -> the list
+# elems         -> list
 
 # call order:
 # reducer(1st_elem, starting_value) -> res1
@@ -188,7 +192,8 @@ myConcat strs = List.foldr (++) "" strs
 
 ## 4. Identity (Starting Value)
 
-: value for which the reducer just returns the other arg unchanged : also the correct result for an empty list
+: value for which the reducer just return the other arg unchanged 
+: also the correct result for an empty list
 
 |Operation|Reducer|Identity|
 |---|---|---|
@@ -199,7 +204,8 @@ myConcat strs = List.foldr (++) "" strs
 
 ## 5. Reduction vs Accumulation
 
-: reduction -> output type is SAME as element type (List a -> a) : accumulation -> output can be ANY type, more general (List a -> b) : no change in fold structure, just what types a and b are
+: reduction - output type is SAME as element type (List a -> a) 
+: accumulation - output can be ANY type, more general (List a -> b) 
 
 ```elm
 -- reductions
@@ -213,7 +219,8 @@ length  : List a      -> Int
 
 ## 6. Intermediate State
 
-: sometimes fold needs to track extra info alongside the answer : solution -> make accumulator a tuple (answer, extra_state), extract answer at end
+: sometime fold needs to track extra info along the answer 
+: solution - make accumulator a tuple (answer, extra_state), extract answer at end
 
 e.g. `extend : String -> String` that repeats nth char n times
 
@@ -250,7 +257,7 @@ finalAns = "abbccc"
 -}
 ```
 
-: note: String.foldl works on Char not String, so String.fromChar needed before repeating
+: note: String.foldl work on Char not String, so String.fromChar needed before repeating
 
 # 3: DICT (BONUS)
 

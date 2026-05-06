@@ -55,6 +55,20 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "L16_ImmutableDataTypes"
+            }
+          },
+          {
+            "id": "f6145f60a13f9cba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
                 "mode": "source",
                 "source": true
@@ -62,9 +76,23 @@
               "icon": "lucide-file",
               "title": "L17_ElmRecords,Fold,Recursion"
             }
+          },
+          {
+            "id": "bb00200f0db69fa5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "L15_ElmBasics"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -245,12 +273,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "aa7f66d3e4650b60",
+  "active": "f6145f60a13f9cba",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/httpxModuleForAsynchronousProgramming.md",
