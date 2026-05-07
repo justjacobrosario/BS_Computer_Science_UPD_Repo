@@ -275,5 +275,5 @@ void show_sum(int a, int b) {
 : defining a variable to a value before compilation
 
 #### 2] Global Variables
-: like preprocessor macro but is executed after compilation, both 
+: like preprocessor macro but is executed after compilation, both preprocessors and globals are accessible anywhere
 
