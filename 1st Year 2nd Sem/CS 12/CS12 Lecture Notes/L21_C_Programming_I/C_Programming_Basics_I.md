@@ -16,24 +16,24 @@ hello -> (3. makes a binary executable)
 `./hello` -> (4. runs the executable)
 
 ```
-### 1) Compiling
+### a) Compiling
 `gcc filename.c -o hello`
 
-### 2) Running
+### b) Running
 `./hello`
 
 : NOTE : You must  recompile then run the code for any revision
 
 ## 3. C Initial Points
 : these are the usuals, consists of terms, syntax, and the usual template of a C program
-### 1) Preprocessor Directive
+### a) Preprocessor Directive
 `#include <stdio.h>`
 : like import lines in Python
 : loads standard I/O library
 #### Preprocessor `#`
 : lines starting with `#` is processed even before compilation
 
-### 2) Variables
+### b) Variables
 #### 1] Declaration
 : before giving a value, variables must first be defined with its data type
 : snake_case like Python
@@ -266,8 +266,5 @@ void show_sum(int a, int b) {
 ```
 
 
-
-
-
-
+### 3) Top Level and Scoping Rukes
 
