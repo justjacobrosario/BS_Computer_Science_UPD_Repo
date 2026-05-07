@@ -293,6 +293,8 @@ int main(){
 }
 ```
 ### b) Scope Rules
-#### 1] Global Variables
+#### 1] Global Variables and Preprocessors are accessible anywhere
+
+#### 2] local variables (variables declared in a block is only accessible within that block)
 
 
