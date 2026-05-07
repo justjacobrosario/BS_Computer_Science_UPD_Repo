@@ -269,5 +269,7 @@ void show_sum(int a, int b) {
 ## 3. Top Level and Scoping Rules
 ### a) Top level codes
 : codes outside any blocks { }
-: only de
+: only declarations of variables and functions, and preprocessor directives are allowed here
+
+#### 1.
 
