@@ -333,6 +333,9 @@ int main(){
 }
 ```
 
+### b) Type Limits
+: type limit errors occur when a variable is mutated into a value beyond the bounds of its data type
+
 ## 4. Arrays in C
 
 : arrays in c are fixed-size
