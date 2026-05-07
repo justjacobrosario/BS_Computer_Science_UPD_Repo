@@ -347,6 +347,17 @@ for n in lis:
 	print(n)
 	
 '''
-
+1
+2
+3
+4
+67
 '''
+```
+
+in c:
+```c
+// no len()
+
+in 
 ```
