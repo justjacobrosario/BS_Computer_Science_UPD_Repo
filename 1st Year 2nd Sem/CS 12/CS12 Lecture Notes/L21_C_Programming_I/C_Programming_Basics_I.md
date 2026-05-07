@@ -271,5 +271,9 @@ void show_sum(int a, int b) {
 : codes outside any blocks { }
 : only declarations of variables and functions, and preprocessor directives are allowed here
 
-#### 1.
+#### 1] Preprocessor Macro
+: defining a variable to a value before compilation
+
+#### 2] Global Variables
+: like preprocessor macro but is executed after compilation, both 
 
