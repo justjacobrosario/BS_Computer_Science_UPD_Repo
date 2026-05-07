@@ -67,7 +67,7 @@ const int ABSOLUTE_ZERO = 0
 
 #### 2] Assignment
 
-### 3) Functions
+### a) Functions
 ```
 <return_type> <func_name>(<arg_type> <arg_name>, ...) {
 <body>
@@ -77,9 +77,9 @@ const int ABSOLUTE_ZERO = 0
 	- return type is mentioned first, 
 	- the parameters are type-value pairs, and 
 	- the body (consists of statements) is enclosed with { }
-### 4) Statements
+### b) Statements
 : Statements (except for the last line of a function) end with a semicolon
-### 5) Entry Point
+### c) Entry Point
 `int main() {}`
 : basically the `main` function that is always called 
 : returns 0 (can be remove ONLY for `main`)
@@ -97,23 +97,23 @@ int main() {
 
 ## 3. Operators and Control Structures
 
-### 1) Arithmetic Operators
+### a) Arithmetic Operators
 `+, -, *, /, %`
 
-### 2) Comparison Operators
+### b) Comparison Operators
 `==, !=, <, >, <=, >=`
 
-### 3) Logical Operators
+### c) Logical Operators
 `&& || !`
 
-### 4) Bitwise Operators
+### d) Bitwise Operators
 `& | ^ ~ << >>`
 
-### 5) Compound Assignments
+### e) Compound Assignments
 : increments, ...
 `+= -= *= /=`
 
-### 6) Post Compound Assignments
+### f) Post Compound Assignments
 : increment by 1, ...
 
 NOTE: C has no boolean, only use 0 and 1
@@ -160,7 +160,7 @@ for i in range(5):
 
 ## 5. printf and Functions
 
-### 1) printf
+### a) printf
 : similar to Python's `print(f" ... ")`
 in Python:
 ```python
@@ -185,7 +185,7 @@ printf("%d + %d = %d\n", x, y, x+y);
 | long/long long                                                                          | %ld / %lld                              |
 | Hex                                                                                     | %x                                      |
 | Special elements<br>(these are added in the type part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
-### 2) Functions
+### b) Functions
 : In python functions can:
 	1. optional return type
 	2. can be defined anywhere (even inside functions)
@@ -266,5 +266,6 @@ void show_sum(int a, int b) {
 ```
 
 
-### 3) Top Level and Scoping Rukes
+## 3. Top Level and Scoping Rules
+###
 
