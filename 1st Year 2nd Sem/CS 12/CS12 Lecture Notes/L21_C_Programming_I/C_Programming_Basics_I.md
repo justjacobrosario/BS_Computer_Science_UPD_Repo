@@ -298,3 +298,16 @@ int main(){
 #### 2] local variables (variables declared in a block is only accessible within that block)
 
 
+## 4. Integer Data Types and Limits
+
+
+| Bits | Signed Type        | Range             | Unsigned Type                | Range       |
+| ---- | ------------------ | ----------------- | ---------------------------- | ----------- |
+| 8    | char, int8_t       | −128 to 127       | unsigned char, uint8_t       | 0 to 255    |
+| 16   | short, int16_t     | −32,768 to 32,767 | unsigned short, uint16_t     | 0 to 65,535 |
+| 32   | int, int32_t       | ≈ −2.1B to 2.1B   | unsigned int, uint32_t       | 0 to ≈4.3B  |
+| 64   | long long, int64_t | −2⁶³, 2⁶³−1       | unsigned long long, uint64_t | (0, 2⁶⁴−1)  |
+
+: include `stdint.h` to use fixed-width types like the types ending with `_t`
+: include `stdbool.h` to use bools `true`, `false`
+
