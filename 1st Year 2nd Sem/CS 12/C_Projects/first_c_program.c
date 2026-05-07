@@ -2,9 +2,11 @@
 #include <stdint.h>
 
 
-int lis[] = {1, 2, 3};
-
 int main(){
+    int lis[] = {1, 2, 3, 4}; // implicit length
+    int lis2[4] = {2, 4, 6, 8}; // explicit length
 
-    printf("*%d", lis);
+    for (int i = 0; i<4;i++){
+        printf("%d\n", lis[i]);
+    }
 }
