@@ -330,4 +330,10 @@ int main(){
 }
 ```
 
-## 4.
+## 4. Arrays in C
+
+: arrays in c are fixed-size
+: no len(), size is explicitly or implicitly fixed upon declaration
+
+```c
+```
