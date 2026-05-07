@@ -128,6 +128,9 @@ if (x > 0) {
     printf("negative\n");
 }
 
+// ternary
+char verdict = x > 0 ? "positive" : "negative";
+
 // while
 while (x > 0) {
     x--;
