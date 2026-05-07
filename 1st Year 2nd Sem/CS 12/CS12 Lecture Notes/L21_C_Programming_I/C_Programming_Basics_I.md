@@ -337,4 +337,16 @@ int main(){
 
 in python, we do lists like this
 ```python
+lis = [1, 2, 3, 4]
+
+lis.append(67)
+
+print("len: " + str(len(lis))) # len: 5
+
+for n in lis:
+	print(n)
+	
+'''
+
+'''
 ```
