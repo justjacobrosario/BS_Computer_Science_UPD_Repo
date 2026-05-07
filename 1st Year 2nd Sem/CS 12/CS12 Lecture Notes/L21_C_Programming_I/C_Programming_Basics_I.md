@@ -280,7 +280,7 @@ void show_sum(int a, int b) {
 : like preprocessor macro but is executed after compilation, both preprocessors and globals are accessible anywhere
 : mutable
 
-```python
+```c
 #include <stdio.h>
 
 #define N 100
@@ -312,6 +312,21 @@ int main(){
 : include `stdbool.h` to use bools `true`, `false`
 
 ### a) Type Casting
-: Safe: short width to long wdith
-: Unsafe: long width t short width
+: Safe: short width to long width
+: Unsafe: long width to short width
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+int16_t x_16_bit = 123456789;
+int32_t y_32_bit = 123456789;
+
+int main(){
+    int32_t widen_x = x_16_bit;
+    int16_t narrowed_y = y_32_bit;
+    printf("x: %d\n", widen_x); 
+    printf("y: %d", narrowed_y);  // error heree
+}
+```
 
