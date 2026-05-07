@@ -370,7 +370,8 @@ int main(){
     int lis3[10] = {}; // {0,0,0,0,0,0,0,0,0,0}
     int lis4[10] = {1}; // {1,0,0,0,0,0,0,0,0,0}
     int lis5[10]; // garbage e.g. {0429, 39120, -32190, ...}
-
+	
+	// indexing out of bounds will error
     for (int i = 0; i<4;i++){
         lis[1] = 10; // mutable but no append method
         printf("%d\n", lis[i]);
@@ -380,4 +381,15 @@ int main(){
 // 10
 // 3
 // 4
+```
+
+## C-style Strings and ASCII
+
+: python has a string type, c doesnt
+: a c string is an array f char values ending with a `\0` null char
+
+### a. declaring a string variable
+
+```c
+
 ```
