@@ -311,3 +311,7 @@ int main(){
 : include `stdint.h` to use fixed-width types like the types ending with `_t`
 : include `stdbool.h` to use bools `true`, `false`
 
+### a) Type Casting
+: Safe: short width to long wdith
+: Unsafe: long width t short width
+
