@@ -69,12 +69,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "L17_ElmRecords,Fold,Recursion"
+              "title": "C_Programming_Basics_I"
+            }
+          },
+          {
+            "id": "1b0366207b464e07",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "C_Programming_Basics_II"
             }
           },
           {
@@ -92,7 +106,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -167,8 +181,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -274,10 +287,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "aa7f66d3e4650b60",
+  "active": "1b0366207b464e07",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/Untitled.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
@@ -300,8 +316,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping/L9_BehavioralSubtyping.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns/L10_OOPDesignPatterns.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L5_ObjectOrientedProgramming/L5_ObjectOrientedProgramming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking/L1_TypeChecking.md",
     "1st Year 2nd Sem/CS 12/GCI/HW2.py",
     "1st Year 2nd Sem/CS 12/GCI/sample.exe",
     "1st Year 2nd Sem/CS 12/C_Projects/hehe.py",
@@ -311,7 +325,6 @@
     "1st Year 2nd Sem/CS 12/C_Projects/first_c_program.exe",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/watching_status.csv",
     "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/rating_complete.csv",
-    "1st Year 2nd Sem/CS 12/GCI/MyAnimeList-Database-master/data/html/5.zip",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
