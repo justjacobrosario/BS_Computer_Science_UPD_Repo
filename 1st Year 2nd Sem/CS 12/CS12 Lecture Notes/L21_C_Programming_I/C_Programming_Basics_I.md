@@ -273,7 +273,13 @@ void show_sum(int a, int b) {
 
 #### 1] Preprocessor Macro
 : defining a variable to a value before compilation
+: immutable
 
 #### 2] Global Variables
+: basically declared variables in top level
 : like preprocessor macro but is executed after compilation, both preprocessors and globals are accessible anywhere
+: mutable
+
+### b) 
+
 
