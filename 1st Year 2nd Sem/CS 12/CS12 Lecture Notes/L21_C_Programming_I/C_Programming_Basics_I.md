@@ -335,5 +335,6 @@ int main(){
 : arrays in c are fixed-size
 : no len(), size is explicitly or implicitly fixed upon declaration
 
-```c
+in python, we do lists like this
+```python
 ```
