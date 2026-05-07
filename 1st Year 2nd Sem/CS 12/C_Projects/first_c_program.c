@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include <stdint.h>
-
 
 int main(){
-    int lis[] = {1, 2, 3, 4}; // implicit length
-    int lis2[4] = {2, 4, 6, 8}; // explicit length
-    int lis5[8];
-    for (int i = 0; i<4;i++){
-        lis[1] = 10; // mutable but no append method
-        printf("%d\n", lis5[i]);
-    }
+    char str1[] = "Hello x";
+    char str2[] = {'H', 'e', 'l', 'l', 'o', ' ', 'x', '\0'};
+    char str3[] = {72,101,108,108,111,32,88,0};
+
+    printf("%s\n", str1);
+    printf("%s\n", str2);
+    printf("%s\n", str3);
+
 }

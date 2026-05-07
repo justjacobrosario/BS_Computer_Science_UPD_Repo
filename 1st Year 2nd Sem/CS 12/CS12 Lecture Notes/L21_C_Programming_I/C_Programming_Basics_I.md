@@ -391,5 +391,21 @@ int main(){
 ### a. declaring a string variable
 
 ```c
+#include <stdio.h>
 
+int main(){
+	// like a pythonstr
+    char str1[] = "Hello x";
+    // list of chars
+    //NOTE: "" for str, '' for chars
+    char str2[] = {'H', 'e', 'l', 'l', 'o', ' ', 'x', '\0'};
+    // list of ascii nums
+    char str3[] = {72,101,108,108,111,32,88,0};
+
+    printf("%s\n", str1);
+    printf("%s\n", str2);
+    printf("%s\n", str3);
+
+}
 ```
+
