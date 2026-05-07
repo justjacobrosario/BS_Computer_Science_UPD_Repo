@@ -339,6 +339,7 @@ in python, we do lists like this
 ```python
 lis = [1, 2, 3, 4]
 
+lis[1] = 10
 lis.append(67)
 
 print("len: " + str(len(lis))) # len: 5
@@ -348,7 +349,7 @@ for n in lis:
 	
 '''
 1
-2
+10
 3
 4
 67
@@ -358,6 +359,21 @@ for n in lis:
 in c:
 ```c
 // no len()
+#include <stdio.h>
+#include <stdint.h>
 
-in 
+
+int main(){
+    int lis[] = {1, 2, 3, 4}; // implicit length
+    int lis2[4] = {2, 4, 6, 8}; // explicit length
+
+    for (int i = 0; i<4;i++){
+        lis[1] = 10; // mutable but no append method
+        printf("%d\n", lis[i]);
+    }
+}
+// 1
+// 10
+// 3
+// 4
 ```

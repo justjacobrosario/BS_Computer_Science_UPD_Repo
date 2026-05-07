@@ -7,6 +7,7 @@ int main(){
     int lis2[4] = {2, 4, 6, 8}; // explicit length
 
     for (int i = 0; i<4;i++){
+        lis[1] = 10;
         printf("%d\n", lis[i]);
     }
 }
