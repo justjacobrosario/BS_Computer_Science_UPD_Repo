@@ -280,6 +280,19 @@ void show_sum(int a, int b) {
 : like preprocessor macro but is executed after compilation, both preprocessors and globals are accessible anywhere
 : mutable
 
-### b) 
+```python
+#include <stdio.h>
+
+#define N 100
+int eyy = 10;
+
+int main(){
+    //N--; errorr
+    eyy--;
+    printf("%d", eyy); // 9
+}
+```
+### b) Scope Rules
+#### 1] Global Variables
 
 
