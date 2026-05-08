@@ -55,11 +55,11 @@ int *pX = &x; // pX contains the address of x
 ```
 memory will look like this:
 
-| code              | Address  | Value                    |
-| ----------------- | -------- | ------------------------ |
-| `int x= 4`        | `0x1000` | 4                        |
-| `int *pX = &xint` | `0x1004` | `0x1000` (address of  x) |
-|                   | `0x100F` |                          |
+| code           | Address  | Value                    |
+| -------------- | -------- | ------------------------ |
+| `int x= 4`     | `0x1000` | 4                        |
+| `int *pX = &x` | `0x1004` | `0x1000` (address of  x) |
+|                | `0x100F` |                          |
 
 #### 2] Dereferencing a Pointer
 : whenever we call `*pX` again, instead of returning the address of x, it returns the value of x (hence referring to the value in the address)
@@ -73,8 +73,8 @@ printf("%d", *pX); // prints 4 instead of 0x1000
 ```
 memory will look like this:
 
-| code              | Address  | Value                     |
-| ----------------- | -------- | ------------------------- |
-| `int x= 4`        | `0x1000` | 4                         |
-| `int *pX = &xint` | `0x1004` | `0x1000` (address of  x)  |
-| `*pX`             | `0x100F` | 4 (pointed to value of x) |
+| code           | Address  | Value                     |
+| -------------- | -------- | ------------------------- |
+| `int x= 4`     | `0x1000` | 4                         |
+| `int *pX = &x` | `0x1004` | `0x1000` (address of  x)  |
+| `*pX`          | `0x100F` | 4 (pointed to value of x) |
