@@ -105,7 +105,7 @@ memory will look like this:
 ### d) Pointers in arrays
 : NOTE: You cannot assign a pointer to the address of the whole list at once
 : You can only assign a pointer to the address of a single element w index n
-#### 1] Initializing pointer via indexing or arithmethic method
+#### Initializing pointer via indexing or arithmethic method
 ```c
 
 int main(){
@@ -125,6 +125,51 @@ int main(){
 
 ### e) Parameterizing arrays in functions using pointers
 
+: basically the parameter for an array is a pointer
+: in the function body, refer to the array using its pointer parameter
+: but when called, its argument is an array
+
+like this template:
+```c
+void f(int *pArray, int n) {
+    for (int i = 0; i < n; i ++){
+        pArray[i] ...; // uses each element of the array
+    }
+}
+
+int main(){
+    int arr[] = {...};
+    f(arr, n_val);
+    
+    // for printing purposes
+    for (int k = 0; k < n_val; k++){
+        printf("%d\n", lis[k]);
+    }
+}
+```
+
+e.g.
+```c
+void increm_each(int *pArray, int n) {
+    for (int i = 0; i < n; i ++){
+        pArray[i]++;
+    }
+}
+
+int main(){
+    int arr[] = {1, 2, 3};
+    increm_each(arr, 3);
+    
+    for (int k = 0; k < 3; k++){
+        printf("%d\n", lis[k]);
+    }
+}
+/*
+2
+3
+4
+*/
+```
  
 ## 2. scanf
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)

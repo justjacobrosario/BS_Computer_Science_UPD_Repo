@@ -1,10 +1,15 @@
 #include <stdio.h>
 
-int main(){
-    int a, b;
-    printf("Enter a number: ");
-    scanf("%d", &a);
-    printf("Enter another number: ");
-    scanf("%d", &b);
+void increm_each(int *pList, int n) {
+    for (int i = 0; i < n; i ++){
+        pList[i]++;
+    }
+}
 
-    printf("%d + %d = %d\n", a, b,a+b); }
+int main(){
+    int lis[] = {1, 2, 3};
+    increm_each(lis, 3);
+    for (int k = 0; k < 3; k++){
+        printf("%d\n", lis[k]);
+    }
+}
