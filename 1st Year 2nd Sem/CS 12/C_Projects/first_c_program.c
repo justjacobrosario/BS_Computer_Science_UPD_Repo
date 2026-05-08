@@ -2,13 +2,9 @@
 
 int main(){
     char lis[] = {'a', 'b', 'c'};
-    char *plis = &lis[0];
+    char *pfirst = &lis[0]; // &lis[n]
+    char *pfirst2 = lis + 0; // lis + n
 
-    int x = 2;
-    int *pX = &x;
-
-    printf("%c\n", *plis);
-    printf("%c\n", *(lis + 0));
-    printf("%c\n", lis[0]);
-
+    printf("%c\n", *pfirst);
+    printf("%c\n", *pfirst2);
 }

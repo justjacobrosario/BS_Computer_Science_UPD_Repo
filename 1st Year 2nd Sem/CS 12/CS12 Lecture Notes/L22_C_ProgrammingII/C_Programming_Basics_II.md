@@ -54,7 +54,8 @@ e.g.
 : Memory address or index of a certain value
 
 #### 2] Pointer
-: the variable that contains a pointer value (i.e. doesnt have the house, just the address of it)
+: the variable that contains a pointer value 
+(i.e. doesnt have the house, just the address of it)
 
 #### 3] `*`
 : the pointer symbol does things differently depending on where you will use it
@@ -84,6 +85,7 @@ memory will look like this:
 
 #### 2] Dereferencing a Pointer
 : whenever we call `*pX` again, instead of returning the address of x, it returns the value of x (hence referring to the value in the address)
+: mutating the value of `*pX` also mutates the value of `x`
 
 e.g.
 ```c
@@ -101,4 +103,22 @@ memory will look like this:
 | `*pX`          | `0x100F` | 4 (pointed to value of x) |
 
 ### d) Pointers in arrays
-#### 1] Initializing pointer to an 
+: NOTE: You cannot assign a pointer to the address of the whole list at once
+: You can only assign a pointer to the address of a single element w index n
+#### 1] Initializing pointer via indexing or arithmethic method
+```c
+
+int main(){
+    char lis[] = {'a', 'b', 'c'};
+    // I. Indexing method
+    char *pfirst = &lis[0]; // &lis[n]
+    // II. Arithmetic Method
+    char *pfirst2 = lis + 0; // lis + n
+    
+    // lis[i] <-> *(&lis[i]) <->  *(&lis[i ])
+
+    printf("%c\n", *pfirst); // a
+    printf("%c\n", *pfirst2); // a
+}
+
+```
