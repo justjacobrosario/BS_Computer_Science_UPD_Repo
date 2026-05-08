@@ -207,3 +207,28 @@ Enter another number: 3
 : ADVICE: whenever you need to input the length of an array, ask for it first before declaring that array
 
 e.g.
+```c
+
+int main(){
+
+    // declare variable to make a pointer later
+    int n;
+
+    // ask the length of array
+    printf("%s", "How many elements: ");
+    scanf("%d", &n);
+
+    // then declare the array itself
+    int arr[n] = {};
+
+    // just counts from 0 to n-1 as elements
+    for (int i = 0; i < n; i++){
+        arr[i] = i;
+    }
+
+    // printing purposes
+    for (int k = 0; k < n; k++){
+        printf("%d\n", arr[k]);
+    }
+}
+```
