@@ -170,7 +170,10 @@ int main(){
 4
 */
 ```
- 
+
+### f) NEVER return a pointer value or address `&var` to a function
+: 
+
 ## 2. scanf
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
 : input version of printf, but it takes pointers instead

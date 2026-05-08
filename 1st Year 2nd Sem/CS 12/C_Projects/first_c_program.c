@@ -1,24 +1,11 @@
 #include <stdio.h>
 
-int main(){
+int *do_not_do_this() {
+    int x = 2025;
 
-    // declare variable to make a pointer later
-    int n;
-
-    // NOTICE: ask FIRST the length of array
-    printf("%s", "How many elements: ");
-    scanf("%d", &n);
-
-    // NOTICE: then declare the array itself
-    int arr[n] = {};
-
-    // just counts from 0 to n-1 as elements
-    for (int i = 0; i < n; i++){
-        arr[i] = i;
-    }
-
-    // printing purposes
-    for (int k = 0; k < n; k++){
-        printf("%d\n", arr[k]);
-    }
+    return &x; // Allowed by C; mortal sin
+}
+int main() {
+    int *p1 = do_not_do_this();
+    printf("This should be 2025: %d\n", *p1);
 }
