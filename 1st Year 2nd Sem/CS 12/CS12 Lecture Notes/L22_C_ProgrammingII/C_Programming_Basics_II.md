@@ -123,7 +123,39 @@ int main(){
 
 ```
 
+### e) Parameterizing arrays in functions using pointers
 
+ 
 ## 2. scanf
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
 : input version of printf, but it takes pointers instead
+: since the parameter  is a pointer, the value must be an address of a n existing variable
+: the inputted value of the user will then be set as the value of the variable addressed in the parameter
+e.g.
+```c
+int a;
+scanf("%d", &a);
+// user inputs 1
+// scanf sets the pointer *(&a) = 1
+// by mutation, a = 1
+```
+
+:similar to python's input() where it asks for the user's input
+
+e.g.
+```c
+int main(){
+    int a, b;
+    printf("Enter a number: ");
+    scanf("%d", &a);
+    printf("Enter another number: ");
+    scanf("%d", &b);
+
+    printf("%d + %d = %d\n", a, b,a+b); }
+/*
+Enter a number: 3
+Enter another number: 3
+3 +3 = 6
+*/
+```
+
