@@ -100,3 +100,5 @@ memory will look like this:
 | `int *pX = &x` | `0x1004` | `0x1000` (address of  x)  |
 | `*pX`          | `0x100F` | 4 (pointed to value of x) |
 
+### d) Pointers in arrays
+#### 1] Initializing pointer to an 
