@@ -12,7 +12,7 @@ int main(){
     // then declare the array itself
     int arr[n] = {};
 
-    // 
+    // asks the value of element from 0th-index onwards
     for (int i = 0; i < n; i++){
         printf("%dth-element (ints onlyy muna): " , i);
         scanf("%d", &arr[i]);
@@ -20,7 +20,6 @@ int main(){
 
     // printing purposes
     for (int k = 0; k < n; k++){
-        printf("ee");
         printf("%d", arr[k]);
     }
 }
