@@ -5,21 +5,20 @@ int main(){
     // declare variable to make a pointer later
     int n;
 
-    // ask the length of array
+    // NOTICE: ask FIRST the length of array
     printf("%s", "How many elements: ");
     scanf("%d", &n);
 
-    // then declare the array itself
+    // NOTICE: then declare the array itself
     int arr[n] = {};
 
-    // asks the value of element from 0th-index onwards
+    // just counts from 0 to n-1 as elements
     for (int i = 0; i < n; i++){
-        printf("%dth-element (ints onlyy muna): " , i);
-        scanf("%d", &arr[i]);
+        arr[i] = i;
     }
 
     // printing purposes
     for (int k = 0; k < n; k++){
-        printf("%d", arr[k]);
+        printf("%d\n", arr[k]);
     }
 }

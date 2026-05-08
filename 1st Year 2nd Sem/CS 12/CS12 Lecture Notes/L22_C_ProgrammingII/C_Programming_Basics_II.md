@@ -232,6 +232,16 @@ int main(){
         printf("%d", arr[k]);
     }
 }
+
+/*
+How many elements: 5
+0th-element (ints onlyy muna): 1
+1th-element (ints onlyy muna): 2
+2th-element (ints onlyy muna): 3
+3th-element (ints onlyy muna): 4
+4th-element (ints onlyy muna): 5
+12345
+*/
 ```
 
 e.g.
@@ -259,4 +269,13 @@ int main(){
         printf("%d\n", arr[k]);
     }
 }
+
+/*
+How many elements: 5
+0
+1
+2
+3
+4
+*/
 ```
