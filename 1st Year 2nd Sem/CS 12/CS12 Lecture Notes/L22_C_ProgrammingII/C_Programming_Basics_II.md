@@ -21,8 +21,7 @@ field: programming
 | double    | 64-bit       | 8 bytes      |
 | void      | 0-bit        | 0 bytes      |
 
-: memory is an array of bytes
-: completely contains all the data whenever a program runs
+#### 2] Parts of Memory
 
 : it consists of an Address (index), and a Value (byte)
 e.g.
@@ -34,16 +33,22 @@ e.g.
 | `0x1004` |       |
 | `0x100F` |       |
 | ...      |       |
-this is a memory of x
+1 is the value of x and the address is 0x1000
 
-### b) Bytes as Values
-#### 1] char
-: recall that `char` is a one-byte integer in the range -128 to 127 (8-bit)
-: a byte can be mapped to a value in `char`
+#### 3] Memory as an Array of bytes
+: see memory as an array of bytes of values where the index is their address
+: a value that is n bytes long is set to the address (previous address + n)
 
-e.g. `0x41` -> `65` in ascii -> `A` in char
+| code                    | address      | value         | remarks                                                   |
+| ----------------------- | ------------ | ------------- | --------------------------------------------------------- |
+| ...                     | `0x1000`     | ...           | lets set the previous address for the sake of an example  |
+| `int a = 1`             | `0x1004`     | 1             | it covers the next 4 bytes since an `int` is 4 bytes long |
+| char b = 'a'            | `0x1005`     | 'a'           | it covers the next 1 byte since `char` is 1 byte long     |
+| `int lis[] = {5, 6, 7}` | `0x1009`     | `lis[0]` or 5 | elements of arrays have separate addresses (same rule)    |
+|                         | `0x1013`<br> | `lis[1]` or 6 | ...                                                       |
+|                         | `0x1017`<br> | `lis[2]` or 7 | ...                                                       |
 
-### c) Pointers
+### b) Pointers
 
 #### 1] Pointer Value
 : Memory address or index of a certain value
@@ -57,7 +62,7 @@ e.g. `0x41` -> `65` in ascii -> `A` in char
 #### 4] `&var`
 : returns the address of the value of `var`
 
-### d) Using Pointers
+### c) Using Pointers
 #### 1] Initializing a Pointer
 `data_type *pVar = &var`
 : i.e. `pVar` is the pointer that is set to the address of `var`, where the value of `var` is a type of `data_type`
@@ -74,7 +79,7 @@ memory will look like this:
 | code           | Address  | Value                    |
 | -------------- | -------- | ------------------------ |
 | `int x= 4`     | `0x1000` | 4                        |
-| `int *pX = &x` | `0x1004` | `0x1000` (address of  x) |
+| `int *pX = &x` | `0x1008` | `0x1000` (address of  x) |
 |                | `0x100F` |                          |
 
 #### 2] Dereferencing a Pointer
@@ -94,3 +99,4 @@ memory will look like this:
 | `int x= 4`     | `0x1000` | 4                         |
 | `int *pX = &x` | `0x1004` | `0x1000` (address of  x)  |
 | `*pX`          | `0x100F` | 4 (pointed to value of x) |
+
