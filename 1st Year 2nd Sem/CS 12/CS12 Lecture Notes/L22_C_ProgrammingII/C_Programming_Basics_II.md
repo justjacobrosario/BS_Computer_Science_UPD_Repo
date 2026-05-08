@@ -282,3 +282,5 @@ How many elements: 5
 4
 */
 ```
+
+## 3. Null Pointers
