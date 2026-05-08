@@ -1,11 +1,18 @@
 #include <stdio.h>
 
-int *do_not_do_this() {
-    int x = 2025;
+int get_pointer_of_leftmost_one(int *pArr, int n){
+    for (int i = 0; i<n;i++){
+        if (pArr[i]) == 1{
+            return &pArr[i];
+        }
+    return NULL;
 
-    return &x; // Allowed by C; mortal sin
+    }
 }
-int main() {
-    int *p1 = do_not_do_this();
-    printf("This should be 2025: %d\n", *p1);
+
+int main(){
+    int arr[] = {0, 0, 0, 1, 0};
+    printf("%d", get_pointer_of_leftmost_one(arr, 5));
+
+
 }
