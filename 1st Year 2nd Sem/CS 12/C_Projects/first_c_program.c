@@ -1,11 +1,10 @@
 #include <stdio.h>
 
 int main(){
-    char x = "k";
-    char *p = x;
+    char x = 'k';
+    char *p = &x;
 
 
-    printf(p);
-
+    printf("%c", *p);
 
 }
