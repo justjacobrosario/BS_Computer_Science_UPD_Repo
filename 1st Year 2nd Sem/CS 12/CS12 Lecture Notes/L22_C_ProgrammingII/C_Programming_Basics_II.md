@@ -171,8 +171,8 @@ int main(){
 */
 ```
 
-### f) NEVER return a pointer value or address `&var` to a function
-: 
+### f) NEVER return a pointer value or address `&var` of a local variable to a function
+: basically if the address of a local variable (variable declared inside the function definition) is being returned, it might cause probss
 
 ## 2. scanf
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
@@ -284,3 +284,10 @@ How many elements: 5
 ```
 
 ## 3. Null Pointers
+### a) returning a pointer value where null pointers are necessary
+: whenever we return a pointer value/address, there are times that there is no address to be returned
+: what we return in these cases are null pointer `NULL`
+
+e.g.
+```c
+```
