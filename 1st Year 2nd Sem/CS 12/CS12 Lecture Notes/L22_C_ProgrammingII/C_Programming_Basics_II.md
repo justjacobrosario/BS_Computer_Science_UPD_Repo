@@ -5,6 +5,22 @@ field: programming
 ## 1. Pointers and Memory
 
 ### a) Memory
+
+#### 1] bit vs bytes
+: a byte has 8 bits
+: thus n-bit values covers n/8 byte of memory
+
+| datatype  | bit          | byte         |
+| --------- | ------------ | ------------ |
+| char      | 8-bit        | 1 bytes      |
+| short     | 16-bit       | 2 bytes      |
+| int       | 32-bit       | 4 bytes      |
+| long      | 32 or 64-bit | 4 or 8 bytes |
+| long long | 64-bit       | 8 bytes      |
+| float     | 32-bit       | 4 bytes      |
+| double    | 64-bit       | 8 bytes      |
+| void      | 0-bit        | 0 bytes      |
+
 : memory is an array of bytes
 : completely contains all the data whenever a program runs
 
