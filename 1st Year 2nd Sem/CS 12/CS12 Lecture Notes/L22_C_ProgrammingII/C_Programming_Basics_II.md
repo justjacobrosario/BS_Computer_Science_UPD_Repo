@@ -204,3 +204,6 @@ Enter another number: 3
 */
 ```
 
+: ADVICE: whenever you need to input the length of an array, ask for it first before declaring that array
+
+e.g.
