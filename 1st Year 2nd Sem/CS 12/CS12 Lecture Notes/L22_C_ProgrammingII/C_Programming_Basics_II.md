@@ -122,3 +122,8 @@ int main(){
 }
 
 ```
+
+
+## 2. scanf
+`scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
+: input version of printf, but it takes pointers instead
