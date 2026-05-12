@@ -45,9 +45,8 @@ def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
     
     res = data.groupby(groups, observed = True)[metric_column].sum()
     for i, val in enumerate(res):
-        res[i] = val / total * 100
+        res.iloc[i] = val
 
-    res[0] = 67
 
     return res
 print(homework(anime_data_raw, "Completed", 5))
