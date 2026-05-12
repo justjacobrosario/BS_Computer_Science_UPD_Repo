@@ -181,3 +181,12 @@ b. Bar Plot : categ vs numerical
 c. Histogram : Boxplot
 
 ### 2.6. Plotting by a Variable
+
+```python
+plt.plot(df["cnt"])
+plt.show()
+
+# runs a graph window with cnt in y-axis, and rent count in x-axis
+```
+
+## 3. What Makes a Graph Good
