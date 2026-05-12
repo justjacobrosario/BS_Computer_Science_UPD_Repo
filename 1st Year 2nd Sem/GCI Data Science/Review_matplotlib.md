@@ -160,4 +160,7 @@ max    731.000000    4.000000    1.000000   12.000000    1.000000    6.000000   
 : Summary Stat Points
 1. Mean
 2. Median
-: close mean and median -> l
+: close mean and median -> relatively  symmetric
+3. Min and Max
+4. Std Deviation
+: how varied are rentals per day
