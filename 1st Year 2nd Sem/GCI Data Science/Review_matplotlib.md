@@ -73,5 +73,16 @@ print("Dataset downloaded and extracted successfully.")
 : to tabularize the data, use pandas
 ```python
 df = pd.read_csv("day.csv")
-df.head()
+print(df.head())
+
+'''
+   instant      dteday  season  yr  ...  windspeed  casual  registered   cnt
+0        1  2011-01-01       1   0  ...   0.160446     331         654   985
+1        2  2011-01-02       1   0  ...   0.248539     131         670   801
+2        3  2011-01-03       1   0  ...   0.248309     120        1229  1349
+3        4  2011-01-04       1   0  ...   0.160296     108        1454  1562
+4        5  2011-01-05       1   0  ...   0.186900      82        1518  1600
+
+[5 rows x 16 columns]
+'''
 ```

@@ -21,4 +21,8 @@ response = requests.get(url)
 with zipfile.ZipFile(io.BytesIO(response.content)) as z:
 	z.extractall()
 
-print("Dataset downloaded and extracted successfully.")
+pd.set_option("display.max_columns", 16)
+pd.set_option("display.max_rows", 5)
+
+df = pd.read_csv("day.csv")
+print(df)
