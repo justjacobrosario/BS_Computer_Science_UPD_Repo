@@ -28,5 +28,11 @@ pd.set_option("display.max_rows", None)
 df = pd.read_csv("day.csv")
 
 
-plt.plot(df["cnt"])
+plt.figure(figsize=(6,4))
+plt.scatter(df["temp"], df["cnt"])
+
+plt.title("気温とレンタル数の関係")
+plt.xlabel("気温")
+plt.ylabel("レンタル数")
+
 plt.show()

@@ -194,3 +194,56 @@ plt.show()
 : a visualization should answer a specific question
 
 ### 3.2. Make Graph visually comprehensive
+: should include
+1. title
+2. axis labels
+3. context provision
+4. acronym meanings
+5. minimal helpful visual aids (e.g. gridlines, etc.)
+
+## 4. Matplotlib for One Variable Analysis
+### 4.1. Matplotlib graph customizations
+```python
+# size and variable to graph
+plt.figure(figsize=(10, 5))
+plt.plot(df["cnt"])
+
+# labels (has fontsize param)
+plt.title("Daily Bike Rentals Over Time")
+plt.xlabel("Day Index")
+plt.ylabel("Total Rentals (cnt)")
+
+# visual aids
+plt.grid(True)
+
+plt.show()
+```
+
+### 4. 2. Graph Partitioning
+`plt.subplot(rows, columns, index)`
+: makes multiple separate subplots in the same display
+
+```python
+# size of the figure
+plt.figure(figsize=(12, 6))
+
+# 1sr subplot (2 rows, 1 column, position 1)
+plt.subplot(2, 1, 1)
+plt.plot(df["cnt"])
+plt.title("Total Rentals Over Time")
+plt.ylabel("Total Rentals")
+plt.grid(True)
+
+# 2nd subplot (2 rows, 1 column, position 2)
+plt.subplot(2, 1, 2)
+plt.plot(df["temp"])
+plt.title("Temperature Over Time")
+plt.ylabel("Temperature")
+plt.xlabel("Day Index")
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+
+# basically, graph of position 1 will be displayed, then under is graph of position 2, and so on
+```
