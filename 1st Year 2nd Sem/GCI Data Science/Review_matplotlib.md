@@ -70,6 +70,7 @@ print("Dataset downloaded and extracted successfully.")
 : this will download day.csv and hour.csv
 
 ### 2.3. Inspecting the Dataset
+
 : to tabularize the data, use pandas
 ```python
 pd.set_option("display.width", None)
@@ -90,3 +91,5 @@ print(df.head())
 [731 rows x 16 columns]
 '''
 ```
+
+#### 
