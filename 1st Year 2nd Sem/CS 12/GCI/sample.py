@@ -37,19 +37,21 @@ pd.set_option("display.width", None)
 pd.set_option("display.max_columns", 15)
 pd.set_option("display.max_rows", 35)
 
-print(anime_data_raw)
+#print(anime_data_raw)
 
 
 def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
-    total = anime_data.shape[0]
     data = anime_data.sort_values(by=metric_column, ascending=False)
+    total = data[metric_column].sum()
 
     groups = pd.qcut(data[metric_column], q=n, labels = [str(i) for i in range(0, n)])
     
-    res = data.groupby(groups, observed = True)[metric_column].sum()
+    res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False)
     for i, val in enumerate(res):
         res.iloc[i] = val
 
+    print("TTAKLL: ", total)
+
 
     return res
-#print(homework(anime_data_raw, "Completed", 5))
+print(homework(anime_data_raw, "Completed", 5))
