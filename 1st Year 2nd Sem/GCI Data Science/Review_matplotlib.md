@@ -189,4 +189,4 @@ plt.show()
 # runs a graph window with cnt in y-axis, and rent count in x-axis
 ```
 
-## 3. What Makes a Graph Good
+## 3. What Makes a Graph Good?
