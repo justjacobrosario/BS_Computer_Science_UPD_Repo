@@ -48,9 +48,7 @@ def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
     
     res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False)
     for i, val in enumerate(res):
-        res.iloc[i] = val
-
-    print("TTAKLL: ", total)
+        res.iloc[i] = val / total
 
 
     return res
