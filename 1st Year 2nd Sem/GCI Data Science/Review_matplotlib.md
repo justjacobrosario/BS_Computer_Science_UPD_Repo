@@ -100,6 +100,32 @@ print("Shape: ", df.shape)
 print(df.info())
 
 '''
-
+Shape:  (731, 16)
+<class 'pandas.DataFrame'>
+RangeIndex: 731 entries, 0 to 730
+Data columns (total 16 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   instant     731 non-null    int64  
+ 1   dteday      731 non-null    str    
+ 2   season      731 non-null    int64  
+ 3   yr          731 non-null    int64  
+ 4   mnth        731 non-null    int64  
+ 5   holiday     731 non-null    int64  
+ 6   weekday     731 non-null    int64  
+ 7   workingday  731 non-null    int64  
+ 8   weathersit  731 non-null    int64  
+ 9   temp        731 non-null    float64
+ 10  atemp       731 non-null    float64
+ 11  hum         731 non-null    float64
+ 12  windspeed   731 non-null    float64
+ 13  casual      731 non-null    int64  
+ 14  registered  731 non-null    int64  
+ 15  cnt         731 non-null    int64  
+dtypes: float64(4), int64(11), str(1)
+memory usage: 91.5 KB
 '''
 ```
+
+: Important info from `df.shape` and `df.info()`
+1. Dataset Size: 731 observations
