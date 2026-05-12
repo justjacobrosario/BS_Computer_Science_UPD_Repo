@@ -31,11 +31,14 @@ z.extractall()
 
 # Load the anime data
 anime_data_raw = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
-print(f"Raw dataset shape: {anime_data_raw.shape}")
+print(anime_data_raw.info())
 
 pd.set_option("display.width", None)
 pd.set_option("display.max_columns", 15)
 pd.set_option("display.max_rows", 35)
 
-print(anime_data_raw.info())
-print(anime_data_raw)
+def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
+    anime_data.sort_values(by=metric_column, ascending=False)
+    return anime_data
+
+print(homework(anime_data_raw, "Completed", 10))
