@@ -67,9 +67,11 @@ with zipfile.ZipFile(io.BytesIO(response.content)) as z:
 
 print("Dataset downloaded and extracted successfully.")
 ```
-
+: this will download day.csv and hour.csv
 
 ### 2.3. Inspecting the Dataset
 : to tabularize the data, use pandas
-```
+```python
+df = pd.read_csv("day.csv")
+df.head()
 ```
