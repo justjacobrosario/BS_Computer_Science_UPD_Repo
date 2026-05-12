@@ -46,7 +46,7 @@ def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
 
     groups = pd.qcut(data[metric_column], q=n, labels = [str(i) for i in range(0, n)])
     
-    res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False)
+    res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False).astype(float)
     for i, val in enumerate(res):
         res.iloc[i] = val / total
 
