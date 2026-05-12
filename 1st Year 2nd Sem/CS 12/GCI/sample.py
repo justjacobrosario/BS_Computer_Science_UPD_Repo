@@ -23,23 +23,19 @@ import requests, zipfile
 from io import StringIO
 import io
 
+# Download MyAnimeList data from GitHub
 url = 'https://github.com/Hernan4444/MyAnimeList-Database/archive/refs/heads/master.zip'
-
-# donwload from url
 r = requests.get(url, stream=True)
-
-# read and extract
 z = zipfile.ZipFile(io.BytesIO(r.content))
 z.extractall()
 
-
-anime_data = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
-anime_list = pd.read_csv('MyAnimeList-Database-master/data/animelist.csv')
-anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.csv')
+# Load the anime data
+anime_data_raw = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
+print(f"Raw dataset shape: {anime_data_raw.shape}")
 
 pd.set_option("display.width", None)
 pd.set_option("display.max_columns", 15)
 pd.set_option("display.max_rows", 35)
 
-print(anime_data.info())
-print(anime_data)
+print(anime_data_raw.info())
+print(anime_data_raw)
