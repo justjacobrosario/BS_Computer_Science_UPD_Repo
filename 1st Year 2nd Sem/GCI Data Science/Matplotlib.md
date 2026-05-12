@@ -34,3 +34,10 @@ import seaborn as sns
 %matplotlib inline
 ```
 
+`import matplotlib.pyplot as plt`
+: for plotting functions in `pyplot`
+
+#### 2.1.1. Seaborn
+: under Matplotlib
+: improves styles and functions for statistical visualization
+
