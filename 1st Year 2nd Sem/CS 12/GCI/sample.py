@@ -40,5 +40,11 @@ pd.set_option("display.max_rows", 35)
 def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
     total = anime_data.shape[0]
     data = anime_data.sort_values(by=metric_column, ascending=False)
-    return data
+
+    groups = pd.qcut(data[metric_column], q=n, labels = [str(i) for i in range(1, n+1)])
+    
+    res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False)
+    
+
+    return res
 print(homework(anime_data_raw, "Completed", 4))
