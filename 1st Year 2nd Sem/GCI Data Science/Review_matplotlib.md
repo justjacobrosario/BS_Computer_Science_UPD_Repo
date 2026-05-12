@@ -129,4 +129,7 @@ memory usage: 91.5 KB
 
 : Important info from `df.shape` and `df.info()`
 1. Dataset Size:  731 daily observations (rows), 16 variables (columns)
-2. Missing Values: since no `null` values, 
+2. Missing Values: since no `null` values, (all 731 non-nulls), there are NO missing vals
+: since there is no missing values, no need for data cleaning
+proceed to analysis
+3. Vairable Types: int64
