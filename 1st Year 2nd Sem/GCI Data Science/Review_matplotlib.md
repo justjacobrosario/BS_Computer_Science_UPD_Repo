@@ -132,4 +132,5 @@ memory usage: 91.5 KB
 2. Missing Values: since no `null` values, (all 731 non-nulls), there are NO missing vals
 : since there is no missing values, no need for data cleaning
 proceed to analysis
-3. Vairable Types: int64
+3. Variable Types: int64, float64, object (str)
+4. K
