@@ -26,4 +26,7 @@ pd.set_option("display.max_columns", None)
 pd.set_option("display.max_rows", 5)
 
 df = pd.read_csv("day.csv")
-print(df)
+
+
+print("Shape: ", df.shape)
+print(df.info())
