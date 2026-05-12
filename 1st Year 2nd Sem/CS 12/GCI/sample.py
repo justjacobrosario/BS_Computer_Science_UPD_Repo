@@ -38,6 +38,7 @@ pd.set_option("display.max_columns", 15)
 pd.set_option("display.max_rows", 35)
 
 def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
+    total = anime_data.shape[0]
+    print("TOTALLLL: ", total)
     anime_data.sort_values(by=metric_column, ascending=False)
-    pd.qcut(anime_data, 10)
 print(homework(anime_data_raw, "Completed", 10))
