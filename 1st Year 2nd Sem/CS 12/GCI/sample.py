@@ -37,37 +37,9 @@ anime_data = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
 anime_list = pd.read_csv('MyAnimeList-Database-master/data/animelist.csv')
 anime_synop = pd.read_csv('MyAnimeList-Database-master/data/anime_with_synopsis.csv')
 
-#print(anime_data)
+pd.set_option("display.width", None)
+pd.set_option("display.max_columns", 15)
+pd.set_option("display.max_rows", 35)
 
-data1 = {
-    'id': ['0', '1', '2', '3', '4', '6', '8', '11', '12', '13'],
-    'city': ['Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo', 'Tokyo', 'Osaka', 'Kyoto', 'Hokkaido', 'Tokyo'],
-    'birth_year': [1990, 1989, 1992, 1997, 1982, 1991, 1988, 1990, 1995, 1981],
-    'name': ['Hiroshi', 'Akiko', 'Yuki', 'Satoru', 'Steeve', 'Mituru', 'Aoi', 'Tarou', 'Suguru', 'Mitsuo']
-}
-df1 = DataFrame(data1)
-
-data3 = {
-    'id': ['117', '118', '119', '120', '125'],
-    'city': ['Chiba', 'Kanagawa', 'Tokyo', 'Fukuoka', 'Okinawa'],
-    'birth_year': [1990, 1989, 1992, 1997, 1982],
-    'name': ['Suguru', 'Kouichi', 'Satochi', 'Yukie', 'Akari']
-}
-df3 = DataFrame(data3)
-
-# Preparing data 2
-data2 = {
-    'id': ['100', '101', '102', '105', '107'],
-    'math': [50, 43, 33, 76, 98],
-    'english': [90, 30, 20, 50, 30],
-    'sex': ['M','F','F','M','M'],
-    'index_num': [0, 1, 2, 3, 4]
-}
-df2 = DataFrame(data2)
-df2
-
-concat = pd.concat([df1, df2])
-concat2 = pd.concat([df1, df2], axis=1)
-print(concat)
-print()
-print(concat2)
+print(anime_data.info())
+print(anime_data)
