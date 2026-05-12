@@ -23,10 +23,9 @@ with zipfile.ZipFile(io.BytesIO(response.content)) as z:
 
 pd.set_option("display.width", None)
 pd.set_option("display.max_columns", None)
-pd.set_option("display.max_rows", 5)
+pd.set_option("display.max_rows", None)
 
 df = pd.read_csv("day.csv")
 
 
-print("Shape: ", df.shape)
-print(df.info())
+print(df.describe())

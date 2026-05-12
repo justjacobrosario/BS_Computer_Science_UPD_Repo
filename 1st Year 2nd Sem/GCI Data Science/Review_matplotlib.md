@@ -136,4 +136,5 @@ memory usage: 91.5 KB
 3. Variable Types: 
 int64, float64, object (str)
 4. Key Variable of Interest:
-variable to be observed for all other variables (i.e. the `cnt`; total daily rentals)
+: variable to be observed for all other variables 
+(i.e. the `cnt`; total daily rentals)
