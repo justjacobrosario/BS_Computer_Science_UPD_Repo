@@ -128,4 +128,5 @@ memory usage: 91.5 KB
 ```
 
 : Important info from `df.shape` and `df.info()`
-1. Dataset Size: 731 observations
+1. Dataset Size:  731 daily observations (rows), 16 variables (columns)
+2. Missing Values: since no `null` values, 
