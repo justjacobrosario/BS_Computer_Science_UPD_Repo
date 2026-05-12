@@ -37,7 +37,29 @@ import seaborn as sns
 `import matplotlib.pyplot as plt`
 : for plotting functions in `pyplot`
 
+`%matplotlib inline`
+: jupyter notebook command
+
 #### 2.1.1. Seaborn
 : under Matplotlib
 : improves styles and functions for statistical visualization
 
+### 2.2. Downloading the Dataset
+
+```python
+import requests
+import zipfile
+import io
+
+# URL of the dataset
+url = "https://cdn.uci-ics-mlr-prod.aws.uci.edu/275/bike%2Bsharing%2Bdataset.zip"
+
+# Download the file
+response = requests.get(url)
+
+# Extract the zip file
+with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+    z.extractall()
+
+print("Dataset downloaded and extracted successfully.")
+```

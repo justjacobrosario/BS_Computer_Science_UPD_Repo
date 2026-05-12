@@ -1,27 +1,26 @@
 #include <stdio.h>
 #include <stdint.h>
 
+#include "range_sum_query.h"
 
+#include <assert.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stdint.h>
 
-typedef struct node Node;
-struct node {
-    int64_t value;
-    Node *next;
-};
+#define RANGE_SUM_QUERY_H
 
 int64_t linked_list_sum(Node *head, int i, int j){
 	int64_t tot = 0;
 
 	int x = 0;
 	Node *curr = head;
-	while (x < i){
+	while (x < i && curr != NULL){
 		curr = curr->next;
 		x ++;
 	}
 
-	tot = curr.value;
-
-	while (x < j){
+	while (x < j && curr != NULL){
 		tot += curr->value;
 		curr = curr->next;
 		x++;
