@@ -40,7 +40,7 @@ pd.set_option("display.max_rows", 35)
 #print(anime_data_raw)
 
 
-def homework(anime_data, metric_column, n) -> pd.Series:
+def homework(anime_data, metric_column, n):
     data = anime_data.sort_values(by=metric_column, ascending=False)
     total = data[metric_column].sum()
 
