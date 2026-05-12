@@ -139,4 +139,8 @@ int64, float64, object (str)
 : variable to be observed for all other variables 
 (i.e. the `cnt`; total daily rentals)
 
-##
+### 2.4. Summary Statistics
+```python
+print()
+
+```
