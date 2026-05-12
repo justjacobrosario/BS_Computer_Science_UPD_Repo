@@ -95,3 +95,11 @@ print(df.head())
 #### 2.3.1. Structural Inspection
 : before visualizing trends and patterns, inspect the structure of the data set first (the shape, column types, etc.)
 
+```python
+print("Shape: ", df.shape)
+print(df.info())
+
+'''
+
+'''
+```
