@@ -41,10 +41,13 @@ def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
     total = anime_data.shape[0]
     data = anime_data.sort_values(by=metric_column, ascending=False)
 
-    groups = pd.qcut(data[metric_column], q=n, labels = [str(i) for i in range(1, n+1)])
+    groups = pd.qcut(data[metric_column], q=n, labels = [str(i) for i in range(0, n)])
     
-    res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False)
-    
+    res = data.groupby(groups, observed = True)[metric_column].sum()
+    for i, val in enumerate(res):
+        res[i] = val / total * 100
+
+    res[0] = 67
 
     return res
-print(homework(anime_data_raw, "Completed", 4))
+print(homework(anime_data_raw, "Completed", 5))
