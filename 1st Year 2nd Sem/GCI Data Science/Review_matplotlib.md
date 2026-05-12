@@ -190,3 +190,7 @@ plt.show()
 ```
 
 ## 3. What Makes a Graph Good?
+### 3.1. Start with a Question
+: a visualization should answer a specific question
+
+### 3.2. Make Graph visually comprehensive
