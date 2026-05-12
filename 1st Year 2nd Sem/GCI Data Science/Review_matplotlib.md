@@ -20,6 +20,10 @@ subfield: data science
 
 ### 2.1. Import Library
 
+in terminal:
+`pip install matplotlib`
+`pip install seaborn`
+
 ```python
 # Core libraries
 import numpy as np
@@ -62,4 +66,10 @@ with zipfile.ZipFile(io.BytesIO(response.content)) as z:
     z.extractall()
 
 print("Dataset downloaded and extracted successfully.")
+```
+
+
+### 2.3. Inspecting the Dataset
+: to tabularize the data, use pandas
+```
 ```
