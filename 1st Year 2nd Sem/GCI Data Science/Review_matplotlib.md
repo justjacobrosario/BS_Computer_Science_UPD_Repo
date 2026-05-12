@@ -72,17 +72,21 @@ print("Dataset downloaded and extracted successfully.")
 ### 2.3. Inspecting the Dataset
 : to tabularize the data, use pandas
 ```python
+pd.set_option("display.width", None)
+pd.set_option("display.max_columns", None)
+pd.set_option("display.max_rows", 5)
+
 df = pd.read_csv("day.csv")
 print(df.head())
 
 '''
-   instant      dteday  season  yr  ...  windspeed  casual  registered   cnt
-0        1  2011-01-01       1   0  ...   0.160446     331         654   985
-1        2  2011-01-02       1   0  ...   0.248539     131         670   801
-2        3  2011-01-03       1   0  ...   0.248309     120        1229  1349
-3        4  2011-01-04       1   0  ...   0.160296     108        1454  1562
-4        5  2011-01-05       1   0  ...   0.186900      82        1518  1600
+     instant      dteday  season  yr  mnth  holiday  weekday  workingday  weathersit      temp     atemp       hum  windspeed  casual  registered   cnt
+0          1  2011-01-01       1   0     1        0        6           0           2  0.344167  0.363625  0.805833   0.160446     331         654   985
+1          2  2011-01-02       1   0     1        0        0           0           2  0.363478  0.353739  0.696087   0.248539     131         670   801
+..       ...         ...     ...  ..   ...      ...      ...         ...         ...       ...       ...       ...        ...     ...         ...   ...
+729      730  2012-12-30       1   1    12        0        0           0           1  0.255833  0.231700  0.483333   0.350754     364        1432  1796
+730      731  2012-12-31       1   1    12        0        1           1           2  0.215833  0.223487  0.577500   0.154846     439        2290  2729
 
-[5 rows x 16 columns]
+[731 rows x 16 columns]
 '''
 ```

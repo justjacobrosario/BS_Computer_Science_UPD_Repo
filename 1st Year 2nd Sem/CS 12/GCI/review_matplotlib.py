@@ -21,7 +21,8 @@ response = requests.get(url)
 with zipfile.ZipFile(io.BytesIO(response.content)) as z:
 	z.extractall()
 
-pd.set_option("display.max_columns", 16)
+pd.set_option("display.width", None)
+pd.set_option("display.max_columns", None)
 pd.set_option("display.max_rows", 5)
 
 df = pd.read_csv("day.csv")
