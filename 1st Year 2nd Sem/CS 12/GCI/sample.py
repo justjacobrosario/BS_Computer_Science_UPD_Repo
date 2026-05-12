@@ -1,23 +1,5 @@
-import numpy as np
-import numpy.random as random
 import pandas as pd
 from pandas import Series, DataFrame
-
-series = Series(
-	[2, 4, 6, 8, 10],
-	index=['A', 'B', 'C', 'D', 'E']
-	)
-
-raw = {
-	"FIRST" : ["Juan", "Jacob", "John"],
-	"LAST" : ["Dela Cruz", "Rosario", "Cena"]
-	}
-processed = DataFrame(raw, index=["a", "b", "c"])
-
-'''print("index: ", processed.index)
-print("values: ", processed.values)
-print("columns: ", processed.columns)'''
-
 
 import requests, zipfile
 from io import StringIO
@@ -31,13 +13,6 @@ z.extractall()
 
 # Load the anime data
 anime_data_raw = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
-#print(anime_data_raw.info())
-
-pd.set_option("display.width", None)
-pd.set_option("display.max_columns", 15)
-pd.set_option("display.max_rows", 35)
-
-#print(anime_data_raw)
 
 
 def homework(anime_data, metric_column, n):
