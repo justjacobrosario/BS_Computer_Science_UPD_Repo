@@ -37,6 +37,9 @@ pd.set_option("display.width", None)
 pd.set_option("display.max_columns", 15)
 pd.set_option("display.max_rows", 35)
 
+print(anime_data_raw)
+
+
 def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
     total = anime_data.shape[0]
     data = anime_data.sort_values(by=metric_column, ascending=False)
@@ -49,4 +52,4 @@ def homework(anime_data: pd.DataFrame, metric_column: str, n: int) -> pd.Series:
 
 
     return res
-print(homework(anime_data_raw, "Completed", 5))
+#print(homework(anime_data_raw, "Completed", 5))
