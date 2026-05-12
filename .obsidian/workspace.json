@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/GCI Data Science/Matplotlib.md",
+                "file": "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Matplotlib"
+              "title": "Pandas and Data Science"
             }
           },
           {
@@ -111,16 +111,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+                "file": "1st Year 2nd Sem/GCI Data Science/Review_matplotlib.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "L15_ElmBasics"
+              "title": "Review_matplotlib"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -302,21 +302,27 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d9e3c65899cb983e",
+  "active": "bb00200f0db69fa5",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
+    "1st Year 2nd Sem/CS 12/GCI/hour.csv",
+    "1st Year 2nd Sem/CS 12/GCI/day.csv",
+    "1st Year 2nd Sem/CS 12/GCI/Readme.txt",
+    "1st Year 2nd Sem/CS 12/GCI/review_matplotlib.py",
+    "1st Year 2nd Sem/GCI Data Science/Review_Numpy.md",
+    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
+    "1st Year 2nd Sem/GCI Data Science/Matplotlib.md",
+    "1st Year 2nd Sem/GCI Data Science/Review_matplotlib.md",
     "1st Year 2nd Sem/CS 12/GCI/__pycache__/matplotlib.cpython-314.pyc",
     "1st Year 2nd Sem/CS 12/GCI/__pycache__",
     "1st Year 2nd Sem/CS 12/GCI/matplotlib.exe",
-    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
-    "1st Year 2nd Sem/GCI Data Science/Matplotlib.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "1st Year 2nd Sem/CS 12/C_Projects/eyy.exe",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/Untitled.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
@@ -332,14 +338,7 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
     "1st Year 2nd Sem/CS 12/GCI/HW2.py",
-    "1st Year 2nd Sem/CS 12/GCI/sample.exe",
-    "1st Year 2nd Sem/CS 12/C_Projects/hehe.py",
-    "1st Year 2nd Sem/CS 12/C_Projects/lab11a.exe",
-    "1st Year 2nd Sem/CS 12/C_Projects/lab11a.c",
-    "1st Year 2nd Sem/CS 12/C_Projects/lab11a.py",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
