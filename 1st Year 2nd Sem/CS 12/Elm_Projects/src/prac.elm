@@ -52,27 +52,27 @@ isAllowedVehicle: String -> Int -> Bool
 isAllowedVehicle day n =
     case (String.toLower day) of
         "monday" ->
-            case n of
+            case (modby n 10) of
                 1 -> False
                 2 -> False
                 _ -> True
         "tuesday" ->
-            case n of
+            case (modby n 10) of
                 3 -> False
                 4 -> False
                 _ -> True
         "wednesday" ->
-            case n of
+            case (modby n 10) of
                 5 -> False
                 6 -> False
                 _ -> True
         "thursday" ->
-            case n of
+            case (modby n 10) of
                 7 -> False
                 8 -> False
                 _ -> True
         "friday" ->
-            case n of
+            case (modby n 10) of
                 9 -> False
                 0 -> False
                 _ -> True 
