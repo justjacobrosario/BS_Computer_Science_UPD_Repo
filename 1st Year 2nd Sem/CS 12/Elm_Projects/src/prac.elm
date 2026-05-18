@@ -36,3 +36,11 @@ swap : List ( String, List Int ) -> List ( Float, String )
 swap studs =
     List.map (\(name, scores) -> ((toFloat (List.sum scores) / toFloat (List.length scores)), name)) studs
 
+
+rankStudents : List ( String, List Int ) -> List String
+rankStudents class =
+    let
+        sorted = List.sort (swap class)
+        res = List.map (\ (ave, name) -> name) sorted
+    in
+        res
