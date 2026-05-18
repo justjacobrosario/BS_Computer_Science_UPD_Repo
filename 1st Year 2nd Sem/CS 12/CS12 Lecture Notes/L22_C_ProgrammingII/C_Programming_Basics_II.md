@@ -45,8 +45,8 @@ e.g.
 | `int a = 1`             | `0x1004`     | 1             | it covers the next 4 bytes since an `int` is 4 bytes long |
 | char b = 'a'            | `0x1005`     | 'a'           | it covers the next 1 byte since `char` is 1 byte long     |
 | `int lis[] = {5, 6, 7}` | `0x1009`     | `lis[0]` or 5 | elements of arrays have separate addresses (same rule)    |
-|                         | `0x1013`<br> | `lis[1]` or 6 | ...                                                       |
-|                         | `0x1017`<br> | `lis[2]` or 7 | ...                                                       |
+|                         | `0x1013`     | `lis[1]` or 6 | ...                                                       |
+|                         | `0x1017`     | `lis[2]` or 7 | ...                                                       |
 
 ### b) Pointers
 

@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
-                "mode": "source",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Pandas and Data Science"
+              "title": "C_Programming_Basics_II"
             }
           },
           {
@@ -195,8 +195,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -304,6 +303,8 @@
   },
   "active": "d9e3c65899cb983e",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
+    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/GCI Data Science/Review_matplotlib.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/GCI/hour.csv",
@@ -311,7 +312,6 @@
     "1st Year 2nd Sem/CS 12/GCI/Readme.txt",
     "1st Year 2nd Sem/CS 12/GCI/review_matplotlib.py",
     "1st Year 2nd Sem/GCI Data Science/Review_Numpy.md",
-    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/GCI Data Science/Matplotlib.md",
     "1st Year 2nd Sem/CS 12/GCI/__pycache__/matplotlib.cpython-314.pyc",
     "1st Year 2nd Sem/CS 12/GCI/__pycache__",
@@ -319,7 +319,6 @@
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "1st Year 2nd Sem/CS 12/C_Projects/eyy.exe",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/Untitled.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII",
