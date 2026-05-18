@@ -28,3 +28,14 @@ compositeBetween f l =
         composites = List.filter (\cand -> isPrime cand == False) candidates
     in
         composites
+
+
+---
+
+swap : List ( String, List Int ) -> List ( Int, String )
+swap studs =
+    let
+        new = List.map (\(name, scores) -> ((List.sum scores) / (List.length scores)), name ) studs
+    in
+        new
+
