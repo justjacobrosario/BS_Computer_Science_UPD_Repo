@@ -7,7 +7,6 @@ if __name__ == '__main__':
     model = Phase1Model()
     view = View()
 
-
     controller = Controller(model, view) 
 
     controller.start_game()

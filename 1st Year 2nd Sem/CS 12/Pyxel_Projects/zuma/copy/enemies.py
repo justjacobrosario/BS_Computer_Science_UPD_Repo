@@ -26,7 +26,6 @@ class Enemy(ABC):
 		self._color = Color.Orange
 		self._base_health = 1
 		self._current_health = 1
-		self._damage = 1
 		self._x = float(start_x)
 		self._y = float(start_y)
 		self._radius = radius
@@ -48,10 +47,6 @@ class Enemy(ABC):
 	@property
 	def current_health(self):
 		return self._current_health
-	
-	@property
-	def damage(self):
-		return self._damage
 
 	@property
 	def x(self):
@@ -102,7 +97,6 @@ class OrangeEnemy(Enemy):
 		self._color = Color.Orange
 		self._base_health = 1
 		self._current_health = 1
-		self._damage = 1
 
 class RedEnemy(Enemy):
 	def __init__(self, start_x, start_y, radius):
@@ -111,7 +105,6 @@ class RedEnemy(Enemy):
 		self._color = Color.Red
 		self._base_health = 1
 		self._current_health = 1
-		self._damage = 1
 
 class BlueEnemy(Enemy):
 	def __init__(self, start_x, start_y, radius):
@@ -120,4 +113,3 @@ class BlueEnemy(Enemy):
 		self._color = Color.Blue
 		self._base_health = 1
 		self._current_health = 1
-		self._damage = 1
