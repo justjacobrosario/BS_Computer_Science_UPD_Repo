@@ -35,7 +35,7 @@ compositeBetween f l =
 swap : List ( String, List Int ) -> List ( Int, String )
 swap studs =
     let
-        new = List.map (\(name, scores) -> ((List.sum scores) / (List.length scores)), name ) studs
+        new = List.map (\(name, scores) -> (Maybe.withDefault 0 ((List.sum scores) / (List.length scores))), name ) studs
     in
         new
 
