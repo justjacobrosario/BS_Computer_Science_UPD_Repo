@@ -32,10 +32,10 @@ compositeBetween f l =
 
 ---
 
-swap : List ( String, List Int ) -> List ( Int, String )
+swap : List ( String, List Int ) -> List ( Float, String )
 swap studs =
     let
-        new = List.map (\(name, scores) -> (Maybe.withDefault 0 ((List.sum scores) / (List.length scores))), name ) studs
+        new = List.map (\(name, scores) -> (Maybe.withDefault 0 (toFloat (List.sum scores) / toFloat (List.length scores))), name ) studs
     in
         new
 
