@@ -44,3 +44,39 @@ rankStudents class =
         res = List.map (\ (ave, name) -> name) sorted
     in
         res
+
+---
+
+
+isAllowedVehicle: String -> Int -> Bool
+isAllowedVehicle day n =
+    let
+        case (String.toLower day) of
+            "monday" ->
+                case n of
+                    1 -> ans = False
+                    2 -> ans = False
+                    _ -> ans = True
+            "tuesday" ->
+                case n of
+                    3 -> ans = False
+                    4 -> ans = False
+                    _ -> ans = True
+            "wednesday" ->
+                case n of
+                    5 -> ans = False
+                    6 -> ans = False
+                    _ -> ans = True
+            "thursday" ->
+                case n of
+                    7 -> ans = False
+                    8 -> ans = False
+                    _ -> ans = True
+            "friday" ->
+                case n of
+                    9 -> ans = False
+                    0 -> ans = False
+                    _ -> ans = True 
+    in
+        ans
+
