@@ -14,20 +14,37 @@ z.extractall()
 # Load the anime data
 anime_data_raw = pd.read_csv('MyAnimeList-Database-master/data/anime.csv')
 
+# Preprocessing — Do NOT modify this cell
+columns_to_keep = ['MAL_ID', 'Name', 'Score', 'Type', 'Episodes',
+                   'Members', 'Completed', 'Watching', 'Dropped', 'Popularity']
+anime_data = anime_data_raw[columns_to_keep].copy()
+
+# Remove rows where key metric columns have missing or zero values
+anime_data = anime_data.dropna(subset=['Members', 'Completed', 'Watching'])
+anime_data = anime_data[(anime_data['Members'] > 0) &
+                        (anime_data['Completed'] > 0) &
+                        (anime_data['Watching'] > 0)]
+anime_data = anime_data.reset_index(drop=True)
+print(f"Dataset shape after preprocessing: {anime_data.shape}")
+anime_data.head()
+
 
 def homework(anime_data, metric_column, n):
     data = anime_data.sort_values(by=metric_column, ascending=False)
     total = data[metric_column].sum()
-
-    groups = pd.qcut(data[metric_column], q=n, labels = [str(i) for i in range(0, n)])
     
-    res = data.groupby(groups, observed = True)[metric_column].sum().sort_values(ascending=False).astype(float)
-    res = res/total
-
+    ranks = data[metric_column].rank(method='first', ascending=False)
+    groups = pd.qcut(ranks, q=n, labels=[str(i) for i in range(n)])
+    
+    res = data.groupby(groups, observed=True)[metric_column].sum()
+    res = res / total
+    
     res.index = [f"Group {i+1}" for i in range(len(res))]
-
     return res
-print(homework(anime_data_raw, "Completed", 5))
+
+print(homework(anime_data, "Completed", 5))
+print("helo")
+
 
 '''
 Group 1    0.945830
