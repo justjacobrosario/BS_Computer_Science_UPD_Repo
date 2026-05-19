@@ -126,13 +126,11 @@ insertAt idx elem lst =
         let
             l = List.length lst
             helpa curr (curr_idx, res) =
-                if ((curr_idx == (l-1)) && (curr_idx == idx)) then 
-                    (curr_idx, List.append res (List.append [elem] [curr])) 
+                
+                if (curr_idx == idx) then
+                    (curr_idx + 1, List.append res (List.append [elem] [curr]))
                 else
-                    if (curr_idx == idx) then
-                        (curr_idx + 1, List.append res (List.append [elem] [curr]))
-                    else
-                        (curr_idx + 1, List.append res [curr])
+                    (curr_idx + 1, List.append res [curr])
 
         in
-            Tuple.second (List.foldl helpa (0, []) lst)
+            Tuple.second (List.foldl helpa (0, []) lst) 
