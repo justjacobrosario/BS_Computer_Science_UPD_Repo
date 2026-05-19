@@ -1,5 +1,6 @@
 module Prac exposing (..)
 import Dict exposing (Dict)
+import Array exposing (..)
 
 my_sum : List Int -> Int
 my_sum lst =
@@ -78,4 +79,40 @@ isAllowedVehicle day n =
                 _ -> True 
         _ -> False
 
+---
+
+compress : List a -> List a
+compress lis =
+    let
+        compressBetween next prev =
+            let
+                arr = Array.fromList prev
+                length = Array.length arr
+                last = (Array.slice (length-1) length arr)
+                new_lis =
+                    if (last == (Array.fromList [next])) then Array.toList arr
+                    else List.append (Array.toList arr) [next]
+            in
+                new_lis
+
+    in
+        List.foldl compressBetween [] lis
+
+
+compress2 : List a -> List a
+compress2 listahan =
+    let
+        helper next (prev, res) =
+            case prev of
+                Nothing ->
+                    (Just next, [next])
+                Just p ->
+                    if (p == next) then (prev, res)
+                    else (Just next, next :: res)
+
+    in
+        Tuple.second (List.foldr helper (Nothing, []) listahan)
+
+
+ 
 
