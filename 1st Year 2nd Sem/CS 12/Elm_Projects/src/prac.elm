@@ -116,3 +116,23 @@ compress2 listahan =
 
  
 
+---
+
+insertAt : Int -> a -> List a -> List a
+insertAt idx elem lst =
+    if (idx < 0) then lst
+    else if (idx >= (List.length lst)) then lst
+    else
+        let
+            l = List.length lst
+            helpa curr (curr_idx, res) =
+                if ((curr_idx == (l-1)) && (curr_idx == idx)) then 
+                    (curr_idx, List.append res (List.append [elem] [curr])) 
+                else
+                    if (curr_idx == idx) then
+                        (curr_idx + 1, List.append res (List.append [elem] [curr]))
+                    else
+                        (curr_idx + 1, List.append res [curr])
+
+        in
+            Tuple.second (List.foldl helpa (0, []) lst)
