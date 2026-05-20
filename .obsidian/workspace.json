@@ -120,7 +120,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -302,10 +302,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "88dc8d738890c531",
+  "active": "300b89fa64196dea",
   "lastOpenFiles": [
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/Elm_Projects/elm-stuff/0.19.1/Prac.elmi",
     "1st Year 2nd Sem/CS 12/Elm_Projects/elm-stuff/0.19.1/Prac.elmo",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
