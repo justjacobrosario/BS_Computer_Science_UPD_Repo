@@ -134,3 +134,17 @@ insertAt idx elem lst =
 
         in
             Tuple.second (List.foldl helpa (0, []) lst) 
+
+---
+
+
+removeAt : Int -> List a -> List a
+removeAt indx pile =
+    if (List.length pile == 0) then []
+    else
+        let
+            helpa1 n (i, acc) =
+                if (i == indx) then (i + 1, acc)
+                else (i + 1, List.append acc [n])
+        in
+            Tuple.second (List.foldl helpa1 (0, []) pile)
