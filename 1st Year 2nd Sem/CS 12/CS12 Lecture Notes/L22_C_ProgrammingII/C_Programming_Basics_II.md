@@ -66,15 +66,17 @@ e.g.
 ### c) Using Pointers
 #### 1] Initializing a Pointer
 `data_type *pVar = &var`
-: i.e. `pVar` is the pointer that contains the address of `var`, where the value of `var` is a type of `data_type`
-
-: whenever we use `*` in the middle of declaring a datatype to a variable, we assign that variable as the pointer to the address value
 
 e.g.
 ```c
 int x = 4;
 int *pX = &x; // pX contains the address of x
 ```
+
+: i.e. `pVar` is the pointer that contains the address of `var`, where the value of `var` is a type of `data_type` (like an int, char, etc.)
+
+: whenever we use `*` in the middle of declaring a datatype to a variable, we assign that variable `(pVar)` as the pointer to the address value (pVar points to &x)
+
 memory will look like this:
 
 | code           | Address  | Value                    |
@@ -83,7 +85,7 @@ memory will look like this:
 | `int *pX = &x` | `0x1008` | `0x1000` (address of  x) |
 |                | `0x100F` |                          |
 
-#### 2] Dereferencing a Pointer
+#### 2] Dereferencing a Pointer (return value of var addressed to p)
 : whenever we call `*pX` again, instead of returning the address of x, it returns the value of x (hence referring to the value in the address)
 : mutating the value of `*pX` also mutates the value of `x`
 
