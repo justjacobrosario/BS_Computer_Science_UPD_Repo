@@ -103,7 +103,19 @@ memory will look like this:
 | `int x= 4`     | `0x1000` | 4                         |
 | `int *pX = &x` | `0x1004` | `0x1000` (address of  x)  |
 | `*pX`          | `0x100F` | 4 (pointed to value of x) |
+#### 4] Return Values as Pointers
+`any_data_type *func_name() {}`
 
+: when a function returns a pointer value (address)
+e.g.
+```c
+int *create_num_67(){
+	int *p = malloc(sizeof(int)); // allocates memory for an int
+	
+	*p = 67;
+	return p // returns the address
+}
+```
 ### d) Pointers in arrays
 : NOTE: You cannot assign a pointer to the address of the whole list at once
 : You can only assign a pointer to the address of a single element w index n
