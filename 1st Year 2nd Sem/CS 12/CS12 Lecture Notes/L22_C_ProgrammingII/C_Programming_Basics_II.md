@@ -112,9 +112,18 @@ e.g.
 int *create_num_67(){
 	int *p = malloc(sizeof(int)); // allocates memory for an int
 	
+	// sizeof(int) tells that we need 4 bytes to allocate 67
+	// malloc() requests for a free block of memory fo size 4 bytes where we will place the value of *p there
+	// malloc(sizeof(int)) gives the address of the free memory to be used
+	
 	*p = 67;
 	return p // returns the address
 }
+
+int main() {
+	int *num = create67();
+	printf("%d\n", *num); // 67
+	}
 ```
 ### d) Pointers in arrays
 : NOTE: You cannot assign a pointer to the address of the whole list at once

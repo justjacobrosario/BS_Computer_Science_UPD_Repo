@@ -1,14 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+int *create67(){
+	int *p = malloc(sizeof(int));
+	*p = 67;
+	return p;
+}
 
 int main() {
-	int nums[] = {10, 20, 30};
-	int arr[5] = {};
-	int sum = 0;
-
-
-	for (int i = 0; i < 3; i++){
-		printf("%d\n", nums[i]);
-		sum += nums[i];
+	int *num = create67();
+	printf("%d\n", *num);
 	}
-	printf("sum is %d\n", sum);
-}
