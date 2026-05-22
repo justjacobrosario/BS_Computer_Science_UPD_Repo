@@ -113,9 +113,10 @@ int main(){
     // I. Indexing method
     char *pfirst = &lis[0]; // &lis[n]
     // II. Arithmetic Method
+    // see lis as the point of the array (no need for *)
     char *pfirst2 = lis + 0; // lis + n
     
-    // lis[i] <-> *(&lis[i]) <->  *(&lis[i ])
+    // lis[i] <-> *(lis + i)
 
     printf("%c\n", *pfirst); // a
     printf("%c\n", *pfirst2); // a
@@ -178,7 +179,7 @@ int main(){
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
 : input version of printf, but it takes pointers instead
 : since the parameter  is a pointer, the value must be an address of a n existing variable
-: the inputted value of the user will then be set as the value of the variable addressed in the parameter
+: the inputted value of the user will then be set as the value of the variables addressed in the parameters
 e.g.
 ```c
 int a;
