@@ -148,3 +148,46 @@ removeAt indx pile =
                 else (i + 1, List.append acc [n])
         in
             Tuple.second (List.foldl helpa1 (0, []) pile)
+
+---
+
+import Browser
+import Html exposing (Html, button, div, p, text)
+import Html.Events exposing (onClick)
+
+type alias Model = Int
+
+init = 0
+
+type Msg
+    = MsgIncrement
+    | MsgDecrement
+    
+--
+
+view : Model -> Html Msg
+view model =
+    div []
+        [ button [ onClick MsgIncrement ] [ text "+" ]
+        , p [] [ text (String.fromInt model) ]
+        , button [ onClick MsgDecrement ] [ text "-" ]
+        ]
+
+--
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        MsgIncrement ->
+            model + 1
+        MsgDecrement ->
+            model - 1
+            
+--
+-- main is like the controller (combines all components)
+main =
+    Browser.sandbox
+        { init = init
+        , update = update
+        , view = view } -- like pyxel in python
+        
