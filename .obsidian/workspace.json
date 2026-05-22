@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/ElmMVU2.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ElmMVU2"
+              "title": "C_Programming_Basics_I"
             }
           }
         ],
@@ -195,7 +195,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "66e400bb331c8521",
@@ -303,6 +304,10 @@
   },
   "active": "1901196edf69d7ee",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/C_Projects/try.c",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/ElmMVU2.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
@@ -311,10 +316,8 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
     "1st Year 2nd Sem/CS 12/Elm_Projects/src/prac.elm",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/ElmMVU2.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/zuma/c_rev.html",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "1st Year 2nd Sem/GCI Data Science/Review_matplotlib.md",
     "1st Year 2nd Sem/CS 12/GCI/hour.csv",
@@ -327,7 +330,6 @@
     "1st Year 2nd Sem/CS 12/GCI/__pycache__",
     "1st Year 2nd Sem/GCI Data Science/Numpy.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/Untitled.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/Elm.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_Records.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/Elm_FoldlAndFoldr.md",
