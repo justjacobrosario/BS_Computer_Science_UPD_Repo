@@ -66,7 +66,7 @@ e.g.
 ### c) Using Pointers
 #### 1] Initializing a Pointer
 `data_type *pVar = &var`
-: i.e. `pVar` is the pointer that is set to the address of `var`, where the value of `var` is a type of `data_type`
+: i.e. `pVar` is the pointer that contains the address of `var`, where the value of `var` is a type of `data_type`
 
 : whenever we use `*` in the middle of declaring a datatype to a variable, we assign that variable as the pointer to the address value
 
