@@ -209,11 +209,11 @@ int *g() {
 }
 
 /*
-when a function is called, all local variables in it will be made and will be allocated a memory
+1. when a function is called, all local variables in it will be made and will be allocated a memory
 
-but when the function is done running, that memory will be cleared out. 
+2. but when the function is done running, that memory will be cleared out. 
 
-so returning the address to a specific part of the memory will return unpredictable values
+3. so returning the address to a specific part of the memory will return unpredictable values (HEISENBUGS)
 */
 ```
 
