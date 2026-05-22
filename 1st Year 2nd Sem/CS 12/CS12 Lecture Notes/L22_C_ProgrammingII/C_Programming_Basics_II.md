@@ -203,10 +203,17 @@ int *f() {
 	return &a;
 }
 
-/*
-when a function is called, all local variables in it will be allocated a memory
+int *g() {
+	int lis[3] = {1, 2, 3} // makes this in sets of addresses
+	return &lis // returns the address of first element
+}
 
-but when the function is done, that memory will be cleared out. so returning the address to a specific part of the memory will return unpredictable values
+/*
+when a function is called, all local variables in it will be made and will be allocated a memory
+
+but when the function is done running, that memory will be cleared out. 
+
+so returning the address to a specific part of the memory will return unpredictable values
 */
 ```
 
