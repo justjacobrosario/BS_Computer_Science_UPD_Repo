@@ -173,7 +173,19 @@ int main(){
 ```
 
 ### f) NEVER return a pointer value or address `&var` of a local variable to a function
-: basically if the address of a local variable (variable declared inside the function definition) is being returned, it might cause probss
+e.g.
+```c
+int *f() {
+	a = 67;
+	return &a;
+}
+
+/*
+when a function is called, all local variables in it will be allocated a memory
+
+but when the function is done, that memory will be cleared out. so returning the address to a specific part of the memory will return unpredictable values
+*/
+```
 
 ## 2. scanf
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
