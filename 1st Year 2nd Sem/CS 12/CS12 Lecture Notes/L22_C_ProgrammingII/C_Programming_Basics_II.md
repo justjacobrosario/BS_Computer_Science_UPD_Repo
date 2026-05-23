@@ -409,6 +409,7 @@ Input id: Input message: ID: 1, MSG: world
 */
 ```
 
+: lets consider the input, and the input buffer
 1. in the first attempt 
 - we typed `0\n`, where theres \n since we click enter. 
 - INPUT BUFFER: {0, \n}
@@ -416,6 +417,17 @@ Input id: Input message: ID: 1, MSG: world
 - INPUT BUFFER: {\n}
 - we typed `Hello\n` 
 - INPUT BUFFER:  {\n, H, e, l, l, o, \n}
-- `scanf("%s", msg);` only gets chars, leaves non-chars
+- `scanf("%s", msg);` only gets chars, stops and leaves non-chars
 - INPUT BUFFER:  {\n, \n}
-- the program ends so we didnt have any 
+- the program ends so we didnt have any complication with the remaining \n
+
+2. in the second attempt
+- we typed `1\n`,
+- INPUT BUFFER: {1, \n}
+- `scanf("%d", &id);` only gets digits, leaves non-digits, lile \n
+- INPUT BUFFER: {\n}
+- we typed `Hello World\n` 
+- INPUT BUFFER:  {\n, H, e, l, l, o, ' ', W, o, r, l, d, \n}
+- `scanf("%s", msg);` only gets chars, stops and leaves non-chars
+- INPUT BUFFER:  {\n, ' ', W, o, r, l, d, \n}
+- 
