@@ -360,6 +360,9 @@ int *first_negative(int *p, int n){
 }
 ```
 
-e.g.
-```c
-```
+### b. Segmentation Fault (segfault)
+: when we try to access a memory address from using pointers, but certain programs in our computer uses it and our c program is not allowed to access it.
+
+: e.g. we get a block of memory address where google chrome currently uses
+
+: commonly encountered from using `NULL`

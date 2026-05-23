@@ -17,10 +17,7 @@ int *first_negative(int *p, int n){
 }
 
 int main() {
-	int num[] = {1,2, 3, 6};
-	int *f_nega = first_negative(num, 6);
-	printf("%d\n", *f_nega);
+	int *p = NULL;
+	int x = *p;
+}
 
-
-
-	}
