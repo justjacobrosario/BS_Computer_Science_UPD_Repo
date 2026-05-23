@@ -17,7 +17,7 @@ int *first_negative(int *p, int n){
 }
 
 int main() {
-	int *p = NULL;
-	int x = *p;
+	char *str = "Hello";
+	str[5] = '?';
 }
 
