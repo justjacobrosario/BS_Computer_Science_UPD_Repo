@@ -37,6 +37,22 @@ struct student maria = {
 ```
 ### c) parameterizing structs in functions
 
+consider this
+```c
+typedef struct student Student;
+    struct student {
+        int baon;
+        char name[123];
+        char univ[123];
+    };
+
+    struct student maria = {
+        76,
+        "Maria Clara",
+        "UST"
+    };
+```
+
 #### 1] per attribute
 ```c
 void increm_baon(int *baon){
