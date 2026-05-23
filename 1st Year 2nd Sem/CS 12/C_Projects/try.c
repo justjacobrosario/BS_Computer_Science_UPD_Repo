@@ -13,8 +13,10 @@ int main() {
 
 	for (int i = 0; i < r; i++ ){
 
-		for (int j = 0; j < c; j++)
-			printf("grid[%d][%d]: %d\n", i, j, p[i][j]);
+		for (int j = 0; j < c; j++){
+			printf("{grid[%d][%d]: %d }", i, j, p[i][j]);
+		}
+		printf("\n");
 
 	}
 
