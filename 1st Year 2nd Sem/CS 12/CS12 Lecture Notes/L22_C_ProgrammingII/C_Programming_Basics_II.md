@@ -434,3 +434,13 @@ Input id: Input message: ID: 1, MSG: world
 - to fix that we use fgets
 ## 5. fgets
 `fgets(pointer, size, stdin)`
+
+: helps `scanf("%d", %some_var)` to store phrases rather than just the first word
+
+: it reads both chars and spaces (which `scanf("%s", msg);` leaves )
+: it stops reading when
+1. \n encountered
+2. exceeds (n-1) chars
+3. EOF encountered
+: returns the same pointer with the values
+: if failed, returns NULL
