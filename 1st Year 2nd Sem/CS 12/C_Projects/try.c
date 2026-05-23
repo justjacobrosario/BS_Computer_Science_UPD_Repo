@@ -7,7 +7,20 @@ int *create67(){
 	return p;
 }
 
+int *first_negative(int *p, int n){
+	for (int i = 0; i < n; i++){
+		if (*(p + i) < 0) {
+			return (p+i);
+		}
+	}
+	return NULL;
+}
+
 int main() {
-	int *num = create67();
-	printf("%d\n", *num);
+	int num[] = {1,2, 3, 6};
+	int *f_nega = first_negative(num, 6);
+	printf("%d\n", *f_nega);
+
+
+
 	}

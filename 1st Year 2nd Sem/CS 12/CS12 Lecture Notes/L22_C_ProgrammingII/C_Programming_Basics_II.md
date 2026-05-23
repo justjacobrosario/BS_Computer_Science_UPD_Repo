@@ -126,8 +126,17 @@ int main() {
 	}
 ```
 ### d) Pointers in arrays
-: NOTE: You cannot assign a pointer to the address of the whole list at once
-: You can only assign a pointer to the address of a single element w index n
+
+let there be `char lis[] = {'a', 'b', 'c'}`
+
+: every element has their own pointer value (address)
+: there is no pointer to the whole array
+
+: the array_name `lis` is the pointer for the address of the first element
+: so `*lis = lis[0]`, `*(lis + 1) = lis[1]`
+: thus `*(lis + i) = lis[i]` for any i < array_length
+
+
 #### Initializing pointer via indexing or arithmethic method
 ```c
 
@@ -329,9 +338,27 @@ How many elements: 5
 ```
 
 ## 3. Null Pointers
-### a) returning a pointer value where null pointers are necessary
-: whenever we return a pointer value/address, there are times that there is no address to be returned
-: what we return in these cases are null pointer `NULL`
+### a) Sentinel Value
+: a value that we usually return as the final result if there is no more return values to be returned relative to the function
+
+: e.g. in python, we use `None` when we can't find a negative number in a function `find_negative([1, 2, 3])`
+
+: in C, since the return type is infered at the start, the sentinel value must adhere to that
+
+#### `NULL` Pointer
+: sentinel value that points to an address where there is no value
+
+e.g.
+```c
+int *first_negative(int *p, int n){
+	for (int i = 0; i < n; i++){
+		if (*(p + i) < 0) {
+			return (p+i);
+		}
+	}
+	return NULL; // sentinel value, when there is no negative number
+}
+```
 
 e.g.
 ```c
