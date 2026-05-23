@@ -15,7 +15,7 @@ int main(){
 	int *p = make_range(n);
 
 	for (int i = 0; i < n; i++){
-		printf("%d\n", *(p + i));
+		printf("%d ", *(p + i));
 	}
 
 }

@@ -99,3 +99,30 @@ void increm_baon3(Student *p){
 ### a) `malloc(sizeof(...))`
 : returns a pointer, pointing the address of free memory
 : `NULL` when failed
+
+```c
+
+
+int *make_range(int n){
+	int *lis = malloc(sizeof(int) * n);
+	for (int i = 0; i < n; i++){
+		lis[i] = i;
+	}
+
+	return lis;
+}
+
+int main(){
+	int n = 11;
+	int *p = make_range(n);
+
+	for (int i = 0; i < n; i++){
+		printf("%d ", *(p + i));
+	}
+
+}
+
+\\ 0 1 2 3 4 5 6 7 8 9 10 
+```
+
+### b) Stack 
