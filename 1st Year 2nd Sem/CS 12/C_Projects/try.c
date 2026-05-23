@@ -17,7 +17,10 @@ int *first_negative(int *p, int n){
 }
 
 int main() {
-	char s[] = {'H', 'E', 'L', 'L', 'O'};
-	printf("%s\n", s);
+	int x;
+	char y;
+	scanf("%d\n", &x);
+	scanf("%c\n", &y);
+	printf("%d %c\n", x, y);
 }
 
