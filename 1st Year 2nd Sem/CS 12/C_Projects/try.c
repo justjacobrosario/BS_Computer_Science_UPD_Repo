@@ -13,6 +13,11 @@ void increm_baon2(Student *p){
     *q = (*p).baon + 1;
 }
 
+void increm_baon3(Student *p){
+    int *q = &p->baon;
+    *q = p->baon + 1;
+}
+
 int main() {
 
 
@@ -24,7 +29,7 @@ int main() {
 
     printf("%d\n", maria.baon);
 
-    increm_baon2(&maria);
+    increm_baon3(&maria);
 
 	printf("%d\n", maria.baon);
 }
