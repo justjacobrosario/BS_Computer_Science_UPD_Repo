@@ -436,7 +436,7 @@ Input id: Input message: ID: 1, MSG: world
 `fgets(pointer, size, stdin)`
 
 : from the word get s (get string)
-: helps `scanf("%d", %some_var)` to store phrases rather than just the first word
+: replaces  `scanf("%s", %some_var)` to store phrases rather than just the first word
 
 : it reads both chars and spaces (which `scanf("%s", msg);` leaves )
 : it stops reading when
@@ -453,3 +453,26 @@ Input id: Input message: ID: 1, MSG: world
 : is practically used in times where there is a remaining `\n` in the input buffer that we need to remove before using fgets
 
 to fix the previous program
+```c
+int main() {
+	int id;
+	char msg[67];
+
+	while (1) {
+		printf("Input id: ");
+		scanf("%d", &id);
+
+		// add this to remove remaining \n
+		fgetc(stdin);
+
+		printf("Input message: ");
+		// dont need scanf("%s", msg); anymore
+
+		// add this to continue reading after the spaces
+		fgets(msg, sizeof(msg), stdin);
+
+		printf("ID: %d, MSG: %s\n", id, msg);
+	}
+}
+
+```

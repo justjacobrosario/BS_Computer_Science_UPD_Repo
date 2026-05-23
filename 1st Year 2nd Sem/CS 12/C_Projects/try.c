@@ -30,7 +30,7 @@ int main() {
 		fgetc(stdin);
 
 		printf("Input message: ");
-		scanf("%s", msg);
+		// dont need scanf("%s", msg); anymore
 
 		// add this to continue reading after the spaces
 		fgets(msg, sizeof(msg), stdin);
