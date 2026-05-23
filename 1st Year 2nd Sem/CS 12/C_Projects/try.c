@@ -7,10 +7,10 @@ int main() {
 	char y;
 
 	printf("x:");
-	scanf("%d\n", &x);
-	
+	scanf("%d", &x);
+
 	printf("y: ");
-	scanf("%c\n", &y);
+	scanf("%c", &y);
 	printf("output: %d %c\n", x, y);
 }
 
