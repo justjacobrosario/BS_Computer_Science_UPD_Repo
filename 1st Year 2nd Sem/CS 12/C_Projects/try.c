@@ -3,14 +3,17 @@
 
 
 int main() {
-	int x;
-	char y;
+	int id;
+	char msg[67];
 
-	printf("x:");
-	scanf("%d", &x);
+	while (1) {
+		printf("Input id: ");
+		scanf("%d", &id);
 
-	printf("y: ");
-	scanf("%c", &y);
-	printf("output: %d %c\n", x, y);
+		printf("Input message: ");
+		scanf("%s", msg);
+
+		printf("ID: %d, MSG: %s\n", id, msg);
+	}
 }
 
