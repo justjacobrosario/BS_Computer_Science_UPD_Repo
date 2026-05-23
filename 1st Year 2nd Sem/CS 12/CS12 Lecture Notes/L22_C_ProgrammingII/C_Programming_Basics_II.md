@@ -435,6 +435,7 @@ Input id: Input message: ID: 1, MSG: world
 ## 5. fgets
 `fgets(pointer, size, stdin)`
 
+: from the word get s (get string)
 : helps `scanf("%d", %some_var)` to store phrases rather than just the first word
 
 : it reads both chars and spaces (which `scanf("%s", msg);` leaves )
@@ -444,3 +445,11 @@ Input id: Input message: ID: 1, MSG: world
 3. EOF encountered
 : returns the same pointer with the values
 : if failed, returns NULL
+
+## 6. fgetc(stdin)
+`fgetc(stdin)`
+
+: gets a single character 
+: is practically used in times where there is a remaining `\n` in the input buffer that we need to remove before using fgets
+
+to fix the previous program
