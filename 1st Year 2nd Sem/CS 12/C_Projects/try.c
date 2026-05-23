@@ -1,52 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct student Student;
-    struct student {
-        int baon;
-        char name[123];
-        char univ[123];
-    };
+int *make_range(int n){
+	int *lis = malloc(sizeof(int) * n);
+	for (int i = 0; i < n; i++){
+		lis[i] = i;
+	}
 
-void increm_baon2(Student *p){
-    int *q = &((*p).baon);
-    *q = (*p).baon + 1;
+	return lis;
 }
 
-void increm_baon3(Student *p){
-    int *q = &p->baon;
-    *q = p->baon + 1;
-}
+int main(){
+	int n = 11;
+	int *p = make_range(n);
 
+	for (int i = 0; i < n; i++){
+		printf("%d\n", *(p + i));
+	}
 
-void decrem_baon3(Student *p){
-	int *q = &(p->baon);
-	*q = p->baon - 1;
-}
-
-
-
-
-
-
-
-void decrem_baon4(Student *p){
-	int *q = &((*p).baon);
-	*q = (*p).baon - 1;
-}
-
-int main() {
-
-
-    Student maria = {
-        76,
-        "Maria Clara",
-        "UST"
-    };
-
-    printf("%d\n", maria.baon);
-
-    decrem_baon4(&maria);
-
-	printf("%d\n", maria.baon);
 }
