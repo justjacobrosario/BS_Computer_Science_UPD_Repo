@@ -70,11 +70,12 @@ void increm_baon1(int *baon){
 ```c
 
 void increm_baon2(Student *p){
-    *p.baon = *p.baon + 1;
+    *q = &((*p).year);
+    *q = *q + 1;
 }
 
     printf("%d\n", maria.baon); // 76
-    increm_baon(&maria.baon);
+    increm_baon(&maria);
 	printf("%d\n", maria.baon); // 77
 }
 ```

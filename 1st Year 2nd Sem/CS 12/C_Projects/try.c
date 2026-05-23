@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void increm_baon(int *baon){
-    *baon = *baon + 1;
+
+void increm_baon2(Student *p){
+    *q = &((*p).year);
+    *q = (*p).year + 1;
 }
 
 int main() {
@@ -23,7 +25,7 @@ int main() {
 
     printf("%d\n", maria.baon);
 
-    increm_baon(&maria.baon);
+    increm_baon2(&maria);
 
 	printf("%d\n", maria.baon);
 }
