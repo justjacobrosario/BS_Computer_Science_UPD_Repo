@@ -75,7 +75,7 @@ void increm_baon2(Student *p){
 }
 
     printf("%d\n", maria.baon); // 76
-    increm_baon(&maria);
+    increm_baon2(&maria);
 	printf("%d\n", maria.baon); // 77
 }
 ```
@@ -89,7 +89,7 @@ void increm_baon3(Student *p){
 }
 
     printf("%d\n", maria.baon); // 76
-    increm_baon(&maria);
+    increm_baon3(&maria);
 	printf("%d\n", maria.baon); // 77
 }
 ```
