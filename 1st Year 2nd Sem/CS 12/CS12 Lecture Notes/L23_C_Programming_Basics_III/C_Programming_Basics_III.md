@@ -66,12 +66,12 @@ void increm_baon1(int *baon){
 }
 ```
 
-#### 1] per attribute
+#### 2] getting whole struct obj, and 
 ```c
 
 void increm_baon2(Student *p){
-    *q = &((*p).year);
-    *q = *q + 1;
+    int *q = &((*p).baon);
+    *q = (*p).baon + 1;
 }
 
     printf("%d\n", maria.baon); // 76
