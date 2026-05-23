@@ -370,6 +370,12 @@ int *first_negative(int *p, int n){
 ## 4. Input Buffer
 : in scanf, every input (char, int, \n, space, tabs) will be listed in an input buffer
 
+: depending on the datatype in the scanf, certain inputted elements are consumed or left in the input buffer
+
+e.g. we inputted `1a\n` or we typed 1 then a then enter
+`scanf("%d", &some_var)` consumes `1`, leaving `a` and `\n` in the input buffer
+
+
 lets have an id msg input program
 e.g.
 ```c
@@ -391,7 +397,25 @@ int main() {
 // E.G.
 /*
 Input id: 0
+Input message: Hello
+ID: 0, MSG: Hello
 
+however:
+
+Input id: 1
+Input message: Hello world
+ID: 1, MSG: Hello
+Input id: Input message: ID: 1, MSG: world
 */
 ```
 
+1. in the first attempt 
+- we typed `0\n`, where theres \n since we click enter. 
+- INPUT BUFFER: {0, \n}
+- `scanf("%d", &id);` only gets digits, leaves non-digits, lile \n
+- INPUT BUFFER: {\n}
+- we typed `Hello\n` 
+- INPUT BUFFER:  {\n, H, e, l, l, o, \n}
+- `scanf("%s", msg);` only gets chars, leaves non-chars
+- INPUT BUFFER:  {\n, \n}
+- the program ends so we didnt have any 
