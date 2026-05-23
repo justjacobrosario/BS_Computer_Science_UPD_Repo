@@ -366,3 +366,5 @@ int *first_negative(int *p, int n){
 : e.g. we get a block of memory address where google chrome currently uses
 
 : commonly encountered from using `NULL`
+
+## 4. Input Buffer
