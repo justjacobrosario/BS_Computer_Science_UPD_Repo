@@ -26,8 +26,14 @@ int main() {
 		printf("Input id: ");
 		scanf("%d", &id);
 
+		// add this to remove remaining \n
+		fgetc(stdin);
+
 		printf("Input message: ");
 		scanf("%s", msg);
+
+		// add this to continue reading after the spaces
+		fgets(msg, sizeof(msg), stdin);
 
 		printf("ID: %d, MSG: %s\n", id, msg);
 	}
