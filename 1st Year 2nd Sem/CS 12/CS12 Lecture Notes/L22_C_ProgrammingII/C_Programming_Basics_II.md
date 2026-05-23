@@ -432,3 +432,5 @@ Input id: Input message: ID: 1, MSG: world
 - INPUT BUFFER:  {\n, ' ', W, o, r, l, d, \n}
 - there are still remaining chars that will be received by the next scanf lines
 - to fix that we use fget
+## 5. fget
+``
