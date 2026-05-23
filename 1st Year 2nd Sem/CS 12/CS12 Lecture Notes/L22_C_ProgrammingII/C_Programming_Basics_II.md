@@ -368,3 +368,25 @@ int *first_negative(int *p, int n){
 : commonly encountered from using `NULL`
 
 ## 4. Input Buffer
+: in scanf, every input (char, int, \n, space, tabs) will be listed in an input buffer
+
+lets have an id msg input program
+e.g.
+```c
+int main() {
+	int id;
+	char msg[67];
+
+	while (1) {
+		printf("Input id: ");
+		scanf("%d", &id);
+
+		printf("Input message: ");
+		scanf("%s", msg);
+
+		printf("ID: %d, MSG: %s\n", id, msg);
+	}
+}
+```
+
+when run it returns
