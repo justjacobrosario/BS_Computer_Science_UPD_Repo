@@ -217,6 +217,8 @@ int *g() {
 */
 ```
 
+Heisenbugs: when the address of a cleared out variable is being used by other unrelated variables
+	
 ## 2. scanf
 `scanf(<format_specifier_string>, <ptr1>, <ptr2>, ...)
 : input version of printf, but it takes pointers instead
