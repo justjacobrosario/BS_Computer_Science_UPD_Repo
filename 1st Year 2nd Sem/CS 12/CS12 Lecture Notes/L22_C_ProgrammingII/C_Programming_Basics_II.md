@@ -387,6 +387,11 @@ int main() {
 		printf("ID: %d, MSG: %s\n", id, msg);
 	}
 }
+
+// E.G.
+/*
+Input id: 0
+
+*/
 ```
 
-when run it returns
