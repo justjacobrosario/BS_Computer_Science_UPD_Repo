@@ -155,3 +155,19 @@ int main(){
 
 
 ```
+
+## 3. Stack vs Heap Memory
+### a) Stack Memory
+: part of memory allocated for local variables
+: faster to access
+: ~8MB on Linux
+: Allocates and deallocates automatically at function call to end
+
+### b) Heap Memory
+
+: part of memory for dynamic allocation
+: slower to access
+: manual allocation via `*p = malloc(...)'
+: manual deallocation via `free(p)`
+
+NOTE: once pointer is deallocated, its now a "dangling pointer". dont dereference it since value is now deleted.
