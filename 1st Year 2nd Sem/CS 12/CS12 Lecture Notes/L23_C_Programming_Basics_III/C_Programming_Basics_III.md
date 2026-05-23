@@ -93,3 +93,6 @@ void increm_baon3(Student *p){
 	printf("%d\n", maria.baon); // 77
 }
 ```
+
+## 2. Dynamic Memory Allocation
+
