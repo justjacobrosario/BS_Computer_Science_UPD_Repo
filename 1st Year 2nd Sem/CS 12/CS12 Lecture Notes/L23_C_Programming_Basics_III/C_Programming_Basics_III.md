@@ -105,6 +105,8 @@ void increm_baon3(Student *p){
 
 int *make_range(int n){
 	int *lis = malloc(sizeof(int) * n);
+	// array of random values {32091, 22, 54463, 7, ...}
+	
 	for (int i = 0; i < n; i++){
 		lis[i] = i;
 	}
@@ -125,4 +127,31 @@ int main(){
 \\ 0 1 2 3 4 5 6 7 8 9 10 
 ```
 
-### b) St
+### b) `calloc(elem_num, size)`
+```c
+
+int *make_range(int n){
+	int *lis = calloc(n, sizeof(int) * n);
+	// array of zero values {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	
+	for (int i = 0; i < n; i++){
+		lis[i] = i;
+	}
+
+	return lis;
+}
+
+int main(){
+	int n = 11;
+	int *p = make_range(n);
+
+	for (int i = 0; i < n; i++){
+		printf("%d ", *(p + i));
+	}
+
+}
+
+\\ 0 1 2 3 4 5 6 7 8 9 10 
+
+
+```
