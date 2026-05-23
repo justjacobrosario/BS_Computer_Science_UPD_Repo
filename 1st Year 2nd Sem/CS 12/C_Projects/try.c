@@ -18,25 +18,28 @@ int main() {
 }
 */
 
+void increm_baon(int *baon){
+	*baon = *baon + 1;
+}
+
 int main() {
-	int id;
-	char msg[67];
+	
+	struct student {
+		int baon;
+		char name[123];
+		char univ[123];
+	};
 
-	while (1) {
-		printf("Input id: ");
-		scanf("%d", &id);
+	struct student maria = {
+		.name = "Maria Clara",
+		.baon = 76,
+		.univ = "UST"
+	};
 
-		// add this to remove remaining \n
-		fgetc(stdin);
 
-		printf("Input message: ");
-		// dont need scanf("%s", msg); anymore
+	printf("%d\n", maria.baon);
 
-		// add this to continue reading after the spaces
-		fgets(msg, sizeof(msg), stdin);
-
-		printf("ID: %d, MSG: %s\n", id, msg);
-	}
+	
 }
 
 
