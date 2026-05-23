@@ -17,7 +17,7 @@ int *first_negative(int *p, int n){
 }
 
 int main() {
-	char *str = "Hello";
-	str[5] = '?';
+	char s[] = {'H', 'E', 'L', 'L', 'O'};
+	printf("%s\n", s);
 }
 
