@@ -84,7 +84,7 @@ void increm_baon2(Student *p){
 ```c
 
 void increm_baon3(Student *p){
-    int *q = &p->baon;
+    int *q = &p->baon; // get address of attribute
     *q = p->baon + 1;
 }
 
