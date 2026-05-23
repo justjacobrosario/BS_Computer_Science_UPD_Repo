@@ -35,4 +35,4 @@ struct student maria = {
 	.baon = 76,
 	.univ = "UST"}
 ```
-#### 1] bit vs bytes
+### c) parameterizing structs in functions
