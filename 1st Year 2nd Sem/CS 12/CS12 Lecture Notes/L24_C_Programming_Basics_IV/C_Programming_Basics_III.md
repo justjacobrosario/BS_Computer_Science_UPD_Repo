@@ -10,7 +10,8 @@ void *make_2d_grid(int row, int col, int cell_size){
 int main() {
 	int r = 2;
 	int c = 3;
-	int (*p)[c] = make_2d_grid(r, c, sizeof(int)); 
+	int (*p)[c] = make_2d_grid(r, c, sizeof(int)); // refers to the first row of c elements
+	// the next rows will be in (p + r*c)th bits
 
 	for (int i = 0; i < r; i++ ){
 
@@ -21,3 +22,5 @@ int main() {
 
 	}
 ```
+
+##
