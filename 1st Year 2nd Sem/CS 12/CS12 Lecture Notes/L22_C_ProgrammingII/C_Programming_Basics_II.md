@@ -430,4 +430,5 @@ Input id: Input message: ID: 1, MSG: world
 - INPUT BUFFER:  {\n, H, e, l, l, o, ' ', W, o, r, l, d, \n}
 - `scanf("%s", msg);` only gets chars, stops and leaves non-chars
 - INPUT BUFFER:  {\n, ' ', W, o, r, l, d, \n}
-- 
+- there are still remaining chars that will be received by the next scanf lines
+- to fix that we use fget
