@@ -24,6 +24,7 @@ void increm_baon(int *baon){
 
 int main() {
 	
+	typedef struct student Student;
 	struct student {
 		int baon;
 		char name[123];
