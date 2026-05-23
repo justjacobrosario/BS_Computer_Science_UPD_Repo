@@ -23,5 +23,11 @@ int main() {
 
     printf("%d\n", maria.baon);
 
+    increm_baon(&maria.baon);
+
+	printf("%d\n", maria.baon);
+
+
+
     return 0;
 }
