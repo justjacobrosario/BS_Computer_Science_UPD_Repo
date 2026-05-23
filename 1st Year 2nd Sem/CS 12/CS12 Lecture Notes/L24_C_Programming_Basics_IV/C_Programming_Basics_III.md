@@ -2,7 +2,7 @@
 
 ```c
 void *make_2d_grid(int row, int col, int cell_size){
-	// returns  
+	// returns address that will fit a r x c grid
 	int *matrix = calloc((row*col), sizeof(cell_size));
 	return matrix;
 }
@@ -10,7 +10,7 @@ void *make_2d_grid(int row, int col, int cell_size){
 int main() {
 	int r = 2;
 	int c = 3;
-	int (*p)[c] = make_2d_grid(r, c, sizeof(int));
+	int (*p)[c] = make_2d_grid(r, c, sizeof(int)); 
 
 	for (int i = 0; i < r; i++ ){
 
