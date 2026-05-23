@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int *make_range(int n){
-	int *lis = malloc(sizeof(int) * n);
+	int lis = malloc(sizeof(int) * n);
 	for (int i = 0; i < n; i++){
 		lis[i] = i;
 	}
