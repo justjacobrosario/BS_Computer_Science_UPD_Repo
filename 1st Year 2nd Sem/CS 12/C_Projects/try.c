@@ -18,6 +18,12 @@ void increm_baon3(Student *p){
     *q = p->baon + 1;
 }
 
+
+void decrem_baon3(Student *p){
+	int *q = &(p->baon);
+	*q = p->baon - 1;
+}
+
 int main() {
 
 
@@ -29,7 +35,7 @@ int main() {
 
     printf("%d\n", maria.baon);
 
-    increm_baon3(&maria);
+    decrem_baon3(&maria);
 
 	printf("%d\n", maria.baon);
 }
