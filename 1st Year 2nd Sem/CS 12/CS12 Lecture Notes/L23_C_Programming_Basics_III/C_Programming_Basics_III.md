@@ -96,3 +96,6 @@ void increm_baon3(Student *p){
 
 ## 2. Dynamic Memory Allocation
 
+### a) `malloc(sizeof(...))`
+: returns a pointer, pointing the address of free memory
+: `NULL` when failed
