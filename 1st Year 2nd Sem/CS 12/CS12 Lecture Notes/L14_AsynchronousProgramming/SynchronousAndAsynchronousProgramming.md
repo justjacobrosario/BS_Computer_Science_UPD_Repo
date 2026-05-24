@@ -64,7 +64,7 @@ Done
 🟨 finishes
 
 
-## 1. Asynchronous Programming
+## 2. Asynchronous Programming
 : operations can pause, give the runtime to the next operation, and then unpause after awaiting a certain line of code
 : operations can pause and unpause instead of waiting each line to finish before running the next
 
