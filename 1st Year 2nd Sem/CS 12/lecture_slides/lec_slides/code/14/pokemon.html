@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <link rel="stylesheet" href="https://pyscript.net/releases/2026.3.1/core.css">
+      <script type="module" src="https://pyscript.net/releases/2026.3.1/core.js"></script>
+      <style type="text/css">
+        .loader {
+          display: none;
+          width: 150px;
+          height: 100px;
+          border: 5px solid #FFF;
+      }
+      </style>
+  </head>
+<body>
+  <div id="app">
+    <h1>Pokemon!</h1>
+    <button id="pokemon-btn">Get Pokemon</button>
+      <br />
+    <div id="pokemon-container">
+      <img id="pokemon-loader" class="loader" src="loader.gif"></img>
+      <table id="pokemon-table">
+        <tr id="row-1"></tr>
+        <tr id="row-2"></tr>
+      </table>
+    </div>
+  </div>
+
+  <script type="py" src="./pokemon.py" config="config.json"></script>
+</body>
+</html>
