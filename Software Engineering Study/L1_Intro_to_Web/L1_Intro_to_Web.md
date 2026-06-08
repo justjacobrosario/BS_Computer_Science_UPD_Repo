@@ -20,4 +20,4 @@
 3. Personal computers are connected to an Internet Service Provider.
 4. Sending data from one PC to another passes through ISPs of those PCs and then to the Internet
 5. Sending data through the internet needs it to be fragmented into tiny information called packets
-6. Those packets of data can 
+6. Those packets of data can have separate routes from one point to another. Delay 
