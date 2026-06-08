@@ -2,5 +2,6 @@
   "cssTheme": "AnuPpuccin",
   "interfaceFontFamily": "Menlo",
   "textFontFamily": "Menlo",
-  "accentColor": "#2f2c35"
+  "accentColor": "#ffecd1",
+  "theme": "moonstone"
 }

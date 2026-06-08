@@ -1,4 +1,6 @@
 {
   "blue-topaz-theme@@color-scheme-options": "color-scheme-options-autumn-topaz",
-  "CG@@CG-settings-background": true
+  "CG@@CG-settings-background": true,
+  "anuppuccin-theme-settings@@anuppuccin-theme-dark": "ctp-macchiato",
+  "anuppuccin-theme-settings@@anuppuccin-theme-light": "ctp-rosepine-light"
 }
