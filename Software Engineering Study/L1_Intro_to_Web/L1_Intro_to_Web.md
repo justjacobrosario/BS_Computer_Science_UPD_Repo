@@ -11,7 +11,8 @@
 4. Personal Computer : Domestic computer, not typically connected directly to the Internet
 5. IP Address : Every server and computer  have unique IP addresses
 6. Internet Service Provider (ISP) : Connects PC's to the Internet
-7. Packets : Fragments of a data that passes through the Internet
+7. Packets : Fragments of a data that passes through the Internet.
+8. Router : Directs packets around the Internet
 
 ## 1.3. How the Internet Works
 
@@ -20,4 +21,6 @@
 3. Personal computers are connected to an Internet Service Provider.
 4. Sending data from one PC to another passes through ISPs of those PCs and then to the Internet
 5. Sending data through the internet needs it to be fragmented into tiny information called packets
-6. Those packets of data can have separate routes from one point to another. Delay 
+6. Those packets of data can have separate routes from one point to another. Despite that, packets will approach to their destination precisely by the help of routers, which directs packets to the right device.
+7. Initially, packets contain the IP address of its origin computer. As it passes through a router, the packet will record the router's IP address. Several routers will lead packets to contain their IP address consecutively. (Imagine each computer, router, and server wrapping their IP address on top of each other.)
+8. As the packets return back to the original computer. The recorded IP address will then be unwrapped as it go back to the same route.
