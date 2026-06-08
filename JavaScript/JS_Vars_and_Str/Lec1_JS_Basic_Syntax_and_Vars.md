@@ -50,3 +50,46 @@ Symbol("MySymbol");
 123456789123456789123456789123456789123456789n;
 ```
 
+# 4. Variables
+
+## 4.1. Variable Declaration
+
+```js
+let age;
+console.log(age); // undefined
+```
+
+```js
+let age = 30;
+console.log(age) // 30
+```
+
+## 4.2. Variable Mutation
+
+```js
+let age = 25; // var declaration
+
+age = 30 // var mutation (no need for `let`)
+
+console.log(age) // 30
+```
+
+## 4.3. Variable Naming Restrictions & Conventions
+
+```js
+// CASE-SENSITIVE
+let name;
+let Name; // different
+
+// camelCase
+let thisIsAVariable;
+
+// ✅ CAN USE
+let age;
+let _age; // can start with _
+let $age; // can start with $
+
+// ❌ CAN'T USE THESE
+let 1stAge // don't start with a number
+
+```
