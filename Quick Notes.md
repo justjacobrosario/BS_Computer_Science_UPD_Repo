@@ -1,2 +1,2 @@
 
-![[Programming Quick Notes]]
+![[Programming Quick Links]]
