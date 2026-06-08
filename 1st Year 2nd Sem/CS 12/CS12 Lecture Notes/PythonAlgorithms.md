@@ -71,12 +71,6 @@ def first_at_least_x(seq, x):
     #print(first_at_least_x([1, 3, 5, 7, 9], 6))
 
 
-
-
-
-
-
-
 '''
 3. MERGE SORT
 '''

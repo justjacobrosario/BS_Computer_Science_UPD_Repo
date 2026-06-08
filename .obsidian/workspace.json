@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Software Engineering Study/L1_Intro_to_Web/L1_Intro_to_Web.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L1_Intro_to_Web"
+              "title": "PythonAlgorithms"
             }
           }
         ],
@@ -345,8 +345,20 @@
   },
   "active": "ceb3dd74254faa86",
   "lastOpenFiles": [
-    "JavaScript/JS_Vars_and_Str/Lec1_JS_Basic_Syntax_and_Vars.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L6_OOP’s SOLID Principle/L6_OOP’s SOLID Principle.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L7_SingleInheritance/L7_SingleInheritance.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L8_SubtypeVariance_FunctionSubtyping/L8_SubtypeVariance_FunctionSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L9_BehavioralSubtyping/L9_BehavioralSubtyping.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L10_OOPDesignPatterns/L10_OOPDesignPatterns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L11_GameProgrammingBasics/L11_GameProgrammingBasics.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L12_MVC_w_Pyxel/L12_MVC_w_Pyxel.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III/C_Programming_Basics_III.md",
     "Software Engineering Study/L1_Intro_to_Web/L1_Intro_to_Web.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L3_Separation_of_Concerns/L3_Separation_of_Concerns.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L2_Debugging_UnitTesting/L2_Debugging_UnitTesting.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L1_TypeChecking/L1_TypeChecking.md",
+    "JavaScript/JS_Vars_and_Str/Lec1_JS_Basic_Syntax_and_Vars.md",
     "Software Engineering Study/L1_Intro_to_Web",
     "Software Engineering Study",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/JSON.md",
@@ -355,9 +367,7 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/httpxModuleForAsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/APIs.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/Python Basic Syntax.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L24_C_Programming_Basics_IV/C_Programming_Basics_III.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III/C_Programming_Basics_III.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/SynchronousAndAsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L14_AsynchronousProgramming/L14_AsynchronousProgramming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/Pyscript.md",
@@ -367,20 +377,10 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/L13_HTMLAndDOM.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "1st Year 2nd Sem/CS 12/C_Projects/try.c",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L20_ElmMVU2_API/ElmMVU2.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L19_ElmMVU1/ElmMVU1.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
     "1st Year 2nd Sem/CS 12/Elm_Projects/elm-stuff/0.19.1/Prac.elmi",
     "1st Year 2nd Sem/CS 12/Elm_Projects/elm-stuff/0.19.1/Prac.elmo",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
     "1st Year 2nd Sem/CS 12/Elm_Projects/src/prac.elm",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
-    "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
-    "1st Year 2nd Sem/GCI Data Science/Review_matplotlib.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
