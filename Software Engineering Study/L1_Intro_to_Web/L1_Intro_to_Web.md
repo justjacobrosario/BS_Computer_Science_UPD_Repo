@@ -10,17 +10,28 @@
 3. Server : A computer connected directly to the internet
 4. Personal Computer : Domestic computer, not typically connected directly to the Internet
 5. IP Address : Every server and computer  have unique IP addresses
-6. Internet Service Provider (ISP) : Connects PC's to the Internet
-7. Packets : Fragments of a data that passes through the Internet.
-8. Router : Directs packets around the Internet
+6. Local Network (LAN) : A network of computers connected locally without the Internet
+7. Switch : Connects computers locally and directs data in a LAN
+8. Internet Service Provider (ISP) : Connects PC's to the Internet
+9. Packets : Fragments of a data that passes through the Internet.
+10. Router : Directs packets around the Internet by connecting one network to another.
+11. 
 
 ## 1.3. How the Internet Works
 
 1. The Internet is a connection connecting computers (called servers)
-2. Servers have unique IP Address, which is aliased by their web address (e.g. google.com)
-3. Personal computers are connected to an Internet Service Provider.
-4. Sending data from one PC to another passes through ISPs of those PCs and then to the Internet
-5. Sending data through the internet needs it to be fragmented into tiny information called packets
-6. Those packets of data can have separate routes from one point to another. Despite that, packets will approach to their destination precisely by the help of routers, which directs packets to the right device.
-7. Initially, packets contain the IP address of its origin computer. As it passes through a router, the packet will record the router's IP address. Several routers will lead packets to contain their IP address consecutively. (Imagine each computer, router, and server wrapping their IP address on top of each other.)
-8. As the packets return back to the original computer. The recorded IP address will then be unwrapped as it go back to the same route.
+2. Servers, and domestic personal computers (PCs) have unique IP Address, which is aliased by their web address (e.g. google.com)
+
+A. Connecting Computers (No Internet needed)
+1. The network in which a PC is connected to another PC without passing through the internet is a local network (LAN).
+2. As a LAN gets crowded by PCs, one PC must connect to other PCs individually (like a complete graph, needed too much wires and connections).
+3. Instead of only having direct connections from PC A to B, we use network switches (aka switches), which traffics and directs data from its origin to its respective destination (like railway intersections).
+
+B. Connecting Computers (Internet needed)
+
+1. Personal computers are connected to the Internet through an Internet Service Provider.
+2. Sending data from one PC to another passes through ISPs of those PCs and then to the Internet
+3. Sending data through the internet needs it to be fragmented into tiny information called packets
+4. Those packets of data can have separate routes from one point to another. Despite that, packets will approach to their destination precisely by the help of routers, which directs packets to the right device.
+5. Initially, packets contain the IP address of its origin computer. As it passes through a router, the packet will record the router's IP address. Several routers will lead packets to contain their IP address consecutively. (Imagine each computer, switch, router, and server wrapping their IP address on top of each other.)
+6. As the packets return back to the original computer. The recorded IP address will then be unwrapped as it go back to the same route.
