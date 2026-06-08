@@ -70,9 +70,11 @@ console.log(age); // 30
 // 3]
 const pi = 3.1415;
 
-// NOTICE: `const` declarations MUST have an assigned value
-
+// 3.1) NOTICE: `const` declarations MUST have an assigned value
 const pi; // error
+
+// 3.2) mutating a const var will err
+pi = 1.61803 // error
 ```
 ## 4.2. Variable Mutation
 
