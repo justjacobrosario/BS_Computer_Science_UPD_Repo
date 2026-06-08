@@ -29,9 +29,14 @@ A. Connecting Computers (No Internet needed)
 
 B. Connecting Computers (Internet needed)
 
-1. Personal computers are connected to the Internet through an Internet Service Provider.
+1. Personal computers are connected to the Internet (interconnected networks) through an Internet Service Provider.
 2. Sending data from one PC to another passes through ISPs of those PCs and then to the Internet
 3. Sending data through the internet needs it to be fragmented into tiny information called packets
 4. Those packets of data can have separate routes from one point to another. Despite that, packets will approach to their destination precisely by the help of routers, which directs packets to the right device.
 5. Initially, packets contain the IP address of its origin computer. As it passes through a router, the packet will record the router's IP address. Several routers will lead packets to contain their IP address consecutively. (Imagine each computer, switch, router, and server wrapping their IP address on top of each other.)
 6. As the packets return back to the original computer. The recorded IP address will then be unwrapped as it go back to the same route.
+
+## 1.4. Parts of Internet
+1. Intranet : private networks restricted to members of a particular organization
+2. Extranets : Part where a part of intranets are open for interaction with each other
+3. Internet : Interconnected extranets
