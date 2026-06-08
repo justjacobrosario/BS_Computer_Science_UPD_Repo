@@ -15,7 +15,6 @@
 8. Internet Service Provider (ISP) : Connects PC's to the Internet
 9. Packets : Fragments of a data that passes through the Internet.
 10. Router : Directs packets around the Internet by connecting one network to another.
-11. 
 
 ## 1.3. How the Internet Works
 
