@@ -23,7 +23,7 @@
 
 7. `Object` : collection of key-value pairs (similar to C's `struct` and Python's `dict`)
 
-8. `Symbol` : fixed unchangeable value (like C's `const`)
+8. `Symbol` : a unique value (doesn't have same value, even if typed the same to another variable)
 
 9. `BigInt` : add `n` at the end of values exceeding `Number`'s limit (like C's `int64_t`)
 
@@ -55,15 +55,25 @@ Symbol("MySymbol");
 ## 4.1. Variable Declaration
 
 ```js
+// 1]
 let age;
 console.log(age); // undefined
 ```
 
 ```js
+// 2]
 let age = 30;
-console.log(age) // 30
+console.log(age); // 30
 ```
 
+```js
+// 3]
+const pi = 3.1415;
+
+// NOTICE: `const` declarations MUST have an assigned value
+
+const pi; // error
+```
 ## 4.2. Variable Mutation
 
 ```js
@@ -77,19 +87,19 @@ console.log(age) // 30
 ## 4.3. Variable Naming Restrictions & Conventions
 
 ```js
-// CASE-SENSITIVE
+// 1] CASE-SENSITIVE
 let name;
 let Name; // different
 
-// camelCase
+// 2] camelCase
 let thisIsAVariable;
 
-// ✅ CAN USE
+// 3] ✅ CAN USE
 let age;
 let _age; // can start with _
 let $age; // can start with $
 
-// ❌ CAN'T USE THESE
+// 4] ❌ CAN'T USE THESE
 let 1stAge // don't start with a number
 
 ```
