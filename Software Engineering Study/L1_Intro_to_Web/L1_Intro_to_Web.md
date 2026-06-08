@@ -14,6 +14,7 @@
 7. Packets : Fragments of a data that passes through the Internet
 
 ## 1.3. How the Internet Works
+
 1. The Internet is a connection connecting computers (called servers)
 2. Servers have unique IP Address, which is aliased by their web address (e.g. google.com)
 3. Personal computers are connected to an Internet Service Provider.
