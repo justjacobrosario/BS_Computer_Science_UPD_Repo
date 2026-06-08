@@ -25,7 +25,7 @@
 
 8. `Symbol` : fixed unchangeable value (like C's `const`)
 
-9. `BigInt` : for values exceeding `Number`'s limit (like C's `int64_t`)
+9. `BigInt` : add `n` at the end of values exceeding `Number`'s limit (like C's `int64_t`)
 
 * `console.log` prints values or variables in the console
 * similar to Python's `print()`
@@ -43,8 +43,10 @@ console.log(true) // Boolean (lowercased)
 {
 	name : "Juan",
 	age : 123
-}
+};
 // Symbol (like const)
-Symbol("MySymbol")
+Symbol("MySymbol");
+// BigInt
+123456789123456789123456789123456789123456789n;
 ```
 
