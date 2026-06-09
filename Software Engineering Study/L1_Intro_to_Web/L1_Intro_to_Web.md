@@ -56,5 +56,5 @@ B. Connecting Computers (Internet needed)
 ## 2.2. How the web works
 
 1. User inputs a keyword to a search engine
-2. Web browser request the resources you want to access from the web server it is stored on.
+2. Web browser requests the resources you want to access from the web server it is stored on. Such requests is done using the HTTP, which describes what should happen.
 3. 
