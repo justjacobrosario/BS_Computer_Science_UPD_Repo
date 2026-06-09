@@ -52,3 +52,6 @@ B. Connecting Computers (Internet needed)
 7. Search Engine : A web service that  helps one find web pages
 8. Browser : a software that retrieves and displays web pages (e.g. Google is both a browser and a search engine)
 
+## 2.2. How the web works
+
+1. User inputs a keyword 
