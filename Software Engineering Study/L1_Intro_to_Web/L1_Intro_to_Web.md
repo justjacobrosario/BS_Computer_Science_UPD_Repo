@@ -39,3 +39,13 @@ B. Connecting Computers (Internet needed)
 1. Intranet : private networks restricted to members of a particular organization
 2. Extranets : Part where a part of intranets are open for interaction with each other
 3. Internet : Interconnected extranets
+
+# 2. Intro to Web
+## 2.1. Web Terminologies
+
+1. Web page : a document that can be displayed in the web browser
+2. Website : Collection of web pages
+3. Web server : A computer that hosts a website  on the Internet
+4. Web Service : Backed by a web server, is a software or a website that perform a function (e.g. pdf resizer, weather report)
+5. Search Engine : A web service that  helps one find web pages
+6. Browser : a software that retireves and displays web pages (e.g. Google is both a browser and a search engine)
