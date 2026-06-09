@@ -57,4 +57,5 @@ B. Connecting Computers (Internet needed)
 
 1. User inputs a keyword to a search engine
 2. Web browser requests the resources you want to access from the web server it is stored on. Such requests is done using the HTTP, which describes what should happen.
-3. 
+3. When the request is successful, the web server sends back the HTTP to the browser containing the requested resources.
+4. Sometimes, the web server will dispense more HTTP requests, which will cause more 
