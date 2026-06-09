@@ -2,9 +2,11 @@
 
 # 1. Intro to Internet
 ## 1.1. History of Internet
+
 1. Internet was originally used for universities to communicate remotely about the development of AI
 2. ARPANET : primitive version of the Internet
 ## 1.2. Terminologies
+
 1. WWW : way the data, webpages, and services arranged
 2. Internet : the backbone of the Web, the hardware connecting computers internationally
 3. Server : A computer connected directly to the internet
