@@ -95,7 +95,7 @@ Context:
 
 </aside>
 
-## B. Salvation is there, you just have to accept it through Baptism
+## B. Salvatis there, you jon iust have to accept it through Baptism
 
 > Scriptural Basis
 > 

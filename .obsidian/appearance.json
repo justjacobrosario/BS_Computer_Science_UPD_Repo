@@ -1,8 +1,8 @@
 {
-  "cssTheme": "AnuPpuccin",
+  "cssTheme": "LaTeX",
   "interfaceFontFamily": "Menlo",
   "textFontFamily": "Menlo",
-  "accentColor": "#fffceb",
+  "accentColor": "",
   "theme": "moonstone",
   "baseFontSize": 24
 }
