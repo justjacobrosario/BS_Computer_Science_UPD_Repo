@@ -48,17 +48,19 @@ B. Connecting Computers (Internet needed)
 3. Website : Collection of web pages that share a domain name (e.g. facebook.com)
 4. Homepage : Main webpage of a website
 5. Web server : A computer that hosts (stores the pages and resources of a website) a website on the Internet
-6. Web Service : Backed by a web server, is a software or a website that perform a function (e.g. pdf resizer, weather report)
-7. Search Engine : A web service that  helps one find web pages
-8. Browser : a software that retrieves and displays web pages (e.g. Google is both a browser and a search engine)
-9. Hypertext Transfer Protocol (HTTP)
+6. Domain Name System (DNS) Server : A server that contains address of several websites, which will direct to the web server of the requested website
+7. Web Service : Backed by a web server, is a software or a website that perform a function (e.g. pdf resizer, weather report)
+8. Search Engine : A web service that  helps one find web pages
+9. Browser : a software that retrieves and displays web pages (e.g. Google is both a browser and a search engine)
+10. Hypertext Transfer Protocol (HTTP)
 
 ## 2.2. How the web works
 
 1. User inputs a keyword to a search engine
-2. Web browser requests the resources you want to access from the web server it is stored on. Such requests is done using the HTTP, which describes what should happen.
-3. When the request is successful, the web server sends back the HTTP to the browser containing the requested resources.
-4. Sometimes, the web server will dispense more HTTP requests, which will cause more requests for more necessary resources.
+2. Web browser goes to the DNS server and searches the address of the server that the website has.
+3. Web browser requests the resources you want to access from the web server it is stored on. Such requests is done using the HTTP, which describes what should happen.
+4. When the request is successful, the web server sends back the HTTP to the browser containing the requested resources.
+5. Sometimes, the web server will dispense more HTTP requests, which will cause more requests for more necessary resources.
 # 2.3 How to search effectively (advance search techniques)
 
 1. double quotes : `"JavaScript"` will only return results with the exact phrase
