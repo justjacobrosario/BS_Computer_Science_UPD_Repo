@@ -61,7 +61,7 @@ B. Connecting Computers (Internet needed)
 3. Web browser requests the resources you want to access from the web server it is stored on. Such requests is done using the HTTP, which describes what should happen.
 4. When the request is successful, the web server sends back the HTTP to the browser containing the requested resources.
 5. Sometimes, the web server will dispense more HTTP requests, which will cause more requests for more necessary resources.
-6. Along with the HTTP, the web server will send fragments of data (packets) of webpage.
+6. Along with the HTTP, the web server will send fragments of data (packets) of webpage. Each packet contains the head (IP addresses of the client and the server, )
 7. One by one, the browser assembles the packets into a complete web page.
 # 2.3 How to search effectively (advance search techniques)
 
