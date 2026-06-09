@@ -43,9 +43,10 @@ B. Connecting Computers (Internet needed)
 # 2. Intro to Web
 ## 2.1. Web Terminologies
 
-1. Web page : a document that can be displayed in the web browser
-2. Website : Collection of web pages
-3. Web server : A computer that hosts a website  on the Internet
-4. Web Service : Backed by a web server, is a software or a website that perform a function (e.g. pdf resizer, weather report)
-5. Search Engine : A web service that  helps one find web pages
-6. Browser : a software that retireves and displays web pages (e.g. Google is both a browser and a search engine)
+1. Web page : a document that can be displayed in the web browser (HTML documents)
+2. URL : unique address of a webpage
+3. Website : Collection of web pages that share a domain name (e.g. facebook.com)
+4. Web server : A computer that hosts a website  on the Internet
+5. Web Service : Backed by a web server, is a software or a website that perform a function (e.g. pdf resizer, weather report)
+6. Search Engine : A web service that  helps one find web pages
+7. Browser : a software that retireves and displays web pages (e.g. Google is both a browser and a search engine)
