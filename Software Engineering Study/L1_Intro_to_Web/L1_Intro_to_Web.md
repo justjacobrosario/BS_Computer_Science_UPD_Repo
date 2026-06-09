@@ -59,6 +59,11 @@ B. Connecting Computers (Internet needed)
 2. Web browser requests the resources you want to access from the web server it is stored on. Such requests is done using the HTTP, which describes what should happen.
 3. When the request is successful, the web server sends back the HTTP to the browser containing the requested resources.
 4. Sometimes, the web server will dispense more HTTP requests, which will cause more requests for more necessary resources.
-# 2.3 How to search effectively (as a developer)
+# 2.3 How to search effectively (advance search techniques)
+
+1. double quotes : `"JavaScript"` will only return results with the exact phrase
+2. complements : `juan dela -cruz` will return juan AND/OR dela but NOT cruz
+3. XORs : juan OR dela will return just juan OR just dela
+
 
 
