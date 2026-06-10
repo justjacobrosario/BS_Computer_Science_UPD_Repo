@@ -6,7 +6,7 @@
 > 
 > - Romans 5:12-21
 >     
->     ### **Death Through Adam, Life Through Christ**
+>     **Death Through Adam, Life Through Christ**
 >     
 >     **12** Therefore, just as sin entered the world through one man, and death through sin, and in this way death came to all people, because all sinned—
 >     
@@ -27,7 +27,7 @@
 > 
 > - Matthew 7:21-23
 >     
->     ### **Concerning Self-Deception**
+>     **Concerning Self-Deception**
 >     
 >     **21** “Not every one who says to me, ‘Lord, Lord,’ shall enter the kingdom of heaven, but he who does the will of my Father who is in heaven. **22** On that day many will say to me, ‘Lord, Lord, did we not prophesy in your name, and cast out demons in your name, and do many mighty works in your name?’ **23** And then will I declare to them, ‘I never knew you; depart from me, you evildoers.’
 >     
@@ -50,7 +50,7 @@ Jesus warns about self-deception and self-entitlement, focusing on their ‘own�
 > 
 > - 1 Tm 2:5-6
 >     
->     **5** For there is one God, and there is one mediator between God and men, the man Christ Jesus, **6** who gave himself as a ransom for all,[[a](https://www.biblegateway.com/passage/?search=1%20Tm%202%3A5-6&version=RSVCE#fen-RSVCE-33881a)] the testimony to which was borne at the proper time.
+>     **5** For there is one God, and there is one mediator between God and men, the man Christ Jesus, **6** who gave himself as a ransom for all, the testimony to which was borne at the proper time.
 >     
 
 Context:

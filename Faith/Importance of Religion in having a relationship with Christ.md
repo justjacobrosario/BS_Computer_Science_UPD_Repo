@@ -57,7 +57,7 @@ If God made and encourage religion, then rejection (or selective ignorance) to r
 > 
 > - Matthew 16:18
 >     
->     > need verse
+>     > And so I say to you, you are Peter, and upon this rock I will build my church, and the gates of the netherworld shall not prevail against it.
 >     
 
 : Christ established the Church
@@ -66,7 +66,7 @@ If God made and encourage religion, then rejection (or selective ignorance) to r
 > 
 > - Matthew 28:19-20
 >     
->     > need verse
+>     > 19 Go, therefore, and make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the holy Spirit, 20 teaching them to observe all that I have commanded you. And behold, I am with you always, until the end of the age.”
 >     
 
 : Christ appoints apostles and gives authority (priesthood)
@@ -75,11 +75,11 @@ If God made and encourage religion, then rejection (or selective ignorance) to r
 > 
 > - Luke 22:19
 >     
->     > need verse
+>     > 19 Then he took the bread, said the blessing, broke it, and gave it to them, saying, “This is my body, which will be given for you; do this in memory of me.”
 >     
 > - John 20:23
 >     
->     > need verse
+>     > 23 Whose sins you forgive are forgiven them, and whose sins you retain are retained.”
 >     
 
 : Christ institutes sacraments

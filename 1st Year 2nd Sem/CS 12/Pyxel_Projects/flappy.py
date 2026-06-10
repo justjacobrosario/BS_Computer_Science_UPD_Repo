@@ -250,7 +250,7 @@ class FlappyController:
 		model = self._model
 		view = self._view
 
-		pyxel.init(model.screen_w, model.screen_h, "FlappyBurd", 75)
+		pyxel.init(model.screen_w, model.screen_h, "FlappyBurd", 100)
 		pyxel.run(self.update, self.draw)
 
 	def update(self):

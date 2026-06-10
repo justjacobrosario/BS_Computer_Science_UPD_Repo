@@ -89,7 +89,7 @@ class Controller:
 		model = self._model
 		view = self._view
 
-		pyxel.init(model.screen_w, model.screen_h, title = "flappy", fps = 30)
+		pyxel.init(model.screen_w, model.screen_h, title = "flappy", fps = 200)
 		pyxel.run(self.update, self.draw)
 
 	def update(self):
