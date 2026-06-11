@@ -7,12 +7,17 @@
 : the **bit-length** is the number of bits (binary digits) needed to store a number.
 
 : higher numbers require longer bit-length.
-: an n-bit string can represent a number value of at most 2^n.
 
 e.g.
 5 is 101 (3-bits)
 14 is 1110 (4-bits)
 
+: an n-bit string can represent a number value of at most 2^n.
+
+e.g.
+a 4-bit string can represent a a value of at msot 2^4 = 
+
+1111
 ## 5.2. Signed and Unsigned Numbers
 
 **1. Unsigned numbers**
