@@ -17,7 +17,8 @@ e.g.
 e.g.
 a 4-bit string can represent a value of at most (2^4) - 1 = 15
 
-1111 = 15
+0000 = 0 (minimum)
+1111 = 15 (maximum)
 ## 5.2. Signed and Unsigned Numbers
 
 **1. Unsigned numbers**
@@ -31,4 +32,4 @@ e.g. let the leftmost bit be the sign bit
 0101 = 5
 1101 = -5 (not 13)
 
-: 
+: since the leftmost bit is allocated for sign determination, an n-bit string only has (n-1) bit to represent numeric values
