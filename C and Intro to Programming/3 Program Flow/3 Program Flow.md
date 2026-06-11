@@ -31,7 +31,7 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 
 e.g. 
 ```c
-int incr(int x){
+int incr(int x){ // ignore this first
 	x += 1 // 1. increments x by 1
 	return x // 2. returns the new value of x
 }
@@ -41,13 +41,17 @@ int incr(int x){
 
 
 ### 3.2.2. Arguments and Return Values
+: f
+
 : mostly, functions contain a parenthesized sets of elements called **parameters**. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
 
-e.g. using
+e.g. using the same example
 ```c
-int incr(int x){
+int incr(int x){ // int x is an argument
 	x += 1 // 1. increments x by 1
 	return x // 2. returns the new value of x
+	
+	// x is the return value
 }
 
 // by calling incr, it it willl run instructions 1 and 2
