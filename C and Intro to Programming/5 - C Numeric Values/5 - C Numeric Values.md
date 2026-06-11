@@ -50,3 +50,5 @@ e.g.
 1011 can both mean 11 or -3
 
 : Declaring the value's data type tells what kind of data a set of bit string represents.
+
+##### A. 

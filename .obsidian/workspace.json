@@ -316,7 +316,7 @@
             }
           }
         ],
-        "currentTab": 21
+        "currentTab": 20
       }
     ],
     "direction": "vertical"
@@ -497,10 +497,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c7e12885ba94fa82",
+  "active": "08dcdc1a8ba4a28e",
   "lastOpenFiles": [
-    "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
     "C and Intro to Programming/5 - C Numeric Values/5 - C Numeric Values.md",
+    "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III/C_Programming_Basics_III.md",
     "C and Intro to Programming/2 - How Programming Works/2 - How Programming Works.md",
     "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
