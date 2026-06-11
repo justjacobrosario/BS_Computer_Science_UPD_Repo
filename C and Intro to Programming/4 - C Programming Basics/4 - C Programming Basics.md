@@ -309,6 +309,8 @@ int main(){
 
 #### 2] local variables (variables declared in a block is only accessible within that block)
 
+0011 0001 1110
+31E
 
 ## 4. Integer Data Types and Limits
 
