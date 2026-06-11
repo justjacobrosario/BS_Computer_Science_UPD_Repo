@@ -43,3 +43,5 @@ a 4-bit string can represent a signed value of at most (2^3) - 1 = 7
 1111 = -7 (min)
 
 ### 5.2.1. Importance of Numeric Data Types
+
+: A binary string can either represent 
