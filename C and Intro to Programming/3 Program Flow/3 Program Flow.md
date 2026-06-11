@@ -41,7 +41,8 @@ int incr(int x){ // ignore this first
 
 
 ### 3.2.2. Arguments and Return Values
-: f
+: functions can input values, process it through the sets of instructions, and then return an output after.
+
 
 : mostly, functions contain a parenthesized sets of elements called **parameters**. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
 
