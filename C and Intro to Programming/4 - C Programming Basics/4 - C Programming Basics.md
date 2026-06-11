@@ -278,16 +278,20 @@ printf("%d + %d = %d\n", 1, 2, 1+2); // 1 + 2 = 3
 | Hex                                                                                       | %x                                      |
 | Special elements<br>(these are added in the string part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
 
-## 3. Top Level and Scoping Rules
-### a) Top level codes
+## 4.7. Top Level and Scoping Rules
+### 4.7.1. Top level codes
 : codes outside any blocks { }
 : only declarations of variables and functions, and preprocessor directives are allowed here
 
-#### 1] Preprocessor Macro
+#### A. Preprocessor Macro
 : defining a variable to a value before compilation
 : immutable
 
-#### 2] Global Variables
+```c
+#define N 100
+```
+
+#### B. Global Variables
 : basically declared variables in top level
 : like preprocessor macro but is executed after compilation, both preprocessors and globals are accessible anywhere
 : mutable
@@ -304,15 +308,14 @@ int main(){
     printf("%d", eyy); // 9
 }
 ```
-### b) Scope Rules
-#### 1] Global Variables and Preprocessors are accessible anywhere
+### 4.7.2. Scope Rules
 
-#### 2] local variables (variables declared in a block is only accessible within that block)
+**1. Global Variables and Preprocessors are accessible anywhere**
 
-0011 0001 1110
-31E
+**2. Local variables (variables declared in a block is only accessible within that block)**
 
-## 4. Integer Data Types and Limits
+
+## 4.8. Integer Data Types and Limits
 
 
 | Bits | Signed Type        | Range             | Unsigned Type                | Range       |
@@ -323,11 +326,12 @@ int main(){
 | 64   | long long, int64_t | −2⁶³, 2⁶³−1       | unsigned long long, uint64_t | (0, 2⁶⁴−1)  |
 
 : include `stdint.h` to use fixed-width types like the types ending with `_t`
+
 : include `stdbool.h` to use bools `true`, `false`
 
 ### a) Type Casting
-: Safe: short width to long width
-: Unsafe: long width to short width
+: Safe: short width type to long width type
+: Unsafe: long width type to short width type
 
 ```c
 #include <stdio.h>
