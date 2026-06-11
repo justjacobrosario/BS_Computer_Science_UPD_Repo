@@ -22,6 +22,7 @@ e.g.
 
 ## 1.3. Hexadecimal (Base-16)
 
+### 1.3.1. Hexadecimal to Binary (and vice-versa)
 : hexadecimals are converted from 4 binary digits
 : we use hexadecimals to represent every possible values of a 4 binary digit using one character in {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F}
 
@@ -43,3 +44,17 @@ bin : hex : dig
 1101 = D = 13
 1110 = E = 14
 1111 = F = 15
+
+### 1.3.2. Hexadecimal to Decimal (and vice-versa)
+
+: the hexadecimal value of the ith place is n * (i^16) where n is the value (converted decimal like A = 10, B = 11, ...) of the ith digit, and n is either 1 or 0
+
+e.g. 
+3A (hex) 
+= (A* (0^16)) +(3 * (1^16))
+= 10 + 3 * 48 
+= 58
+
+
+
+
