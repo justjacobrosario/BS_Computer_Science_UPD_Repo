@@ -41,7 +41,7 @@ int incr(int x){ // ignore this first
 
 
 ### 3.2.2. Arguments and Return Values
-: functions can input values, process it through the sets of instructions, and then return an output after.
+: functions can input values, process it through the sets of instructions, and then return an output after. (i.e. input values -> function -> return value/s)
 
 : the input values are what we call as 
 
