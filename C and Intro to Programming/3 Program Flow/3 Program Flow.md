@@ -52,10 +52,13 @@ incr(10); // this will return 11
 : By defining a function, we first declare:
 1. Function name
 >	: The function name is what we will be calling to run the function.
+>
 2. Parameter/s
 >	: The input values to be processed.
->	: T
-
+>	: The values of each parameter is assigned every time the function is called.
+>	: Parameters are often enclosed in parenthesis, after the function name.
+>
 3. Function Body
+
 4. Return Value/s
 
