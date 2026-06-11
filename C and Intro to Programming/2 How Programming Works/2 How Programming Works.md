@@ -76,7 +76,8 @@ int main() {
     // calling the address return the indexed address of the variable in the RAM
 	    printf("%d\n", &age); // like 1075837252
 	    
-
-
 }
 ```
+
+
+
