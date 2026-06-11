@@ -1,0 +1,58 @@
+[[1 Binary and Hexadecimal]]
+
+: These features are mostly present to all programming languages
+# 1. Include Statements
+: includes libraries (compilation of program files) to your current file
+e.g.
+: C's `include <...>`
+: Python's `import ...`
+
+# 2. Data Types
+ : identify the type of data by declaring data types
+ : this is to make sure one data is being operated and processed according to its type
+
+e.g. 
+```c
+int num_int = 11
+char num_str = "11"
+
+// they have the same set of symbols, but diferent types
+
+// num_int can be processed arithmetically while num_str can't
+```
+
+# 3. Basics regarding RAM (Memory)
+
+
+: data in RAM exists while a program is running. Once the program has ended, the data in the RAM will be erased (unlike data in hard disks).
+: data in RAM are temporary
+
+## 3.1. Address
+
+: Every set of 8 binary digits has an address indexed from 0.
+: Data in RAM  can only be accessed and use by referring to its address. However, manually recording and typing one's address (which can go up to several digits) is tedious and impractical.
+: Programming languages keep track of memory addresses for data to automatically be used.
+
+e.g.
+consider that we have 4GB RAM (4 billion bytes), and a byte has one unique address
+
+| RAM ADdress   | value   |
+| ------------- | ------- |
+| 0             |         |
+| 1             |         |
+| ...           | ...     |
+| 3,806,321,213 | "hello" |
+| ...           | ...     |
+| 4,000,000,000 |         |
+
+
+: Programming languages can conveniently assign an address to a certain variable a human can refer. 
+: In C, pointers are variables that points to the address of another variable
+
+```c
+char greeting = "hello";
+char *p_greeting; //  this contains the address of greeting (3,806,321,213 in our example)
+
+
+printf("address: %d", &greeting);
+```
