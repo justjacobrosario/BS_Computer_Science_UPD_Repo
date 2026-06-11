@@ -22,13 +22,13 @@ First, the instruction pointer points the address of A, then B, then C. `[A -> B
 To recurse this, we can first point the address of A, then B, then C, and then go back to B and then C. `[A -> B -> C -> B -> C]`
 
 
-# 3.2. Functions, Methods, Routines
+# 3.2. Functions
 
 ### 3.2.1. Functions
 
 : contains an ordered set of instructions
 : instead of listing instructions repeatedly, the function containing these can be assigned and called by its **function name**.
-: mostly, functinos 
+: mostly, functions contain a parenthesized sets of elements called **parameters**. Once the function is called, 
 e.g. 
 ```c
 int incr(int x){
@@ -36,5 +36,4 @@ int incr(int x){
 	return x // 2. returns the new value of x
 }
 
-// by calling incr, it it willl run instructions 1 and 2
-```
+// by calling incr, it it willl run instructio
