@@ -1,5 +1,5 @@
-: Programming languages are meant for humans to understand machine language (binaries).
-: 
+: Programming languages are meant for humans to understand machine language (binary strings).
+: This can be done by assigning variable names to a data's address, an instruction, a set of instructions, etc.
 
 # 3.1. Program Recall
 
