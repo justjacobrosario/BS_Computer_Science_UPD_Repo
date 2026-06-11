@@ -5,7 +5,7 @@ int main() {
     int bin;
 
     printf("Enter Binary: ");
-    scanf("%d\n", &bin);
+    scanf("%d", &bin);
 
     int copy = bin;
 
@@ -21,9 +21,9 @@ int main() {
 
         i += 1;
         copy = floor(copy / 10);
-        printf("Digital Output: %d", res);
     }
 
+    printf("Digital Output: %d", res);
 
     
 
