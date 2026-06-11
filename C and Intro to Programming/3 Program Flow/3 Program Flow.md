@@ -59,6 +59,7 @@ incr(10); // this will return 11
 >	: Parameters are often enclosed in parenthesis, after the function name.
 >
 3. Function Body
-
+>	: These are the sets of instructions that will process the parameters.
+>	: When a function is intended to return something, the last instruction is the `return` line, 
 4. Return Value/s
 
