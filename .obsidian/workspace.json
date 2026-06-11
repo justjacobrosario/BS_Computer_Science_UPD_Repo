@@ -293,16 +293,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C and Intro to Programming/4 - C Programming Basics/4 - C Programming Basics.md",
+                "file": "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4 - C Programming Basics"
+              "title": "4 - C Basic Syntax"
+            }
+          },
+          {
+            "id": "c7e12885ba94fa82",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C and Intro to Programming/5 - C Numeric Values/5 - C Numeric Values.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "5 - C Numeric Values"
             }
           }
         ],
-        "currentTab": 20
+        "currentTab": 21
       }
     ],
     "direction": "vertical"
@@ -483,15 +497,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "08dcdc1a8ba4a28e",
+  "active": "bd3644d0e3d7b851",
   "lastOpenFiles": [
+    "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
+    "C and Intro to Programming/5 - C Numeric Values/5 - C Numeric Values.md",
+    "C and Intro to Programming/5 - C Numeric Values",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
-    "C and Intro to Programming/4 - C Programming Basics/4 - C Programming Basics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
     "C and Intro to Programming/1 - Binary and Hexadecimal/1 - Binary and Hexadecimal.md",
     "C and Intro to Programming/2 - How Programming Works/2 - How Programming Works.md",
-    "C and Intro to Programming/4 - C Programming Basics",
+    "C and Intro to Programming/4 - C Basic Syntax",
     "C and Intro to Programming/3 - Program Flow",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III/C_Programming_Basics_III.md",
     "C and Intro to Programming/2 - How Programming Works/Untitled.md",
@@ -503,7 +519,6 @@
     "C and Intro to Programming/tempCodeRunnerFile.c",
     "C and Intro to Programming/binary",
     "C and Intro to Programming/binary.c",
-    "C and Intro to Programming/hello",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
     "Faith/Authority of Scripture and Tradition.md",
     "Untitled.md",
@@ -520,7 +535,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/HTML.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L13_HTMLAndDOM/DOM.md",
     "Programming Quick Links.md",
-    "made in laptop.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
