@@ -34,7 +34,7 @@ e.g. let the leftmost bit be the sign bit
 
 : since the leftmost bit is allocated for sign determination, an n-bit string only has (n-1) bit to represent signed numeric values
 
-: thus, an n-bit string can represent a signed value of at most (2^(n-1)) - 1, which is half 
+: thus, an n-bit string can represent a signed value of at most (2^(n-1)) - 1, which is half smaller than repre
 
 e.g.
 a 4-bit string can represent a signed value of at most (2^3) - 1 = 7
