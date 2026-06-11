@@ -41,11 +41,10 @@ int incr(int x){ // ignore this first
 
 
 ### 3.2.2. Arguments and Return Values
-: functions can input values, process it through the sets of instructions, and then return an output after. (i.e. input values -> function -> return value/s)
+: functions can input values, process it through the sets of instructions, and then return an output after. (i.e. input value/s -> function -> return value/s)
 
-: the input values are what we call as 
-
-: mostly, functions contain a parenthesized sets of elements called **parameters**. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
+: the input values are what we call as **arguments/parameters**. 
+: Most programming language contain parameters within. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
 
 e.g. using the same example
 ```c
