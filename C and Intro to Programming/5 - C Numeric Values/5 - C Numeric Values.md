@@ -14,4 +14,8 @@ e.g.
 
 ## 5.2. Signed and Unsigned Numbers
 
+**1. Unsigned numbers**
 : by default, numbers in binary is set to be positive (unsigned)
+
+**2. Signed numbers**
+: for a number to have the option to be negative or positive, the leftmost bit **sign bit** 
