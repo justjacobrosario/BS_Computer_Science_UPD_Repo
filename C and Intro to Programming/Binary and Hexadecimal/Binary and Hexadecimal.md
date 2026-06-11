@@ -18,7 +18,6 @@ e.g.
 : the binary value of the ith place is n * (i^2) where n is the value of the ith digit, and n is either 1 or 0
 
 e.g.
-1010 (binary) = 0*(0^2) + 1*(1^2) + 0*(2^2) + 1*(3^2) = 10 (decimal)
+1010 (binary) = 0*(0^2) + 1*(1^2) + 0*(2^2) + 1*(3^2) = 2 + 8 = 10 (decimal)
 
-2 + 8 = 10
-
+## 1.3. Hexadecimal (Base-16)
