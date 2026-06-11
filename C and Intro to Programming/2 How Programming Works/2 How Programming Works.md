@@ -1,13 +1,13 @@
 [[1 Binary and Hexadecimal]]
 
 : These features are mostly present to all programming languages
-# 1. Include Statements
+# 2.1. Include Statements
 : includes libraries (compilation of program files) to your current file
 e.g.
 : C's `include <...>`
 : Python's `import ...`
 
-# 2. Data Types
+# 2.2. Data Types
  : identify the type of data by declaring data types
  : this is to make sure one data is being operated and processed according to its type
 
@@ -21,13 +21,13 @@ char num_str = "11"
 // num_int can be processed arithmetically while num_str can't
 ```
 
-# 3. Basics regarding RAM (Memory)
+# 2.3. Basics regarding RAM (Memory)
 
 
 : data in RAM exists while a program is running. Once the program has ended, the data in the RAM will be erased (unlike data in hard disks).
 : data in RAM are temporary
 
-## 3.1. Address
+## 2.3.1. Address
 
 : Every set of 8 binary digits has an address indexed from 0.
 : Data in RAM  can only be accessed and use by referring to its address. However, manually recording and typing one's address (which can go up to several digits) is tedious and impractical.
@@ -80,7 +80,7 @@ int main() {
 ```
 
  
-# 3.2. Program Flow in RAM
+# 2.3.2. Program Flow in RAM
 
 : Aside from variables, programs are also data in the RAM
 

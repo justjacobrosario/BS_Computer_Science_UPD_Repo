@@ -1,6 +1,5 @@
  
 
-# 1. Reading Binary
 ## 1.1. Decimal (Base-10)
 : let there be an array of number 0-indexed from left to right
 
