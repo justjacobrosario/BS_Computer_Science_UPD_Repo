@@ -1,4 +1,4 @@
-[[1 Binary and Hexadecimal]]
+[[1 - Binary and Hexadecimal]]
 
 : These features are mostly present to all programming languages
 # 2.1. Include Statements
