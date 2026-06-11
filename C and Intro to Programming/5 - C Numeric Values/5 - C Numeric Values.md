@@ -37,3 +37,7 @@ e.g. let the leftmost bit be the sign bit
 : thus, an n-bit string can represent a signed value of at most (2^(n-1)) - 1, which is half 
 
 e.g.
+a 4-bit string can represent a signed value of at most (2^3) - 1 = 7
+
+0111 = 7 (max)
+1111 = -7 (min)
