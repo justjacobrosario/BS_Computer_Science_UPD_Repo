@@ -51,4 +51,14 @@ e.g.
 
 : Declaring the value's data type tells what kind of data a set of bit string represents.
 
-##### A. 
+##### A. `int` data type
+
+: this is C's most common data type for integers
+: it represents **signed numbers**
+: allocates a **32-bit** space, with a **sign bit**. It can represent of numbers of at most (2^(32-1)) = 2,147,483,648.
+
+##### B. `unsigned int` data type
+
+: this is C's most common data type for integers
+: it represents **signed numbers**
+: allocates a **32-bit** space, completely for value representation. It can represent of numbers of at most (2^(32)) = 4,294,967,295.
