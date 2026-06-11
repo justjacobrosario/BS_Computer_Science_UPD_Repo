@@ -49,10 +49,34 @@ consider that we have 4GB RAM (4 billion bytes), and a byte has one unique addre
 : Programming languages can conveniently assign an address to a certain variable a human can refer. 
 : In C, pointers are variables that points to the address of another variable
 
+| RAM ADdress   | value |
+| ------------- | ----- |
+| 0             |       |
+| 1             |       |
+| ...           | ...   |
+| 1075837252    | 19    |
+| ...           | ...   |
+| 4,000,000,000 |       |
+ 
 ```c
-char greeting = "hello";
-char *p_greeting; //  this contains the address of greeting (3,806,321,213 in our example)
+#include <stdio.h>
+
+int main() {
+    int age = 19;
+    int *p_age = &age; 
+    // &age is the address of age variable
+    // calling the pointer *p_age will return the value addressed to &age
+	
+	// some programming language can automatically return the value by calling the variable itself
+    printf("%d\n", age); // returns 19
+
+	// some can also return the value by calling the pointer of its address
+    printf("%d\n", *p_age); // still 19
+    
+    // calling the address return the indexed address of the variable in the RAM
+	    printf("%d\n", &age); // like 1075837252
+	    
 
 
-printf("address: %d", &greeting);
+}
 ```

@@ -2,12 +2,13 @@
 #include <math.h>
 
 int main() {
-    char greeting[] = "hello";
-    char *p_greeting = &greeting[0];
+    int age = 19;
+    int *p_age = &age;
 
+    printf("%d\n", age);
 
-    printf("%c", *p_greeting);
-    
+    printf("%d\n", &age);
+    printf("%d\n", *p_age);
 
 
 }

@@ -274,7 +274,7 @@
             }
           }
         ],
-        "currentTab": 18
+        "currentTab": 16
       }
     ],
     "direction": "vertical"
@@ -455,9 +455,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2cee65eed6ac210b",
+  "active": "42e32ff6b43876bb",
   "lastOpenFiles": [
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III/C_Programming_Basics_III.md",
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "C and Intro to Programming/2 How Programming Works/2 How Programming Works.md",
     "C and Intro to Programming/2 How Programming Works/Untitled.md",
     "C and Intro to Programming/1 Binary and Hexadecimal/1 Binary and Hexadecimal.md",
@@ -465,7 +466,6 @@
     "binary.exe",
     "binary.c",
     "C and Intro to Programming/L1 Intro to Programming.md",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "C and Intro to Programming/tempCodeRunnerFile",
     "C and Intro to Programming/tempCodeRunnerFile.c",
     "C and Intro to Programming/binary",
