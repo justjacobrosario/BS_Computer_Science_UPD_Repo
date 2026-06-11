@@ -21,4 +21,8 @@ e.g.
 
 : for a number to have the option to be negative or positive, the leftmost bit "**sign bit**" determines if the number is positive (0), or negative (1).
 
-e.g. let te leftmost bit be the sign bit
+e.g. let the leftmost bit be the sign bit
+0101 = 5
+1101 = -5 (not 13)
+
+: 
