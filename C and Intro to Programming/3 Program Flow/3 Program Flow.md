@@ -63,10 +63,13 @@ incr(10); // this will return 11
 >	: When a function is intended to return something, the last instruction is the `return` line, which returns the output value
 4. Return Value/s
 	: The output value/s that will be returned
-	: Certain programming L
+	: Certain programming languages (like C), declare the data type of the return value at the first part, to indicate that the function will return such type of data.
 
 e.g. going back to the previous sample
 ```c
+// return data type is an integer
+// function name is incr
+// parameter is x, which is an integ
 int incr(int x){ 
 	x += 1; // 1. increments x by 1
 	return x; // 2. returns the new value of x
