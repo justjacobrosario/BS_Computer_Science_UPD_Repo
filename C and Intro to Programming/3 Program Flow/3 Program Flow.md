@@ -27,6 +27,7 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 ### 3.2.1. Functions
 
 : contains an ordered set of instructions
+: instead of listing instructions a function can be assigned and called by a function name.
 
 e.g. 
 ```c
