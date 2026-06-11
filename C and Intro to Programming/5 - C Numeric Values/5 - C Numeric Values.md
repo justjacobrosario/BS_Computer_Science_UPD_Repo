@@ -6,7 +6,8 @@
 
 : the **bit-length** is the number of bits (binary digits) needed to store a number.
 
-: higher numbers require longer bit-length
+: higher numbers require longer bit-length.
+: an n-bit string can represent a number value of at most 2^n.
 
 e.g.
 5 is 101 (3-bits)
