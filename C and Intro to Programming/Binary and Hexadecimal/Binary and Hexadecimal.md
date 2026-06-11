@@ -13,12 +13,21 @@ e.g.
 12 is (2 * 10^(0 * 10)) + (1 * 10^(1 * 10))
 
 ## 1.2. Binary (Base-2)
+### 1.2.1. Binary to Decimal (and vice-versa)
+
 : let there be an array of number 0-indexed from left to right
 
 : the binary value of the ith place is n * (i^2) where n is the value of the ith digit, and n is either 1 or 0
 
 e.g.
 1010 (binary) = 0*(0^2) + 1*(1^2) + 0*(2^2) + 1*(3^2) = 2 + 8 = 10 (decimal)
+
+### 1.2.2. Binary Conventions
+
+: binary numbers are conventionally spaced in 4 binary digits to make it more visually readable and easier to convert into hexadecimal
+
+e.g. 
+instead of 101101010011, it's 1011 0101 0011.
 
 ## 1.3. Hexadecimal (Base-16)
 
