@@ -19,3 +19,5 @@ First, the instruction pointer points the address of A, then B, then C. `[A -> B
 To recurse this, we can first point the address of A, then B, then C, and then go back to B and then C. `[A -> B -> C -> B -> C]`
 
 
+# 3.2. Functions, Methods, Routines
+
