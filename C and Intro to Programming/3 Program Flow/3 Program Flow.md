@@ -29,43 +29,20 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 : compilation of instructions
 : instead of listing instructions repeatedly, the function containing these can be assigned and called by its **function name**.
 
-e.g. 
+e.g. without focusing on the technical syntax, consider the following
 ```c
 int incr(int x){ // ignore this first
 	x += 1; // 1. increments x by 1
 	return x; // 2. returns the new value of x
 }
 
-// by calling incr, it it willl run instructions 1 and 2
+// by calling incr, it willl run instructions 1 and 2
 
 incr(10); // this will return 11
 ```
+
+
+### 3.2.2. Parts of a Function
+
 #### A. Function Definition
 
-: the function must first be defined 
-
-
-
-### 3.2.2. Arguments and Return Values
-: functions can input values, process it through the sets of instructions, and then return an output after. (i.e. input value/s -> function -> return value/s)
-
-: the input values are what we call as **arguments/parameters**. 
-: Most programming language contain parameters within parenthesis after the function name.
-e.g.
-```c
-printf("Hello")
-```
-
-Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
-
-e.g. using the same example
-```c
-int incr(int x){ // int x is an argument
-	x += 1 // 1. increments x by 1
-	return x // 2. returns the new value of x
-	
-	// x is the return value
-}
-
-// by calling incr, it it willl run instructions 1 and 2
-```
