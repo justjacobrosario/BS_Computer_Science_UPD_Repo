@@ -80,4 +80,10 @@ int main() {
 ```
 
  
-# 3.2.
+# 3.2. Program Flow in RAM
+
+: Aside from variables, programs are also data in the RAM
+
+: A program contains sets of instructions called *program flow* in which each instruction is a set of binary data in the RAM
+
+: Once the program flow completes, the data allocated to it will be freed, so that its address can be assigned to other data.
