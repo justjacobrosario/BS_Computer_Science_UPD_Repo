@@ -69,13 +69,12 @@ e.g. going back to the previous sample
 ```c
 // return data type is an integer
 // function name is incr
-// parameter is x, which is an integ
+// parameter is x, which is an integer
 int incr(int x){ 
-	x += 1; // 1. increments x by 1
-	return x; // 2. returns the new value of x
+	x += 1; 
+	return x;
 }
-
-// by calling incr, it willl run instructions 1 and 2
-
-incr(10); // this will return 11
 ```
+#### B. Function Calling
+
+: Calling a function usually contain the function name and 
