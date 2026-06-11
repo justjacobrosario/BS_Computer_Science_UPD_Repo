@@ -252,26 +252,31 @@ print(f"{x} + {y} = {x+y}")
 
 : it is type-variable pair
 in C:
+`printf(<string to print>, <var1>, <var2>, ...)`
+: the first format specifier refers to var1, ...
+: the listed variable can be an expression (1+2 is a single variable)
+: the nth format specifier must be the same type as the nth variable.
+
 ```c
 printf("%d + %d = %d\n", 1, 2, 1+2); // 1 + 2 = 3
 //     string to print,  vars or expression
 // order of vars must be the same to the format specifier
 ```
 
-: notice that the 
+: the first `%d` refers to the first variable 1, and so on.
 
 ##### - `printf` format specifiers
 
-| data type                                                                               | type hint                               |
-| --------------------------------------------------------------------------------------- | --------------------------------------- |
-| Signed Int                                                                              | %d                                      |
-| Unsigned Int                                                                            | %u                                      |
-| Single ASCII char                                                                       | %c                                      |
-| String (char array)                                                                     | %s                                      |
-| Float/double                                                                            | %f                                      |
-| long/long long                                                                          | %ld / %lld                              |
-| Hex                                                                                     | %x                                      |
-| Special elements<br>(these are added in the type part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
+| data type                                                                                 | type hint                               |
+| ----------------------------------------------------------------------------------------- | --------------------------------------- |
+| Signed Int                                                                                | %d                                      |
+| Unsigned Int                                                                              | %u                                      |
+| Single ASCII char                                                                         | %c                                      |
+| String (char array)                                                                       | %s                                      |
+| Float/double                                                                              | %f                                      |
+| long/long long                                                                            | %ld / %lld                              |
+| Hex                                                                                       | %x                                      |
+| Special elements<br>(these are added in the string part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
 
 ## 3. Top Level and Scoping Rules
 ### a) Top level codes
