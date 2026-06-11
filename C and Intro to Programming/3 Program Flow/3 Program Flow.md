@@ -1,3 +1,6 @@
+: Programming languages are meant for humans to understand machine language (binaries).
+: 
+
 # 3.1. Program Recall
 
 : Every program is a sequence of instructions (Program Flow)
@@ -21,3 +24,14 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 
 # 3.2. Functions, Methods, Routines
 
+### 3.2.1. Functions
+
+: contains an ordered set of instructions
+
+e.g. 
+```c
+int incr(int x){
+	x += 1 // 1. increments x by 1
+	return x // 2. returns the new value of x
+}
+```
