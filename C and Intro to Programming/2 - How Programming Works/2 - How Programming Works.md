@@ -29,7 +29,7 @@ char num_str = "11"
 
 ## 2.3.1. Address
 
-: Every set of 8 binary digits has an address indexed from 0.
+: Every byte (8 bits) has an address indexed from 0 onwards.
 : Data in RAM  can only be accessed and use by referring to its address. However, manually recording and typing one's address (which can go up to several digits) is tedious and impractical.
 : Programming languages keep track of memory addresses for data to automatically be used.
 
