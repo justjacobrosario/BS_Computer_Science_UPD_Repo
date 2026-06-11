@@ -24,13 +24,27 @@ hello -> (3. makes a binary executable)
 ## 4.3. C Initial Points
 : these are the usuals, consists of terms, syntax, and the usual template of a C program
 ### 4.3.1. Preprocessor Directive
-`#include <stdio.h>`
+`#include <...>`
 : like import lines in Python
-: loads standard I/O library
+: the basic `#include <stio.h>`loads the standard I/O library
 #### Preprocessor `#`
 : lines starting with `#` is processed even before compilation
 
-### 4.3.2. Variables
+### 4.3.2. Entry Point
+`int main() {}`
+: basically the `main` function that is always called 
+: returns 0 (can be remove ONLY for `main`)
+
+: this is a basic C program
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, wordsald!\n");
+	return 0
+}
+```
+### 4.3.3. Variables
 #### A. Declaration
 : before giving a value, variables must first be defined with its data type
 : snake_case like Python
@@ -61,10 +75,20 @@ int c = 3, d = 4;
 const int ABSOLUTE_ZERO = 0
 ```
 
+### 4.3.4. Statements
+: Statements (a variable assignment, function call, return statement, etc.) must end with a semicolon `;`
+: There are **exceptions**. 
+1. Preprocessor directives e.g. `#include <stdio.h>`
+2. Braced lines of a function `{}`
+e.g.
+```c
+int main(){ // braced
+	printf("This printf line is a statement");
+} // braced
+```
 
 
-
-### 4.3.3. Functions
+### 4.3.5. Functions
 ```
 <return_type> <func_name>(<arg_type> <arg_name>, ...) {
 <body>
@@ -74,22 +98,7 @@ const int ABSOLUTE_ZERO = 0
 	- return type is mentioned first, 
 	- the parameters are type-value pairs, and 
 	- the body (consists of statements) is enclosed with { }
-### 4.3.4. Statements
-: Statements (except for the last line of a function) end with a semicolon
-### 4.3.5. Entry Point
-`int main() {}`
-: basically the `main` function that is always called 
-: returns 0 (can be remove ONLY for `main`)
 
-: this is a basic C program
-```c
-#include <stdio.h>
-
-int main() {
-    printf("Hello, wordsald!\n");
-	return 0
-}
-```
 
 
 ## 4.4. Operators and Control Structures

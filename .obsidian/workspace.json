@@ -4,6 +4,26 @@
     "type": "split",
     "children": [
       {
+        "id": "04a89c0313e6d663",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7feec82ea3f2e51a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3 - Program Flow"
+            }
+          }
+        ]
+      },
+      {
         "id": "79738aa7b356290b",
         "type": "tabs",
         "children": [
@@ -288,20 +308,6 @@
             }
           },
           {
-            "id": "15c87f38bd8def12",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C and Intro to Programming/4 - C Programming Basics/4 - C Programming Basics.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "4 - C Programming Basics"
-            }
-          },
-          {
             "id": "08dcdc1a8ba4a28e",
             "type": "leaf",
             "state": {
@@ -316,7 +322,7 @@
             }
           }
         ],
-        "currentTab": 21
+        "currentTab": 20
       }
     ],
     "direction": "vertical"
@@ -497,12 +503,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "08dcdc1a8ba4a28e",
+  "active": "7feec82ea3f2e51a",
   "lastOpenFiles": [
+    "C and Intro to Programming/4 - C Programming Basics/4 - C Programming Basics.md",
     "C and Intro to Programming/1 - Binary and Hexadecimal/1 - Binary and Hexadecimal.md",
     "C and Intro to Programming/2 - How Programming Works/2 - How Programming Works.md",
     "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
-    "C and Intro to Programming/4 - C Programming Basics/4 - C Programming Basics.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "C and Intro to Programming/4 - C Programming Basics",
     "C and Intro to Programming/3 - Program Flow",
