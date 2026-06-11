@@ -12,10 +12,10 @@ e.g.
 5 is 101 (3-bits)
 14 is 1110 (4-bits)
 
-: an n-bit string can represent a number value of at most 2^n.
+: an n-bit string can represent a number value of at most 2^n - 1.
 
 e.g.
-a 4-bit string can represent a a value of at msot 2^4 = 
+a 4-bit string can represent a a value of at msot (2^4) - 1 = 16
 
 1111
 ## 5.2. Signed and Unsigned Numbers
