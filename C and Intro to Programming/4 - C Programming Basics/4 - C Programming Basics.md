@@ -7,11 +7,9 @@
 	check  by `gcc --version`
 : workflow:
 ```
-filename.c -> (1. make file) -> 
-`gcc filename.c -o hello` -> (2. compile file) -> 
-hello -> (3. makes a binary executable)
+filename.c (1. make file) -> 
+`gcc filename.c -o hello` (2. compile file) -> 
 `./hello` -> (4. runs the executable)
-
 ```
 ### a) Compiling
 `gcc filename.c -o hello`
@@ -19,7 +17,7 @@ hello -> (3. makes a binary executable)
 ### b) Running
 `./hello`
 
-: NOTE : You must  recompile then run the code for any revision
+: NOTE : You must recompile then run the code for any revision
 
 ## 4.3. C Initial Points
 : these are the usuals, consists of terms, syntax, and the usual template of a C program
@@ -169,7 +167,7 @@ for i in range(5):
 
 ## 4.6. Indepth on printf and Functions
 
-### A. printf
+#### A. printf
 : similar to Python's `print(f" ... ")`
 in Python:
 ```python
@@ -195,7 +193,7 @@ printf("%d + %d = %d\n", x, y, x+y);
 | long/long long                                                                          | %ld / %lld                              |
 | Hex                                                                                     | %x                                      |
 | Special elements<br>(these are added in the type part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
-### B. Functions
+#### B. Functions
 : In python functions can:
 	1. have optional return type
 	2. be defined anywhere (even inside functions)

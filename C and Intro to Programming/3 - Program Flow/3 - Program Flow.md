@@ -14,8 +14,8 @@
 
 e.g. 
 - A : Declare x = 1
-- B: Increment x by 1
-- C: Print x
+- B : Increment x by 1
+- C : Print x
 
 First, the instruction pointer points the address of A, then B, then C. `[A -> B -> C]`
 
@@ -24,11 +24,11 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 
 # 3.2. Functions
 
-### 3.2.1. Functions as sets of instructions
+### 3.2.1. Motivation: Functions as sets of instructions
 
-: compilation of instructions
-: instead of listing instructions repeatedly, the function containing these can be assigned and called by its **function name**.
-: functions input values, processed those through the instructions, and return something
+: A function is a compilation of instructions
+: Instead of listing instructions repeatedly, the function containing these can be assigned and called by its **function name**.
+: functions input values, which are processed through the set of instructions, and return something.
 
 e.g. without focusing on the technical syntax, consider the following
 ```c
@@ -41,11 +41,25 @@ int incr(int x){ // ignore this first
 
 incr(10); // this will return 11
 ```
-
-
 ### 3.2.2. Parts of a Function
 
-#### A. Function Definition
+: In this section, we will use C programming to describe a function, but we will not focus on the syntax of C that much for now.
+
+Functions in Python and C:
+* * this part is solely for Python users learning C. Proceed to A. Defining Functions.
+: In Python, functions can:
+	1. have optional return type
+	2. be defined anywhere (even inside functions)
+	3. do higher-order funcs
+
+: in C, functions:
+	1. need return type (except for voids)
+	2. can only be defined outside any code blocks / functions
+	3. cannot do higher-order functions
+	4. are executed in order of function calls, parameters must have value, or at least has a prototype
+
+
+#### A. Defining Functions
 
 : Recall that a function contains a set of instructions, in which input value/s will be processed through those and will return some value/s
 
@@ -75,7 +89,9 @@ int incr(int x){
 	return x;
 }
 ```
-#### B. Function Calling
+
+
+#### B. Calling Functions
 
 : Calling a function usually contain the function name and the value of the parameter/s
 
