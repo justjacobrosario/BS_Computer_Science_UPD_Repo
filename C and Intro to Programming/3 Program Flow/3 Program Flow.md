@@ -77,4 +77,9 @@ int incr(int x){
 ```
 #### B. Function Calling
 
-: Calling a function usually contain the function name and 
+: Calling a function usually contain the function name and the value of the parameter/s
+
+e.g.
+```c
+incr(10) // this will return 11
+```
