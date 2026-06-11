@@ -26,11 +26,24 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 
 ### 3.2.1. Functions as sets of instructions
 
-: contains an ordered set of instructions
+: compilation of instructions
 : instead of listing instructions repeatedly, the function containing these can be assigned and called by its **function name**.
-: mostly, functions contain a parenthesized sets of elements called **parameters**. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
 
 e.g. 
+```c
+int incr(int x){
+	x += 1 // 1. increments x by 1
+	return x // 2. returns the new value of x
+}
+
+// by calling incr, it it willl run instructions 1 and 2
+```
+
+
+### 3.2.2. Arguments and Return Values
+: mostly, functions contain a parenthesized sets of elements called **parameters**. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
+
+e.g. using
 ```c
 int incr(int x){
 	x += 1 // 1. increments x by 1
