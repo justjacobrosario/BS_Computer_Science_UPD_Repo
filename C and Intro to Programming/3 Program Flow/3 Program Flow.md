@@ -32,14 +32,18 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 e.g. 
 ```c
 int incr(int x){ // ignore this first
-	x += 1 // 1. increments x by 1
-	return x // 2. returns the new value of x
+	x += 1; // 1. increments x by 1
+	return x; // 2. returns the new value of x
 }
 
 // by calling incr, it it willl run instructions 1 and 2
 
-incr()
+incr(10); // this will return 11
 ```
+#### A. Function Definition
+
+: the function must first be defined 
+
 
 
 ### 3.2.2. Arguments and Return Values
