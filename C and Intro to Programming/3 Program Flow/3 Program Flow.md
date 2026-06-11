@@ -37,6 +37,8 @@ int incr(int x){ // ignore this first
 }
 
 // by calling incr, it it willl run instructions 1 and 2
+
+incr()
 ```
 
 
@@ -44,7 +46,13 @@ int incr(int x){ // ignore this first
 : functions can input values, process it through the sets of instructions, and then return an output after. (i.e. input value/s -> function -> return value/s)
 
 : the input values are what we call as **arguments/parameters**. 
-: Most programming language contain parameters within. Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
+: Most programming language contain parameters within parenthesis after the function name.
+e.g.
+```c
+printf("Hello")
+```
+
+Once the function is called, one must also assign the value of its parameters, which will be processed within the function call.
 
 e.g. using the same example
 ```c
