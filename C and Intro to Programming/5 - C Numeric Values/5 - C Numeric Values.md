@@ -12,4 +12,6 @@ e.g.
 5 is 101 (3-bits)
 14 is 1110 (4-bits)
 
-## 5.2. Signed and Unsigned 
+## 5.2. Signed and Unsigned Numbers
+
+: by default, numbers in binary is set to be positive (unsigned)
