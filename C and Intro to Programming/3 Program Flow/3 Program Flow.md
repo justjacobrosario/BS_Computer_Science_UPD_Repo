@@ -28,6 +28,7 @@ To recurse this, we can first point the address of A, then B, then C, and then g
 
 : compilation of instructions
 : instead of listing instructions repeatedly, the function containing these can be assigned and called by its **function name**.
+: functions input values, processed those through the instructions, and return something
 
 e.g. without focusing on the technical syntax, consider the following
 ```c
@@ -46,3 +47,4 @@ incr(10); // this will return 11
 
 #### A. Function Definition
 
+: By definin
