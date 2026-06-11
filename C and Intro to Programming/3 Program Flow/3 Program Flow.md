@@ -47,12 +47,14 @@ incr(10); // this will return 11
 
 #### A. Function Definition
 
-: Recall that a function 
+: Recall that a function contains a set of instructions, in which input value/s will be processed through those and will return some value/s
 
 : By defining a function, we first declare:
 1. Function name
->	The function name is what we will be calling to run the function.
+>	: The function name is what we will be calling to run the function.
 2. Parameter/s
+>	: The input values to be processed.
+>	: T
 
 3. Function Body
 4. Return Value/s
