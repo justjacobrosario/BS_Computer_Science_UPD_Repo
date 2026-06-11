@@ -21,3 +21,25 @@ e.g.
 1010 (binary) = 0*(0^2) + 1*(1^2) + 0*(2^2) + 1*(3^2) = 2 + 8 = 10 (decimal)
 
 ## 1.3. Hexadecimal (Base-16)
+
+: hexadecimals are converted from 4 binary digits
+: we use hexadecimals to represent every possible values of a 4 binary digit using one character in {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F}
+
+e.g.
+bin : hex : dig
+0000 = 0 = 0
+0001 = 1 = 1
+0010 = 2 = 2
+0011 = 3 = 3
+0100 = 4 = 4
+0101 = 5 = 5
+0110 = 6 = 6
+0111 = 7 = 7
+1000 = 8 = 8
+1001 = 9 = 9
+1010 = A = 10
+1011 = B = 11
+1100 = C = 12
+1101 = D = 13
+1110 = E = 14
+1111 = F = 15
