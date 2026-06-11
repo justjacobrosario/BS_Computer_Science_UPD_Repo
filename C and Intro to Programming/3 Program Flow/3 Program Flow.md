@@ -83,3 +83,18 @@ e.g.
 ```c
 incr(10) // this will return 11
 ```
+
+## 3.3. Learning a Programming Language
+
+: Recall that the purpose of the programming language is to help humans understand, access, and manipulate machine language (binary strings).
+
+: There are several programming language because each is responsible for focusing on some particular aspect (Python for Machine Learning, JavaScript for Web Development, etc.)
+
+### 3.3.1. How to learn a new programming language
+
+1. Know the syntax of the language
+>	Understand how variables and functions are assigned and declared, how operators and data types look like, etc.
+2. Learn basic functions local in the language. 
+>	These are surface-level functions that mostly do tasks that is frequently and basically done.
+3. Learn how to use libraries and their functions. 
+>	After having a sufficient vocabulary on the basic functions, one can study libraries, their purpose, and the functions provided by the library.
