@@ -21,10 +21,11 @@ int main() {
 
         i += 1;
         copy = floor(copy / 10);
+        printf("Digital Output: %d", res);
     }
 
 
-    printf("Digital Output: %d", res);
+    
 
 
 }
