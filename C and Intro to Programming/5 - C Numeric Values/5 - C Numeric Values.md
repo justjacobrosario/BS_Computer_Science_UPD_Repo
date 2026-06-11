@@ -18,4 +18,7 @@ e.g.
 : by default, numbers in binary is set to be positive (unsigned)
 
 **2. Signed numbers**
-: for a number to have the option to be negative or positive, the leftmost bit **sign bit** 
+
+: for a number to have the option to be negative or positive, the leftmost bit "**sign bit**" determines if the number is positive (0), or negative (1).
+
+e.g. let te leftmost bit be the sign bit
