@@ -47,4 +47,8 @@ incr(10); // this will return 11
 
 #### A. Function Definition
 
-: By definin
+: By defining a function, we first declare:
+1. Function name
+2. Parameter/s
+3. Function Body
+4. Return Value/s
