@@ -47,8 +47,13 @@ incr(10); // this will return 11
 
 #### A. Function Definition
 
+: Recall that a function 
+
 : By defining a function, we first declare:
 1. Function name
+>	The function name is what we will be calling to run the function.
 2. Parameter/s
+
 3. Function Body
 4. Return Value/s
+
