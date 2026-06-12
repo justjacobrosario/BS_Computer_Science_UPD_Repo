@@ -70,3 +70,5 @@ e.g.
 : Numeric overflow is the scenario where a value exceeds the max value of a data type, in which it can only allocate the rightmost bits wit respect to the data type's bit length
 
 e.g. let there be a data type that allocates 3-bits
+assigning a value 8 will cause numeric overflow such that:
+8 (digital) = 1000 (binary) = 1000
