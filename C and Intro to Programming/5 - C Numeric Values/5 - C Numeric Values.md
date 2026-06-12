@@ -62,3 +62,9 @@ e.g.
 : this is C's most common data type for integers
 : it represents **signed numbers**
 : allocates a **32-bit** space, completely for value representation. It can represent of numbers of at most (2^(32)) = 4,294,967,295.
+
+## 5.3. Numeric Overflow
+
+: we know that a numeric data type has a maximum number depending on the bit-length it can allocate.
+
+: Numeric overflow is
