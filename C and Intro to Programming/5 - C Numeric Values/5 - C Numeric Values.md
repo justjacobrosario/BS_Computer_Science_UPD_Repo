@@ -98,3 +98,11 @@ to visualize:
 
 e.g. 
 14.75 = 14.0 + (3/4) = 1110.1100 
+
+### 5.4.1. Decimal Accuracy
+
+: the longer the bit length a data type can allocate, the more accurate its decimal value will be
+
+e.g. in converting 1/3 or 0.333... in binary, having more bits to represent the decimal value will approach to a more accurate value.
+
+
