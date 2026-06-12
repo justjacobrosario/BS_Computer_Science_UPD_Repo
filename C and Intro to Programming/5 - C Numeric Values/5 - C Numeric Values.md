@@ -67,4 +67,6 @@ e.g.
 
 : we know that a numeric data type has a maximum number depending on the bit-length it can allocate.
 
-: Numeric overflow is the scenario where a value exceeds the max value of a data type, in which it can only allocate the rightmost 
+: Numeric overflow is the scenario where a value exceeds the max value of a data type, in which it can only allocate the rightmost bits wit respect to the data type's bit length
+
+e.g. let there be a data type that allocates 3-bits
