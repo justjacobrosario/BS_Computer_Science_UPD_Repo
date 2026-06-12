@@ -105,4 +105,6 @@ e.g.
 
 e.g. in converting 1/3 or 0.333... in binary, having more bits to represent the decimal value will approach to a more accurate value.
 
+## 5.5. Numeric Data Types in C
+
 
