@@ -2,7 +2,7 @@
 5.1. Numbers in Binary
 5.2. Signed and Unsigned Numbers
 5.3. Numeric Overflow
-5.4. Fractional Numbers in Binary
+5.4. Decimal Numbers in Binary
 ## 5.1. Numbers in Binary
 
 : Recall that numeric values are stored in the RAM in binary format.
@@ -82,7 +82,7 @@ assigning a value 8 will cause numeric overflow such that:
 
 : adding 7 and 2 will yield 9, which will cause overflowing and will result to 1 (since in 1001, only 001 can be allocated to the data type )
 
-## 5.4. Fractional Numbers in Binary
+## 5.4. Decimal Numbers in Binary
 
 : suppose the binary digits are 0-indexed
 
@@ -90,9 +90,11 @@ assigning a value 8 will cause numeric overflow such that:
 
 : in the decimal places (right of the decimal point), its value is represented as the summation of **(n_j) / (2^j)** where **j** is the index of a binary digit from **right to left**  and **n_j** is the value of the jth binary digit.
 
+: the decimal value is scene as a fraction. (e.g. 0.5 = 1/2 = 0000.1000(binary))
+
 to visualize:
 
 (... + (n_1 * (2^1)) + (n_0 * (2^0))) . ((n_0 / (2^0)) + (n_1 * (2^1)) + ...)
 
 e.g. 
-13.
+14.75 = 14.0 + (3/4) = 1110.1100 
