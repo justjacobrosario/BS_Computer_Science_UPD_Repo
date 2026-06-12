@@ -73,7 +73,7 @@ e.g. let there be a data type that allocates 3-bits
 assigning a value 8 will cause numeric overflow such that:
 8 (digital) = 1000 (binary) = 1 (000 only recorded) -> 0 (digital) by overflow
 
-#### 5.3.1 Numeric Overflow in Calculations
+### 5.3.1 Numeric Overflow in Calculations
 
 : consider the values 7 and 2 which can fit to a 3-bit data type (i.e. 111 for 7, and 010 for 2)
 
