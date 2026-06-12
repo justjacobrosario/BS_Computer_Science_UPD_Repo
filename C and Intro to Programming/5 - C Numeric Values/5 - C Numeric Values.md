@@ -1,6 +1,6 @@
 : we will be covering about number values in C
 
-### 5.1. Numbers in Binary
+## 5.1. Numbers in Binary
 
 : Recall that numeric values are stored in the RAM in binary format.
 
@@ -77,4 +77,6 @@ assigning a value 8 will cause numeric overflow such that:
 
 : consider the values 7 and 2 which can fit to a 3-bit data type (i.e. 111 for 7, and 010 for 2)
 
-: adding 7 and 2 will yield 9, which will cause overflowing and will result to 1 (since in 1001, only 001 can be allocated to the bit s)
+: adding 7 and 2 will yield 9, which will cause overflowing and will result to 1 (since in 1001, only 001 can be allocated to the data type )
+
+## 5.4.
