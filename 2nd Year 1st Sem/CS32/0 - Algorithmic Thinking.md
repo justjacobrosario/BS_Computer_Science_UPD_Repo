@@ -16,3 +16,5 @@
 
 
 ## 0.3. Efficiency
+
+: An algorithm's efficiency is based on resource consumption (time and memory consumption)
