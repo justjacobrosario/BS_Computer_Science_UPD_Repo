@@ -4,7 +4,8 @@
 
 
 int* prefix_sums(int seq[]){
-    int len = sizeof(seq) / sizeof(seq[0]);
+    int len = 1;
+    len = sizeof(seq) / sizeof(seq[0]);
     int res[len] = {};
 
     for int 
