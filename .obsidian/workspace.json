@@ -335,12 +335,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4 - C Basic Syntax"
+              "title": "C_Programming_Basics_I"
             }
           }
         ],
@@ -527,6 +527,7 @@
   },
   "active": "c287a8646efc4219",
   "lastOpenFiles": [
+    "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
     "2nd Year 1st Sem/CS32/prefix_sum",
     "2nd Year 1st Sem/CS32/prefix_sum.c",
     "2nd Year 1st Sem/CS32/0 - Algorithmic Thinking.md",
@@ -535,7 +536,6 @@
     "2nd Year 1st Sem/CS32",
     "2nd Year 1st Sem",
     "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
-    "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
     "C and Intro to Programming/6 - C Other Data Types/6 - C Other Data Types.md",
     "C and Intro to Programming/5 - C Numeric Values/5 - C Numeric Values.md",
     "C and Intro to Programming/6 - C Other Data Types",
@@ -550,7 +550,6 @@
     "C and Intro to Programming/3 - Program Flow",
     "C and Intro to Programming/2 - How Programming Works/Untitled.md",
     "C and Intro to Programming/2 - How Programming Works",
-    "binary.exe",
     "C and Intro to Programming/L1 Intro to Programming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
     "Faith/Authority of Scripture and Tradition.md",
