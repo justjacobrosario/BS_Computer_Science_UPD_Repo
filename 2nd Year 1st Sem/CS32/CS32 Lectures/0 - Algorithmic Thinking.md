@@ -53,7 +53,7 @@ D. **Random Input Iteration**
 #include <stdlib.h>
 
 int* prefix_sums(int seq[], int size){
-	// 
+	// use malloc and free after to avoid memory leaking
     int* res = (int*)malloc(size * sizeof(int));
 
     if (res == NULL){
@@ -87,7 +87,8 @@ int main(){
     int j = 5;
 
     printf("Sum from element %d to %d is %d", seq[i], seq[j], sum_in_between(sums, i, j));
-
+	
+	free(sums);
     return 0;
 }
 
