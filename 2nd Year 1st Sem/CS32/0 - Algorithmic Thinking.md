@@ -25,4 +25,10 @@
 
 1. **Mathematical Proof**
 : The best proof that an algorithm is correct, but it requires effort and time to construct
+
 2. **Computer-aided Testing**
+
+: In Python, we can gain confidence (but not absolution) that an algorithm is correct by doing assertions
+
+>	`assert func(input) == expected_output`
+
