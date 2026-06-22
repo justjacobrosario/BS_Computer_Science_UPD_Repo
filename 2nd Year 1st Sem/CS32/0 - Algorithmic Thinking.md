@@ -27,11 +27,22 @@
 : The best proof that an algorithm is correct, but it requires effort and time to construct
 
 2. **Computer-aided Testing**
+: Aside from proving a mathematical proof, asserting inputs to yield an expected output can be done. Once there exist an incorrect assertion, then the algorithm is not correct for all inputs.
 
+A. **Assertions**
 : In Python, we can gain confidence (but not absolution) that an algorithm is correct by doing assertions
 
 >	`assert func(input) == expected_output`
 
 : More inputs can be asserted to further prove its correctness
 
-: using  the
+B. **pytest**
+: using the **pytest** library can make error messaging cleaner
+
+C. **Input Iteration**
+: **Iterating inputs** is also a method of measuring correctness
+
+D. **Random Input Iteration**
+: Basically iterating random inputs within the scope
+
+
