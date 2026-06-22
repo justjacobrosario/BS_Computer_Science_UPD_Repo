@@ -53,6 +53,7 @@ D. **Random Input Iteration**
 #include <stdlib.h>
 
 int* prefix_sums(int seq[], int size){
+	// 
     int* res = (int*)malloc(size * sizeof(int));
 
     if (res == NULL){
