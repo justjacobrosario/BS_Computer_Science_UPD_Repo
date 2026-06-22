@@ -15,7 +15,7 @@ int main(){
 
     int len_seq = sizeof(seq) / sizeof(seq[0]);
 
-    printf("%d", LEN(seq));
+    printf("%d", LEN(seq[]));
 
 
     return 0;
