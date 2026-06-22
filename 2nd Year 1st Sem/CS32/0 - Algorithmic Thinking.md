@@ -11,6 +11,6 @@
 
 : Basically, instead of dealing every part with brute force, one can solve the problem by only computing the necessary parts.
 
-: Let the algorithm be c(n, p), where n 
+
 2. s
 
