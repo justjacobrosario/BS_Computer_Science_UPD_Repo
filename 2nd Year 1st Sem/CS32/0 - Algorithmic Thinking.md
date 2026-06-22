@@ -21,8 +21,8 @@
 : Efficiency is usually measured by comparing the rate of the growth of running time and and memory as the function's input enlarges.
 
 ## 0.4. Correctness
-: Basically refers if the algorithm always output the correct answer for 
+: Basically refers if the algorithm always output the correct answer for every possible inputs.
 
 1. **Mathematical Proof**
-: The best proof that an algorithm is correct 
-2. s
+: The best proof that an algorithm is correct, but it requires effort and time to construct
+2. **Computer-aided Testing**
