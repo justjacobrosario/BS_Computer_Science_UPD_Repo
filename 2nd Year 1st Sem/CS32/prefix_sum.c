@@ -11,14 +11,9 @@ int main(){
     
     int seq[] = {1, 2, 3};
 
-    int *pseq = &seq[0];
-    int dummy = 0;
+    size_t seq = sizeof(seq) / sizeof(seq[0]);
 
-    int *len = (void *)(&seq[0]);
-
-    printf("%d", &seq[0]);
-    
-
+    printf("%d", )
 
 
     return 0;
