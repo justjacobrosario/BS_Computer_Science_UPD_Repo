@@ -17,4 +17,7 @@
 
 ## 0.3. Efficiency
 
-: An algorithm's efficiency is based on resource consumption (time and memory consumption)
+: An algorithm's efficiency is based on resource consumption (time and memory consumption).
+: Efficiency is usually measured by comparing the rate of the growth of running time and and memory as the function's input enlarges.
+
+
