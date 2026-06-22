@@ -14,7 +14,7 @@ int main(){
     int *pseq = &seq[0];
     int dummy = 0;
 
-    int len = pseq;
+    int len = &seq[0];
 
     printf("%d", len);
     
