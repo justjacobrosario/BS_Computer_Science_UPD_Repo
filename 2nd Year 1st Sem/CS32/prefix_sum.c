@@ -32,7 +32,7 @@ int main(){
     int len_seq = sizeof(seq) / sizeof(seq[0]);
 
     for (int i = 0; i < len_seq; i++){
-        -
+        
     }
     printf("%ld", LEN(seq));
 
