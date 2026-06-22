@@ -4,6 +4,7 @@
 
 
 int* prefix_sums(int seq[]){
+    int len = size
     int res[]
 }
 
