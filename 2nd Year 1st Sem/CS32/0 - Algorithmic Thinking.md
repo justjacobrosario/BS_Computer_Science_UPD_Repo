@@ -32,3 +32,4 @@
 
 >	`assert func(input) == expected_output`
 
+: More inputs 
