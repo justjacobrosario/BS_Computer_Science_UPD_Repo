@@ -20,4 +20,9 @@
 : An algorithm's efficiency is based on resource consumption (time and memory consumption).
 : Efficiency is usually measured by comparing the rate of the growth of running time and and memory as the function's input enlarges.
 
+## 0.4. Correctness
+: Basically refers if the algorithm always output the correct answer for 
 
+1. **Mathematical Proof**
+: The best proof that an algorithm is correct 
+2. s
