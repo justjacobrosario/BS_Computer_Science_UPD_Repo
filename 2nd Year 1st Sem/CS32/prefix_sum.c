@@ -9,7 +9,10 @@ int* prefix_sums(int seq[]){
 
     for (int i = 0; i < len; i++){
         if (i == 0){
-            res[0] = 
+            res[0] = seq[0];
+        }
+        else{
+        res[i] = (seq[i] + seq[i-1])
         }
     }
 }
