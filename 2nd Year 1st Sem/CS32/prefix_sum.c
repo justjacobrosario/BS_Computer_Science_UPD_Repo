@@ -2,11 +2,11 @@
 
 #define LEN(x) (sizeof(x) / sizeof(x[0]))
 
-/*
+
 int* prefix_sums(int seq[]){
     int res[]
 }
-    */
+
 
 
 int main(){
@@ -15,7 +15,7 @@ int main(){
 
     int len_seq = sizeof(seq) / sizeof(seq[0]);
 
-    printf("%d", LEN(seq));
+    printf("%ld", LEN(seq));
 
 
     return 0;
