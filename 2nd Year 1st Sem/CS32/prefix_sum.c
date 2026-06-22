@@ -27,14 +27,12 @@ int sum_in_between(int pref[], int i, int j){
 
 int main(){
     
-    int seq[] = {1, 2, 3};
+    int seq[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     int len_seq = sizeof(seq) / sizeof(seq[0]);
     int* sums = prefix_sums(seq, len_seq);
 
-    int i;
-    int j;
-    scanf("What index is the 1st element to consider: ", i);
-    scanf("\nWhat index is the last element to consider: ", j);
+    int i = 3;
+    int j = 5;
 
     printf("Sum from element %d to %d is %d", seq[i], seq[j], sum_in_between(sums, i, j));
 
