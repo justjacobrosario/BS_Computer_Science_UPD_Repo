@@ -335,12 +335,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
+                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C_Programming_Basics_I"
+              "title": "C_Programming_Basics_II"
             }
           }
         ],
@@ -527,6 +527,7 @@
   },
   "active": "c287a8646efc4219",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "C and Intro to Programming/4 - C Basic Syntax/4 - C Basic Syntax.md",
     "2nd Year 1st Sem/CS32/prefix_sum",
     "2nd Year 1st Sem/CS32/prefix_sum.c",
@@ -543,7 +544,6 @@
     "C and Intro to Programming/2 - How Programming Works/2 - How Programming Works.md",
     "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
     "C and Intro to Programming/5 - C Numeric Values",
-    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/C_Programming_Basics_I.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L22_C_ProgrammingII/C_Programming_Basics_II.md",
     "C and Intro to Programming/1 - Binary and Hexadecimal/1 - Binary and Hexadecimal.md",
     "C and Intro to Programming/4 - C Basic Syntax",
