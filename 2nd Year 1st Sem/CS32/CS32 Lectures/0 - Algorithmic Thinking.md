@@ -46,4 +46,9 @@ D. **Random Input Iteration**
 : Basically iterating random inputs within the scope
 
 
-## 0.0
+## 0.5. Algorithm sample : Getting the sum in between elements of a list
+
+```c
+
+
+```
