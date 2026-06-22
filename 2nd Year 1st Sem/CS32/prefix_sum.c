@@ -3,9 +3,9 @@
 #define LEN(x) (sizeof(x) / sizeof(x[0]))
 
 
-int* prefix_sums(int seq[]){
-    int len = size
-    int res[]
+int* prefix_sums(int i, int j, int seq[]){
+    int len = sizeof(seq) / sizeof(seq[0]);
+    int res[len] = {};
 }
 
 
