@@ -7,7 +7,11 @@ int* prefix_sums(int seq[]){
     int len = sizeof(seq) / sizeof(seq[0]);
     int res[len] = {};
 
-    for (int )
+    for (int i = 0; i < len; i++){
+        if (i == 0){
+            res[0] = 
+        }
+    }
 }
 
 
