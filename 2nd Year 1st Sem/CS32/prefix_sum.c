@@ -11,7 +11,7 @@ int main(){
     
     int seq[] = {1, 2, 3};
 
-    int *pseq = &seq[];
+    int *pseq = &seq[0];
     int dummy = 0;
 
     int len = *pseq;
