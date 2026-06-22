@@ -12,6 +12,6 @@
 : Basically, instead of dealing every part with brute force, one can solve the problem by only computing the necessary parts.
 
 >	e.g.
->	In a seq of n numbers, to add numbers from index i to j such that ( i and j ar)
+>	In a seq of n numbers, to add numbers from index i to j such that ( 0 <= i, j <= n-1), instead of adding 
 2. s
 
