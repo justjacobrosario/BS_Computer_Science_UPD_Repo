@@ -1,17 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define LEN(x) (sizeof(x) / sizeof(x[0]))
 
+int get_len(int seq[]){
+    return (sizeof(seq) / sizeof(seq[0]));
+}
 
-int* prefix_sums(int seq[]){
-    int len = sizeof(seq) / sizeof(seq[0]);
-    int* res = (int*)malloc(len * sizeof(int));
+int* prefix_sums(int seq[], int size){
+    int* res = (int*)malloc(size * sizeof(int));
 
     if (res == NULL){
         return NULL;
     }
 
-    for (int i = 0; i < len; i++){
+    for (int i = 0; i < size; i++){
         if (i == 0){
             res[0] = seq[0];
         }
@@ -32,9 +35,9 @@ int main(){
     int len_seq = sizeof(seq) / sizeof(seq[0]);
 
     for (int i = 0; i < len_seq; i++){
-        
+        printf("%d", seq[i]);
     }
-    printf("%ld", LEN(seq));
+
 
 
     return 0;
