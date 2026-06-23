@@ -15,10 +15,13 @@ int main(){
 
     printf("%d", arr[1]);
 
-    // lets try to change the size
+    // lets try to change the size and copying the values of each element
+
+    free(arr); // this frees up the memory of the previous arr array
 
     size = 10;
     int *arr = malloc(size * sizeof(int));
+    arr[0] = 1;
 
     printf("%d", arr[0]);
     
