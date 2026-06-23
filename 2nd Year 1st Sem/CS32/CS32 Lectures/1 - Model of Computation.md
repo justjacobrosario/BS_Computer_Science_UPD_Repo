@@ -17,7 +17,8 @@
 : calling `*px` basically returns the value in that address (which is 1)
 
 #### B. Pointer in Arrays
-: Suppose we ha
+: Suppose we have an array of integers
+: We usually make arrays
 ```c
 // let
 int lis[3] = {1, 2, 3};
