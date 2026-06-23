@@ -21,12 +21,32 @@
 1. **Common way of making an array**
 : we usually make array like this
 ```c
-int arr[3] = {1, 2, 3};
+// let
+int lis[3] = {1, 2, 3};
+
+printf("%d", lis[0]); // 1
+printf("%d", lis[1]); // 2
 ```
+
 : however, we need to already decide the fixed size of the array (where it can't be modified again, which is *not dynamic*)
 
 2. **Making arrays using pointers**
 : we basically declare a pointer, then allocate memory depending on the size of our array. The pointer name is also the array name 
+
+```c
+	int size = 3;
+    int *orig_arr = malloc(size * sizeof(int));
+
+    orig_arr[0] = 1;
+    orig_arr[1] = 2;
+    orig_arr[2] = 3;
+    
+    printf("%d", orig_arr[0]); // 1
+    // we can also refer elements based on pointers (*orig_arr refers to the 0th element)
+    printf("%d", *orig_arr); // 1
+    // we can arithmetically index using pointers (this returns the 1th element)
+    printf("%d", *orig_arr + 1); // 2
+```
 
 : (but this time, we can freely manipulate the array size, which is *dynamic*)
 
@@ -37,23 +57,40 @@ int arr[3] = {1, 2, 3};
 >	4. once the `temp_arr`'s element is settled, we free up the memory of the `orig_arr`
 >	5. we assign the `orig_arr = temp_arr`
 >	6. we free up the memory of `temp_arr`
-
-```
-```
-
-```
-```
-
-: Suppose we have an array of integers
-: We usually make arrays
+: our `orig_arr` was dynamically changed in terms of its size
 ```c
-// let
-int lis[3] = {1, 2, 3};
 
-// *lis will retunr the 0th element
-printf("%d", *lis); // 1
+	// lets make our orig_arr
+	int size = 3;
+    int *orig_arr = malloc(size * sizeof(int));
+
+    orig_arr[0] = 1;
+    orig_arr[1] = 2;
+    orig_arr[2] = 3;
+
+    // lets try to change the size and copying the values of each element
+
+    // 1.
+    size = 10;
+    int *temp_arr = malloc(size * sizeof(int));
+
+    // 2.
+    temp_arr[0] = orig_arr[0];
+    temp_arr[1] = orig_arr[1];
+    temp_arr[2] = orig_arr[2];
+
+    // 3.
+    temp_arr[9] = 67;
+
+    // 4.
+    free(orig_arr);
+
+    // 5.
+    orig_arr = temp_arr;
+
+    // 6.
+    free(temp_arr);
 ```
-
 ## 1.2. Dynamic Arrays
 
 : Dynamic array has
