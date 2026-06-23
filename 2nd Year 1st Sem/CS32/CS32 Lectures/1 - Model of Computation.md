@@ -62,3 +62,4 @@ typedef struct LinkedList {
 
 >	i.e. If we remove the 3rd node, we will just connect the 2nd node to the 4th node. 
 
+## 1.4
