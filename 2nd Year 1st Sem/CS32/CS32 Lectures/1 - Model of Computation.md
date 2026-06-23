@@ -22,7 +22,7 @@ typedef struct DynamicArray {
 	int size; // current number of filled slots
 	int cap; // total slots
 	int *a; // basis pointer of 0th element
-} DynamicArray;
+} DynamicArray; 
 ```
 
 ### 1.2.2. Why Dynamic Array: Contiguity of Elements

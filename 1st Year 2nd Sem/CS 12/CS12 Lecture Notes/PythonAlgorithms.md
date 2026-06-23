@@ -21,7 +21,7 @@ def max_sum_of_subarrays(seq):
     pre_sum = prefix_sum(seq)
 
     for i in range(len(seq)):a
-        pre_sum_i = pre_sum[i]
+        pre_sum_i = pre_sum[i] 
         for j in range(i, len(seq)):
             res.append(pre_sum[j] - pre_sum_i)
             print(seq[i:j+1], pre_sum[j] - pre_sum_i)
