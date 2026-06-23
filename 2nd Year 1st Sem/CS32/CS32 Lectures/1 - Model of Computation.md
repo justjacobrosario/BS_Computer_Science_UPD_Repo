@@ -12,11 +12,18 @@
 >	e.g. suppose the character 'A' is in address 10000, given that another character 'B' is next to 'A', then its  address is 10001.
 
 ### 1.1.2. Pointer Recall
-#### A.
+#### A. Pointer declaration and calling
 : Let `int x = 1;`, `int *px = &x` is a pointer of x
 : calling `*px` basically returns the value in that address (which is 1)
 
-#### B.
+#### B. Pointer in Arrays
+```c
+int lis[3] = {2, 2, 3};
+
+  
+
+   printf("%d", *lis);
+```
 
 ## 1.2. Dynamic Arrays
 
