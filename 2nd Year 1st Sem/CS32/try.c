@@ -12,18 +12,25 @@ int main(){
     int *arr = malloc(size * sizeof(int));
 
     arr[0] = 1;
+    arr[1] = 2;
+    arr[2] = 3;
 
-    printf("%d", arr[1]);
+    printf("%d\n", arr[1]);
 
     // lets try to change the size and copying the values of each element
 
     free(arr); // this frees up the memory of the previous arr array
 
     size = 10;
-    int *arr = malloc(size * sizeof(int));
-    arr[0] = 1;
+    int *temp_arr = malloc(size * sizeof(int));
+    temp_arr[0] = 1;
+    temp_arr[1] = 2;
+    temp_arr[2] = 3;
 
-    printf("%d", arr[0]);
+    arr = temp_arr;
+    free(temp_arr);
+
+    printf("%d\n", arr[0]);
     
 
 

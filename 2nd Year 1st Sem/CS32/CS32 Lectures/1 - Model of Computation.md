@@ -26,7 +26,14 @@ int arr[3] = {1, 2, 3};
 : however, we need to already decide the fixed size of the array (where it can't be modified again, which is *not dynamic*)
 
 2. **Making arrays using pointers**
-: we basically declare a pointer, then allocate memory depending on the size of our array (but this time, we can freely manipulate the array size, which is *dynamic*)
+: we basically declare a pointer, then allocate memory depending on the size of our array. The pointer name is also the array name 
+
+: (but this time, we can freely manipulate the array size, which is *dynamic*)
+
+: how? since pointers are mutable, 
+>	1. free up the memory of the original array pointer
+>	2. we can make a temporary pointer with the updated size
+>	3. we set the assign the values
 
 ```
 ```
