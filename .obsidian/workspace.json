@@ -349,12 +349,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
+                "file": "2nd Year 1st Sem/CS32/CS32 Lectures/1 - Model of Computation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PythonAlgorithms"
+              "title": "1 - Model of Computation"
             }
           }
         ],
@@ -541,6 +541,7 @@
   },
   "active": "f81d2f92ad3fe2f7",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
     "2nd Year 1st Sem/CS32/CS32 Lectures/1 - Model of Computation.md",
     "2nd Year 1st Sem/CS32/prefix_sum.exe",
     "2nd Year 1st Sem/CS32/CS32 Lectures/0 - Algorithmic Thinking.md",

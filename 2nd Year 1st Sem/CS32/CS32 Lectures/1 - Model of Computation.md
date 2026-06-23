@@ -21,7 +21,7 @@
 typedef struct DynamicArray {
 	int size; // current number of filled slots
 	int cap; // total slots
-	int *a; // basis pointer of 0th element
+	int *a; // basis pointer of 0th element, (a is the array, can do a[index])
 } DynamicArray; 
 ```
 
