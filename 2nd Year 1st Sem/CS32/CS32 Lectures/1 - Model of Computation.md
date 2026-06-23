@@ -60,5 +60,5 @@ typedef struct LinkedList {
 
 : Basically, a node is connected to the next node, which are. independent to the other nodes in the linked list.
 
->	
+>	i.e. If we remove the 3rd node, we will just connect the 2nd node to the 4th node. 
 
