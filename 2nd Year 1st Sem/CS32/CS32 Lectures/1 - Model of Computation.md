@@ -17,14 +17,12 @@
 : Dynamic array is a list with a given current size, allocated size cap, and pointer pointing to the address of the 0th element.
 ### 1.2.1. Dynamic Arrays in C
 
-: let `struct list` be a dynamic array
-
 ```c
-struct list {
+typedef struct DynamicArray {
 	int size; // current number of filled slots
 	int cap; // total slots
 	int *a; // basis pointer of 0th element
-}
+} DynamicArray;
 ```
 
 ### 1.2.2. Why Dynamic Array: Contiguity of Elements
