@@ -17,6 +17,20 @@
 : calling `*px` basically returns the value in that address (which is 1)
 
 #### B. Pointer in Arrays
+
+1. **Common way of making an array**
+: we usually make array like this
+```c
+int arr[3] = {1, 2, 3};
+```
+: however, we need to already decide the fixed size of the array (where it can't be modified again, which is *not dynamic*)
+
+2. **Making arrays using pointers**
+: we basically declare a pointer, then allocate memory depending on the size of our array (but this time, we can freely manipulate the array size, which is *dynamic*)
+
+```
+```
+
 : Suppose we have an array of integers
 : We usually make arrays
 ```c
