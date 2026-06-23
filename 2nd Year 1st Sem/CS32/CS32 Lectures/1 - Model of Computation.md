@@ -11,10 +11,19 @@
 
 >	e.g. suppose the character 'A' is in address 10000, given that another character 'B' is next to 'A', then its  address is 10001.
 
+### 1.1.2. Pointer Recall
+#### A.
+: Let `int x = 1;`, `int *px = &x` is a pointer of x
+: calling `*px` basically returns the value in that address (which is 1)
+
+#### B.
 
 ## 1.2. Dynamic Arrays
 
-: Dynamic array is a list with a given current size, allocated size cap, and pointer pointing to the address of the 0th element.
+: Dynamic array has
+1. the array itself (set as the pointer of its 0th element)
+2. current number of elements (size)
+3. total possible number of elements (cap) 
 ### 1.2.1. Dynamic Arrays in C
 
 ```c
