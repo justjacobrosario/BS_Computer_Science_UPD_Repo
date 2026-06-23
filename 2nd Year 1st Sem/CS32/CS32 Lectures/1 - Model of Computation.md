@@ -31,9 +31,15 @@ int arr[3] = {1, 2, 3};
 : (but this time, we can freely manipulate the array size, which is *dynamic*)
 
 : how? since pointers are mutable, 
->	1. free up the memory of the original array pointer
->	2. we can make a temporary pointer with the updated size
->	3. we set the assign the values
+>	1. we can make a temporary pointer with the updated size, making our `temp_arr`.
+>	2. we can preserve the values of the `orig_arr` by assigning them to the `temp_arr`.
+>	3. if we increased the size, we can also set the values of the new element/s
+>	4. once the `temp_arr`'s element is settled, we free up the memory of the `orig_arr`
+>	5. we assign the `orig_arr = temp_arr`
+>	6. we free up the memory of `temp_arr`
+
+```
+```
 
 ```
 ```
