@@ -17,12 +17,13 @@
 : calling `*px` basically returns the value in that address (which is 1)
 
 #### B. Pointer in Arrays
+: Suppose we ha
 ```c
-int lis[3] = {2, 2, 3};
+// let
+int lis[3] = {1, 2, 3};
 
-  
-
-   printf("%d", *lis);
+// *lis will retunr the 0th element
+printf("%d", *lis); // 1
 ```
 
 ## 1.2. Dynamic Arrays
