@@ -27,7 +27,7 @@ struct list {
 }
 ```
 
-### 1.2.2. Contiguity of Elements
+### 1.2.2. Why Dynamic Array: Contiguity of Elements
 
 : Elements of dynamic arrays are **contiguous** in a sense where their address are consecutive
 
@@ -56,4 +56,9 @@ typedef struct LinkedList {
 ```
 
 
+### 1.3.2. Why Linked Lists: Independent Pointer Connections
+
+: Basically, a node is connected to the next node, which are. independent to the other nodes in the linked list.
+
+>	
 
