@@ -31,7 +31,20 @@ struct list {
 
 : Elements of dynamic arrays are **contiguous** in a sense where their address are consecutive
 
->	i.e. let the pointer to the 0th element of the array be `p0th`. getting the next element is basically getting its pointer, which is conveniently `p0th + 1`.
+>	i.e. let the pointer to the 0th element of the array be `p0th`. getting the ith element is basically getting its pointer, which is conveniently `p0th + i` since they are indexed next to each other.
 >	
+
+## 1.3. Linked Lists
+
+: Linked lists consist of a set of nodes which contains a value and the pointer of the next node.
+
+: Nodes of a linked list is **not necessarily contiguous**, nodes are addressed in random free spaces of the RAM (thus arithmetical indexing is not possible)
+
+### 1.3.1. Linked Lists in C
+
+```c
+struct
+```
+
 
 
