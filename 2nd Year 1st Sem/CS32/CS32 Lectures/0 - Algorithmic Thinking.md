@@ -48,7 +48,7 @@ D. **Random Input Iteration**
 
 ## 0.5. Algorithm sample : Getting the sum in between elements of a list
 
-: i
+: instead of 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
