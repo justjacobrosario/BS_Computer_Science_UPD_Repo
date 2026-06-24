@@ -18,12 +18,40 @@ DynamicArray *make_as_dynamic_arr(){
 
 }
 
+void append(DynamicArray *d_arr, int val){
+    if ((*d_arr).size = (*d_arr).cap){
+
+        (*d_arr).size++;
+        (*d_arr).cap++;
+
+        int *temp_arr = malloc(((*d_arr).size++) * sizeof(int));
+
+        int i = 0;
+        while (i < ((*d_arr).size - 1)){
+            temp_arr[i] = (*d_arr).arr[i];
+            i++;
+        }
+
+        temp_arr[((*d_arr).size - 1)] = val;
+        free((*d_arr).arr);
+        (*d_arr).arr = temp_arr;
+        free(temp_arr);
+
+    }
+
+    else{
+        (*d_arr).size++;
+        (*d_arr).arr[(*d_arr).size] = val;
+        
+    }
+}
+
 
 int main(){
 
     DynamicArray *try_d_arr = make_as_dynamic_arr();
     (*try_d_arr).arr[0] = 1;
-    printf("%d", (*try_d_arr).arr[0]);
+    printf("%d", (*try_d_arr).size);
 
 
 
