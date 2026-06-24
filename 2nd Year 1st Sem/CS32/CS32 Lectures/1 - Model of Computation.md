@@ -12,4 +12,6 @@
 >	e.g. suppose the character 'A' is in address 10000, given that another character 'B' is next to 'A', then its  address is 10001.
 
 
-## 1.2. 
+## 1.2. Dynamic Arrays
+
+: Dynamic array is a list with a given current size, allocated size cap, and pointer
