@@ -18,6 +18,7 @@ DynamicArray *make_as_dynamic_arr(){
 
 }
 
+
 int main(){
 
     DynamicArray *try_d_arr = make_as_dynamic_arr();
