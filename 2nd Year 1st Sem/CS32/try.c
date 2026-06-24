@@ -19,7 +19,8 @@ DynamicArray *make_as_dynamic_arr(){
 }
 
 void append(DynamicArray *d_arr, int val){
-    if ((*d_arr).size = (*d_arr).cap){
+
+    if ((*d_arr).size == (*d_arr).cap){
 
         (*d_arr).size++;
         (*d_arr).cap++;
@@ -40,6 +41,7 @@ void append(DynamicArray *d_arr, int val){
     }
 
     else{
+        
         (*d_arr).size++;
         (*d_arr).arr[(*d_arr).size] = val;
         
@@ -50,8 +52,14 @@ void append(DynamicArray *d_arr, int val){
 int main(){
 
     DynamicArray *try_d_arr = make_as_dynamic_arr();
-    (*try_d_arr).arr[0] = 1;
-    printf("%d", (*try_d_arr).size);
+
+    int size = (*try_d_arr).size;
+    printf("%d", size);
+
+    append(try_d_arr, 67);
+
+    size = (*try_d_arr).size;
+    printf("%d", (*try_d_arr).arr[1]);
 
 
 
