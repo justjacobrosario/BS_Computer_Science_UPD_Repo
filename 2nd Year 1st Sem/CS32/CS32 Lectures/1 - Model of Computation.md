@@ -43,7 +43,16 @@ struct list {
 ### 1.3.1. Linked Lists in C
 
 ```c
-struct
+typedef struct Node {
+	int value; // value of the current Node
+	struct Node* next; // not `Node* next;` bc the typedef is still not yet declared
+} Node; // this Node is the typedef declaration
+
+typedef struct LinkedList {
+	Node* head;
+	Node* tail;
+	int size;
+} LinkedList;
 ```
 
 
