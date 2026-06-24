@@ -48,7 +48,9 @@ D. **Random Input Iteration**
 
 ## 0.5. Algorithm sample : Getting the sum in between elements of a list
 
-: instead of 
+: instead of repeatedly adding elements from the ith element to the jth element, we utilize prefix sums such that let p = sum from 0th to ith element, q = sum from 0th to jth element.
+
+: p - q = sum from ith to jth element
 ```c
 #include <stdio.h>
 #include <stdlib.h>
