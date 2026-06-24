@@ -22,7 +22,7 @@ int main(){
 
     DynamicArray *try_d_arr = make_as_dynamic_arr();
     (*try_d_arr).arr[0] = 1;
-    printf("%d", try_d_arr[0]);
+    printf("%d", (*try_d_arr).arr[0]);
 
 
 
