@@ -14,4 +14,4 @@
 
 ## 1.2. Dynamic Arrays
 
-: Dynamic array is a list with a given current size, allocated size cap, and pointer
+: Dynamic array is a list with a given current size, allocated size cap, and pointer o
