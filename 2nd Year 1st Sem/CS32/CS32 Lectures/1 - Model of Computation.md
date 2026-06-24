@@ -14,5 +14,24 @@
 
 ## 1.2. Dynamic Arrays
 
-: Dynamic array is a list with a given current size, allocated size cap, and pointer pointing to the address of the 0th element
+: Dynamic array is a list with a given current size, allocated size cap, and pointer pointing to the address of the 0th element.
+### 1.2.1. Dynamic Arrays in C
+
+: let `struct list` be a dynamic array
+
+```c
+struct list {
+	int size; // current number of filled slots
+	int cap; // total slots
+	int *a; // basis pointer of 0th element
+}
+```
+
+### 1.2.2. Contiguity of Elements
+
+: Elements of dynamic arrays are **contiguous** in a sense where their address are consecutive
+
+>	i.e. let the pointer to the 0th element of the array be `p0th`. getting the next element is basically getting its pointer, which is conveniently `p0th + 1`.
+>	
+
 
