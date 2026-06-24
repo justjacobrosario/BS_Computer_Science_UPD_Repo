@@ -41,9 +41,8 @@ void append(DynamicArray *d_arr, int val){
     }
 
     else{
-        
-        (*d_arr).size++;
         (*d_arr).arr[(*d_arr).size] = val;
+        (*d_arr).size++;
         
     }
 }
@@ -59,7 +58,7 @@ int main(){
     append(try_d_arr, 67);
 
     size = (*try_d_arr).size;
-    printf("%d", (*try_d_arr).arr[1]);
+    printf("%d", (*try_d_arr).arr[0]);
 
 
 
