@@ -535,11 +535,13 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "f81d2f92ad3fe2f7",
   "lastOpenFiles": [
+    "2nd Year 1st Sem/CS32/try",
     "2nd Year 1st Sem/CS32/try.exe",
     "2nd Year 1st Sem/CS32/try.c",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/PythonAlgorithms.md",
@@ -564,7 +566,6 @@
     "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
     "C and Intro to Programming/5 - C Numeric Values",
     "C and Intro to Programming/1 - Binary and Hexadecimal/1 - Binary and Hexadecimal.md",
-    "C and Intro to Programming/4 - C Basic Syntax",
     "C and Intro to Programming/2 - How Programming Works/Untitled.md",
     "C and Intro to Programming/L1 Intro to Programming.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
