@@ -80,14 +80,13 @@ void set(DynamicArray *d_arr, int idx, int val){
 
 
 int main(){
-    printf("ha");
     DynamicArray *try_d_arr = make_as_dynamic_arr();
 
     append(try_d_arr, 67);
     printf("size: %d, cap: %d\n", (*try_d_arr).size, (*try_d_arr).cap);
     append(try_d_arr, 420);
     printf("size: %d, cap: %d\n", (*try_d_arr).size, (*try_d_arr).cap);
-    append(try_d_arr, 420); // why not work here
+    append(try_d_arr, 123); // why not work here
     printf("size: %d, cap: %d\n", (*try_d_arr).size, (*try_d_arr).cap);
 
 
