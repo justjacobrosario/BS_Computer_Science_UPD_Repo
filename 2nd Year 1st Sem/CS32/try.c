@@ -35,8 +35,7 @@ void append(DynamicArray *d_arr, int val){
 
         free((*d_arr).arr);
         (*d_arr).arr = temp_arr;
-        free(temp_arr);
-        printf("fahh");
+        //free(temp_arr);
     }
 
     else{
