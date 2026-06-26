@@ -160,9 +160,10 @@ typedef struct LinkedList {
 #### B. Popping from Tail
 
 1. **Dynamic Array**
-: Can just
+: Can just decrement the size counter to not count the last element
 
 2. **Linked List**
+: Needs to traverse to the node before the tail, and then disconnect it to the tail to virtuall
 
 #### C. Random Lookup 
 
