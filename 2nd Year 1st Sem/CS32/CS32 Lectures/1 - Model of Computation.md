@@ -146,7 +146,10 @@ typedef struct LinkedList {
 
 : They both have their own pros and cons
 
-#### A. Appending 
+#### A. Appending to the head
+1. **Dynamic Array**
+: 
+2. **Linked List**
 
 
 
