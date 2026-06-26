@@ -148,8 +148,13 @@ typedef struct LinkedList {
 
 #### A. Appending to the head
 1. **Dynamic Array**
-: As long as the cap is larger than its current size `n`, one can basically just assign value to the `n`th element (recommended to double the cap instead of just incrementing it so that future appends )
+
+: As long as the cap is larger than its current size `n`, one can basically just assign value to the `n`th element 
+
+*(if cap=size, recommended to double the cap instead of just incrementing it so that future appends wont need to increase the cap)
+
 2. **Linked List**
+
 
 
 
