@@ -535,12 +535,13 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false
+      "bases:Create new base": false
     }
   },
   "active": "f81d2f92ad3fe2f7",
   "lastOpenFiles": [
+    "2nd Year 1st Sem/CS32/tempCodeRunnerFile",
+    "2nd Year 1st Sem/CS32/tempCodeRunnerFile.c",
     "2nd Year 1st Sem/CS32/try",
     "2nd Year 1st Sem/CS32/try.exe",
     "2nd Year 1st Sem/CS32/try.c",
@@ -560,11 +561,9 @@
     "1st Year 2nd Sem/GCI Data Science/Pandas and Data Science.md",
     "C and Intro to Programming/6 - C Other Data Types/6 - C Other Data Types.md",
     "C and Intro to Programming/5 - C Numeric Values/5 - C Numeric Values.md",
-    "C and Intro to Programming/6 - C Other Data Types",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L23_C_Programming_Basics_III/C_Programming_Basics_III.md",
     "C and Intro to Programming/2 - How Programming Works/2 - How Programming Works.md",
     "C and Intro to Programming/3 - Program Flow/3 - Program Flow.md",
-    "C and Intro to Programming/5 - C Numeric Values",
     "C and Intro to Programming/1 - Binary and Hexadecimal/1 - Binary and Hexadecimal.md",
     "C and Intro to Programming/2 - How Programming Works/Untitled.md",
     "C and Intro to Programming/L1 Intro to Programming.md",
