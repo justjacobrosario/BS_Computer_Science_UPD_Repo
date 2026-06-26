@@ -155,6 +155,7 @@ typedef struct LinkedList {
 
 2. **Linked List**
 
+: Basically just sets 
 
 
 
