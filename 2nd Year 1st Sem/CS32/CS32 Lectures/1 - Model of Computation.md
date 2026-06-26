@@ -146,7 +146,7 @@ typedef struct LinkedList {
 
 : They both have their own pros and cons
 
-####
+#### A. Appending 
 
 
 
