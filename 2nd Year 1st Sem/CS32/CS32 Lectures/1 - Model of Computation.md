@@ -151,7 +151,7 @@ typedef struct LinkedList {
 
 : As long as the cap is larger than its current size `n`, one can basically just assign value to the `n`th element 
 
-*(if cap=size, recommended to double the cap instead of just incrementing it so that future appends wont need to increase the cap)
+*(if cap=size and is needed to realloc the array for a larger block of free memory, recommended to double the cap instead of just incrementing it so that future appends wont need to increase the cap)
 
 2. **Linked List** 
 
