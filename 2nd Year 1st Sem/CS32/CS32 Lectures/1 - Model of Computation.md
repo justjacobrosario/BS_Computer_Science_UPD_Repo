@@ -183,5 +183,5 @@ typedef struct LinkedList {
 
 2. **Linked List** 
 
-: Can just remove or  add a node to the ith link, and then connect the adjacent nodes
+: Can just remove or  add a node to the ith link, and then connect it to the two (or one if its the last node) adjacent node/s. 
 
