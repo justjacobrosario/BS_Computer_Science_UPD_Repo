@@ -161,7 +161,12 @@ typedef struct LinkedList {
 
 1. **Dynamic Array**
 
-2. **Linked List**
+: can just refer to the address by arithmetically indexing it (since it is contiguous) to return the value of the demanded ith element
 
+1. **Linked List**
+
+: needs to traverse the addresses from the head to the ith element from node to node
+
+#### C. 
 
 
