@@ -6,7 +6,6 @@
 : Let there be a 2-d matrix cost, where `cost[i][j]` refers to the demanded profit of worker i at  job j.
 
 : Goal : Find the list where the ith element is worker i,  and its value is the jth job, such that form a permutation of possible job assignments, it returns the list with the minimum salary demands.
-wwwwwwwwwwwwwwwwwww
 
 |          | Task 0 | Task 1 | task 2 |
 | -------- | ------ | ------ | ------ |
