@@ -153,9 +153,9 @@ typedef struct LinkedList {
 
 *(if cap=size, recommended to double the cap instead of just incrementing it so that future appends wont need to increase the cap)
 
-2. **Linked List**
+2. **Linked List** 
 
-: Basically just sets 
+: Basically just makes a new node, set its pointer as the next node of the current tail, and set that new node as the new tail of the list
 
 
 
