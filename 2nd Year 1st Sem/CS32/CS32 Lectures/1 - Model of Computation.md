@@ -162,8 +162,8 @@ typedef struct LinkedList {
 1. **Dynamic Array**
 : Can just decrement the size counter to not count the last element
 
-2. **Linked List**
-: Needs to traverse to the node before the tail, and then disconnect it to the tail to virtuall
+2. **Linked List** (slower, needs manual traversing f nodes)
+: Needs to traverse to the node before the tail, and then disconnect it to the tail to virtually pop the last element
 
 #### C. Random Lookup 
 
@@ -171,10 +171,13 @@ typedef struct LinkedList {
 
 : can just refer to the address by arithmetically indexing it (since it is contiguous) to return the value of the demanded ith element
 
-1. **Linked List**
+2. **Linked List**
 
 : needs to traverse the addresses from the head to the ith element from node to node
 
-#### C. 
+#### D. Arbitrary Deletion and Insertion from an index
 
+1. **Dynamic Array**
+: 
+2. **Linked List**
 
