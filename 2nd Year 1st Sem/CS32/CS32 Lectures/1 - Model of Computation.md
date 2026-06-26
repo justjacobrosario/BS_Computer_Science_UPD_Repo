@@ -148,7 +148,7 @@ typedef struct LinkedList {
 
 #### A. Appending to the head
 1. **Dynamic Array**
-: 
+: As long as the cap is larger than its current size, one can basically just  assign th
 2. **Linked List**
 
 
