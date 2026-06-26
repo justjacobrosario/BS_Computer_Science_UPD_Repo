@@ -56,4 +56,4 @@ def permutation_comprehension(tup):
 
 
 
-print(permutation_comprehension(("a", "c", "a")))
+print(permutation_comprehension((1, 2, 3)))

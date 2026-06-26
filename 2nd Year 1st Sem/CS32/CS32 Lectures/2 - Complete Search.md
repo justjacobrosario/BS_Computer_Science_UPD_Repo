@@ -23,4 +23,42 @@ in this setup, `[0, 1, 2]` is the most optimized setup
 
 ### 2.1.3. Implementation
 
-: we can first define a function 
+: we can first define a function for getting a permutation of n objects and slots.
+
+: then define a function returning a list of the most optimized worker-job setup.
+
+
+
+#### B. Discussed Implementation
+```c
+def permutations(seq):
+    if not seq:
+        yield ()
+    else:
+        for i in range(len(seq)):
+            # seq[i] will be the first
+            for p in permutations([*seq[:i], *seq[i+1:]]):
+                yield (seq[i], *p)
+
+
+def best_assignment(cost):
+    n = len(cost)
+
+    def total_cost(p):
+        # worker i is assigned task p[i]
+        return sum(cost[i][p[i]] for i in range(n))
+
+    return min(total_cost(p) for p in permutations(range(n)))
+
+
+def main():
+    for cas in range(int(input())):
+        print(best_assignment([[*map(int, input().split())] for _ in range(int(input()))]))
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+```
