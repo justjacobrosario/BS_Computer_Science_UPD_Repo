@@ -179,7 +179,7 @@ typedef struct LinkedList {
 
 1. **Dynamic Array**
 
-: By a
+: By adding or removing the ith element, the (i+1)th to the (n-1)th elements will be shifted to their memory addresses
 
 2. **Linked List** (slower, still needs to manually traverse to the ith node)
 
