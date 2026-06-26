@@ -147,7 +147,7 @@ typedef struct LinkedList {
 : They both have their own pros and cons
 
 #### A. Appending to the head
-1. **Dynamic Array**
+1. **Dynamic Array** (slower if cap needs to be resized)
 
 : As long as the cap is larger than its current size `n`, one can basically just assign value to the `n`th element 
 
@@ -156,6 +156,12 @@ typedef struct LinkedList {
 2. **Linked List** 
 
 : Basically just makes a new node, set its pointer as the next node of the current tail, and set that new node as the new tail of the list
+
+#### B. Random Lookup 
+
+1. **Dynamic Array**
+
+2. **Linked List**
 
 
 
