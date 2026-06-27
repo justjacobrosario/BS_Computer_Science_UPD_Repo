@@ -1,3 +1,3 @@
-MAP_W = 198
-MAP_H = 108
-MAP_DATA = [
+MAP_W = 0
+MAP_H = 0
+MAP_DATA = []

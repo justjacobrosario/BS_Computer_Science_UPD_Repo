@@ -84,6 +84,10 @@ class World:
     def map_matrix(self):
         return self._map_matrix
     
+    @property
+    def player(self):
+        return self._player
+    
 
     @property
     def screen_width(self):
