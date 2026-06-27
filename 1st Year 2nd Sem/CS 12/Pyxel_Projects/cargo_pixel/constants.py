@@ -36,28 +36,28 @@ class ShipType(Enum):
     Tugboat = {
         "name" : "Tugboat",
         "hp" : 100, 
-        "speed" : 100, 
+        "speed" : 1, 
         "max_cargo" : 50, 
         "fuel" : 100, 
         "min_lvl_req" : 0}
     Mini_Bulk_Carriers = {
         "name" : "Mini-Bulk Carriers",
         "hp" : 100, 
-        "speed" : 100, 
+        "speed" : 1, 
         "max_cargo" : 50, 
         "fuel" : 100, 
         "min_lvl_req" : 0}
     Roro = {
         "name" : "RORO Ship",
         "hp" : 100, 
-        "speed" : 100, 
+        "speed" : 1, 
         "max_cargo" : 50, 
         "fuel" : 100, 
         "min_lvl_req" : 0}
     Super_Tanker = {
         "name" : "Super Tanker",
         "hp" : 100, 
-        "speed" : 100, 
+        "speed" : 1, 
         "max_cargo" : 50, 
         "fuel" : 100, 
         "min_lvl_req" : 0}
