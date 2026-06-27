@@ -3,7 +3,7 @@ from constants import Key_Input
 
 class View:
     def start(self, screen_width, screen_height):
-        pyxel.init(screen_width, screen_height, title="cargo_pixel")
+        pyxel.init(screen_width, screen_height, title="cargo_pixel", fullscreen=True)
         pyxel.load("audio_visuals.pyxres")
 
     def get_key_input(self):
