@@ -38,7 +38,7 @@ with open("map_data.py", "w") as f:
     f.write(f"MAP_H = {w}\n")
     f.write(f"MAP_DATA = [\n")
     for r in map_data:
-        f.write(f"    {row},\n")
+        f.write(f"    {r},\n")
     f.write("]\n")
 
 print("done")
