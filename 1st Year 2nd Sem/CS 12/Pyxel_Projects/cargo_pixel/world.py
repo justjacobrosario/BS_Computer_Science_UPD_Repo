@@ -3,10 +3,10 @@ import map_data
 
 
 class World:
-    def __init__(self, screen_width, screen_height, map_path):
+    def __init__(self, screen_width, screen_height, map_pic):
 
         # MAP PROPERTIES
-        self._map_path = map_path
+        self._map_pic = map_pic
         self._col, self._row, self._map_matrix = -1, -1, [[],]
 
         def upd_map():
@@ -30,7 +30,7 @@ class World:
                 return closest_tile
 
 
-            img = Image.open(self._map_path).convert("RGB")
+            img = Image.open(self._map_pic).convert("RGB")
             w, h = img.size
 
             map_data = []
@@ -65,8 +65,8 @@ class World:
         self._player = Player(self._screen_width//2, self._screen_height//2, 0)
 
     @property
-    def map_path(self):
-        return self._map_path
+    def map_pic(self):
+        return self._map_pic
 
     @property
     def col(self):

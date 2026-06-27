@@ -4,14 +4,14 @@ from world import World
 
 
 class Model:
-    def __init__(self, screen_width, screen_height, map_path):
+    def __init__(self, screen_width, screen_height, map_pic):
         self._screen_width = screen_width
         self._screen_height = screen_height
         self._cell_px_size = 8
         self._screen_col_count, self._screen_row_count = (16, 9)
-        self._map_path = map_path
+        self._map_pic = map_pic
         self._curr_key = Key_Input.NONE
-        self._world = World(self._screen_width, self._screen_height, map_path)
+        self._world = World(self._screen_width, self._screen_height, map_pic)
 
     @property
     def screen_width(self):
@@ -39,8 +39,8 @@ class Model:
     
 
     @property
-    def map_path(self):
-        return self._map_path
+    def map_pic(self):
+        return self._map_pic
 
     def upd_curr_key(self, key_input):
         self._curr_key = key_input
