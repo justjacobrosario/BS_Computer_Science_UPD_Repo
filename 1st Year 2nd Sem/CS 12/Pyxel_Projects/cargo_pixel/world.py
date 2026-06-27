@@ -10,15 +10,15 @@ RGB_TO_TILE = {
 }
 
 def nearest_tile(curr_rgb):
-'''
-in a pixel's rgb, get the nearest tile from the RGB_TO_TILE dict
-'''
+    '''
+    in a pixel's rgb, get the nearest tile from the RGB_TO_TILE dict
+    '''
     closest_tile, best_dist = 0, float("inf")
     for reference, tile in RGB_TO_TILE.items():
         dist = sum((curr-ref)**2 for curr, ref in zip(curr_rgb, reference) )
 
         if dist < best_dist:
-            closest_tile, best_dist = tid, d
+            closest_tile, best_dist = tile, dist
     return closest_tile
 
 
@@ -31,3 +31,14 @@ for y in range(h):
     for x in range(w):
         rgb = img.getpixel((x, y))
         row.append(nearest_tile(rgb))
+    map_data.append(row)
+
+with open("map_data.py", "w") as f:
+    f.write(f"MAP_W = {w}\n")
+    f.write(f"MAP_H = {w}\n")
+    f.write(f"MAP_DATA = [\n")
+    for r in map_data:
+        f.write(f"    {row},\n")
+    f.write("]\n")
+
+print("done")
