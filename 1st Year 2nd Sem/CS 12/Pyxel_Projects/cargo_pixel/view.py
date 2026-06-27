@@ -1,4 +1,4 @@
-
+import pyxel
 from constants import Key_Input
 
 class View:

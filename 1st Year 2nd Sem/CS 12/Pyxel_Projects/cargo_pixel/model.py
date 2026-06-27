@@ -45,6 +45,11 @@ class Model:
     def map_pic(self):
         return self._map_pic
 
+    @property
+    def world(self):
+        return self._world
+    
+
     def upd_curr_key(self, key_input):
         self._curr_key = key_input
 
