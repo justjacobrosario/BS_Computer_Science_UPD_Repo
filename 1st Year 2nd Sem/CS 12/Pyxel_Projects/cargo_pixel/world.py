@@ -1,6 +1,7 @@
 from PIL import Image
 import map_data
 from player import Player
+import importlib
 
 
 class World:
@@ -49,6 +50,8 @@ class World:
                 for r in tile_rows:
                     f.write(f"    {r},\n")
                 f.write("]")
+            
+            importlib.reload(map_data)
 
             self._col_count, self._row_count, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
 
