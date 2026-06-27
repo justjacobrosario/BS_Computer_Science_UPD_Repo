@@ -7,14 +7,14 @@ class Player:
 		self._y = y
 		self._lvl = lvl
 		self._ship = Level_to_Ship[lvl]
-		self._ship_name = self._ship["name"]
-		self._hp = self._ship["hp"]
-		self._speed = self._ship["speed"]
-		self._max_cargo = self._ship["max_cargo"]
+		self._ship_name = self._ship.value["name"]
+		self._hp = self._ship.value["hp"]
+		self._speed = self._ship.value["speed"]
+		self._max_cargo = self._ship.value["max_cargo"]
 		self._cargo = 0
-		self._fuel = self._ship["fuel"]
+		self._fuel = self._ship.value["fuel"]
 		self._curr_fuel = self._fuel
-		self._min_lvl_req = self._ship["min_lvl_req"]
+		self._min_lvl_req = self._ship.value["min_lvl_req"]
 
 
 
