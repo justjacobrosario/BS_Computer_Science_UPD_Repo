@@ -2,7 +2,7 @@ from PIL import Image
 import map_data
 
 
-class world:
+class World:
     def __init__(self, screen_width, screen_height, map_path):
 
         # MAP PROPERTIES
@@ -52,7 +52,7 @@ class world:
             self._col, self._row, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
 
         upd_map()
-        
+
         self.upd_map = upd_map
 
         
