@@ -17,14 +17,6 @@ class Player:
         self._min_lvl_req = self._ship.value["min_lvl_req"]
 
     @property
-    def x(self):
-        return self._x
-    
-    @property
-    def y(self):
-        return self._y
-
-    @property
     def lvl(self):
         return self._lvl
 
