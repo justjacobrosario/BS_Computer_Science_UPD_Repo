@@ -1,5 +1,6 @@
 from PIL import Image
 import map_data
+from player import Player
 
 
 class World:
@@ -7,7 +8,7 @@ class World:
 
         # MAP PROPERTIES
         self._map_pic = map_pic
-        self._col, self._row, self._map_matrix = -1, -1, [[],]
+        self._col_count, self._row_count, self._map_matrix = -1, -1, [[],]
 
         def upd_map():
             RGB_TO_TILE = {
@@ -43,13 +44,13 @@ class World:
 
             with open("map_data.py", "w") as f:
                 f.write(f"MAP_W = {w}\n")
-                f.write(f"MAP_H = {w}\n")
+                f.write(f"MAP_H = {h}\n")
                 f.write(f"MAP_DATA = [\n")
                 for r in map_data:
                     f.write(f"    {r},\n")
                 f.write("]\n")
 
-            self._col, self._row, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
+            self._col_count, self._row_count, self._map_matrix = map_data.MAP_H, map_data.MAP_W, map_data.MAP_DATA
 
         upd_map()
 
@@ -69,12 +70,12 @@ class World:
         return self._map_pic
 
     @property
-    def col(self):
-        return self._col
+    def col_count(self):
+        return self._col_count
 
     @property
-    def row(self):
-        return self._row
+    def row_count(self):
+        return self._row_count
 
     @property
     def map_matrix(self):
