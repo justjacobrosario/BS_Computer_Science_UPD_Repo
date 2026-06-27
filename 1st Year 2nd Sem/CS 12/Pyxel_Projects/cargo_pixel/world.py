@@ -50,7 +50,7 @@ class World:
                     f.write(f"    {r},\n")
                 f.write("]")
 
-            self._col_count, self._row_count, self._map_matrix = map_data.MAP_H, map_data.MAP_W, map_data.MAP_DATA
+            self._col_count, self._row_count, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
 
         upd_map()
 
