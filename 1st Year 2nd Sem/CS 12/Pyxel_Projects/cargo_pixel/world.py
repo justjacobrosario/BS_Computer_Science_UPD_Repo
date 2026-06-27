@@ -46,9 +46,9 @@ class World:
                 f.write(f"MAP_W = {w}\n")
                 f.write(f"MAP_H = {h}\n")
                 f.write(f"MAP_DATA = [\n")
-                for r in map_data:
+                for r in tile_rows:
                     f.write(f"    {r},\n")
-                f.write("]\n")
+                f.write("]")
 
             self._col_count, self._row_count, self._map_matrix = map_data.MAP_H, map_data.MAP_W, map_data.MAP_DATA
 
