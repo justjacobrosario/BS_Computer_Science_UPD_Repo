@@ -1,5 +1,8 @@
+
+import pyxel
 from constants import Key_Input
 from world import World
+
 
 
 

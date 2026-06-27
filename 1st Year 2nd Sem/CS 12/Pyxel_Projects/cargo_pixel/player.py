@@ -1,5 +1,5 @@
 from enum import Enum
-from constants import ShipType, Level_to_Ship, Ship_to_Tile
+from constants import ShipType, Level_to_Ship, ShipToTile
 
 class Player:
     def __init__(self, x, y, lvl):
