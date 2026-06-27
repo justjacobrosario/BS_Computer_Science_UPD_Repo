@@ -33,13 +33,13 @@ class World:
             img = Image.open(self._map_pic).convert("RGB")
             w, h = img.size
 
-            map_data = []
+            tile_rows = []
             for y in range(h):
                 row = []
                 for x in range(w):
                     rgb = img.getpixel((x, y))
                     row.append(nearest_tile(rgb))
-                map_data.append(row)
+                tile_rows.append(row)
 
             with open("map_data.py", "w") as f:
                 f.write(f"MAP_W = {w}\n")
