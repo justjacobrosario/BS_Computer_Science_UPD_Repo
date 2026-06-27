@@ -1,5 +1,5 @@
 from PIL import Image
-
+import map_data
 
 
 class world:
@@ -7,6 +7,7 @@ class world:
 
         # MAP PROPERTIES
         self._map_path = map_path
+        self._col, self._row, self._map_matrix = -1, -1, [[],]
 
         def upd_map():
             RGB_TO_TILE = {
@@ -48,16 +49,14 @@ class world:
                     f.write(f"    {r},\n")
                 f.write("]\n")
 
+            self._col, self._row, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
+
         upd_map()
+        
         self.upd_map = upd_map
 
-        def get_col_row_count():
-            with open("map_data.py", "r") as f:
-                _, _, w = f.readline() # reads 1st line
-                _, _, h = f.readline() # 2nd line
-
-            return (int(w), int(h))
-        self._col, self._row = get_col_row_count()
+        
+        
 
 
         # PLAYER PROPERTIES
@@ -76,6 +75,11 @@ class world:
     @property
     def row(self):
         return self._row
+
+    @property
+    def map_matrix(self):
+        return self._map_matrix
+    
 
     @property
     def screen_width(self):
