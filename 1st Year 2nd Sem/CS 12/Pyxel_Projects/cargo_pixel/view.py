@@ -2,11 +2,11 @@
 
 
 class View:
-	def start(self, screen_width, screen_height):
-		pyxel.init(screen_width, screen_height, title="cargo_pixel")
-		pyxel.load("audio_visuals.pyxres")
+    def start(self, screen_width, screen_height):
+        pyxel.init(screen_width, screen_height, title="cargo_pixel")
+        pyxel.load("audio_visuals.pyxres")
 
-	def get_key_input(self):
+    def get_key_input(self):
         if pyxel.btn(pyxel.KEY_Q):
             return Key_Input.QUIT
         elif pyxel.btn(pyxel.KEY_W):
@@ -58,11 +58,11 @@ class View:
                     continue
                 tile_id = map_matrix[row][col]
                 if tile_id in {0, 1, 2,3, 4}:
-                	u, v = tile_sprites[tile_id]
+                    u, v = tile_sprites[tile_id]
                 else:
-                	u, v  = tile_sprites[-1]
+                    u, v  = tile_sprites[-1]
 
                 pyxel.blt(x, y, 0, u, v, cell_px_size, cell_px_size)
 
     def clear(self):
-    	pyxel.cls(0)
+        pyxel.cls(0)

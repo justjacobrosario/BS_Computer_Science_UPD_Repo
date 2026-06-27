@@ -27,7 +27,6 @@ class Controller:
         
 
 
-
     def run_game(self):
         model = self._model
         view = self._view
