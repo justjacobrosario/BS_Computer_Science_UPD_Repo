@@ -10,15 +10,21 @@
 
 ## 1.1. Random Access Machine (RAM)
 
-: RAM is a part of every computer that usually stores temporary information (memory) from a running program.
+: RAM is a part of every computer that usually stores temporary information (memory of  values of variables, strings, etc.) from a running program. Consider it as a *scratch paper* for executing programs. **Registers** are chunks of working data in the RAM
 
-: Suppose that the time of executing all basic memory operations is exactly `θ(1)` (e.g. getting a the index of any element regardless of the location in the RAM always takes `θ(1)`)
+: Computers can execiute basic memory operations in equal time intervals. Suppose that the time of executing all basic memory operations is exactly `θ(1)` (e.g. getting a the index of any element regardless of the location in the RAM always takes `θ(1)`)
 
-## 1.1.1. RAM Recall : As an Array of memory
+## 1.1.1. Bytes, and RAM as an Array of memory
 
-: Consider RAM as a list of information, where every byte (8-bit string) of information has a specific address index, such that **contiguous** (adjacent/ neighboring) information has consecutive address.
+: A byte is a chunk of 8-bit memory. That means if a byte represents an int, it can represent 2^8 = 256 distinct ints.
 
->	e.g. suppose the character 'A' is in address 10000, given that another character 'B' is next to 'A', then its  address is 10001.
+: 
+
+: Aside from being a scratch paper for temporary data, see RAM as a *list* of memory that can be indexed from  0 to n-1 in bytes (where n is the size of the RAM, like 6 GB or 32 GB).
+
+: Consider RAM as a list of information, where every byte of information has a specific address index, such that **contiguous** (adjacent/ neighboring) information has consecutive address.
+
+>	e.g. suppose the character 'A' is in address 10000, given that another character 'B' is next to 'A' and characters only occupy one byte, then its address is 10001 (just one byte added).
 
 ### 1.1.2. Pointer Recall
 #### A. Pointer declaration and calling
