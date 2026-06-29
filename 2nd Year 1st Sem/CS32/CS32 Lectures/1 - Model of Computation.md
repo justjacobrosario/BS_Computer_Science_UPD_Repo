@@ -8,27 +8,6 @@
 
 : A high-level language that has a set of syntax ran in a program is a **programming language**. Like C and Python, humans can be able to instruct computers to do primitive operations to make an algorithm.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 1.1. Random Access Machine (RAM)
 
 : RAM is a part of every computer that usually stores temporary information (memory) from a running program.
