@@ -1,4 +1,23 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1.1. Random Access Machine (RAM)
 
 : RAM is a part of every computer that usually stores temporary information (memory) from a running program.

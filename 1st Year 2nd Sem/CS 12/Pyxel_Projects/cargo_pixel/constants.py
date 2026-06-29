@@ -18,6 +18,13 @@ class Color(IntEnum):
     PINK = 14
     PEACH = 15
 
+class Tile(Enum):
+    GRASS = 0
+    OCEAN = 1
+    SEA = 2
+    SAND = 3
+    SNOW = 4
+    PORT = 5
 
 
 class Key_Input(Enum):

@@ -2,75 +2,56 @@ from PIL import Image
 import map_data
 from player import Player
 import importlib
+from constants import Tile
+from random import sample
 
+
+class MovementGraphics:
+    def __init__(self):
+        self._prev_locs = []
+
+    @property
+    def prev_locs(self):
+        return self._prev_locs
+    
+
+    def add_prev_locs(self, coord):
+        x, y = coord
+        self._prev_locs.append((x, y))
+
+    def del_oldest_locs(self, count):
+        for _ in range(count):
+            self._prev_locs.pop(0)
+
+        
 
 class World:
-    def __init__(self, screen_width, screen_height, map_pic):
+    def __init__(self, screen_width, screen_height, cell_px_size):
 
         # MAP PROPERTIES
-        self._map_pic = map_pic
+        self._cell_px_size = cell_px_size
         self._col_count, self._row_count, self._map_matrix = -1, -1, [[],]
-
-        def upd_map():
-            RGB_TO_TILE = {
-                (58, 141, 9):0, # ocean
-                (31, 49, 160):1, # sea
-                (55, 155, 196):2, # grass
-                (197, 212, 92):3, # sand
-                (255, 255, 255):4 # snow
-            }
-            def nearest_tile(curr_rgb):
-                '''
-                in a pixel's rgb, get the nearest tile from the RGB_TO_TILE dict
-                '''
-                closest_tile, best_dist = 0, float("inf")
-                for reference, tile in RGB_TO_TILE.items():
-                    dist = sum((curr-ref)**2 for curr, ref in zip(curr_rgb, reference) )
-
-                    if dist < best_dist:
-                        closest_tile, best_dist = tile, dist
-                return closest_tile
+        self._player_spawn_x, self._player_spawn_y = map_data.PLAYER_PX_SPAWNPOINT
+        self._map_matrix = map_data.MAP_DATA
+        # PORT PROPERTIES
+        self._ports = []
+        self._chosen_cargo = []
+        self._next_cargos = []
+        self._port_to_go = ()
 
 
-            img = Image.open(self._map_pic).convert("RGB")
-            w, h = img.size
-
-            tile_rows = []
-            for y in range(h):
-                row = []
-                for x in range(w):
-                    rgb = img.getpixel((x, y))
-                    row.append(nearest_tile(rgb))
-                tile_rows.append(row)
-
-            with open("map_data.py", "w") as f:
-                f.write(f"MAP_W = {w}\n")
-                f.write(f"MAP_H = {h}\n")
-                f.write(f"MAP_DATA = [\n")
-                for r in tile_rows:
-                    f.write(f"    {r},\n")
-                f.write("]")
-            
-            importlib.reload(map_data)
-
-            self._col_count, self._row_count, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
-
-        upd_map()
-
-        self.upd_map = upd_map
-
-        
-        
 
 
         # PLAYER PROPERTIES
         self._screen_width = screen_width
         self._screen_height = screen_height
-        self._player = Player(self._screen_width//2, self._screen_height//2, 0)
+        self._player = Player(self._player_spawn_x, self._player_spawn_y, 0)
+        
 
-    @property
-    def map_pic(self):
-        return self._map_pic
+        # MOVEMENT GRAPHICS PROPERTIES
+        self._movement_graphics = MovementGraphics()
+        self._movement_graphics.add_prev_locs((self._player.x, self._player.y))
+
 
     @property
     def col_count(self):
@@ -96,7 +77,44 @@ class World:
     @property
     def screen_height(self):
         return self._screen_height
+
+    @property
+    def movement_graphics(self):
+        return self._movement_graphics
     
     
-    
+
+    def upd_ship_trail(self, tick, max_trail=30):
+        self._movement_graphics.add_prev_locs((self._player.x, self._player.y))
+            
+        while len(self._movement_graphics._prev_locs) > max_trail:
+            self._movement_graphics.del_oldest_locs(1)
         
+    
+    def gen_random_cargo_routes(self, count = 5):
+        for _ in range(count):
+            chosen = sample(self._ports, k=2)
+            if chosen not in self._next_cargos:
+                self._next_cargos.append(chosen)
+
+    def choose_cargo(self, chosen):
+        if chosen in self._next_cargos:
+            self._chosen_cargo = chosen
+            self._next_cargos.remove(chosen)
+
+    def upd_port_to_go(self):
+        if self._chosen_cargo:
+            if len(self._chosen_cargo) == 2: # go to the initial 
+                self._port_to_go = self._chosen_cargo.pop(0)
+            else:
+                port_x, port_y = self._port_to_go
+                if (port_x <= self._player.x <= port_x + self._cell_px_size) and (port_y <= self._player.y <= port_y + self._cell_px_size): # port collision mechanics
+                    self._port_to_go = self._chosen_cargo.pop()
+
+    def route_done(self):
+        if len(self._chosen_cargo) == 0: # implies the coord in self._port_to_go is the terminal port to complete a route
+            port_x, port_y = self._port_to_go
+            if (port_x <= self._player.x <= port_x + self._cell_px_size) and (port_y <= self._player.y <= port_y + self._cell_px_size): # port collision mechanics
+                self._player.exp += 1
+
+

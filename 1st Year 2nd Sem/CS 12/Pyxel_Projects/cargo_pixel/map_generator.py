@@ -1,6 +1,54 @@
-MAP_W = 198
-MAP_H = 108
-PLAYER_PX_SPAWNPOINT = (720, 180)
+def upd_map(map_pic, py_path):
+    RGB_TO_TILE = {
+        (31, 49, 160):(Tile.OCEAN.value), # ocean
+        (55, 155, 196):(Tile.SEA.value), # sea
+        (58, 141, 9):(Tile.GRASS.value), # grass
+        (197, 212, 92):(Tile.SAND.value), # sand
+        (255, 255, 255):(Tile.SNOW.value), # snow
+        (196, 55, 57):(Tile.PORT.value)
+    }
+    def nearest_tile(curr_rgb):
+        '''
+        in a pixel's rgb, get the nearest tile from the RGB_TO_TILE dict
+        '''
+        closest_tile, best_dist = 0, float("inf")
+        for reference, tile in RGB_TO_TILE.items():
+            dist = sum((curr-ref)**2 for curr, ref in zip(curr_rgb, reference) )
+
+            if dist < best_dist:
+                closest_tile, best_dist = tile, dist
+        return closest_tile
+
+
+    img = Image.open(map_pic).convert("RGB")
+    w, h = img.size
+
+    tile_rows = []
+    for y in range(h):
+        row = []
+        for x in range(w):
+            rgb = img.getpixel((x, y))
+            row.append(nearest_tile(rgb))
+            if nearest_tile(rgb) == Tile.PORT.value:
+                self._ports.append((x, y))
+        tile_rows.append(row)
+
+    with open(py_path, "w") as f:
+        f.write(f"MAP_W = {w}\n")
+        f.write(f"MAP_H = {h}\n")
+        f.write(f"MAP_DATA = [\n")
+        for r in tile_rows:
+            f.write(f"    {r},\n")
+        f.write("]\n\n")
+    
+    importlib.reload(map_data)
+
+    self._col_count, self._row_count, self._map_matrix = map_data.MAP_W, map_data.MAP_H, map_data.MAP_DATA
+
+
+#upd_map("720_180_SoutheastMap.png", "map_data.py")
+
+
 MAP_DATA = [
     [0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [2, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -112,22 +160,13 @@ MAP_DATA = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1],
 ]
 
-PORT_NAMES = {
-    0: (20, 93), 
-    1: (23, 24), 
-    2: (33, 47), 
-    3: (34, 35), 
-    4: (35, 103), 
-    5: (49, 77), 
-    6: (54, 70), 
-    7: (55, 16), 
-    8: (55, 24), 
-    9: (57, 27), 
-    10: (62, 24), 
-    11: (63, 36), 
-    12: (73, 126), 
-    13: (87, 88), 
-    14: (90, 42), 
-    15: (90, 46), 
-    16: (95, 65), 
-    17: (96, 50)}
+def get_ports(MAP_DATA): # to print all ports and manually rename the keys into real life port names
+    count = 0;
+    dic = dict({})
+    for r, row in enumerate(MAP_DATA):
+        for c, col in enumerate(row):
+            if MAP_DATA[r][c] == 5:
+                dic[count] = (r, c)
+                count += 1
+
+    print(f"PORT_NAMES = {dic}")

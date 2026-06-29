@@ -15,6 +15,7 @@ class Player:
         self._fuel = self._ship.value["fuel"]
         self._curr_fuel = self._fuel
         self._min_lvl_req = self._ship.value["min_lvl_req"]
+        self._exp = 0
 
     @property
     def lvl(self):
@@ -55,6 +56,14 @@ class Player:
     @property
     def min_lvl_req(self):
         return self._min_lvl_req
+
+    @property
+    def exp(self):
+        return self._exp
+    
+    @exp.setter
+    def exp(self, val):
+        self._exp = val
 
     def lvl_up(self):
         self._lvl += 1
