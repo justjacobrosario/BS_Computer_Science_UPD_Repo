@@ -1,3 +1,14 @@
+## 1.1. Intro to Computers
+
+: Computers are fast such that it can execute a finite sequences of instructions (**instruction set**)
+
+: Computers are also dumb, such that it can only do simple primitive operations. However, it has claimed that utilizing these operations can sufficiently implement any imaginable algorithm (**Turing completeness**).
+
+: Computers implement operations using machine "**low-level** (only computers can understand)" language (binaries). In order for humans to communicate, "**high-level** (humans can understand)" languages are made such as **compilers**.
+
+: A high-level language that has a set of syntax ran in a program is a **programming language**. Like C and Python, humans can be able to instruct computers to do primitive operations to make an algorithm.
+
+
 
 
 
