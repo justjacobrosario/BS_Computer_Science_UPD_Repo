@@ -14,11 +14,13 @@
 
 : Computers can execiute basic memory operations in equal time intervals. Suppose that the time of executing all basic memory operations is exactly `θ(1)` (e.g. getting a the index of any element regardless of the location in the RAM always takes `θ(1)`)
 
-## 1.1.1. Bytes, and RAM as an Array of memory
+### 1.1.1. Bytes, and RAM as an Array of memory
 
 : A byte is a chunk of 8-bit memory. That means if a byte represents an int, it can represent 2^8 = 256 distinct ints.
 
-: 
+: The byte is a common unit of memory that measures memory allocation and execution. A **word** is a length of memory (in bytes) where a computer can do single operation in it.
+
+>	e.g. A 64-bit (8 byte) computer has a word of length 8 bytes. The larger the word,the faster a computer is since it  can make operate in larger data.
 
 : Aside from being a scratch paper for temporary data, see RAM as a *list* of memory that can be indexed from  0 to n-1 in bytes (where n is the size of the RAM, like 6 GB or 32 GB).
 
@@ -26,7 +28,35 @@
 
 >	e.g. suppose the character 'A' is in address 10000, given that another character 'B' is next to 'A' and characters only occupy one byte, then its address is 10001 (just one byte added).
 
-### 1.1.2. Pointer Recall
+### 1.1.2. Operating Systems
+
+: A running computer needs chunks of RAM to be able to run. Thus a RAM is partially used by the computer.
+
+: Operating systems lets humans to interactively utilize memory in such a way that it does not interfere with other programs' memory usage.
+
+: It does this by humans requesting a certain chunk of contiguous memory (**memory allocation**). In C, `malloc(n)` is an operation where `n` bytes of memory is being allocated to you, and returns the address of the first byte of that memory. (you cannot control where OS allocates memory to you)
+
+### 1.1.3. Common C Operations
+
+: C is a high-level language where it lets people make algorithms and interact with memory. These are the operations that can be done in C:
+
+1. **Memory allocation**
+
+: `malloc` allocates memory, `free` frees up allocated memory
+
+2. **Using Variables**
+
+: A variable represents a value of a certain **data type**. A data type has a fixed memory length (e.g. `char` has length of 1 byte, `int` has length of 4 bytes)
+
+: Variables are stored in the RAM, where its memory is contiguous. Variables can be referred by basically calling its *variable name* or its *address* using **pointers**
+
+4. **Memory access and mutation**
+5. **Basic Operations (arithmetic, comparison, logical operations)**
+6. **Conditionals (if, else statements)**
+7. **Loops (for, while loops)**
+8. **Function Calls (e.g. recursion)**
+
+### 1.1.4. Pointer Recall
 #### A. Pointer declaration and calling
 : Let `int x = 1;`, `int *px = &x` is a pointer of x
 : calling `*px` basically returns the value in that address (which is 1)
@@ -106,13 +136,39 @@ printf("%d", lis[1]); // 2
     // 6.
     free(temp_arr);
 ```
-## 1.2. Dynamic Arrays
+
+
+## Data Types, Abstact Data Types, Data Structures
+
+#### A. Data Types
+: **Data types**, as mentioned recently, is an established type of value that has a fixed memory length.. (e.g. `int`, `char`, `float`, `bool`)
+
+#### B. Abstract Data Types
+: **Abstract Data Types (ADT)** , is a *description* (focus on the word description) of a unique data type. 
+
+: It does not have an official memory length, nor it has a specific implementation in code.
+
+>	e.g.
+>	A **list** is an ADT such that the following describes a list:
+>	- contains a fixed finite size n referring to the number of values (elements)
+>	- has the following methods:
+>	- list.size() -> n
+>	- list.get(i) -> ith value
+>	- list.set(i, val) -> sets val to the ith-index
+>	- list.append(val) -> ...
+>	- list.pop(val) -> ...
+
+#### C. Data Structures
+: **Data Structures** are attempts, implementation in code of a data type
+
+>	The **list** ADT can be implemented as **Dynamic Arrays** and **Linked Lists**
+## 1.3. Dynamic Arrays
 
 : Dynamic array has
 1. the array itself (set as the pointer of its 0th element)
 2. current number of elements (size)
 3. total possible number of elements (cap) 
-### 1.2.1. Dynamic Arrays in C
+### 1.3.1. Dynamic Arrays in C
 
 ```c
 typedef struct DynamicArray {
@@ -122,20 +178,20 @@ typedef struct DynamicArray {
 } DynamicArray; 
 ```
 
-### 1.2.2. Why Dynamic Array: Contiguity of Elements
+### 1.3.2. Why Dynamic Array: Contiguity of Elements
 
 : Elements of dynamic arrays are **contiguous** in a sense where their address are consecutive
 
 >	i.e. let the pointer to the 0th element of the array be `p0th`. getting the ith element is basically getting its pointer, which is conveniently `p0th + i` since they are indexed next to each other.
 >	
 
-## 1.3. Linked Lists
+## 1.4. Linked Lists
 
 : Linked lists consist of a set of nodes which contains a value and the pointer of the next node.
 
 : Nodes of a linked list is **not necessarily contiguous**, nodes are addressed in random free spaces of the RAM (thus arithmetical indexing is not possible)
 
-### 1.3.1. Linked Lists in C
+### 1.4.1. Linked Lists in C
 
 ```c
 typedef struct Node {
@@ -151,13 +207,13 @@ typedef struct LinkedList {
 ```
 
 
-### 1.3.2. Why Linked Lists: Independent Pointer Connections
+### 1.4.2. Why Linked Lists: Independent Pointer Connections
 
 : Basically, a node is connected to the next node, which are. independent to the other nodes in the linked list.
 
 >	i.e. If we remove the 3rd node, we will just connect the 2nd node to the 4th node. 
 
-## 1.4. Dynamic Arrays vs Linked Lists
+## 1.5. Dynamic Arrays vs Linked Lists
 
 : They both have their own pros and cons
 
