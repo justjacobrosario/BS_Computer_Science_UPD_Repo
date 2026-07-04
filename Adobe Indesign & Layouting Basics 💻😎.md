@@ -8,7 +8,7 @@
 
 ## 3. More tools!
  - page panel ✅
- - image tool
+ - image tool ✅
  - text tool
 
 ## 4. Pen and Text Path Tool
