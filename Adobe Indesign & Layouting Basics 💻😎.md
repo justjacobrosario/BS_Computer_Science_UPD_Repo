@@ -3,7 +3,7 @@
  - page details ✅
 
 ## 2. Workspace introduction & Shape tool manipulation
- - panels
+ - panels ✅
  - basic controls (shape object, drag, selection)
 
 ## 3. More tools!
