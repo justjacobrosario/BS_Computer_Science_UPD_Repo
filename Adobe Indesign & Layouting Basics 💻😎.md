@@ -12,13 +12,13 @@
  - text tool ✅
 
 ## 4. Pen and Text Path Tool
-- pen and pencil tools
-- text path tool
+- pen and pencil tools ✅
+- text path tool ✅
 
 ## 5. Colors!
-- schemes
-- color systems
-- gradients
+- schemes ✅
+- color systems ✅
+- gradients ✅
 
 ## 6. Pathfinder and Object Organization
 - pathfinder panel
