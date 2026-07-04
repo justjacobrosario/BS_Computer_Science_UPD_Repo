@@ -7,7 +7,7 @@
  - basic controls (shape object, drag, selection) ✅
 
 ## 3. More tools!
- - page panel
+ - page panel ✅
  - image tool
  - text tool
 
