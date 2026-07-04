@@ -377,12 +377,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Faith/Rome Over Constantinople - How the Eastern Church have been following the Pope.md",
+                "file": "Layouting Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rome Over Constantinople - How the Eastern Church have been following the Pope"
+              "title": "Layouting Basics"
             }
           }
         ],
@@ -398,7 +398,7 @@
       {
         "id": "ac7691c1a9ba0e8c",
         "type": "tabs",
-        "dimension": 27.85515320334262,
+        "dimension": 35.097493036211695,
         "children": [
           {
             "id": "3d0f97424a4804d0",
@@ -415,7 +415,7 @@
       {
         "id": "b643acb12f551da0",
         "type": "tabs",
-        "dimension": 72.14484679665738,
+        "dimension": 64.9025069637883,
         "children": [
           {
             "id": "bd3644d0e3d7b851",
@@ -569,8 +569,8 @@
   },
   "active": "008c3fe2e354c526",
   "lastOpenFiles": [
-    "Faith/Intercession.md",
     "Faith/Rome Over Constantinople - How the Eastern Church have been following the Pope.md",
+    "Faith/Intercession.md",
     "2nd Year 1st Sem/CS32/CS32 Lectures/1 - Model of Computation.md",
     "2nd Year 1st Sem/CS32/CS32 Lectures/2 - Complete Search.md",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/cargo_pixel/__pycache__/player.cpython-314.pyc",
