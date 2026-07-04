@@ -1,6 +1,6 @@
 
 ## 1. Page Setup
- - page details
+ - page details ✅
 
 ## 2. Workspace introduction & Shape tool manipulation
  - panels
