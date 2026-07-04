@@ -21,8 +21,8 @@
 - gradients ✅
 
 ## 6. Pathfinder and Object Organization
-- pathfinder panel
-- object organization (bring forward, bring backward, grouping)
+- pathfinder panel ✅
+- object organization (bring forward, bring backward, grouping) ✅
 
 ## 7. 4-Page Newspaper Layouting
 - preliminaries
