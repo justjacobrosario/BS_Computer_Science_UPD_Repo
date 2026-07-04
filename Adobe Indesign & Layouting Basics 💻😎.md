@@ -25,7 +25,7 @@
 - object organization (bring forward, bring backward, grouping) ✅
 
 ## 7. 4-Page Newspaper Layouting
-- preliminaries
+- preliminaries ✅
 - front page
 - opinion page
 - feature page
