@@ -8,5 +8,5 @@
 - Tools Panel
 - Canvas & Pasteboard
 
-## 3. Editing P
+## 3. Editing Panels
 - 
