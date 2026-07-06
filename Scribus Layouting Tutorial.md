@@ -16,6 +16,9 @@
 ## 4. Colors & Gradient
 - colors first!
 
-## 4. Shapes
+## 5. Shapes
 - proportional size
 - properties
+
+##  6. Bezier Curves
+- me
