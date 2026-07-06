@@ -1,184 +1,124 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 typedef struct DynamicArray{
     int size;
     int cap;
-    int *arr;
+    int *p_arr;
 } DynamicArray;
 
-DynamicArray *d_arr_make(){
+DynamicArray *make_da(){
     DynamicArray *d_arr = malloc(sizeof(DynamicArray));
     (*d_arr).size = 0;
     (*d_arr).cap = 1;
-    (*d_arr).arr = malloc((*d_arr).cap * sizeof(int));
+    (*d_arr).p_arr = malloc(sizeof(int) * (*d_arr).cap);
 
     return d_arr;
 
 }
 
-void d_arr_append(DynamicArray *d_arr, int val){
-    
-    if ((*d_arr).size == (*d_arr).cap){
-        (*d_arr).cap = (*d_arr).cap * 2; // multiply cap by 2 to not always malloc for every append
-        int *temp_arr = malloc(((*d_arr).cap) * sizeof(int));
+void append_da(DynamicArray *d_arr, int val){
+    int val_idx = (*d_arr).size; 
+    (*d_arr).size++; // new size
 
-        int i = 0;
-        while (i < ((*d_arr).size)){
-            temp_arr[i] = (*d_arr).arr[i];
-            i++;
-        }
-
-        temp_arr[((*d_arr).size)] = val;
-        (*d_arr).size++;
-
-        free((*d_arr).arr);
-        (*d_arr).arr = temp_arr;
-        // no need to free(temp_arr); bc temp_arr is now mapped to (*d_arr).arr, so no memory leaks
+    if ((*d_arr).size <= (*d_arr).cap){
+        (*d_arr).p_arr[val_idx] = val;
     }
-
     else{
-        (*d_arr).arr[(*d_arr).size] = val;
-        (*d_arr).size++;
-        
-    }
-}
-
-void d_arr_set(DynamicArray *d_arr, int idx, int val){
-
-    if ((*d_arr).size + 1 >= (*d_arr).cap){
         (*d_arr).cap = (*d_arr).cap * 2;
+        
+        int *new_arr = malloc(sizeof(int) * (*d_arr).cap); // make new_arr with double the size
+        for (int i = 0 ; i < ((*d_arr).size - 1); i++){ // copy values of prev arr per index
+            new_arr[i] = (*d_arr).p_arr[i];
+        } 
+        new_arr[val_idx] = val;
+        (*d_arr).p_arr = new_arr;
     }
-
-
-    (*d_arr).size++; // for the added value
-
-    int *temp_arr = malloc((*d_arr).size * sizeof(int));
-
-    int i = 0;
-    while (i < idx){
-        temp_arr[i] = (*d_arr).arr[i];
-        i++;
-    }
-
-    temp_arr[i] = val;
-    
-
-    // notice that i is still = idx
-    while (i < ((*d_arr).size - 1)){ // -1 bc we focus on the remaining elements (not including the new value)
-        temp_arr[i + 1] = (*d_arr).arr[i]; // [i+1] bc we added the new value recently
-        i++;
-    }
-    free((*d_arr).arr);
-    (*d_arr).arr = temp_arr;
-    // no need to free(temp_arr); bc temp_arr is now mapped to (*d_arr).arr, so no memory leaks
-
 
 }
 
-void d_arr_delete(DynamicArray *d_arr, int idx){
-    int *temp_arr = malloc(((*d_arr).size - 1) * sizeof(int));
+void pop_da(DynamicArray *d_arr, int idx){
+    if (idx <= ((*d_arr).size)){ // within bounds
+        (*d_arr).size--; // only process popping if within bounds
 
-    for (int i = 0; i < idx; i++){
-        temp_arr[i] = (*d_arr).arr[i];
-    }
-
-    for (int i = idx+1; i < (*d_arr).size; i++){
-        temp_arr[i-1] = (*d_arr).arr[i];
-    }
-
-    (*d_arr).size--;
-    free((*d_arr).arr);
-    (*d_arr).arr = temp_arr;
-}
-
-
-
-
-
-// Linked list
-
-typedef struct Node{
-    int val;
-    Node *next;
-} Node;
-
-typedef struct LinkedList{
-    Node *head;
-    Node *tail;
-    int size;
-} LinkedList;
-
-LinkedList *llist_make(){
-    LinkedList *llist = malloc(sizeof(LinkedList))
-    (*llist).head = malloc(sizeof(Node));
-    (*llist).tail = malloc(sizeof(Node));
-    (*llist).size = 2;
-
-    return llist;
-}
-
-void llist_delete(LinkedList *llist, int idx){
-    int size = (*llist).size;
-    Node *curr = (*llist).head;
-
-    if (idx < size){
-        int i = 0;
-        while (i < idx){
-            curr = (*curr).next;
+        if (idx < ((*d_arr).size)){
+            for (int i = idx; i < (*d_arr).size; i++){
+                (*d_arr).p_arr[i] = (*d_arr).p_arr[i+1]; 
+            }
         }
-    }
 
-    // finish thiss
+    }
 
 }
 
-
-
-int main(){
-    DynamicArray *try_d_arr = d_arr_make();
-
-    d_arr_append(try_d_arr, 67);
-    d_arr_append(try_d_arr, 420);
-    d_arr_append(try_d_arr, 123);
-
-    d_arr_set(try_d_arr, 3, 246);
-    d_arr_delete(try_d_arr, 3);
-
-
-
-
-    int size = (*try_d_arr).size;
-    printf("size: %d\n", size);
-
-
-    // to display:
-    int i = 0;
-    while (i < size){
-        if (i==0){
-            printf("[");
-            printf("%d, ",(*try_d_arr).arr[i]);
+void set_da(DynamicArray *d_arr, int idx, int val){
+    printf("prompt: idx = %d, size = %d",  idx, (*d_arr).size);
+    int size = (*d_arr).size;
+    if (idx <= size){
+        if (idx == size){ // basically appending on the last part
+            append_da(d_arr, val);
         }
-        else{
+        else{ // adding a new value before the last element
 
-            if (i == (size - 1)){
-                printf("%d]",(*try_d_arr).arr[i]);
+            if (size+1 <= (*d_arr).cap){ // if new size is within the cap
+                for (int i = size; i > idx; i--){ // shift values at the right of the chosen idx rightwards
+                    (*d_arr).p_arr[i] = (*d_arr).p_arr[i-1];
+                }
+                (*d_arr).p_arr[idx] = val; // set the val to the idx-th element
+                (*d_arr).size++; // increase the sie after adding the new val
             }
             else{
-                printf("%d, ",(*try_d_arr).arr[i]);
+                (*d_arr).cap = (*d_arr).cap * 2;
+                int *temp_arr = malloc(sizeof(int) * (*d_arr).cap);
+                // assign the values before the idxth element
+                for (int j = 0; j < idx; j++){
+                    temp_arr[j] = (*d_arr).p_arr[j];
+                }
+                // assign the val to the idxth element
+                temp_arr[idx] = val;
+                // assign the remaining values after the idxth element
+                for (int k = idx + 1; k <= size; k++){
+                    temp_arr[k] = (*d_arr).p_arr[k-1];
+                }
             }
+            
 
         }
+
         
-        i++; 
     }
+// a, b, c, d, e
+}
 
 
 
 
+int main() {
+    DynamicArray *sample_da = make_da();
+    append_da(sample_da, 0);
+    append_da(sample_da, 1);
+    append_da(sample_da, 2);
+    append_da(sample_da, 3);
+    append_da(sample_da, 4);
+    
+    printf("size : %d, cap : %d\n", (*sample_da).size, (*sample_da).cap);
+    int size = (*sample_da).size;
+    printf("\narray: ");
+    for (int i = 0; i < size; i++){
+        printf("%d", (*sample_da).p_arr[i]);
+    }
+    printf("\n");
 
+    set_da(sample_da, 3, 8);
+    set_da(sample_da, 3, 8);
+    set_da(sample_da, 3, 8);
+    set_da(sample_da, 3, 8);
 
-
-    return 0;
+    size = (*sample_da).size;
+    printf("\narray: ");
+    for (int i = 0; i < size; i++){
+        printf("%d", (*sample_da).p_arr[i]);
+    }
+    printf("\n");
+    printf("size : %d, cap : %d\n", (*sample_da).size, (*sample_da).cap);
 }
