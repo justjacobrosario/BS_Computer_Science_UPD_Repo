@@ -9,4 +9,5 @@
 - Canvas & Pasteboard
 
 ## 3. Editing Panels
+- Properties
 - 
