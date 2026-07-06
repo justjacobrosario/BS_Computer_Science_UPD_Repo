@@ -30,4 +30,6 @@
 - text on a path
 
 ## 8. Images
-
+- frame & content
+- alt if content manipulation
+##
