@@ -21,4 +21,11 @@
 - properties
 
 ##  6. Bezier Curves
-- me
+- mechanics
+- editing (double click)
+
+## 7. Texts
+- text properties (size, style, alignment, line spacing)
+- text effects
+
+8. 
