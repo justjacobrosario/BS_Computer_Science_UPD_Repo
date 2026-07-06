@@ -27,5 +27,6 @@
 ## 7. Texts
 - text properties (size, style, alignment, line spacing)
 - text effects
+- text on a path
 
-8. 
+## 
