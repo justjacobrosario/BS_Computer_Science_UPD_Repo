@@ -29,4 +29,5 @@
 - text effects
 - text on a path
 
-## 
+## 8. Images
+
