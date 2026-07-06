@@ -12,3 +12,10 @@
 - Properties
 - Content Properties
 - Outline
+
+## 4. Colors & Gradient
+- colors first!
+
+## 4. Shapes
+- proportional size
+- properties
