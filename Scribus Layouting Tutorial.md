@@ -6,4 +6,7 @@
 ## 2. Workspace
 - Tabs Panel
 - Tools Panel
-- Canvas
+- Canvas & Pasteboard
+
+## 3. Shapes
+- 
