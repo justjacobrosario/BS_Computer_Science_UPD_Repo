@@ -11,3 +11,4 @@
 ## 3. Editing Panels
 - Properties
 - Content Properties
+- Outline
