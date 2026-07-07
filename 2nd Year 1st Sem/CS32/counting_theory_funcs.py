@@ -18,4 +18,17 @@ def permutation(seq):
         return result
     
 
-print(permutation([1, 2, 3]))
+def combinations_comprehension_2(tup):
+    n = len(tup)
+    return tuple((tup[x], tup[y], tup[z])
+        for x in range(n)
+        for y in range(x+1, n)
+        for z in range(y+1, n)) # add another for loop to increase element number per combi
+
+
+x = [1, 2, 3, 4, 5]
+
+print(combinations_comprehension_2(x))
+
+    
+print(permutation(x))

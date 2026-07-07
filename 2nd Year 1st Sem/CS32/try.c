@@ -81,11 +81,7 @@ void set_da(DynamicArray *d_arr, int idx, int val){
                     temp_arr[k] = (*d_arr).p_arr[k-1];
                 }
             }
-            
-
         }
-
-        
     }
 // a, b, c, d, e
 }
