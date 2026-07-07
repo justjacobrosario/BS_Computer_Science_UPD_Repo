@@ -414,7 +414,7 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 28
       }
     ],
     "direction": "vertical"
@@ -596,8 +596,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "88dc8d738890c531",
+  "active": "479533bd063717de",
   "lastOpenFiles": [
+    "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L16_ElmDataTypes/L16_ImmutableDataTypes.md",
     "Scribus Layouting Tutorial.md",
     "MS Publisher & Layouting 💻😲🔥.md",
     "Adobe Indesign & Layouting Basics 💻😎.md",
@@ -634,7 +635,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L21_C_Programming_I/L21_C_Programming_I.md",
     "Faith/Authority of Scripture and Tradition.md",
     "Faith/Importance of Religion in having a relationship with Christ.md",
-    "Faith/Idea of Salvation.md",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
