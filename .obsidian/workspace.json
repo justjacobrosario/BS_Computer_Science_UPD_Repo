@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "479533bd063717de",
+            "id": "d81719b71d13aa5c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -33,7 +33,7 @@
       {
         "id": "ac7691c1a9ba0e8c",
         "type": "tabs",
-        "dimension": 35.097493036211695,
+        "dimension": 43.290043290043286,
         "children": [
           {
             "id": "3d0f97424a4804d0",
@@ -50,7 +50,7 @@
       {
         "id": "b643acb12f551da0",
         "type": "tabs",
-        "dimension": 64.9025069637883,
+        "dimension": 56.709956709956714,
         "children": [
           {
             "id": "bd3644d0e3d7b851",
@@ -202,8 +202,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "479533bd063717de",
+  "active": "d81719b71d13aa5c",
   "lastOpenFiles": [
+    "Scribus Layouting Tutorial.md",
     "MS Publisher & Layouting 💻😲🔥.md",
     "Adobe Indesign & Layouting Basics 💻😎.md",
     "Faith/Intercession.md",
@@ -228,7 +229,6 @@
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L18_ElmAlgebraicDataTypes/ElmAlgebraicDataTypes.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L17_ElmRecordsFoldRecursion/L17_ElmRecords,Fold,Recursion.md",
     "1st Year 2nd Sem/CS 12/CS12 Lecture Notes/L15_ElmBasics/L15_ElmBasics.md",
-    "Scribus Layouting Tutorial.md",
     "Faith/Rome Over Constantinople - How the Eastern Church have been following the Pope.md",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/cargo_pixel/__pycache__/player.cpython-314.pyc",
     "1st Year 2nd Sem/CS 12/Pyxel_Projects/cargo_pixel/__pycache__/view.cpython-314.pyc",

@@ -1,3 +1,15 @@
+## TOPIC 1: 
+
+
+
+
+
+
+
+
+
+
+
 
 ## 1. Page Setup
 - Size & Orientation ✅
