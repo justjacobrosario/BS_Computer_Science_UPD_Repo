@@ -12,5 +12,7 @@
   "anuppuccin-theme-settings@@ctp-custom-text@@light": "#243E5B",
   "anuppuccin-theme-settings@@ctp-custom-mantle@@light": "#FBEBD4",
   "anuppuccin-theme-settings@@ctp-custom-overlay2@@light": "#495D80",
-  "anuppuccin-theme-settings@@ctp-custom-surface1@@light": "#885628"
+  "anuppuccin-theme-settings@@ctp-custom-surface1@@light": "#885628",
+  "a-unique-id@@the-color": "#98FF93",
+  "a-unique-id@@the-background-color": "#080908"
 }
