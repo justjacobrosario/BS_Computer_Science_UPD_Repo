@@ -74,7 +74,7 @@ e.g.
 
 e.g. let there be a data type that allocates 3-bits
 assigning a value 8 will cause numeric overflow such that:
-8 (digital) = 1000 (binary) = 1 (000 only recorded) -> 0 (digital) by overflow
+8 (digital) = 1000 (binary) = 1 (000 only recorded) -> 0  (digital) by overflow
 
 ### 5.3.1 Numeric Overflow in Calculations
 
@@ -86,9 +86,9 @@ assigning a value 8 will cause numeric overflow such that:
 
 : suppose the binary digits are 0-indexed
 
-: in whole numbers, recall that it can be represented as binary in which its value is the summation of **(n_i) * (2^i)** where **i** is the index of a binary digit from **left to right** and **n_i** is the value of the ith binary digit.
+: in whole numbers, recall that it can be represented as binary in which its value is the summation of **(n_i) * (2^i)** where **i** is the index of a binary digit from **right to left** and **n_i** is the value of the ith binary digit.
 
-: in the decimal places (right of the decimal point), its value is represented as the summation of **(n_j) / (2^j)** where **j** is the index of a binary digit from **right to left**  and **n_j** is the value of the jth binary digit.
+: in the decimal places (right of the decimal point), its value is represented as the summation of **(n_j) / (2^j)** where **j** is the index of a binary digit from **left to right**  and **n_j** is the value of the jth binary digit.
 
 : the decimal value is scene as a fraction. (e.g. 0.5 = 1/2 = 0000.1000(binary))
 

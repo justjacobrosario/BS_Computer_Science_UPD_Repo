@@ -3,18 +3,26 @@ import pyxel
 from constants import Key_Input, Tile
 from world import World
 
-
+MIN_ZOOM = 0.5
+MAX_ZOOM = 3.0
+ZOOM_STEP = 0.25
 
 
 class Model:
     def __init__(self, screen_col_count, screen_row_count, scale = 1):
         self._cell_px_size = 8
-        self._screen_width = self._cell_px_size * screen_col_count * scale
-        self._screen_height = self._cell_px_size * screen_row_count * scale
-        self._screen_col_count, self._screen_row_count = (screen_col_count, screen_col_count)
+        self._scale = scale
+        self._screen_width = self._cell_px_size * screen_col_count * self._scale
+        self._screen_height = self._cell_px_size * screen_row_count * self._scale
+        self._screen_col_count, self._screen_row_count = (screen_col_count, screen_row_count)
         self._curr_keys = set({Key_Input.NONE})
         self._world = World(self._screen_width, self._screen_height, self._cell_px_size)
         self._tick = 0
+        self._zoom = 1.0
+
+    @property
+    def zoom(self):
+        return self._zoom
 
     @property
     def screen_width(self):
@@ -105,5 +113,9 @@ class Model:
                     self._world.player.x += (step * 2)
 
 
-
-    
+    def change_scale(self):
+        if Key_Input.ZOOM_IN in self._curr_keys:
+            self._zoom = min(self._zoom + ZOOM_STEP, MAX_ZOOM)
+        
+        elif Key_Input.ZOOM_OUT in self._curr_keys:
+            self._zoom = max(self._zoom - ZOOM_STEP, MIN_ZOOM)

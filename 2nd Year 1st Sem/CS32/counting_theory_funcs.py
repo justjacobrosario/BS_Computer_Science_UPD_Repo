@@ -1,5 +1,5 @@
 
-'''
+
 def permutation(seq):
     if len(seq) <= 1:
         return [seq]
@@ -15,16 +15,16 @@ def permutation(seq):
                 result.append([current] + perm)
         
 
-        return result'''
+        return result
     
 
-'''def combinations_comprehension_2(tup):
+def combinations_comprehension_2(tup):
     n = len(tup)
     return tuple((tup[x], tup[y], tup[z])
         for x in range(n)
         for y in range(x+1, n)
         for z in range(y+1, n)) # add another for loop to increase element number per combi
-'''
+
 
 x = [1, 2, 3]
 

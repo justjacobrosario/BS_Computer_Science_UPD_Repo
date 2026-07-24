@@ -18,6 +18,13 @@ class Color(IntEnum):
     PINK = 14
     PEACH = 15
 
+class Cargo(Enum):
+    RED = Color.RED
+    ORANGE = Color.ORANGE
+    YELLOW = Color.YELLOW
+    GREEN = Color.GREEN
+    BLUE = Color.BLUE
+
 class Tile(Enum):
     GRASS = 0
     OCEAN = 1
@@ -37,6 +44,8 @@ class Key_Input(Enum):
     GO_DOWN_2 = auto()
     GO_LEFT_2 = auto()
     GO_RIGHT_2 = auto()
+    ZOOM_IN = auto()
+    ZOOM_OUT = auto()
     NONE = auto()
 
 class ShipType(Enum):
@@ -82,3 +91,22 @@ class ShipToTile(Enum):
     Roro = (16, 8),
     Super_Tanker = (24, 8)
 
+PORT_SPRITE_UV = (0, 64)
+PORT_SPRITE_SIZE = 16
+
+PORT_BOX_SPRITE_UV = (0, 40)
+PORT_BOX_SPRITE_SIZE = 16
+
+LOAD_BAR_EMPTY_U = 0
+LOAD_BAR_START_U = 16
+LOAD_BAR_U_STEP = 16
+
+CARGO_SPRITE_UV = (0, 56)
+CARGO_SPRITE_SIZE = 8
+CARGO_SPRITE_ORDER = [Cargo.RED, Cargo.ORANGE, Cargo.YELLOW, Cargo.GREEN, Cargo.BLUE]
+
+# Timing constants
+FPS = 30
+PORT_GEN_INTERVAL_SEC = 1
+CARGO_GEN_MIN_SEC = 1
+CARGO_GEN_MAX_SEC = 1
