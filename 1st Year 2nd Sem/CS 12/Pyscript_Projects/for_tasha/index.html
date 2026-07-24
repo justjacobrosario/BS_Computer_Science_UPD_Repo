@@ -1,0 +1,130 @@
+<html>
+<head>
+	<meta charset = "utf-8">
+	<link rel = "stylesheet" href = "https://pyscript.net/releases/2026.3.1/core.css">
+	<script type = "module" src = "https://pyscript.net/releases/2026.3.1/core.js"></script>
+</head>
+
+<body style = "background-color: #181915; font-family: monospace; color: #F92472; overflow-y: hidden;">
+	<div id = "wrapper"></div>
+	<script id="data-json" type="application/json">
+		[
+    "I love you not only for what you are, but for what I am when I am with you.",
+    "I would rather share one lifetime with you than face all the ages of this world alone.",
+    "You are my heart, my life, my one and only thought.",
+    "I am who I am because of you. You are every reason, every hope, and every dream I've ever had.",
+    "I love you without knowing how, or when, or from where.",
+    "I love you more than there are stars in the sky and fish in the sea.",
+    "Doubt thou the stars are fire, doubt that the sun doth move, doubt truth to be a liar, but never doubt my love.",
+    "I love you, and I will love you until I die, and if there's a life after that, I'll love you then.",
+    "I carry your heart with me.",
+    "If I had a flower for every time I thought of you, I could walk through my garden forever.",
+    "I love thee to the depth and breadth and height my soul can reach.",
+    "Love looks not with the eyes, but with the mind, and therefore is winged Cupid painted blind.",
+    "I love you, and that's the beginning and end of everything.",
+    "The best love is the kind that awakens the soul and makes us reach for more.",
+    "I love you not because of who you are, but because of who I am when I am with you.",
+    "I seem to have loved you in numberless forms, numberless times, in life after life, in age after age forever.",
+    "To be your friend was all I ever wanted; to be your lover was all I ever dreamed.",
+    "I love you begins by I, but it ends up by you.",
+    "Come live in my heart, and pay no rent.",
+    "Grow old along with me; the best is yet to be.",
+    "When I saw you I fell in love, and you smiled because you knew.",
+    "I love you more than I have ever found a way to say to you.",
+    "My bounty is as boundless as the sea, my love as deep; the more I give to thee, the more I have, for both are infinite.",
+    "I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.",
+    "If you live to be a hundred, I want to live to be a hundred minus one day so I never have to live without you.",
+    "I would find you in any lifetime.",
+    "I love you and that's all I really know.",
+    "You are the finest, loveliest, tenderest, and most beautiful person I have ever known and even that is an understatement.",
+    "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.",
+    "I love you right up to the moon and back.",
+    "The minute I heard my first love story, I started looking for you, not knowing how blind that was.",
+    "I want all of you, forever, you and me, every day.",
+    "You know you're in love when you can't fall asleep because reality is finally better than your dreams.",
+    "I love you. I am at rest with you. I have come home.",
+    "I love you because the entire universe conspired to help me find you.",
+    "To love is nothing. To be loved is something. But to love and be loved, that's everything.",
+    "Whatever happens tomorrow, we've had today.",
+    "I swear I couldn't love you more than I do right now, and yet I know I will tomorrow.",
+    "You are the last thought in my mind before I drift off to sleep and the first thought when I wake up each morning.",
+    "I love you for all that you are, all that you have been, and all you're yet to be.",
+    "When you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.",
+    "I love you as the plant that never blooms but carries in itself the light of hidden flowers.",
+    "I love you, I love you, I love you. I'll say it a million times if it still doesn't feel like enough.",
+    "I love you for the part of me that you bring out.",
+    "If I know what love is, it is because of you.",
+    "I love you every minute of every day.",
+    "I need you like a heart needs a beat.",
+    "There is a madness in loving you, a lack of reason that makes it feel so flawless.",
+    "I love you simply, without problems or pride.",
+    "I will love you until the stars go out, and the tides no longer turn.",
+    "Take my hand, take my whole life too, for I can't help falling in love with you.",
+    "I love you. Remember. They cannot take it.",
+    "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
+    "I love you. I knew it the minute I met you.",
+    "I love you more than words can wield the matter.",
+    "Love is like the wind, you can't see it but you can feel it.",
+    "I've tried so many times to think of a new way to say it, and it's still I love you.",
+    "I choose you. And I'll choose you over and over and over. Without pause, without a doubt, in a heartbeat. I'll keep choosing you.",
+    "My love for you has no depth; its boundaries are ever-expanding.",
+    "I love thee with the breath, smiles, tears, of all my life.",
+    "And in her smile I see something more beautiful than the stars.",
+    "If you remember me, then I don't care if everyone else forgets.",
+    "I'm much more me when I'm with you.",
+    "You are always on my mind.",
+    "If I did anything right in my life it was when I gave my heart to you.",
+    "To the world you may be one person, but to one person you are the world.",
+    "We loved with a love that was more than love.",
+    "I still fall for you every day.",
+    "For it was not into my ear you whispered, but into my heart. It was not my lips you kissed, but my soul.",
+    "Because of you, I laugh a little harder, cry a little less, and smile a lot more.",
+    "You are the source of my joy, the center of my world and the whole of my heart.",
+    "If you live to be 100, I hope I live to be 100 minus 1 day, so I never have to live without you.",
+    "In case you ever foolishly forget: I am never not thinking of you.",
+    "I'm in love with you, and I know that love is just a shout into the void, and that oblivion is inevitable.",
+    "I will stop loving you when an apple falls from an orange tree, on the 30th of February"
+]
+	</script>
+	<py-script>
+from pyscript import web, document
+import json
+import random
+
+root = document.getElementById("wrapper")
+root.style.display = "flex"
+root.style.flexDirection = "column"
+root.style.alignItems = "center"
+root.style.justifyContent = "center"
+root.style.height = "100vh"
+root.style.gap = "20px"    
+
+
+
+def get_response(ev):
+	raw = document.getElementById("data-json").textContent
+	data = json.loads(raw)
+	rand_id = random.randint(0, 74)
+	text.innerHTML = data[rand_id]
+
+text = document.createElement("div")
+text.innerText = "Click the button :))"
+text.style.fontSize = "3.5rem"
+
+
+
+btn = document.createElement("button")
+btn.innerText = "😘😘😘"
+btn.style.padding = "10px 20px"
+btn.style.fontSize = "2rem"
+btn.style.cursor = "pointer"
+btn.style.backgroundColor = "#343830"
+btn.style.borderRadius = "20%"
+btn.addEventListener("click", web.create_proxy(get_response))
+
+
+root.appendChild(text)
+root.appendChild(btn)
+	</py-script>
+</body>
+</html>
