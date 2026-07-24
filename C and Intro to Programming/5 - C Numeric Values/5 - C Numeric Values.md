@@ -84,11 +84,9 @@ assigning a value 8 will cause numeric overflow such that:
 
 ## 5.4. Decimal Numbers in Binary
 
-: suppose the binary digits are 0-indexed
+: in whole numbers, recall that it can be represented as binary in which its value is the summation of **(n_i) * (2^i)** where **i** is the index (0-indexed) of a binary digit from **right to left** and **n_i** is the value of the ith binary digit.
 
-: in whole numbers, recall that it can be represented as binary in which its value is the summation of **(n_i) * (2^i)** where **i** is the index of a binary digit from **right to left** and **n_i** is the value of the ith binary digit.
-
-: in the decimal places (right of the decimal point), its value is represented as the summation of **(n_j) / (2^j)** where **j** is the index of a binary digit from **left to right**  and **n_j** is the value of the jth binary digit.
+: in the decimal places (right of the decimal point), its value is represented as the summation of **(n_j) / (2^j)** where **j** is the index (1-indexed) of a binary digit from **left to right**  and **n_j** is the value of the jth binary digit.
 
 : the decimal value is scene as a fraction. (e.g. 0.5 = 1/2 = 0000.1000(binary))
 
@@ -97,6 +95,9 @@ to visualize:
 (... + (n_1 * (2^1)) + (n_0 * (2^0))) . ((n_0 / (2^0)) + (n_1 * (2^1)) + ...)
 
 e.g. 
+whole num (if all 1) . decimals (if all 1)
+... 64 32 16 8 4 2 1 . 1/2 1/4 1/8 1/16 ... 
+
 14.75 = 14.0 + (3/4) = 1110.1100 
 
 ### 5.4.1. Decimal Accuracy
@@ -116,17 +117,17 @@ e.g. in converting 1/3 or 0.333... in binary, having more bits to represent the 
 
 : in C, there are data type keywords that will let us declare an integer, positive integer, or a decimal number, and whether the number needs a long bit-length or a short one.
 
-: by not just relying on a universal numeric data type, we can flexibly conserve RAM space by allocating a short space for short numbers (e.g. age), or specify that the number is big (e.g. world population)
+: by not just relying on one universal numeric data type, we can flexibly conserve RAM space by allocating a short space for short numbers (e.g. age), or specify that the number is big (e.g. world population)
 
 ### 5.5.2. C Numeric Data Type Keywords
 
 **1. Keywords based on number type**
 
-| keyword               | Description    |
-| --------------------- | -------------- |
-| `int` or `signed int` | signed integer |
-| `signed int`          | signed integer |
-| `float`               | decimal number |
+| keyword               | Description      |
+| --------------------- | ---------------- |
+| `int` or `signed int` | signed integer   |
+| `unsigned int`        | unsigned integer |
+| `float`               | decimal number   |
 
 **2. Keywords based on number size*
 
