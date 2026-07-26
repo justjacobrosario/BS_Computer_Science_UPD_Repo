@@ -36,7 +36,7 @@ char num_str = "11"
 e.g.
 consider that we have 4GB RAM (4 billion bytes), and a byte has one unique address
 
-| RAM ADdress   | value   |
+| RAM Address   | value   |
 | ------------- | ------- |
 | 0             |         |
 | 1             |         |

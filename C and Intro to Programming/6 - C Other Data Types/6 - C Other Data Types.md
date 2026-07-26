@@ -48,3 +48,8 @@ e.g.
 `'9'` = 0011 1001
 
 : notice that an `int 9` = 1001, but a `char 9` = 0011 1001, thus they are different values.
+
+### 6.1.3. Keyboard Inputs as ASCII characters
+
+: basically, every key typed on the keyboard (even numbers) are in `char` data type
+

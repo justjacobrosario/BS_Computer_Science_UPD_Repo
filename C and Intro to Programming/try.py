@@ -1,15 +1,21 @@
-"1010"
+n = int(input())
+
+arr = input()
 
 
-def binary_to_decimal():
-    b = input("binary: ")
-    l = len(b)
-    res = 0
-    for i, val in enumerate(b):
-        idx = l - i - 1
-        res += int(val)*(2**idx)
-        print(f"{val}*({idx}^{2})")
+A = arr.split(" ")
+int_arr = []
+for x in A:
+    int_arr.append(int(x))
 
-    print(res)
-    
-binary_to_decimal()
+def f(n, A):
+    if n <= 2:
+        return 0
+    else:
+        res = 0
+        for i in range(n-2):
+            if A[i] < A[i+1] > A[i+2]:
+                res += 1
+        return res
+
+print(f(n, int_arr))

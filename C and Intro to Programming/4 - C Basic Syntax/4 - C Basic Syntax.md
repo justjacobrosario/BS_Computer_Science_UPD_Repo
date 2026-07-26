@@ -252,9 +252,9 @@ print(f"{x} + {y} = {x+y}")
 
 : it is type-variable pair
 in C:
-`printf(<string to print>, <var1>, <var2>, ...)`
-: the first format specifier refers to var1, ...
-: the listed variable can be an expression (1+2 is a single variable)
+`printf("%d + %d = %d", x, y, x+y)`
+: `%d` is the format specifier of an int value
+: the first argument of printf is the string to print, followed by values referred by the format specifiers
 : the nth format specifier must be the same type as the nth variable.
 
 ```c
@@ -277,6 +277,18 @@ printf("%d + %d = %d\n", 1, 2, 1+2); // 1 + 2 = 3
 | long/long long                                                                            | %ld / %lld                              |
 | Hex                                                                                       | %x                                      |
 | Special elements<br>(these are added in the string part)<br>e.g.<br>`printf("%d\n", n*2)` | newline: \n<br>tab: \t<br>null char: \0 |
+
+### 4.6.1. printf returns the number of chars
+: we know that printf prints the string to the terminal
+
+: but printf, as a function, also returns an int of the number of chars in the string
+
+e.g.
+```c
+x = printf("Hello World!")
+// x = 12 (since there are 12 chars)
+```
+
 
 ## 4.7. Top Level and Scoping Rules
 ### 4.7.1. Top level codes
@@ -318,12 +330,12 @@ int main(){
 ## 4.8. Integer Data Types and Limits
 
 
-| Bits | Signed Type        | Range             | Unsigned Type                | Range       |
+| Byte | Signed Type        | Range             | Unsigned Type                | Range       |
 | ---- | ------------------ | ----------------- | ---------------------------- | ----------- |
-| 8    | char, int8_t       | −128 to 127       | unsigned char, uint8_t       | 0 to 255    |
-| 16   | short, int16_t     | −32,768 to 32,767 | unsigned short, uint16_t     | 0 to 65,535 |
-| 32   | int, int32_t       | ≈ −2.1B to 2.1B   | unsigned int, uint32_t       | 0 to ≈4.3B  |
-| 64   | long long, int64_t | −2⁶³, 2⁶³−1       | unsigned long long, uint64_t | (0, 2⁶⁴−1)  |
+| 1    | char, int8_t       | −128 to 127       | unsigned char, uint8_t       | 0 to 255    |
+| 2    | short, int16_t     | −32,768 to 32,767 | unsigned short, uint16_t     | 0 to 65,535 |
+| 4    | int, int32_t       | ≈ −2.1B to 2.1B   | unsigned int, uint32_t       | 0 to ≈4.3B  |
+| 8    | long long, int64_t | −2⁶³, 2⁶³−1       | unsigned long long, uint64_t | (0, 2⁶⁴−1)  |
 
 : include `stdint.h` to use fixed-width types like the types ending with `_t`
 
@@ -351,7 +363,7 @@ int main(){
 ### b) Type Limits
 : type limit errors occur when a variable is mutated into a value beyond the bounds of its data type
 
-## 4. Arrays in C
+## 4.9. Arrays in C
 
 : arrays in c are fixed-size
 : no len(), size is explicitly or implicitly fixed upon declaration
@@ -404,15 +416,36 @@ int main(){
 // 4
 ```
 
-## C-style Strings and ASCII
+## 4.10. C-style Strings and ASCII
 
 : python has a string type, c doesnt
+
+: **Strings are Null Terminated**
 : a c string is an array f char values ending with a `\0` null char
+
+e.g. in the binary representation of "123"
+- we know that every element in a string is a char. Thus "123" consists of char numbers (not ints!). And a char is 1 byte
+- refer to [[6 - C Other Data Types]] to recall how char numbers  are represented as binary
+
+: if we are to represent "123" 
+
+00110001001001100011001100000000
+
+(just added spaces and colons to separate chars):
+
+0011 0001 : 0011 0010 : 0011 0011 : 0000 0000
+
+this is like `{'1', '2', '3', '\0'}` in arrays
+
+: thus in an n-char string, it is n+1 bytes long (+1 bc of the null char)
+
 
 ### a. declaring a string variable
 
 ```c
 #include <stdio.h>
+
+// str1, str2, and str3 are diff ways to make strings
 
 int main(){
 	// like a pythonstr

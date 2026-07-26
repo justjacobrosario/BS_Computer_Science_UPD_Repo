@@ -63,7 +63,7 @@ e.g.
 ##### B. `unsigned int` data type
 
 : this is C's most common data type for integers
-: it represents **signed numbers**
+: it represents **unsigned numbers**
 : allocates a **32-bit** space, completely for value representation. It can represent of numbers of at most (2^(32)) = 4,294,967,295.
 
 ## 5.3. Numeric Overflow
@@ -145,3 +145,26 @@ short float shares = 0.5;
 long int population = 8296864572;
 long float pi = 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481117450284102701938521105559644622948954930381964428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273724587006606315588174881520920962829254091715364367892590360011330530548820466521384146951941511609433057270365759591953092186117381932;
 ```
+
+### 5.5.3. Getting Maximum Values of Numeric Data Types
+
+: The max possible value that one can assign on a data type depends on the number of bits it allocates
+
+: there are two situations:
+#### A. Unsigned Number
+: for an n-bit numeric data type without a **sign bit**, the max possible number will be **(2^n) - 1**. 
+
+: We subtracted to one since 0 is a possible value. 
+
+e.g. a 3-bit data type can have a maximum value of 7 (111), since (2^3) - 1 = 7, with (000) as 0
+
+#### B. Signed Number
+
+: since there exists a **sign bit**, Half of it is non-negative, and half is negative.
+
+: however, e.g. for a 3-bit data type, (000) and (100) both equates to a value of 0. Thus, to not repeat the same value of 0, let (100) be reassigned to be the next negative number, i.e. if 111 is -7, then 100 is -8 instead of 0 which virtually is also the minimum value.
+
+: Thus, the max val is **(2^n)/2 - 1** and the minimum value is **-(2^n)/2**, (didn't subtract to 1 since the (100) is also a negative number, instead of also 0)
+
+e.g. for a 4-bit signed data type, the max value is (2^4)/2 -1 = 7, and the minimum value is  -(2^4)/2 = -8
+
