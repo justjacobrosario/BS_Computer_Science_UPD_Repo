@@ -1,3 +1,4 @@
+[[MS Publisher & Layouting 💻😲🔥]]
 
 ## 1. Basic Mechanics Recall
 1. Workspace ✅

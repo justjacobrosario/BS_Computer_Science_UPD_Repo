@@ -3,7 +3,7 @@ year: 1
 subject: CS12
 field: programming
 ---
-
+[[L18_ElmAlgebraicDataTypes]]
 
 # 1: RECORDS
 

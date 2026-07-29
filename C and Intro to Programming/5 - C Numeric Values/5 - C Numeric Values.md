@@ -1,3 +1,5 @@
+[[4 - C Basic Syntax]]
+
 : we will be covering about number values in C
 5.1. Numbers in Binary
 5.2. Signed and Unsigned Numbers

@@ -3,5 +3,4 @@ year: 1
 subject: CS12
 field: programming
 ---
-[[L20_MVU2_API]]
-![[ElmMVU1]]
+![[C_Programming_Basics_IV]]

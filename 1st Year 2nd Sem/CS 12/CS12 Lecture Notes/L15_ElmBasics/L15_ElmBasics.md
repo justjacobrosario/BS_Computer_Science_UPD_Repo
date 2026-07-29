@@ -3,7 +3,7 @@ year: 1
 subject: CS12 
 field: programming
 ---
-
+[[L16_ImmutableDataTypes]]
 
 # 1: ELM PROGRAMMING LANGUAGE
 

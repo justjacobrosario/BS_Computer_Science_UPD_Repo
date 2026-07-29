@@ -1,3 +1,5 @@
+[[2 - How Programming Works]]
+
 : Programming languages are meant for humans to understand machine language (binary strings).
 : This can be done by assigning variable names to a data's address, an instruction, a set of instructions, etc.
 
@@ -114,3 +116,9 @@ incr(10) // this will return 11
 >	These are surface-level functions that mostly do tasks that is frequently and basically done.
 3. Learn how to use libraries and their functions. 
 >	After having a sufficient vocabulary on the basic functions, one can study libraries, their purpose, and the functions provided by the library.
+
+## 3.4. What is it for the next Chapters?
+
+: **Chapter 4** will explain the Basic Syntax of C in a general scope
+: **Chapter 5** will further emphasize Numeric Data Types, how it is represented in binary, and how is used to C
+: Chapter 6 focuses on other data types, especially the `char` data type and how it is represented in binary

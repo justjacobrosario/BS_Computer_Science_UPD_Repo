@@ -1,12 +1,168 @@
----
-field: programming
----
+[[6 - C Other Data Types]]
 
-## 1. Pointers and Memory
+some assumptions to be considered (not totally true, but assume such for now to make things simple):
+- let all text chars as ascii chars
+- let `unsigned short int` data type allocate 2 bytes in size
+## 7.1. C Arrays
 
-### a) Memory
+## 7.1.1. Initializing Arrays in C
 
-#### 1] bit vs bytes
+: arrays in C are fixed-size
+: no len(), size is explicitly or implicitly fixed upon declaration
+: we can get the length of arrays using `sizeof` (basically returns the size of a data type or variable)
+
+e.g. suppose `arr` is an array
+```c
+int length = sizeof(arr) / sizeof(arr[0])
+```
+
+### A. Python lists vs C Arrays
+
+: in python, we do lists like this
+```python
+lis = [1, 2, 3, 4]
+
+lis[1] = 10
+lis.append(67)
+
+print("len: " + str(len(lis))) # len: 5
+
+for n in lis:
+	print(n)
+	
+'''
+1
+10
+3
+4
+67
+'''
+```
+
+: in C, we do arrays as `<data_type> <arr_name>[];`
+: arrays can be an array of int `e.g. int arr[];`, an array of char, and so on.
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+// lis, lis2, lis3, lis4, lis5 are diff ways to initialize an array  (more ways using pointers laterr)
+
+int main(){
+    int lis[] = {1, 2, 3, 4}; // implicit length
+    int lis2[4] = {2, 4, 6, 8}; // explicit length
+    
+    int lis3[10] = {}; // {0,0,0,0,0,0,0,0,0,0}
+    int lis4[10] = {1}; // {1,0,0,0,0,0,0,0,0,0}
+    int lis5[10]; // garbage e.g. {0429, 39120, -32190, ...}
+    
+    lis[1] = 10; // mutable but no append method
+	
+	// u cant print most arrays once (need to loop)
+    for (int i = 0; i<4;i++){
+        printf("%d\n", lis[i]);
+    }
+}
+// 1
+// 10
+// 3
+// 4
+```
+
+## 7.2. C-style Strings and ASCII
+
+: **String** is a type of `char` array
+
+**A. Strings are Null Terminated**
+: a C string is an array ends with a `'\0'` null char
+: we use `'\0'` to prompt that only the bytes before it are the elements of array (i.e. prevents the program to )
+
+e.g. in the binary representation of "123"
+- we know that every element in a string is a char. Thus "123" consists of char numbers (not ints!). And a char is 1 byte
+- refer to [[6 - C Other Data Types]] to recall how char numbers  are represented as binary
+
+: if we are to represent "123" 
+
+00110001001001100011001100000000
+
+(just added spaces and colons to separate chars):
+
+0011 0001 : 0011 0010 : 0011 0011 : 0000 0000
+
+this is like `{'1', '2', '3', '\0'}` in arrays
+
+: thus in an n-char string, it is n+1 bytes long (+1 bc of the null char)
+
+```c
+char arr[4] = {'a', 'b', 'c', '\0'}
+```
+
+**B. Strings is a Special Char Array**
+
+: strings is so special, instead of manually looping its elements, we can simply print it once using its own format specifier `%s`
+
+: we can do that because we know until when should `printf` stop printing via the null char.
+
+e.g. suppose `arr` is a string
+```c
+printf("%s", arr) // only for null terminating strings
+```
+
+**Note: char arrays without `'\0'` are not strings**
+### 7.2.1. Declaring Strings
+
+: since we know when to stop using the null char, we don't need to explicitly declare the array length for strings
+
+```c
+#include <stdio.h>
+
+// str1, str2, and str3 are diff ways to make strings
+
+int main(){
+	// like a pythonstr
+    char str1[] = "Hello x";
+    // list of chars
+    //NOTE: "" for str, '' for chars
+    char str2[] = {'H', 'e', 'l', 'l', 'o', ' ', 'x', '\0'};
+    // list of ascii nums
+    char str3[] = {72,101,108,108,111,32,88,0};
+
+    printf("%s\n", str1);
+    printf("%s\n", str2);
+    printf("%s\n", str3);
+
+}
+```
+
+*: aside from directly giving values to the char array, we can input string and then assign it to a char array later using `scanf`*
+
+
+## 7.3. Arrays in RAM
+: an array is a collection of elements with the same data type.
+
+: recall that in RAM, elements are represented in bytes.
+: in memory, elements of an array are **contiguous**, or their byte representation are adjacent to each other.
+
+e.g. in an array of `unsigned short int` {1, 2, 3}
+
+in binary (where a byte is virtually divided in colons):
+`0000 0000 0000 0001 : 0000 0000 0000 0010
+{              `1`             ,               `2`             } 
+
+e.g. in a string "a1" is {`'a'`, '`1`', '`\0`'}
+- we know that lowercases starts with `0110`
+- we know that number chars starts with `0011`
+
+in binary (where a byte is virtually divided in colons):
+`0110 0001 : 0011 0001 : 0000 0000`
+{   `'a'`      ,    `'1'`       ,    `'\0'`    } 
+
+
+## 7.4. Memory
+
+: lets first focus on the memory and its terms
+
+#### A. bit vs bytes
 : a byte has 8 bits
 : thus n-bit values covers n/8 byte of memory
 
@@ -21,61 +177,86 @@ field: programming
 | double    | 64-bit       | 8 bytes      |
 | void      | 0-bit        | 0 bytes      |
 
-#### 2] Parts of Memory
+#### B. Parts of Memory (Address and Value)
 
-: it consists of an Address (index), and a Value (byte)
+: it consists of an **Address (index)**, and the **Value (in bytes of binary)**
+: Addresses are also made of binary integers. For 64-bit computers, **Addresses are 8 bytes long**
+: when printed, its format specifier is `%p`
+: for simplicity, instead of showing address as 8 bytes long (which it is realistically), we will show addresses to be `0x<4 bits>`
 e.g.
-`int x = 1`
+`{'a', 'b', 'c'}`
 
-| Address  | Value |
-| -------- | ----- |
-| `0x1000` | `1`   |
-| `0x1004` |       |
-| `0x100F` |       |
-| ...      |       |
-1 is the value of x and the address is 0x1000
+| Address  | Value       |
+| -------- | ----------- |
+| `0x1000` | `0110 0001` |
+| `0x1001` | `0110 0010` |
+| `0x1002` | `0110 0011` |
+| ...      | ...         |
 
-#### 3] Memory as an Array of bytes
+
+#### C. Memory as an Array of bytes
 : see memory as an array of bytes of values where the index is their address
 : a value that is n bytes long is set to the address (previous address + n)
 
-| code                    | address      | value         | remarks                                                   |
-| ----------------------- | ------------ | ------------- | --------------------------------------------------------- |
-| ...                     | `0x1000`     | ...           | lets set the previous address for the sake of an example  |
-| `int a = 1`             | `0x1004`     | 1             | it covers the next 4 bytes since an `int` is 4 bytes long |
-| char b = 'a'            | `0x1005`     | 'a'           | it covers the next 1 byte since `char` is 1 byte long     |
-| `int lis[] = {5, 6, 7}` | `0x1009`     | `lis[0]` or 5 | elements of arrays have separate addresses (same rule)    |
-|                         | `0x1013`     | `lis[1]` or 6 | ...                                                       |
-|                         | `0x1017`     | `lis[2]` or 7 | ...                                                       |
+: see memory as an array like this
+{... , 0000 0000, 0000 0000, 0000 0000, 0000 0001... }
+      `0x1001`    `0x1002`   `0x1003`    `0x1004` ...  addresses
 
-### b) Pointers
+#### D. Importance of data type specification
+
+: **data types** specifies the memory length of data. It can be more than 1 byte, where it covers multiple addresses. (e.g. an int covers 4 bytes long, so it also covers 4 contiguous addresses, such that it is referenced to the first address)
+
+| code                    | address  | value         | remarks                                                  |
+| ----------------------- | -------- | ------------- | -------------------------------------------------------- |
+| ...                     | `0x1000` | ...           | lets set the previous address for the sake of an example |
+| `int a = 1`             | `0x1001` | 1             | an `int` is 4 bytes long, so it uses the net 4 address   |
+| char b = 'a'            | `0x1005` | 'a'           | `char` is 1 byte long, so it covers the next 1 byte      |
+| `int lis[] = {5, 6, 7}` | `0x1006` | `lis[0]` or 5 | elements of arrays have separate addresses (same rule)   |
+|                         | `0x1009` | `lis[1]` or 6 | ...                                                      |
+|                         | `0x1013` | `lis[2]` or 7 | ...                                                      |
+
+## 7.5. Pointers
+
+: we know that each byte is found to a certain address in RAM
+: a value can be referenced to the address of its first byte
 
 #### 1] Pointer Value
 : Memory address or index of a certain value
 
 #### 2] Pointer
-: the variable that contains a pointer value 
-(i.e. doesnt have the house, just the address of it)
+: the variable that contains a memory address
+(i.e. a variable that points to the address of a value)
+(i.e. a pointer doesn't have the house, just the address of it)
 
 #### 3] `*`
-: the pointer symbol does things differently depending on where you will use it
+: the pointer symbol does things differently depending on where you will use it (more on it later)
 
 #### 4] `&var`
 : returns the address of the value of `var`
 
-### c) Using Pointers
+### A. Using Pointers
+: the `*` has diff purpose for the 1st and 2nd usage
+: the 1st `*` initializes a var to be a pointer, the 2nd `*` dereferences the pointer to the value of the address that its pointing.
 #### 1] Initializing a Pointer
 `data_type *pVar = &var`
+
+: *we need to explicitly mention the **data type** to know how long the data is and until what address the data cover (recall 7.4.D. Importance of data type specification)*
 
 e.g.
 ```c
 int x = 4;
 int *pX = &x; // pX contains the address of x
+
+// or
+
+int x = 4;
+int *pX; // * declares pX as a pointer
+pX = &x; // no need to add *, bc it has already been declared
 ```
 
-: i.e. `pVar` is the pointer that contains the address of `var`, where the value of `var` is a type of `data_type` (like an int, char, etc.)
+: i.e. `pX` is the pointer that contains the address of `x`, where the value of `x` is a type of `int`
 
-: whenever we use `*` in the middle of declaring a datatype to a variable, we assign that variable `(pVar)` as the pointer to the address value (pVar points to &x)
+: whenever we use `*` in the middle of declaring a datatype to a variable, we assign that variable `pX` as the pointer to the address value (pX points to &x)
 
 memory will look like this:
 
@@ -86,7 +267,8 @@ memory will look like this:
 |                | `0x100F` |                          |
 
 #### 2] Dereferencing a Pointer (return value of var addressed to p)
-: whenever we call `*pX` again, instead of returning the address of x, it returns the value of x (hence referring to the value in the address)
+
+: whenever we call `*pX` again, instead of returning the address (calling `pX` returns the address of x), it returns the value of x (hence referring to the value in the address)
 : mutating the value of `*pX` also mutates the value of `x`
 
 e.g.
@@ -94,7 +276,8 @@ e.g.
 int x = 4;
 int *pX = &x;
 
-printf("%d", *pX); // prints 4 instead of 0x1000
+printf("%p", pX); // prints 0x1000 (notice that addresses has a format specifier %p)
+printf("%d", *pX); // Dereferencing: prints 4 instead of 0x1000
 ```
 memory will look like this:
 
@@ -112,9 +295,9 @@ e.g.
 int *create_num_67(){
 	int *p = malloc(sizeof(int)); // allocates memory for an int
 	
-	// sizeof(int) tells that we need 4 bytes to allocate 67
-	// malloc() requests for a free block of memory fo size 4 bytes where we will place the value of *p there
-	// malloc(sizeof(int)) gives the address of the free memory to be used
+	// 1) sizeof(int) tells that we need 4 bytes to allocate 67
+	// 2) malloc() requests for a free block of memory fo size 4 bytes where we will place the value of *p there
+	// 3) malloc(sizeof(int)) gives the address of the free memory to be used
 	
 	*p = 67;
 	return p // returns the address
@@ -125,48 +308,54 @@ int main() {
 	printf("%d\n", *num); // 67
 	}
 ```
-### d) Pointers in arrays
+
+### B. Pointers in arrays
 
 let there be `char lis[] = {'a', 'b', 'c'}`
 
 : every element has their own pointer value (address)
-: there is no pointer to the whole array
+: there is no single pointer to every elements of the whole array
 
-: the array_name `lis` is the pointer for the address of the first element
-: so `*lis = lis[0]`, `*(lis + 1) = lis[1]`
+: **the array name `lis` is the pointer** for the address of the first element (which also virtually points to the whole array)
+
+: so `*lis => lis[0]`, `*(lis + 1) => lis[1]`
 : thus `*(lis + i) = lis[i]` for any i < array_length
 
 
-#### Initializing pointer via indexing or arithmethic method
-```c
+#### Indexing Arrays via Pointers
+: 1. we know that array elements are contiguous
+`(arr[0], arr[1], ... )`
 
+: 2. we know the pointer `*arr` dereferences the first element ( which is same for `arr[0]`)
+
+: 3. Thus, `*(arr + i)` is equivalent to `arr[i]` for some index 0 <= i <= array length.
+
+
+```c
 int main(){
-    char lis[] = {'a', 'b', 'c'};
+    char arr[] = {'a', 'b', 'c'};
+    
     // I. Indexing method
-    char *pfirst = &lis[0]; // &lis[n]
+    printf("%c", arr[1]); // b
+    
     // II. Arithmetic Method
-    // see lis as the point of the array (no need for *)
-    char *pfirst2 = lis + 0; // lis + n
+    printf("%c", *(arr + 1)); //b
     
     // lis[i] <-> *(lis + i)
-
-    printf("%c\n", *pfirst); // a
-    printf("%c\n", *pfirst2); // a
 }
-
 ```
 
 ### e) Parameterizing arrays in functions using pointers
 
-: basically the parameter for an array is a pointer
-: in the function body, refer to the array using its pointer parameter
-: but when called, its argument is an array
+: if a parameter is an array, parameterize the array as a pointer
+`e.g. void f(int *arr){...}`
+: when called, it dereferences, its argument is an array
 
 like this template:
 ```c
-void f(int *pArray, int n) {
+void f(int *arr, int n) {
     for (int i = 0; i < n; i ++){
-        pArray[i] ...; // uses each element of the array
+        arr[i] ...; // uses each element of the array
     }
 }
 

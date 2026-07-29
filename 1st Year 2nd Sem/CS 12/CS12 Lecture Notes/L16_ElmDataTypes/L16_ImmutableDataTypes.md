@@ -3,6 +3,7 @@ year: 1
 subject: CS12
 field: programming
 ---
+[[L17_ElmRecords,Fold,Recursion]]
 
 # 1: MODULES
 

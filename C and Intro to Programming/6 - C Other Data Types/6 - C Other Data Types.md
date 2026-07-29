@@ -1,3 +1,6 @@
+[[5 - C Numeric Values]]
+
+
 ## 6.1. `char` Data Type
 
 : data type for each character of a string of text

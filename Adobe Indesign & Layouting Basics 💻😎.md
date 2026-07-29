@@ -1,3 +1,4 @@
+[[July 18 - Scribus Layout and Page Design Tutorial]]
 
 ## 1. Page Setup
  - page details ✅

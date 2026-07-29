@@ -1,21 +1,24 @@
-n = int(input())
+first = input()
+strm, strd = first.split(" ")
+M, D = int(strm), int(strd)
 
-arr = input()
+S = input()
 
+def watch(s, d):
+    count = 0
+    for i in range(M):
+        if s[i] == ".":
+            is_guarded = False
+            for j in range(d+1):
+                if (0 <= (i - j) < M) and (s[i-j] == "G"):
+                    is_guarded = True
+                    break
+                if (0 <= (i + j) < M) and (s[i+j] == "G"):
+                    is_guarded = True
+                    break
+            if not is_guarded:
+                count += 1
 
-A = arr.split(" ")
-int_arr = []
-for x in A:
-    int_arr.append(int(x))
+    print(count)
 
-def f(n, A):
-    if n <= 2:
-        return 0
-    else:
-        res = 0
-        for i in range(n-2):
-            if A[i] < A[i+1] > A[i+2]:
-                res += 1
-        return res
-
-print(f(n, int_arr))
+watch(S, D)
