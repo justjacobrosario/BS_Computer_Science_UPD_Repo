@@ -1,0 +1,540 @@
+https://chatgpt.com/share/690ef81c-e094-8011-9d32-d9badb4d41a1
+
+
+in python can u site libraries that are good for constructing games, interactions, and animations in the terminal window?
+You said:
+can u list down the functions and methods of asciimatics and their description that we can use for building interactive terminal games, no need to give sample codes
+You said:
+in terms of colors, what are compatible for every terminal of all operating systems
+You said:
+it seems that i cant use 256 colors using asciimatics, can u give me other modules where i can do animations in the terminal using 256 colors and is applicable to almost all systems
+You said:
+compare blessed and rich for making a colorful ascii animation in terminal
+You said:
+can u give me the links for asciimatics documentations about effects, frames, layouts, and things that would be useful in making a terminal game
+You said:
+how to collaborate same python file in vs code using different computers
+You said:
+in live share how to not follow the host scrolling
+You said:
+help
+
+PS C:\Users\Acer> & C:/Users/Acer/AppData/Local/Programs/Python/Python313/python.exe d:/GitHub/Shroom_Raider_Python_Game/main_draft.py
+Traceback (most recent call last):
+  File "d:\GitHub\Shroom_Raider_Python_Game\main_draft.py", line 50, in <module> 
+    map_1 = map_maker('MAPS.txt')[1]
+            ~~~~~~~~~^^^^^^^^^^^^
+  File "d:\GitHub\Shroom_Raider_Python_Game\main_draft.py", line 25, in map_maker
+    with open(file, 'r') as MAPS: # Opens the txt file and set its name to MAPS  
+         ~~~~^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'MAPS.txt'
+PS C:\Users\Acer> 
+
+but MAPS.txt is just beside main_draft.py from the same folder
+You said:
+def demo(screen):
+    scenes = []
+
+    for bg, name in [
+            (Screen.COLOUR_DEFAULT, "DEFAULT"),
+            (Screen.COLOUR_RED, "RED"),
+            (Screen.COLOUR_YELLOW, "YELLOW"),
+            (Screen.COLOUR_GREEN, "GREEN"),
+            (Screen.COLOUR_CYAN, "CYAN"),
+            (Screen.COLOUR_BLUE, "BLUE"),
+            (Screen.COLOUR_MAGENTA, "MAGENTA"),
+            (Screen.COLOUR_WHITE, "WHITE")]:
+        effects = [
+            Wipe(screen, bg=bg, stop_frame=screen.height * 2 + 30),
+            Print(screen, FigletText(name, "epic"), screen.height // 2 - 4,
+                  colour=bg if bg == Screen.COLOUR_DEFAULT else 7 - bg,
+                  bg=bg,
+                  start_frame=screen.height * 2),
+            Print(screen,
+                  SpeechBubble("Testing background colours - press X to exit"),
+                  screen.height-5,
+                  speed=1, transparent=False)
+        ]
+        scenes.append(Scene(effects, 0, clear=False))
+
+    screen.play(scenes, stop_on_resize=True)
+
+
+if __name__ == "__main__":
+    while True:
+        try:
+            Screen.wrapper(demo)
+            sys.exit(0)
+        except ResizeScreenError:
+            pass
+
+
+this is one of the samples in the documentation in asciimatics, can u assist/explain to me this each line and introduce me the terms and keys used in asciimatics here
+
+
+You said:
+can u teach me as a begginer how to color the background using column numbers row number, and how to animate the color of the background using asciimatics
+You said:
+in asciimatics, can u give me all builtin colorful effects, dont give the code
+You said:
+asciimatics vs urwid in making the main mennu
+You said:
+in making a main menu, can u explain to me the usage of the keywords Screen, Frame, Layout, Widget, u can give me an example solely for teaching me
+You said:
+can u teach me each line/sections, consider that i am not quite familiar with classes
+You said:
+what does super() do
+You said:
+whats ruff in python
+You said:
+PS D:\Downloads\OplanLinis\ruffed_based_game> ruff check . --fix
+PLR0913 Too many arguments in function definition (8 > 5)
+  --> physics_logic.py:84:5
+   |
+84 | def space_interaction(
+   |     ^^^^^^^^^^^^^^^^^
+85 |     row_pos: int,
+86 |     col_pos: int,
+   |
+
+PLR0917 Too many positional arguments (8/5)
+  --> physics_logic.py:84:5
+   |
+84 | def space_interaction(
+   |     ^^^^^^^^^^^^^^^^^
+85 |     row_pos: int,
+86 |     col_pos: int,
+   |
+
+Found 2 errors.
+
+what do these mean, can u teach me how to read those
+You said:
+CS11_251_Project_Core_Oct_30.pdf
+PDF
+this is our instructions, according to the pdf, do we need to fully follow entities like ruff to make it cleana nd formal, or can we slip those errors like too many arguments or too many positional arguments?
+You said:
+in the process of submitting it, i actually dont know how to use github, can u teach me in depth, specifically, take your time
+You said:
+lets say i already have a repository in github classroom, i also downloaded git bash, and i have a folder of files in my local computer that i want to place it to the repository and share it to my friends so that our files are synced in, what to do
+You said:
+i think im stuck at step 7 Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/ShroomRaider (main) $ git push -u origin main fatal: protocol 'https' is not supported
+You said:
+i got stuck at step 4
+
+$ git push -u origin main
+info: please complete authentication in your browser...
+To https://github.com/UPD-CS11-251/project-1-shroom-raider-three-musketeers.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/UPD-CS11-251/project-1-shroom-raider-three-musketee
+rs.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/ShroomRaider (main)
+$ git remote add origin  https://github.com/UPD-CS11-251/project-1-shroom-raider-three-musketeers.git
+error: remote origin already exists.
+
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/ShroomRaider (main)
+$ q
+bash: q: command not found
+
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/ShroomRaider (main)
+$
+
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/ShroomRaider (main)
+$
+
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/ShroomRaider (main)
+$
+You said:
+i want to update my files in my local computer to the updated file in our github repo but it raised this when i git pull it
+
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/project-1-shroom-raider-three-musketeers (main)
+$ git pull
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 8 (delta 6), reused 8 (delta 6), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 11.51 KiB | 14.00 KiB/s, done.
+From https://github.com/UPD-CS11-251/project-1-shroom-raider-three-musketeers
+   82c8d34..6603612  main       -> origin/main
+CONFLICT (modify/delete): __pycache__/data.cpython-313.pyc deleted in HEAD and m
+odified in 660361205040bd6d1ff92a3759b032c7eaa434b4.  Version 660361205040bd6d1f
+f92a3759b032c7eaa434b4 of __pycache__/data.cpython-313.pyc left in tree.
+CONFLICT (modify/delete): __pycache__/sign_in.cpython-313.pyc deleted in HEAD an
+d modified in 660361205040bd6d1ff92a3759b032c7eaa434b4.  Version 660361205040bd6
+d1ff92a3759b032c7eaa434b4 of __pycache__/sign_in.cpython-313.pyc left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+You said:
+Acer@DESKTOP-RRO6PBG MINGW64 /d/Downloads/project-1-shroom-raider-three-musketeers (main|MERGING)
+$ git rm -rf __pycache__/
+bash: $'\302\203git': command not found
+You said:
+where can i translate english sentences and phrases to japanese properly that i will display to my project
+You said:
+okay lets use chatgpt, the game is shroom raider and the tone must be aligned for games where where the game is a 2d mission based game
+You said:
+for the next prompts i will ask you the japanese translation of words, phrases, or sentences with aligned tone
+You said:
+"language"
+You said:
+how to do comments and docstrings formally so that i wll not be flagged by ruff and i can explain my code cleanly and properly
+You said:
+in module -lvel docstring, should it be before the imports or after the imports?
+You said:
+in my windows laptop, when i run in python3, modules like asciimatics are said to be modulenotfound, but when i run in python, the modules are complete
+You said:
+lets say i listed the modules in requirements.txt, how to install them at once
+You said:
+how to use comments and docstrings properly and cleanly in python
+You said:
+how about if a unction returns something
+You said:
+in asciimatics what is Screen again
+You said:
+should it be
+"""
+    Play a sound effect by name.
+
+    Args:
+        sound_name (str): The name of the sound file to play.
+
+    Returns:
+        None
+    """
+
+or
+
+"""
+    Play a sound effect by name.
+
+
+
+    Args:
+        sound_name (str): The name of the sound file to play.
+
+
+
+    Returns:
+        None
+    """
+You said:
+how to cd in git bash D:\Downloads\project-1-shroom-raider-three-musketeers
+You said:
+for the next prompts i will ask you the japanese translation of words, phrases, or sentences with 2d game tone
+You said:
+"Mushroom Count:"
+You said:
+is キノコ数： readable to all terminals
+You said:
+is adding # -*- coding: utf-8 -*- do anything in a .py file? isnt that just a comment?
+You said:
+are emojis also readable in # -*- coding: utf-8 -*-
+You said:
+for the next prompts i will ask you the japanese and filipino translation of words, phrases, or sentences with 2d game tone
+You said:
+"Mushroom Count:"
+"No item to pick up"
+"[P] Pickup        "
+"Inventory: "
+"[Q] Quit"
+"[W] Walk Up"
+"[A] Walk Left"
+"[S] Walk Down"
+"[D] Walk Right"
+"Time: "
+You said:
+"Choose your Character"
+"Choose UI Background Color"
+"Choose UI Visuals Color"
+"BACK TO MAIN MENU"
+"Appearance"
+
+You said:
+sign_in.py
+Python
+by sending the same table response that u did, translate the "na" placeholders and then send me the japanese and filipino translations with game-theme tone of the given english translation
+
+e.g. if u find translate("BACK", "na", "na"), give me the japanese and filipino translation of "BACK" 
+
+
+You said:
+yes
+You said:
+in the same template and format, continue this until 23
+
+num_1 = """  ██╗  
+ ███║  
+ ╚██║  
+  ██║  
+  ██║  
+  ██║  """
+
+num_2 = """ ██████╗   
+ ╚════██╗
+  █████╔╝
+ ██╔═══╝ 
+ ███████╗
+ ╚══════╝"""
+
+num_3 = """ ██████╗   
+ ╚════██╗
+  █████╔╝
+  ╚═══██╗
+ ██████╔╝
+ ╚═════╝ """
+
+num_4 = """ ██╗  ██╗  
+ ██║  ██║
+ ███████║
+ ╚════██║
+      ██║
+      ╚═╝"""
+
+num_5 = """ ███████╗  
+ ██╔════╝
+ ███████╗
+ ╚════██║
+ ███████║
+ ╚══════╝"""
+
+num_6 = """  ██████╗   
+ ██╔════╝ 
+ ███████╗ 
+ ██╔═══██╗
+ ╚██████╔╝
+  ╚═════╝ """
+
+num_7 = """ ███████╗
+ ╚══███╔╝
+   ███╔╝ 
+  ███╔╝  
+  ███║   
+  ╚══╝  """
+
+num_8 = """  █████╗ 
+ ██╔══██╗
+ ╚█████╔╝
+ ██╔══██╗
+ ╚█████╔╝
+  ╚════╝ """
+
+num_9 = """  █████╗ 
+ ██╔══██╗
+ ╚██████║
+  ╚═══██║
+  █████╔╝
+  ╚════╝ """
+You said:
+can u give me the formats in making a readme.md file
+Here you go, Justin — a clean guide on how to format a professional README.md for your project.
+These formats are the standard styles used in GitHub repositories and recommended for school + team projects.
+
+✅ 1. Minimal README Format
+
+(Good for small projects)
+
+# Project Title
+
+Short description of what the project does.
+
+## How to Run
+1. Install Python 3.x
+2. Install dependencies:
+
+
+pip install -r requirements.txt
+
+3. Run the game:
+
+
+python main.py
+
+
+## Requirements
+- Python 3.x
+- Asciimatics
+- Other modules...
+
+## Authors
+- Justin Jacob B. Rosario
+- Team Members
+
+✅ 2. Standard Professional README Format
+
+(Recommended for your Shroom Raider project)
+
+# Shroom Raider
+
+A 2D terminal-based adventure game built with Python and Asciimatics.
+
+## 📌 Features
+- Animated UI
+- Character selection
+- Color customization
+- Inventory system
+- Mission-based mechanics
+
+## 🎮 How to Play
+1. Open the terminal inside the project directory.
+2. Run the game:
+
+
+python main.py
+
+3. Controls:
+- **W** – Walk Up  
+- **A** – Walk Left  
+- **S** – Walk Down  
+- **D** – Walk Right  
+- **P** – Pick up  
+- **Q** – Quit  
+
+## 📦 Installation
+
+### 1. Clone the repository
+
+
+git clone <repository-url>
+
+
+### 2. Install dependencies
+
+
+pip install -r requirements.txt
+
+
+## 🗂️ Project Structure
+
+
+project/
+│── main.py
+│── game/
+│ ├── map_reader.py
+│ ├── game_loop.py
+│ ├── ascii_art/
+│ └── ...
+│── assets/
+│── README.md
+
+
+## ⚙️ Technologies Used
+- Python 3.x  
+- Asciimatics  
+- Windows Terminal / VS Code  
+
+## 👥 Team Members
+- Justin Jacob Rosario  
+- Name 2  
+- Name 3  
+
+## 📄 License
+This project is for academic use only.
+
+✅ 3. README With Screenshots & GIFs
+
+(For GitHub projects that want to impress)
+
+# Shroom Raider
+
+A 2D mission-based terminal game built using Python and Asciimatics.
+
+![Gameplay Screenshot](assets/screenshot.png)
+
+## 🚀 Demo
+![Shroom Raider Demo](assets/demo.gif)
+
+## 🧩 Features
+- Dynamic ASCII animations  
+- Character selection  
+- Keyboard-driven movement  
+- Inventory management  
+- Time system  
+
+✅ 4. Very Formal Academic README Format
+
+(Perfect for UP CS projects)
+
+# Shroom Raider  
+**CS 11 – Project 1**  
+University of the Philippines Diliman  
+
+## 📝 Project Overview
+Shroom Raider is a text-based 2D exploration game developed using Python and Asciimatics.  
+This project was created for **CS11 – Introduction to Computer Programming**.
+
+## 🎯 Objectives
+- Demonstrate modular programming  
+- Implement file I/O through map files  
+- Create an interactive terminal UI  
+- Practice version control with Git/GitHub Classroom  
+
+## 📚 How to Run
+
+
+python main.py
+
+
+## 🧪 Testing Procedures
+- Ensure `MAPS.txt` exists in the project root  
+- Test movement with WASD  
+- Confirm color rendering in UTF-8 terminals  
+
+## 👥 Team
+- Justin Jacob B. Rosario  
+- Member 2  
+- Member 3  
+
+## 🔑 Instructor
+- [Instructor Name]
+
+🏆 5. README Template You Can Copy-Paste
+
+Here is a reusable template:
+
+# Project Title
+
+## 📝 Description
+Short description of what the project does.
+
+## 🚀 Features
+- Feature 1
+- Feature 2
+- Feature 3
+
+## 🎮 How to Run
+
+
+python main.py
+
+
+## 📦 Installation
+
+
+pip install -r requirements.txt
+
+
+## 🗂️ Directory Structure
+
+
+your project tree here
+
+
+## 👥 Authors
+- Your Name
+- Teammate Name
+
+⭐ Want me to help write your official README.md for Shroom Raider?
+
+I can generate a polished, production-ready README.
+Just tell me:
+
+Your team member names
+
+A 2–3 sentence description of the game
+
+Optional: screenshot paths (if you want images included)

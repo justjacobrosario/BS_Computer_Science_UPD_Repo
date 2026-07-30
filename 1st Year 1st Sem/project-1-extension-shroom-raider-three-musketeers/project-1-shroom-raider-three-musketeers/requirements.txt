@@ -1,0 +1,6 @@
+pytest
+asciimatics
+pygame
+hashlib
+bcrypt
+sqlite3
