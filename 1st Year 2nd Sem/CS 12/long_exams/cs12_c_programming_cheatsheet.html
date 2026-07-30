@@ -1,0 +1,650 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body, .sheet {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    color: var(--color-text-primary);
+    background: transparent;
+  }
+
+  .hide-scrollbar {
+  /* IE and Edge */
+  -ms-overflow-style: none;
+  
+  /* Firefox */
+  scrollbar-width: none;
+}
+
+  /* Chrome, Safari, and newer Edge */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sheet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 8px;
+    width: 100%;
+  }
+
+  .col { display: flex; flex-direction: column; gap: 6px; }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 5px 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .h-orange { background: #FAC775; color: #412402; }
+  .h-teal   { background: #5DCAA5; color: #04342C; }
+  .h-blue   { background: #85B7EB; color: #042C53; }
+  .h-purple { background: #AFA9EC; color: #26215C; }
+  .h-coral  { background: #F0997B; color: #4A1B0C; }
+  .h-green  { background: #97C459; color: #173404; }
+  .h-red    { background: #F09595; color: #501313; }
+  .h-gray   { background: #B4B2A9; color: #2C2C2A; }
+  .h-pink   { background: #ED93B1; color: #4B1528; }
+
+  .card-body { padding: 6px 8px; }
+
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+  }
+
+  pre {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 5px;
+    padding: 5px 7px;
+    margin: 4px 0;
+    white-space: pre;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+
+  .kw  { color: #534AB7; font-weight: 600; }
+  .cm  { color: var(--color-text-tertiary); }
+  .str { color: #0F6E56; }
+  .num { color: #993C1D; }
+  .fn  { color: #185FA5; }
+
+  .row { display: flex; gap: 6px; align-items: flex-start; }
+  .label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin: 5px 0 2px;
+  }
+
+  p { line-height: 1.55; margin-bottom: 3px; font-size: 10.5px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+  th {
+    background: var(--color-background-secondary);
+    font-weight: 600;
+    padding: 3px 5px;
+    text-align: left;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+  td { padding: 2.5px 5px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td code { font-size: 9px; }
+
+  .warn {
+    background: #FAEEDA;
+    border-left: 2px solid #EF9F27;
+    color: #412402;
+    padding: 4px 7px;
+    border-radius: 0 5px 5px 0;
+    font-size: 10px;
+    margin: 4px 0;
+  }
+
+  .danger {
+    background: #FCEBEB;
+    border-left: 2px solid #E24B4A;
+    color: #501313;
+    padding: 4px 7px;
+    border-radius: 0 5px 5px 0;
+    font-size: 10px;
+    margin: 4px 0;
+  }
+
+  .ok {
+    background: #EAF3DE;
+    border-left: 2px solid #639922;
+    color: #173404;
+    padding: 4px 7px;
+    border-radius: 0 5px 5px 0;
+    font-size: 10px;
+    margin: 4px 0;
+  }
+
+  .info {
+    background: #E6F1FB;
+    border-left: 2px solid #378ADD;
+    color: #042C53;
+    padding: 4px 7px;
+    border-radius: 0 5px 5px 0;
+    font-size: 10px;
+    margin: 4px 0;
+  }
+
+  .pill {
+    display: inline-block;
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 12px;
+    padding: 1px 6px;
+    font-size: 9px;
+    font-weight: 600;
+    margin: 1px 1px 1px 0;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin: 4px 0;
+  }
+
+  .span2 { grid-column: span 2; }
+  .tight p { margin-bottom: 1px; }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .badge-red { background: #F7C1C1; color: #501313; }
+  .badge-green { background: #C0DD97; color: #173404; }
+  .badge-blue { background: #B5D4F4; color: #042C53; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+</style>
+
+<div class="sheet">
+
+  <div class="col">
+
+    <div class="card">
+      <div class="card-header h-orange">C Basics — Compilation & Structure</div>
+      <div class="card-body">
+        <pre><span class="cm">// Compile & run</span>
+gcc hello.c -o hello
+./hello
+gcc main.c -pthread -o main  <span class="cm">// threads</span></pre>
+        <pre><span class="kw">#include</span> &lt;stdio.h&gt;    <span class="cm">// printf, scanf, fgets</span>
+<span class="kw">#include</span> &lt;stdlib.h&gt;   <span class="cm">// malloc, free, calloc</span>
+<span class="kw">#include</span> &lt;stdint.h&gt;   <span class="cm">// uint8_t, int32_t ...</span>
+<span class="kw">#include</span> &lt;inttypes.h&gt; <span class="cm">// PRIu32 format macros</span>
+<span class="kw">#include</span> &lt;stdbool.h&gt;  <span class="cm">// bool, true, false</span>
+<span class="kw">#include</span> &lt;pthread.h&gt;  <span class="cm">// pthreads</span>
+<span class="kw">#include</span> &lt;time.h&gt;     <span class="cm">// clock_gettime</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="cm">// entry point; return 0 = success</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-orange">Data Types & Integer Limits</div>
+      <div class="card-body">
+        <table>
+          <tr><th>Type</th><th>Bits</th><th>Range</th></tr>
+          <tr><td><code>char / int8_t</code></td><td>8</td><td>-128 to 127</td></tr>
+          <tr><td><code>uint8_t</code></td><td>8</td><td>0 to 255</td></tr>
+          <tr><td><code>int / int32_t</code></td><td>32</td><td>±2.1B</td></tr>
+          <tr><td><code>uint32_t</code></td><td>32</td><td>0 to 4.3B</td></tr>
+          <tr><td><code>int64_t</code></td><td>64</td><td>±9.2×10¹⁸</td></tr>
+          <tr><td><code>float</code></td><td>32</td><td>~7 sig digits</td></tr>
+          <tr><td><code>double</code></td><td>64</td><td>~15 sig digits</td></tr>
+        </table>
+        <div class="warn">Overflow is silent in C — no exception! Use wider type or check before op.</div>
+        <pre><span class="cm">// Fix: widen before arithmetic</span>
+<span class="fn">uint32_t</span> <span class="fn">mid</span>(<span class="kw">uint32_t</span> x, <span class="kw">uint32_t</span> y) {
+    <span class="kw">return</span> ((<span class="kw">uint64_t</span>)x + (<span class="kw">uint64_t</span>)y) / <span class="num">2</span>;
+}
+<span class="cm">// x/2 + y/2 is WRONG when both odd!</span></pre>
+        <div class="label">Format Specifiers</div>
+        <table>
+          <tr><th>Type</th><th>Printf</th></tr>
+          <tr><td><code>int</code></td><td><code>%d</code></td></tr>
+          <tr><td><code>uint32_t</code></td><td><code>%" PRIu32 "</code></td></tr>
+          <tr><td><code>char</code></td><td><code>%c</code></td></tr>
+          <tr><td><code>char[]</code></td><td><code>%s</code></td></tr>
+          <tr><td><code>pointer</code></td><td><code>%p</code></td></tr>
+          <tr><td><code>float/double</code></td><td><code>%f / %lf</code></td></tr>
+          <tr><td><code>hex</code></td><td><code>%x / %X</code></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-orange">Variables, Operators & Control Flow</div>
+      <div class="card-body">
+        <pre><span class="kw">int</span> x;          <span class="cm">// garbage value!</span>
+<span class="kw">int</span> y = <span class="num">0</span>;      <span class="cm">// initialized</span>
+<span class="kw">const int</span> z = <span class="num">5</span>; <span class="cm">// immutable</span>
+<span class="kw">bool</span> b = <span class="kw">true</span>;  <span class="cm">// needs stdbool.h</span>
+
+x++;  x--;      <span class="cm">// post inc/dec</span>
+x += <span class="num">2</span>;  x -= <span class="num">3</span>; x *= <span class="num">4</span>; x /= <span class="num">2</span>;
+x % <span class="num">6</span>;          <span class="cm">// modulo</span>
+x &amp;&amp; y; x || y; !x; <span class="cm">// logical</span>
+x &amp; y; x | y; x ^ y; x &lt;&lt; <span class="num">3</span>; <span class="cm">// bitwise</span>
+x ? a : b;      <span class="cm">// ternary</span>
+<span class="cm">// 0 = false, nonzero = true (no bool needed)</span></pre>
+        <pre><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++) { ... }
+<span class="kw">while</span> (cond) { ... }
+<span class="kw">do</span> { ... } <span class="kw">while</span> (cond);
+<span class="kw">if</span> (a) { } <span class="kw">else if</span> (b) { } <span class="kw">else</span> { }
+<span class="kw">break</span>;  <span class="kw">continue</span>;</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-orange">Functions</div>
+      <div class="card-body">
+        <pre><span class="cm">// Signature: rettype name(type param, ...)</span>
+<span class="kw">int</span> <span class="fn">square</span>(<span class="kw">int</span> n) { <span class="kw">return</span> n * n; }
+<span class="kw">void</span> <span class="fn">show</span>(<span class="kw">int</span> a) { printf(<span class="str">"%d\n"</span>, a); }
+
+<span class="cm">// Prototype: declare before use</span>
+<span class="kw">void</span> <span class="fn">show_sum</span>(<span class="kw">int</span>, <span class="kw">int</span>);
+<span class="kw">int</span> <span class="fn">main</span>() { <span class="fn">show_sum</span>(<span class="num">1</span>, <span class="num">2</span>); }
+<span class="kw">void</span> <span class="fn">show_sum</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+    printf(<span class="str">"%d + %d = %d\n"</span>, a, b, a+b);
+}</pre>
+        <div class="info">All args are pass-by-value (copied). Use pointers to modify caller's data.</div>
+        <pre><span class="cm">// Function pointer</span>
+<span class="kw">int</span> (*<span class="fn">ptr</span>)(<span class="kw">int</span>, <span class="kw">int</span>) = add;
+<span class="kw">int</span> result = <span class="fn">ptr</span>(<span class="num">10</span>, <span class="num">20</span>);</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-teal">C-Style Strings</div>
+      <div class="card-body">
+        <p>Null-terminated <code>char</code> array. Last element must be <code>'\0'</code> (value 0).</p>
+        <pre><span class="kw">char</span> s1[] = {<span class="num">72</span>,<span class="num">101</span>,<span class="num">108</span>,<span class="num">108</span>,<span class="num">111</span>,<span class="num">0</span>};
+<span class="kw">char</span> s2[] = {<span class="str">'H'</span>,<span class="str">'e'</span>,<span class="str">'l'</span>,<span class="str">'l'</span>,<span class="str">'o'</span>,<span class="str">'\0'</span>};
+<span class="kw">char</span> s3[] = <span class="str">"Hello"</span>; <span class="cm">// \0 auto-appended</span>
+printf(<span class="str">"%s"</span>, s3);
+<span class="cm">// Iterate until null terminator:</span>
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; s3[i] != <span class="num">0</span>; i++) { ... }</pre>
+        <div class="danger"><code>char *s = "Hello";</code> → read-only! Writing to it = segfault.</div>
+        <div class="label">scanf / fgets</div>
+        <pre><span class="fn">scanf</span>(<span class="str">"%d"</span>, &amp;n);       <span class="cm">// reads int, leaves \n</span>
+<span class="fn">scanf</span>(<span class="str">"%s"</span>, buf);      <span class="cm">// reads word, no spaces</span>
+<span class="fn">fgets</span>(buf, <span class="num">8</span>, stdin);  <span class="cm">// reads line safely</span>
+<span class="cm">// fgets stops at \n, n-1 chars, or EOF</span>
+<span class="cm">// always appends \0</span></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col">
+
+    <div class="card">
+      <div class="card-header h-blue">Pointers — Core Concepts</div>
+      <div class="card-body">
+        <pre><span class="cm">// Memory = giant array of bytes</span>
+<span class="kw">char</span>   ch  = <span class="str">'d'</span>;
+<span class="kw">char</span>  *p   = &amp;ch;    <span class="cm">// & = address-of</span>
+<span class="kw">char</span>  *q   = p;     <span class="cm">// q points to same addr</span>
+<span class="kw">char</span>  **pp = &amp;p;    <span class="cm">// pointer to pointer</span>
+
+*p = <span class="str">'x'</span>;  <span class="cm">// * = dereference; write to addr</span>
+ch = *p;   <span class="cm">// read from addr p holds</span>
+**pp;      <span class="cm">// double deref</span></pre>
+        <table>
+          <tr><th>Op</th><th>Meaning</th><th>Analogy</th></tr>
+          <tr><td><code>&amp;x</code></td><td>address of x</td><td>Where is x?</td></tr>
+          <tr><td><code>*p</code></td><td>value at addr p</td><td>Go to p</td></tr>
+          <tr><td><code>p+1</code></td><td>next element</td><td>next box</td></tr>
+          <tr><td><code>p[i]</code></td><td><code>*(p+i)</code></td><td>i-th box</td></tr>
+        </table>
+        <div class="label">Pointer Arithmetic</div>
+        <pre><span class="kw">int</span> nums[] = {<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>};
+<span class="cm">// These three loops are IDENTICAL:</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="num">0</span>; i&lt;<span class="num">3</span>; i++) nums[i]++;
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="num">0</span>; i&lt;<span class="num">3</span>; i++) *(nums+i)++;
+<span class="kw">for</span> (<span class="kw">int</span>*p=nums; p&lt;nums+<span class="num">3</span>; p++) (*p)++;</pre>
+        <div class="info">Array name decays to pointer to first element. <code>p[i]</code> = <code>*(p+i)</code> always.</div>
+        <div class="label">Passing Pointers (to modify caller data)</div>
+        <pre><span class="kw">void</span> <span class="fn">increment</span>(<span class="kw">int</span> *p) { (*p)++; }
+<span class="kw">int</span> x = <span class="num">5</span>;
+<span class="fn">increment</span>(&amp;x); <span class="cm">// x is now 6</span></pre>
+        <div class="label">Null Pointer</div>
+        <pre><span class="kw">int</span> *p = NULL; <span class="cm">// "points to nothing"</span>
+<span class="kw">if</span> (p == NULL) { ... } <span class="cm">// always check!</span>
+*p; <span class="cm">// segfault if p is NULL!</span></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-blue">Arrays — Stack Allocated</div>
+      <div class="card-body">
+        <pre><span class="kw">int</span> nums[<span class="num">5</span>] = {<span class="num">10</span>, <span class="num">20</span>}; <span class="cm">// [10,20,0,0,0]</span>
+<span class="kw">int</span> nums[<span class="num">5</span>] = {};        <span class="cm">// all zeros</span>
+<span class="kw">int</span> nums[<span class="num">5</span>];             <span class="cm">// GARBAGE!</span>
+<span class="kw">int</span> nums[] = {<span class="num">10</span>,<span class="num">20</span>};   <span class="cm">// inferred size=2</span>
+<span class="cm">// Fixed size; no bounds checking!</span></pre>
+        <div class="danger">Out-of-bounds writes won't crash immediately — they corrupt memory silently (Heisenbug).</div>
+        <div class="label">Manual count tracking pattern</div>
+        <pre><span class="kw">int</span> nums[<span class="num">5</span>] = {<span class="num">10</span>,<span class="num">20</span>};
+<span class="kw">int</span> count = <span class="num">2</span>;          <span class="cm">// track "used" size</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=count; i&lt;<span class="num">5</span>; i++) {
+    nums[i] = <span class="num">12</span>; count++;
+}</pre>
+        <div class="label">2D Array</div>
+        <pre><span class="kw">int</span> mat[<span class="num">2</span>][<span class="num">3</span>] = {{<span class="num">10</span>,<span class="num">20</span>,<span class="num">30</span>},{<span class="num">40</span>,<span class="num">50</span>,<span class="num">60</span>}};
+mat[<span class="num">1</span>][<span class="num">2</span>] = <span class="num">120</span>;
+<span class="cm">// Declaration: type name[rows][cols]</span></pre>
+        <div class="label">Return array — WRONG vs RIGHT</div>
+        <pre><span class="cm">// WRONG: returning ptr to local (dangling!)</span>
+<span class="kw">int</span>* <span class="fn">wrong</span>(<span class="kw">int</span> n) { <span class="kw">int</span> ret[n]; <span class="kw">return</span> ret; }
+
+<span class="cm">// RIGHT: output parameter (caller owns array)</span>
+<span class="kw">void</span> <span class="fn">range</span>(<span class="kw">int</span> *out, <span class="kw">int</span> n) {
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="num">0</span>; i&lt;n; i++) out[i] = i;
+}
+<span class="kw">int</span> nums[<span class="num">10</span>];
+<span class="fn">range</span>(nums, <span class="num">10</span>); <span class="cm">// range modifies in place</span></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-purple">Dynamic Memory (Heap)</div>
+      <div class="card-body">
+        <table>
+          <tr><th>Function</th><th>What it does</th></tr>
+          <tr><td><code>malloc(size)</code></td><td>Allocates <i>size</i> bytes, uninitialized</td></tr>
+          <tr><td><code>calloc(n, size)</code></td><td>Allocates n×size bytes, zeroed</td></tr>
+          <tr><td><code>free(ptr)</code></td><td>Deallocates heap memory</td></tr>
+          <tr><td><code>sizeof(T)</code></td><td>Size of type T in bytes</td></tr>
+        </table>
+        <pre><span class="kw">int</span> *p = malloc(<span class="fn">sizeof</span>(<span class="kw">int</span>) * <span class="num">10</span>);
+<span class="kw">int</span> *q = calloc(<span class="num">10</span>, <span class="fn">sizeof</span>(<span class="kw">int</span>)); <span class="cm">// zeros</span>
+<span class="kw">if</span> (p == NULL) { <span class="cm">/* malloc failed */</span> }
+<span class="fn">free</span>(p);
+<span class="cm">// p is now a dangling pointer; set to NULL:</span>
+p = NULL;</pre>
+        <div class="danger"><b>Use-after-free:</b> Accessing memory after <code>free()</code> = undefined behavior / crash.</div>
+        <div class="danger"><b>Memory leak:</b> Forgetting to <code>free()</code> = heap grows forever while program runs.</div>
+        <div class="label">Stack vs Heap</div>
+        <table>
+          <tr><th></th><th>Stack</th><th>Heap</th></tr>
+          <tr><td>Lifetime</td><td>Function scope</td><td>Until <code>free()</code></td></tr>
+          <tr><td>Size limit</td><td>~8MB (Linux)</td><td>RAM limit</td></tr>
+          <tr><td>Speed</td><td>Faster</td><td>Slightly slower</td></tr>
+          <tr><td>Managed by</td><td>Auto (compiler)</td><td>Manual (you!)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-purple">Structs</div>
+      <div class="card-body">
+        <pre><span class="cm">// Define</span>
+<span class="kw">typedef struct</span> {
+    <span class="kw">char</span> name[<span class="num">10</span>];
+    <span class="kw">int</span>  year;
+} Person;
+
+<span class="cm">// Initialize</span>
+Person x = {.name=<span class="str">"Krauss"</span>, .year=<span class="num">1936</span>};
+
+<span class="cm">// Access</span>
+x.year = <span class="num">1941</span>;
+printf(<span class="str">"%s\n"</span>, x.name);
+
+<span class="cm">// Pointer to struct → use arrow (->)</span>
+Person *p = &amp;x;
+p-&gt;year = <span class="num">1945</span>;  <span class="cm">// same as (*p).year</span></pre>
+        <div class="info">Structs are copied by value when passed/returned. Use pointer for efficiency.</div>
+        <pre><span class="cm">// Update via pointer (1 copy instead of 2)</span>
+<span class="kw">void</span> <span class="fn">birthday</span>(Person *p) { p-&gt;year++; }
+<span class="fn">birthday</span>(&amp;x);
+
+<span class="cm">// Heap-allocated struct</span>
+Person *hp = malloc(<span class="fn">sizeof</span>(Person));
+hp-&gt;year = <span class="num">1990</span>;
+<span class="fn">free</span>(hp);</pre>
+        <div class="label">Recursive struct (for linked list)</div>
+        <pre><span class="kw">typedef struct</span> node Node;
+<span class="kw">struct</span> node { <span class="kw">int</span> data; Node *next; };
+<span class="cm">// Must use struct node (not typedef) for self-ref</span></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col">
+
+    <div class="card">
+      <div class="card-header h-coral">Dynamic Matrices</div>
+      <div class="card-body">
+        <div class="label">Approach 1 — Contiguous (preferred)</div>
+        <pre><span class="cm">// One big malloc: rows × cols elements</span>
+<span class="kw">void</span> *<span class="fn">make_matrix</span>(<span class="kw">int</span> r, <span class="kw">int</span> c, <span class="kw">int</span> sz) {
+    <span class="kw">return</span> <span class="fn">calloc</span>(r * c, sz);
+}
+<span class="cm">// Usage — type: int (*mat)[COLS]</span>
+<span class="kw">int</span> (*mat)[<span class="num">5</span>] = <span class="fn">make_matrix</span>(<span class="num">3</span>, <span class="num">5</span>, <span class="fn">sizeof</span>(<span class="kw">int</span>));
+mat[<span class="num">1</span>][<span class="num">3</span>] = <span class="num">42</span>;  <span class="cm">// works like 2D array</span>
+<span class="fn">free</span>(mat);       <span class="cm">// single free!</span></pre>
+        <div class="label">Approach 2 — Non-contiguous (ptr of ptrs)</div>
+        <pre><span class="kw">void</span> **<span class="fn">make_nc</span>(<span class="kw">int</span> rows, <span class="kw">int</span> cols, <span class="kw">int</span> sz) {
+    <span class="kw">void</span> **p = <span class="fn">calloc</span>(rows, <span class="fn">sizeof</span>(<span class="kw">void</span>*));
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="num">0</span>; i&lt;rows; i++)
+        p[i] = <span class="fn">calloc</span>(cols, sz);
+    <span class="kw">return</span> p;
+}
+<span class="kw">int</span> **mat = (<span class="kw">int</span>**)<span class="fn">make_nc</span>(<span class="num">3</span>,<span class="num">5</span>,<span class="fn">sizeof</span>(<span class="kw">int</span>));
+mat[<span class="num">1</span>][<span class="num">3</span>] = <span class="num">42</span>;
+<span class="cm">// Must free each row + then outer array!</span>
+<span class="kw">for</span> (<span class="kw">int</span> i=<span class="num">0</span>; i&lt;<span class="num">3</span>; i++) <span class="fn">free</span>(mat[i]);
+<span class="fn">free</span>(mat);</pre>
+        <table>
+          <tr><th></th><th>Contiguous</th><th>Non-contiguous</th></tr>
+          <tr><td>Memory</td><td>1 block</td><td>1 + rows blocks</td></tr>
+          <tr><td>free calls</td><td>1</td><td>rows + 1</td></tr>
+          <tr><td>Cache</td><td>Better</td><td>Worse</td></tr>
+          <tr><td>Return type</td><td><code>void *</code></td><td><code>void **</code></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-coral">Linked Lists</div>
+      <div class="card-body">
+        <pre><span class="kw">typedef struct</span> node Node;
+<span class="kw">struct</span> node { <span class="kw">int</span> data; Node *next; };
+<span class="kw">typedef struct</span> { Node *head; <span class="kw">int</span> size; } List;
+
+Node *<span class="fn">make_node</span>(<span class="kw">int</span> data, Node *next) {
+    Node *n = malloc(<span class="fn">sizeof</span>(Node));
+    n-&gt;data = data;  n-&gt;next = next;
+    <span class="kw">return</span> n;
+}</pre>
+        <div class="label">Build (stack-style shorthand)</div>
+        <pre><span class="cm">// h1 → h2 → h3 → NULL</span>
+Node *h3 = <span class="fn">make_node</span>(<span class="num">30</span>, NULL);
+Node *h2 = <span class="fn">make_node</span>(<span class="num">20</span>, h3);
+Node *h1 = <span class="fn">make_node</span>(<span class="num">10</span>, h2);</pre>
+        <div class="label">Traversal</div>
+        <pre><span class="kw">for</span> (Node *t=head; t!=NULL; t=t-&gt;next)
+    printf(<span class="str">"%d\n"</span>, t-&gt;data);</pre>
+        <div class="label">Prepend (O(1))</div>
+        <pre><span class="kw">void</span> <span class="fn">prepend</span>(List *l, <span class="kw">int</span> d) {
+    l-&gt;head = <span class="fn">make_node</span>(d, l-&gt;head);
+    l-&gt;size++;
+}</pre>
+        <div class="label">Append (O(n))</div>
+        <pre><span class="kw">void</span> <span class="fn">append</span>(List *l, <span class="kw">int</span> d) {
+    <span class="kw">if</span> (!l-&gt;head) { l-&gt;head=<span class="fn">make_node</span>(d,NULL); }
+    <span class="kw">else</span> {
+        Node *t = l-&gt;head;
+        <span class="kw">while</span> (t-&gt;next) t = t-&gt;next;
+        t-&gt;next = <span class="fn">make_node</span>(d, NULL);
+    }
+    l-&gt;size++;
+}</pre>
+        <div class="label">Free entire list</div>
+        <pre>Node *cur = head;
+<span class="kw">while</span> (cur) { Node *nx=cur-&gt;next; <span class="fn">free</span>(cur); cur=nx; }</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-green">Multithreaded Programming (pthreads)</div>
+      <div class="card-body">
+        <div class="label">Thread Lifecycle</div>
+        <pre><span class="cm">// Thread function signature (always void*→void*)</span>
+<span class="kw">void</span> *<span class="fn">fn</span>(<span class="kw">void</span> *arg) {
+    <span class="kw">int</span> *p = arg;   <span class="cm">// cast arg to real type</span>
+    <span class="cm">// ... work ...</span>
+    <span class="kw">return</span> NULL;
+}
+pthread_t t1;
+pthread_create(&amp;t1, NULL, fn, &amp;n); <span class="cm">// spawn</span>
+pthread_join(t1, NULL);            <span class="cm">// wait/sync</span></pre>
+        <div class="info">Without <code>pthread_join</code>, main may exit before thread finishes → nondeterministic output.</div>
+        <div class="label">Passing data to thread (struct pattern)</div>
+        <pre><span class="kw">struct</span> thread_data { <span class="kw">int</span> n; <span class="kw">int</span> *nums; ... };
+
+<span class="kw">struct</span> thread_data d = {.n=<span class="num">0</span>, .nums=nums};
+pthread_create(&amp;t1, NULL, f, &amp;d);</pre>
+        <div class="label">Key facts</div>
+        <table>
+          <tr><td>Global vars</td><td>Shared between all threads</td></tr>
+          <tr><td>Local vars</td><td>Private to each thread (own stack)</td></tr>
+          <tr><td>Execution order</td><td>Nondeterministic on multicore</td></tr>
+          <tr><td>Speedup</td><td>Only if work is CPU-bound & parallelizable</td></tr>
+        </table>
+        <div class="label">Race Condition vs Mutex Fix</div>
+        <pre><span class="cm">// RACE: n++ is NOT atomic (3 asm steps!)</span>
+<span class="kw">int</span> n = <span class="num">0</span>;
+<span class="cm">// Thread 1 and 2 both read, increment, write</span>
+<span class="cm">// → result unpredictable</span>
+
+<span class="cm">// FIX: mutex (lock)</span>
+pthread_mutex_t lock;
+pthread_mutex_init(&amp;lock, NULL);
+
+<span class="kw">void</span> *<span class="fn">plus</span>(<span class="kw">void</span> *arg) {
+    <span class="kw">for</span> (<span class="kw">int</span> i=<span class="num">0</span>; i&lt;<span class="num">10000</span>; i++) {
+        pthread_mutex_lock(&amp;lock);
+        n++;  <span class="cm">// critical section</span>
+        pthread_mutex_unlock(&amp;lock);
+    }
+    <span class="kw">return</span> NULL;
+}</pre>
+        <div class="label">Performance tip — minimize locking</div>
+        <pre><span class="cm">// BAD: lock/unlock 1B times (huge overhead)</span>
+<span class="kw">for</span> (i=start; i&lt;end; i++) {
+    pthread_mutex_lock(&amp;lk); positive++; pthread_mutex_unlock(&amp;lk);
+}
+
+<span class="cm">// GOOD: accumulate locally, lock once at end</span>
+<span class="kw">int</span> local = <span class="num">0</span>;
+<span class="kw">for</span> (i=start; i&lt;end; i++) <span class="kw">if</span> (nums[i]&gt;<span class="num">0</span>) local++;
+pthread_mutex_lock(&amp;lk);
+positive += local;
+pthread_mutex_unlock(&amp;lk);</pre>
+        <div class="label">K-thread work split pattern</div>
+        <pre><span class="kw">int</span> chunk = N / K;
+<span class="kw">int</span> start = chunk * thread_id;
+<span class="kw">int</span> stop  = start + chunk;
+<span class="kw">for</span> (<span class="kw">int</span> i=start; i&lt;stop; i++) { ... }</pre>
+        <div class="warn"><code>sync.c</code> bug: locks inside loop per element = slow. <code>k_threads.c</code> fixes it with local accumulation.</div>
+        <div class="warn"><code>two_threads.c</code> bug: <code>positive_local</code> counts negatives and vice versa (condition is flipped).</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-red">Common Bugs & Segfaults</div>
+      <div class="card-body">
+        <table>
+          <tr><th>Bug</th><th>Symptom</th><th>Fix</th></tr>
+          <tr><td>Dangling ptr</td><td>Garbage / crash</td><td>Never return <code>&local</code></td></tr>
+          <tr><td>NULL deref</td><td>Segfault</td><td>Check <code>p != NULL</code></td></tr>
+          <tr><td>Out-of-bounds</td><td>Silent corruption</td><td>Validate index</td></tr>
+          <tr><td>Missing <code>\0</code></td><td>Garbage / segfault</td><td>Always null-terminate</td></tr>
+          <tr><td>Memory leak</td><td>RAM grows</td><td>Always <code>free()</code></td></tr>
+          <tr><td>Use-after-free</td><td>UB / crash</td><td>Set ptr to NULL after free</td></tr>
+          <tr><td>Integer overflow</td><td>Wrong value</td><td>Widen type first</td></tr>
+          <tr><td>Race condition</td><td>Wrong count</td><td>Use mutex</td></tr>
+          <tr><td>Uninitialized var</td><td>Garbage</td><td>Always init or zero</td></tr>
+          <tr><td>Write to string literal</td><td>Segfault</td><td>Use <code>char[]</code> not <code>char*</code></td></tr>
+        </table>
+        <div class="label">Segfault Checklist</div>
+        <pre><span class="cm">// 1. Null ptr dereference</span>
+<span class="kw">int</span> *p = NULL; *p = <span class="num">5</span>; <span class="cm">// segfault</span>
+<span class="cm">// 2. Out-of-range pointer offset</span>
+<span class="kw">int</span> *q = &amp;x + <span class="num">10000000</span>; *q; <span class="cm">// segfault</span>
+<span class="cm">// 3. Write to string literal</span>
+<span class="kw">char</span> *s = <span class="str">"Hi"</span>; s[<span class="num">0</span>]='X'; <span class="cm">// segfault</span>
+<span class="cm">// 4. Missing \0 with %s → reads garbage</span>
+<span class="kw">char</span> s[] = {<span class="str">'H'</span>,<span class="str">'i'</span>}; printf(<span class="str">"%s"</span>,s); <span class="cm">// UB</span></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header h-gray">Quick Reference — Patterns from Code Files</div>
+      <div class="card-body">
+        <div class="label">Timing blocks (clock_gettime)</div>
+        <pre><span class="kw">struct</span> timespec start, end;
+clock_gettime(CLOCK_MONOTONIC, &amp;start);
+<span class="cm">// ... work ...</span>
+clock_gettime(CLOCK_MONOTONIC, &amp;end);
+<span class="kw">double</span> elapsed =
+  (end.tv_sec - start.tv_sec)
+  + (end.tv_nsec - start.tv_nsec) / <span class="num">1e9</span>;</pre>
+        <div class="label">Random integers in range [a, b]</div>
+        <pre>srand(<span class="num">12</span>); <span class="cm">// seed for reproducibility</span>
+nums[i] = (rand() % <span class="num">2001</span>) - <span class="num">1000</span>; <span class="cm">// [-1000,1000]</span>
+<span class="cm">// Formula: (rand() % (b-a+1)) + a</span></pre>
+        <div class="label">Multiple mutex pattern (separate locks per resource)</div>
+        <pre>pthread_mutex_t pos_lk, neg_lk, zero_lk;
+pthread_mutex_init(&amp;pos_lk, NULL);
+<span class="cm">// Use separate locks = less contention</span></pre>
+        <div class="label">Scope & Global</div>
+        <pre><span class="kw">int</span> global = <span class="num">100</span>; <span class="cm">// top-level = shared by threads</span>
+<span class="kw">int</span> main() {
+    <span class="kw">int</span> local; <span class="cm">// block scope only</span>
+    { <span class="kw">int</span> inner; } <span class="cm">// inner only in its block</span>
+}</pre>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,221 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; font-family: 'Syne', sans-serif; font-size: 11px; color: var(--color-text-primary); }
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700&display=swap');
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; overflow: hidden; }
+.card-header { padding: 5px 8px; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.h-amber { background: #FAC775; color: #412402; }
+.h-blue  { background: #85B7EB; color: #042C53; }
+.h-green { background: #97C459; color: #173404; }
+.h-red   { background: #F09595; color: #501313; }
+.h-purple{ background: #AFA9EC; color: #26215C; }
+.card-body { padding: 6px 8px; }
+code, pre, .mono { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; }
+pre { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 5px; padding: 5px 7px; margin: 4px 0; white-space: pre; line-height: 1.5; overflow-x: auto; }
+.kw  { color: #534AB7; font-weight: 600; }
+.cm  { color: var(--color-text-tertiary); }
+.str { color: #0F6E56; }
+.num { color: #993C1D; }
+.fn  { color: #185FA5; }
+.warn  { background: #FAEEDA; border-left: 2px solid #EF9F27; color: #412402; padding: 4px 7px; border-radius: 0 5px 5px 0; font-size: 10px; margin: 4px 0; }
+.danger{ background: #FCEBEB; border-left: 2px solid #E24B4A; color: #501313; padding: 4px 7px; border-radius: 0 5px 5px 0; font-size: 10px; margin: 4px 0; }
+.ok    { background: #EAF3DE; border-left: 2px solid #639922; color: #173404; padding: 4px 7px; border-radius: 0 5px 5px 0; font-size: 10px; margin: 4px 0; }
+.info  { background: #E6F1FB; border-left: 2px solid #378ADD; color: #042C53; padding: 4px 7px; border-radius: 0 5px 5px 0; font-size: 10px; margin: 4px 0; }
+.label { font-size: 9px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin: 5px 0 2px; }
+p { line-height: 1.55; margin-bottom: 3px; font-size: 10.5px; }
+table { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+th { background: var(--color-background-secondary); font-weight: 600; padding: 3px 5px; text-align: left; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 9px; }
+td { padding: 2.5px 5px; border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+hr { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 4px 0; }
+.full { grid-column: span 2; }
+
+.buf-row { display: flex; gap: 3px; align-items: center; flex-wrap: wrap; margin: 4px 0; }
+.buf-cell {
+  width: 22px; height: 22px;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+.buf-cell.eaten { background: #C0DD97; color: #173404; border-color: #639922; }
+.buf-cell.left  { background: #F7C1C1; color: #501313; border-color: #E24B4A; }
+.buf-cell.ws    { background: #B5D4F4; color: #042C53; border-color: #185FA5; }
+.buf-arrow { font-size: 12px; color: var(--color-text-secondary); margin: 0 2px; }
+.buf-label { font-size: 8.5px; color: var(--color-text-secondary); margin-left: 4px; font-family: 'Syne', sans-serif; }
+
+.step-row { display: flex; gap: 6px; margin: 3px 0; align-items: flex-start; }
+.step-num { width: 16px; height: 16px; border-radius: 50%; background: #AFA9EC; color: #26215C; font-size: 8.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.step-txt { font-size: 10px; line-height: 1.5; color: var(--color-text-primary); }
+.step-num.green { background: #C0DD97; color: #173404; }
+.step-num.red   { background: #F7C1C1; color: #501313; }
+</style>
+
+<div class="wrap">
+
+  <div class="card full">
+    <div class="card-header h-amber">Input buffer — mental model</div>
+    <div class="card-body">
+      <p>The buffer is a conveyor belt of characters. When you type <code>42\n</code> and press Enter, every character queues up left-to-right. <code>scanf</code> picks characters off the front; anything it doesn't want stays for the next call.</p>
+      <div class="label">User types "42" + Enter → buffer contains:</div>
+      <div class="buf-row">
+        <div class="buf-cell">'4'</div>
+        <div class="buf-cell">'2'</div>
+        <div class="buf-cell left">'\n'</div>
+        <div class="buf-arrow">→ →</div>
+        <div class="buf-label">'\n' is always left behind by %d and %s</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-blue">%d — reading an int</div>
+    <div class="card-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-txt">Skip all leading whitespace (spaces, tabs, <code>\n</code>)</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-txt">If next char is <code>+</code> or <code>-</code>, eat it</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-txt">While next char is a digit, eat it</div></div>
+      <div class="step-row"><div class="step-num red">4</div><div class="step-txt">Stop at first non-digit — <b>leaves it in buffer</b></div></div>
+      <hr>
+      <div class="label">Buffer trace — scanf("%d", &n) on " 42\n"</div>
+      <div class="buf-row">
+        <div class="buf-cell ws">' '</div>
+        <div class="buf-cell eaten">'4'</div>
+        <div class="buf-cell eaten">'2'</div>
+        <div class="buf-cell left">'\n'</div>
+      </div>
+      <div class="buf-row">
+        <span style="font-size:8.5px; color:#042C53; background:#E6F1FB; padding:1px 5px; border-radius:3px;">blue = skipped ws</span>
+        <span style="font-size:8.5px; color:#173404; background:#C0DD97; padding:1px 5px; border-radius:3px; margin-left:3px;">green = eaten</span>
+        <span style="font-size:8.5px; color:#501313; background:#F7C1C1; padding:1px 5px; border-radius:3px; margin-left:3px;">red = stays</span>
+      </div>
+      <div class="danger">'\n' left in buffer — next %c will grab it immediately!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-blue">%c — reading a char</div>
+    <div class="card-body">
+      <div class="step-row"><div class="step-num red">1</div><div class="step-txt">Eat the very next character — <b>no whitespace skipping!</b></div></div>
+      <hr>
+      <div class="label">Buffer trace — scanf("%c", &ch) after %d left '\n'</div>
+      <div class="buf-row">
+        <div class="buf-cell eaten">'\n'</div>
+        <div class="buf-cell">'A'</div>
+        <div class="buf-cell">'\n'</div>
+      </div>
+      <p>ch = '\n' — not 'A'! The leftover newline got eaten first.</p>
+      <div class="ok">Fix: add a space before %c to skip whitespace:<br><code>scanf(" %c", &ch);</code> — the space eats any pending whitespace.</div>
+      <pre><span class="kw">int</span> n; <span class="kw">char</span> ch;
+scanf(<span class="str">"%d"</span>, &amp;n);
+scanf(<span class="str">" %c"</span>, &amp;ch); <span class="cm">// space before %c!</span></pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-blue">%s — reading a word</div>
+    <div class="card-body">
+      <div class="step-row"><div class="step-num">1</div><div class="step-txt">Skip leading whitespace (including <code>\n</code>) ✓</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-txt">While next char is not whitespace, eat it</div></div>
+      <div class="step-row"><div class="step-num red">3</div><div class="step-txt">Stop at first whitespace — leaves it in buffer</div></div>
+      <hr>
+      <div class="label">Buffer trace — scanf("%s", buf) on "hello world\n"</div>
+      <div class="buf-row">
+        <div class="buf-cell eaten">'h'</div>
+        <div class="buf-cell eaten">'e'</div>
+        <div class="buf-cell eaten">'l'</div>
+        <div class="buf-cell eaten">'l'</div>
+        <div class="buf-cell eaten">'o'</div>
+        <div class="buf-cell left">' '</div>
+        <div class="buf-cell">'w'</div>
+        <div class="buf-cell">...</div>
+      </div>
+      <div class="warn">Cannot read strings with spaces. Use fgets for full lines.</div>
+      <div class="danger">No bounds checking — always risky with long input. Prefer fgets.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-green">fgets — the safe alternative</div>
+    <div class="card-body">
+      <div class="step-row"><div class="step-num green">1</div><div class="step-txt">Read chars from stream one by one</div></div>
+      <div class="step-row"><div class="step-num green">2</div><div class="step-txt">Stop when <code>\n</code> is eaten, OR n-1 chars read, OR stream ends</div></div>
+      <div class="step-row"><div class="step-num green">3</div><div class="step-txt">Always appends <code>\0</code> — safe string guaranteed</div></div>
+      <div class="step-row"><div class="step-num green">4</div><div class="step-txt"><code>\n</code> is included in the output (unlike scanf)</div></div>
+      <hr>
+      <pre><span class="kw">char</span> buf[<span class="num">8</span>];
+<span class="fn">fgets</span>(buf, <span class="num">8</span>, stdin);
+<span class="cm">// Input "hello\n" → buf = "hello\n\0"</span>
+<span class="cm">// Input "toolongstring\n" → buf = "toolon\0"</span>
+<span class="cm">// (reads max 7 chars + \0)</span>
+
+<span class="cm">// Convert to int after fgets:</span>
+<span class="kw">int</span> n = <span class="fn">atoi</span>(buf); <span class="cm">// needs stdlib.h</span></pre>
+      <div class="ok">Predictable, size-safe, reads full lines including spaces.</div>
+      <div class="warn">Mixing fgets + scanf is tricky — fgets after scanf may grab leftover '\n' immediately (blank read).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-red">The classic bug — %d then %c</div>
+    <div class="card-body">
+      <pre><span class="kw">int</span> n; <span class="kw">char</span> ch;
+scanf(<span class="str">"%d"</span>, &amp;n);  <span class="cm">// user types "5\n"</span>
+<span class="cm">// buffer now: ['\n']</span>
+scanf(<span class="str">"%c"</span>, &amp;ch); <span class="cm">// eats '\n' ← bug!</span>
+printf(<span class="str">"%c\n"</span>, ch); <span class="cm">// prints newline, not input</span></pre>
+      <div class="danger">ch = '\n' — user never got to type a character.</div>
+      <pre><span class="cm">// Fix A: space before %c</span>
+scanf(<span class="str">" %c"</span>, &amp;ch); <span class="cm">// skips whitespace first</span>
+
+<span class="cm">// Fix B: use fgets for the char line</span>
+<span class="kw">char</span> line[<span class="num">4</span>];
+<span class="fn">fgets</span>(line, <span class="num">4</span>, stdin);
+ch = line[<span class="num">0</span>];</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-purple">Format specifier quick ref</div>
+    <div class="card-body">
+      <table>
+        <tr><th>Specifier</th><th>Skips ws?</th><th>Stops at</th><th>Leaves in buf</th></tr>
+        <tr><td><code>%d</code></td><td>Yes</td><td>non-digit</td><td>non-digit + <code>\n</code></td></tr>
+        <tr><td><code>%c</code></td><td>No</td><td>after 1 char</td><td>rest of line</td></tr>
+        <tr><td><code>" %c"</code></td><td>Yes</td><td>after 1 char</td><td>rest of line</td></tr>
+        <tr><td><code>%s</code></td><td>Yes</td><td>whitespace</td><td>whitespace + rest</td></tr>
+        <tr><td><code>%f</code></td><td>Yes</td><td>non-numeric</td><td>non-numeric + <code>\n</code></td></tr>
+        <tr><td><code>fgets</code></td><td>No</td><td><code>\n</code> or n-1</td><td>nothing (eats <code>\n</code>)</td></tr>
+      </table>
+      <hr>
+      <div class="label">scanf return value</div>
+      <p>Returns number of items successfully read. Check it to detect bad input:</p>
+      <pre><span class="kw">if</span> (scanf(<span class="str">"%d"</span>, &amp;n) != <span class="num">1</span>) {
+    printf(<span class="str">"bad input\n"</span>);
+}</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header h-amber">fgets + scanf mixing pitfall</div>
+    <div class="card-body">
+      <pre><span class="cm">// Scenario: scanf then fgets</span>
+<span class="kw">int</span> a; <span class="kw">char</span> line[<span class="num">100</span>];
+scanf(<span class="str">"%d"</span>, &amp;a);      <span class="cm">// eats "5", leaves "\n"</span>
+fgets(line, <span class="num">100</span>, stdin); <span class="cm">// eats "\n" → line="\n"!</span>
+<span class="cm">// user never got to type the line</span></pre>
+      <div class="danger">fgets after scanf reads the leftover '\n' as an empty line.</div>
+      <pre><span class="cm">// Fix: consume leftover \n first</span>
+scanf(<span class="str">"%d"</span>, &amp;a);
+<span class="kw">int</span> c; <span class="kw">while</span>((c=getchar()) != <span class="str">'\n'</span> && c != EOF);
+fgets(line, <span class="num">100</span>, stdin); <span class="cm">// now safe</span></pre>
+      <div class="ok">Best practice: pick one — use fgets for everything, or use scanf for everything. Mixing causes confusion.</div>
+    </div>
+  </div>
+
+</div>

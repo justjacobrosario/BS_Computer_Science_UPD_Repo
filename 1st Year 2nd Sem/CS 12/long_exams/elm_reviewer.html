@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS 12 — Elm Deep Reviewer (Lec 15–20)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e2a;
+    --surface3: #1f2433;
+    --border: #2a2f3f;
+    --accent: #61afef;
+    --accent2: #e06c75;
+    --accent3: #98c379;
+    --accent4: #e5c07b;
+    --accent5: #c678dd;
+    --accent6: #56b6c2;
+    --accent7: #d19a66;
+    --text: #abb2bf;
+    --text-bright: #e6eaf3;
+    --text-dim: #6b7280;
+    --code-bg: #090b0f;
+    --glow: rgba(97,175,239,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.75; min-height: 100vh; }
+
+  /* ---- SIDEBAR ---- */
+  #toc { position: fixed; left: 0; top: 0; width: 252px; height: 100vh; background: var(--surface); border-right: 1px solid var(--border); overflow-y: auto; z-index: 100; padding: 20px 0; }
+  #toc h2 { font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); padding: 0 18px 10px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+  #toc a { display: block; padding: 5px 18px; color: var(--text-dim); text-decoration: none; font-size: 12.5px; transition: all 0.15s; border-left: 2px solid transparent; }
+  #toc a:hover, #toc a.active { color: var(--accent); background: var(--glow); border-left-color: var(--accent); }
+  #toc .toc-section { font-weight: 600; color: var(--text); margin-top: 10px; font-size: 12.5px; }
+  #toc .toc-sub { padding-left: 30px; font-size: 11.5px; }
+
+  /* ---- MAIN ---- */
+  main { margin-left: 252px; padding: 48px 52px 120px; max-width: 1060px; }
+
+  /* ---- HERO ---- */
+  .hero { padding: 56px 0 44px; border-bottom: 1px solid var(--border); margin-bottom: 64px; }
+  .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: 46px; font-weight: 800; color: var(--text-bright); line-height: 1.1; margin-bottom: 14px; }
+  .hero h1 span { color: var(--accent3); }
+  .hero p { font-size: 15px; color: var(--text); max-width: 640px; line-height: 1.7; }
+  .badges { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 10px; border-radius: 4px; border: 1px solid; }
+  .badge-blue { color: var(--accent); border-color: var(--accent); background: rgba(97,175,239,0.08); }
+  .badge-red { color: var(--accent2); border-color: var(--accent2); background: rgba(224,108,117,0.08); }
+  .badge-green { color: var(--accent3); border-color: var(--accent3); background: rgba(152,195,121,0.08); }
+  .badge-yellow { color: var(--accent4); border-color: var(--accent4); background: rgba(229,192,123,0.08); }
+  .badge-purple { color: var(--accent5); border-color: var(--accent5); background: rgba(198,120,221,0.08); }
+  .badge-cyan { color: var(--accent6); border-color: var(--accent6); background: rgba(86,182,194,0.08); }
+
+  /* ---- SECTIONS ---- */
+  section { margin-bottom: 88px; scroll-margin-top: 24px; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  h2.section-title { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 700; color: var(--text-bright); margin-bottom: 8px; line-height: 1.2; }
+  .section-intro { color: var(--text); font-size: 15px; max-width: 700px; margin-bottom: 36px; border-left: 3px solid var(--border); padding-left: 16px; }
+  h3.subsection { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700; color: var(--text-bright); margin: 44px 0 14px; display: flex; align-items: center; gap: 10px; }
+  h3.subsection::before { content: ''; display: inline-block; width: 4px; height: 20px; border-radius: 2px; background: var(--accent); }
+
+  /* ---- CARDS ---- */
+  .card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; }
+  .card-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .card-title .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-blue { background: var(--accent); }
+  .dot-red { background: var(--accent2); }
+  .dot-green { background: var(--accent3); }
+  .dot-yellow { background: var(--accent4); }
+  .dot-purple { background: var(--accent5); }
+  .dot-cyan { background: var(--accent6); }
+  .dot-orange { background: var(--accent7); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media (max-width: 800px) { .grid2, .grid3 { grid-template-columns: 1fr; } main { margin-left: 0; padding: 24px 20px; } #toc { display: none; } }
+
+  /* ---- CODE BLOCKS ---- */
+  .code-block { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; margin: 16px 0; overflow: hidden; }
+  .code-header { background: var(--surface2); border-bottom: 1px solid var(--border); padding: 7px 14px; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .code-dots { display: flex; gap: 5px; }
+  .code-dots span { width: 10px; height: 10px; border-radius: 50%; }
+  .code-dots span:nth-child(1) { background: #ff5f57; }
+  .code-dots span:nth-child(2) { background: #febc2e; }
+  .code-dots span:nth-child(3) { background: #28c840; }
+  pre { padding: 18px 20px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.75; color: var(--text-bright); }
+  .kw { color: var(--accent5); }
+  .ty { color: var(--accent6); }
+  .fn { color: var(--accent); }
+  .str { color: var(--accent3); }
+  .num { color: var(--accent4); }
+  .cm { color: var(--text-dim); font-style: italic; }
+  .op { color: var(--accent2); }
+  .hl { background: rgba(229,192,123,0.12); border-left: 2px solid var(--accent4); display: block; margin: 0 -20px; padding: 0 20px 0 18px; }
+
+  /* ---- COMPARE (Python vs Elm) ---- */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .compare-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .compare-box .compare-header { padding: 7px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .compare-box.python .compare-header { background: rgba(229,192,123,0.15); color: var(--accent4); }
+  .compare-box.elm .compare-header { background: rgba(97,175,239,0.15); color: var(--accent); }
+  .compare-box pre { background: var(--code-bg); border-radius: 0; font-size: 12.5px; padding: 14px 16px; }
+  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+
+  /* ---- CALLOUTS ---- */
+  .callout { display: flex; gap: 14px; padding: 14px 18px; border-radius: 8px; margin: 14px 0; font-size: 14px; line-height: 1.65; border: 1px solid; }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout.warning { background: rgba(229,192,123,0.07); border-color: rgba(229,192,123,0.3); }
+  .callout.warning .callout-icon::before { content: '⚠️'; }
+  .callout.danger { background: rgba(224,108,117,0.07); border-color: rgba(224,108,117,0.3); }
+  .callout.danger .callout-icon::before { content: '🚫'; }
+  .callout.info { background: rgba(97,175,239,0.07); border-color: rgba(97,175,239,0.3); }
+  .callout.info .callout-icon::before { content: '💡'; }
+  .callout.tip { background: rgba(152,195,121,0.07); border-color: rgba(152,195,121,0.3); }
+  .callout.tip .callout-icon::before { content: '✅'; }
+  .callout.elm { background: rgba(86,182,194,0.07); border-color: rgba(86,182,194,0.3); }
+  .callout.elm .callout-icon::before { content: '🌳'; }
+
+  /* ---- VIZ ---- */
+  .viz { background: var(--surface3); border: 1px solid var(--border); border-radius: 10px; padding: 22px; margin: 18px 0; overflow-x: auto; }
+  .viz-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; }
+  .arrow-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .box { border: 1px solid var(--border); padding: 7px 14px; border-radius: 5px; background: var(--surface); color: var(--text-bright); text-align: center; min-width: 64px; }
+  .box.blue { border-color: var(--accent); background: rgba(97,175,239,0.1); color: var(--accent); }
+  .box.green { border-color: var(--accent3); background: rgba(152,195,121,0.1); color: var(--accent3); }
+  .box.yellow { border-color: var(--accent4); background: rgba(229,192,123,0.1); color: var(--accent4); }
+  .box.red { border-color: var(--accent2); background: rgba(224,108,117,0.1); color: var(--accent2); }
+  .box.purple { border-color: var(--accent5); background: rgba(198,120,221,0.1); color: var(--accent5); }
+  .box.cyan { border-color: var(--accent6); background: rgba(86,182,194,0.1); color: var(--accent6); }
+  .arr { color: var(--accent); font-size: 20px; }
+  .arr-down { color: var(--accent); font-size: 18px; }
+
+  /* ---- ANNOTATED ---- */
+  .annotated { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 16px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .annotated .code-side { background: var(--code-bg); padding: 18px 20px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; border-right: 1px solid var(--border); }
+  .annotated .note-side { background: var(--surface2); padding: 18px 20px; }
+  .ann-item { margin-bottom: 12px; font-size: 13px; display: flex; gap: 8px; align-items: flex-start; }
+  .ann-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 1px 6px; border-radius: 3px; background: var(--accent); color: #fff; flex-shrink: 0; margin-top: 3px; }
+  .ann-num.green { background: var(--accent3); }
+  .ann-num.yellow { background: var(--accent4); color: #111; }
+  .ann-num.purple { background: var(--accent5); }
+  .ann-num.red { background: var(--accent2); }
+  .ann-num.cyan { background: var(--accent6); }
+  @media (max-width: 700px) { .annotated { grid-template-columns: 1fr; } .annotated .code-side { border-right: none; border-bottom: 1px solid var(--border); } }
+
+  /* ---- INLINE CODE ---- */
+  code { font-family: 'JetBrains Mono', monospace; background: var(--surface3); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; font-size: 12.5px; color: var(--accent4); }
+
+  /* ---- DIVIDERS ---- */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 52px 0; }
+
+  /* ---- SCROLLBAR ---- */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* ---- TYPE TABLE ---- */
+  .type-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 16px 0; }
+  .type-table th { background: var(--surface); color: var(--text-dim); padding: 8px 14px; text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); }
+  .type-table td { padding: 9px 14px; border: 1px solid var(--border); color: var(--text-bright); font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
+  .type-table tr:hover td { background: rgba(97,175,239,0.04); }
+
+  /* ---- MVU DIAGRAM ---- */
+  .mvu-diagram { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; padding: 20px 0; }
+  .mvu-box { border-radius: 10px; padding: 16px 22px; text-align: center; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; min-width: 100px; }
+  .mvu-box.model { background: rgba(97,175,239,0.15); border: 2px solid var(--accent); color: var(--accent); }
+  .mvu-box.view  { background: rgba(152,195,121,0.15); border: 2px solid var(--accent3); color: var(--accent3); }
+  .mvu-box.update { background: rgba(198,120,221,0.15); border: 2px solid var(--accent5); color: var(--accent5); }
+  .mvu-box .mvu-sub { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; margin-top: 4px; opacity: 0.75; }
+  .mvu-arr { color: var(--text-dim); font-size: 24px; padding: 0 6px; }
+  .mvu-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-dim); text-align: center; margin-top: 4px; }
+
+  /* ---- LIST VIZ ---- */
+  .list-viz { display: flex; gap: 0; align-items: stretch; font-family: 'JetBrains Mono', monospace; font-size: 13px; margin: 12px 0; }
+  .list-cell { border: 1px solid var(--border); padding: 8px 14px; background: var(--surface); color: var(--text-bright); }
+  .list-cell:first-child { border-radius: 6px 0 0 6px; }
+  .list-cell:last-child { border-radius: 0 6px 6px 0; }
+  .list-cell.head { border-color: var(--accent); background: rgba(97,175,239,0.12); color: var(--accent); }
+  .list-cell.highlight { border-color: var(--accent3); background: rgba(152,195,121,0.12); color: var(--accent3); }
+  .list-cell.idx { border-color: transparent; color: var(--text-dim); font-size: 11px; padding: 4px 14px; background: transparent; align-self: flex-end; }
+
+  /* fold viz */
+  .fold-step { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .fold-acc { border: 1px solid var(--accent4); background: rgba(229,192,123,0.1); color: var(--accent4); padding: 5px 12px; border-radius: 5px; min-width: 90px; text-align: center; }
+  .fold-elem { border: 1px solid var(--accent); background: rgba(97,175,239,0.1); color: var(--accent); padding: 5px 12px; border-radius: 5px; }
+  .fold-fn { color: var(--accent5); font-size: 11px; }
+  .fold-res { border: 1px solid var(--accent3); background: rgba(152,195,121,0.1); color: var(--accent3); padding: 5px 12px; border-radius: 5px; min-width: 90px; text-align: center; }
+
+  /* maybe viz */
+  .maybe-box { border-radius: 10px; padding: 14px 20px; display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; margin: 6px 8px 6px 0; }
+  .maybe-box.just { border: 2px solid var(--accent3); background: rgba(152,195,121,0.08); }
+  .maybe-box.nothing { border: 2px dashed var(--accent2); background: rgba(224,108,117,0.07); color: var(--accent2); }
+  .maybe-just-label { color: var(--accent3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .maybe-val { color: var(--text-bright); }
+
+  /* tagged union */
+  .tu-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .tu-variant { border-radius: 8px; padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; border: 1px solid; }
+  .tv-1 { border-color: var(--accent); background: rgba(97,175,239,0.1); color: var(--accent); }
+  .tv-2 { border-color: var(--accent3); background: rgba(152,195,121,0.1); color: var(--accent3); }
+  .tv-3 { border-color: var(--accent4); background: rgba(229,192,123,0.1); color: var(--accent4); }
+  .tv-4 { border-color: var(--accent5); background: rgba(198,120,221,0.1); color: var(--accent5); }
+  .tv-5 { border-color: var(--accent2); background: rgba(224,108,117,0.1); color: var(--accent2); }
+  .tv-tag { font-size: 10px; opacity: 0.7; display: block; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  p { margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; margin: 8px 0; }
+  li { margin-bottom: 4px; }
+  strong { color: var(--text-bright); }
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<nav id="toc">
+  <h2>Elm Reviewer · Lec 15–20</h2>
+  <a href="#intro" class="toc-section">0. What is Elm?</a>
+  <a href="#basics" class="toc-section">1. Basics & Types</a>
+  <a href="#basics" class="toc-sub">Built-in types</a>
+  <a href="#operators" class="toc-sub">Operators</a>
+  <a href="#vars" class="toc-sub">Variables</a>
+  <a href="#conditionals" class="toc-section">2. Conditionals</a>
+  <a href="#conditionals" class="toc-sub">if/else if/else</a>
+  <a href="#case" class="toc-sub">case expression</a>
+  <a href="#let" class="toc-sub">let expression</a>
+  <a href="#functions" class="toc-section">3. Functions</a>
+  <a href="#functions" class="toc-sub">Declaration & calling</a>
+  <a href="#signatures" class="toc-sub">Type signatures</a>
+  <a href="#pipeline" class="toc-sub">Pipeline operator</a>
+  <a href="#lists" class="toc-section">4. Lists</a>
+  <a href="#lists" class="toc-sub">Creation</a>
+  <a href="#list-fns" class="toc-sub">List module</a>
+  <a href="#maybe" class="toc-sub">Maybe type</a>
+  <a href="#filter" class="toc-sub">filter & map</a>
+  <a href="#arrays" class="toc-section">5. Arrays & Tuples</a>
+  <a href="#arrays" class="toc-sub">Array module</a>
+  <a href="#tuples" class="toc-sub">Tuples</a>
+  <a href="#records" class="toc-section">6. Records & Dicts</a>
+  <a href="#records" class="toc-sub">Records</a>
+  <a href="#dicts" class="toc-sub">Dictionaries</a>
+  <a href="#fold" class="toc-section">7. Fold / Reduce</a>
+  <a href="#fold" class="toc-sub">foldl & foldr</a>
+  <a href="#fold-state" class="toc-sub">Intermediate state</a>
+  <a href="#adt" class="toc-section">8. Algebraic Data Types</a>
+  <a href="#adt" class="toc-sub">type vs type alias</a>
+  <a href="#tagged-union" class="toc-sub">Tagged unions</a>
+  <a href="#pattern" class="toc-sub">Pattern matching</a>
+  <a href="#mvu" class="toc-section">9. MVU Architecture</a>
+  <a href="#mvu" class="toc-sub">Model · View · Update</a>
+  <a href="#html" class="toc-sub">Html nodes</a>
+  <a href="#dynamic" class="toc-sub">Dynamic apps</a>
+  <a href="#http" class="toc-sub">Http & Commands</a>
+</nav>
+
+<main>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-tag">// CS 12 · Lec 15–20 · Elm Programming</div>
+  <h1>Elm Programming<br><span>Deep Reviewer</span></h1>
+  <p>A Python-programmer's complete visual guide to Elm. Every concept from Lectures 15–20, explained with analogies, diagrams, and annotated code. Read this once and you won't need the slides.</p>
+  <div class="badges">
+    <span class="badge badge-blue">Purely Functional</span>
+    <span class="badge badge-green">Immutable</span>
+    <span class="badge badge-yellow">Statically Typed</span>
+    <span class="badge badge-purple">MVU Architecture</span>
+    <span class="badge badge-red">No Runtime Errors</span>
+    <span class="badge badge-cyan">Front-End Web</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 0. WHAT IS ELM -->
+<!-- ══════════════════════════════════════════ -->
+<section id="intro">
+  <div class="section-label">Lecture 15 · Introduction</div>
+  <h2 class="section-title">What is Elm?</h2>
+  <p class="section-intro">Elm is a purely functional language for building front-end web apps. Think of it as a <em>very opinionated Python</em> that compiles to JavaScript — but where the compiler catches almost every bug before you even run the code.</p>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>Purely Immutable</div>
+      <p style="font-size:14px">Nothing can change. No variable can be reassigned, no list can be mutated. This sounds limiting but makes code predictable and bug-free.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>Statically Typed</div>
+      <p style="font-size:14px">Like Python with strict type hints everywhere. Elm <em>infers</em> types so you rarely need to write them explicitly — the compiler figures it out.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-yellow"></span>No Runtime Errors</div>
+      <p style="font-size:14px">If it compiles, it (almost certainly) works. No <code>AttributeError</code>, no <code>TypeError</code>, no <code>undefined is not a function</code>.</p>
+    </div>
+  </div>
+
+  <div class="callout elm">
+    <div class="callout-icon"></div>
+    <div>Elm programs run in the browser. The entry point is always <code>main</code>. You can try Elm live at <strong>https://ellie-app.com/</strong> — no installation needed.</div>
+  </div>
+
+  <h3 class="subsection">Hello World</h3>
+  <div class="annotated">
+    <div class="code-side">
+<span class="kw">import</span> <span class="ty">Html</span>
+
+<span class="fn">main</span> <span class="op">=</span>
+    <span class="ty">Html</span>.<span class="fn">text</span> <span class="str">"Hello, World!"</span>
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> Import the Html module so we can produce web content.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>main</code> is the program's entry point — always required.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>Html.text</code> creates a text node in the DOM. No parentheses needed around arguments.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 1. BASICS & TYPES -->
+<!-- ══════════════════════════════════════════ -->
+<section id="basics">
+  <div class="section-label">Lecture 15 · Core Concepts</div>
+  <h2 class="section-title">Basics & Built-in Types</h2>
+  <p class="section-intro">Elm has a small set of primitive types. Unlike Python, types are always consistent — you can't add an <code>Int</code> and a <code>Float</code> without an explicit conversion.</p>
+
+  <table class="type-table">
+    <thead><tr><th>Type</th><th>Example Values</th><th>Python Equivalent</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ty">Bool</span></td><td><span class="num">True</span>, <span class="num">False</span></td><td><code>bool</code></td><td>Same capitalization as Python</td></tr>
+      <tr><td><span class="ty">Int</span></td><td><span class="num">-140</span>, <span class="num">0</span>, <span class="num">150</span></td><td><code>int</code></td><td>32-bit; use <code>//</code> for integer division</td></tr>
+      <tr><td><span class="ty">Float</span></td><td><span class="num">1.25</span>, <span class="num">-1.0</span></td><td><code>float</code></td><td><code>/</code> always returns Float</td></tr>
+      <tr><td><span class="ty">Char</span></td><td><span class="str">'a'</span>, <span class="str">'Z'</span></td><td>single-char <code>str</code></td><td>Single quotes only</td></tr>
+      <tr><td><span class="ty">String</span></td><td><span class="str">"hello"</span>, <span class="str">""</span></td><td><code>str</code></td><td>Double quotes only; use <code>++</code> to concatenate</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection" id="operators">Operators</h3>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>Arithmetic</div>
+      <table class="type-table">
+        <thead><tr><th>Operator</th><th>Meaning</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td><code>+</code> <code>-</code> <code>*</code></td><td>standard</td><td>Int or Float, not mixed</td></tr>
+          <tr><td><code>/</code></td><td>division</td><td>always returns <span class="ty">Float</span></td></tr>
+          <tr><td><code>//</code></td><td>int division</td><td>always returns <span class="ty">Int</span></td></tr>
+          <tr><td><code>^</code></td><td>exponent</td><td>right-associative: <code>2^3^2 = 512</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>Comparison & Logic</div>
+      <table class="type-table">
+        <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>==</code></td><td>equals</td></tr>
+          <tr><td><code>/=</code></td><td>not equals (unusual! Python uses <code>!=</code>)</td></tr>
+          <tr><td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code></td><td>comparison</td></tr>
+          <tr><td><code>&&</code> <code>||</code></td><td>and / or</td></tr>
+          <tr><td><code>not</code></td><td>negation (a function, not an operator)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-icon"></div>
+    <div><strong>Mixed types don't compile.</strong> <code>1 + 1.5</code> is a compile error! Use <code>toFloat 1 + 1.5</code> or <code>1 + round 1.5</code>. The compiler forces you to be explicit.</div>
+  </div>
+
+  <h3 class="subsection" id="vars">Variables (and why they're not really variables)</h3>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python</div>
+      <pre><span class="cm"># Variables CAN be reassigned</span>
+year = 2023
+year = year + 1  <span class="cm"># Fine in Python</span>
+x = 0
+<span class="kw">while</span> x &lt; 5:
+    x += 1        <span class="cm"># Mutation = loops</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm</div>
+      <pre><span class="cm">-- Variables CANNOT be reassigned</span>
+year <span class="op">=</span> <span class="num">2023</span>
+<span class="cm">-- year = year + 1  ← COMPILE ERROR</span>
+
+<span class="cm">-- No while/for loops exist in Elm!</span>
+<span class="cm">-- Use recursion or List.map instead</span></pre>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon"></div>
+    <div>In Elm, a "variable" is really a <strong>named constant</strong>. Once it equals something, it equals that forever. This forces you to think differently — instead of <em>changing state step by step</em>, you <em>compute a new value</em> from existing ones.</div>
+  </div>
+
+  <h3 class="subsection">Common Built-in Functions</h3>
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — built-in conversions</span></div>
+    <pre><span class="fn">toFloat</span> <span class="num">1</span>          <span class="cm">-- Float: 1.0</span>
+<span class="fn">round</span> <span class="num">1.5</span>           <span class="cm">-- Int: 2</span>
+<span class="fn">floor</span> <span class="num">1.9</span>           <span class="cm">-- Int: 1</span>
+<span class="fn">ceiling</span> <span class="num">1.1</span>         <span class="cm">-- Int: 2</span>
+<span class="ty">String</span>.<span class="fn">fromInt</span> <span class="num">1</span>    <span class="cm">-- String: "1"</span>
+<span class="ty">String</span>.<span class="fn">fromFloat</span> <span class="num">0.1</span> <span class="cm">-- String: "0.1"</span>
+<span class="ty">Debug</span>.<span class="fn">toString</span> <span class="num">True</span> <span class="cm">-- String: "True"</span>
+<span class="fn">min</span> <span class="num">1.2</span> <span class="num">1.55</span>        <span class="cm">-- Float: 1.2</span>
+<span class="fn">max</span> <span class="num">3</span> <span class="num">7</span>             <span class="cm">-- Int: 7</span>
+<span class="fn">modBy</span> <span class="num">3</span> <span class="num">10</span>          <span class="cm">-- Int: 1  (10 mod 3)</span></pre>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 2. CONDITIONALS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="conditionals">
+  <div class="section-label">Lecture 15 · Control Flow</div>
+  <h2 class="section-title">Conditionals</h2>
+  <p class="section-intro">In Elm, <code>if</code> is an <strong>expression</strong>, not a statement. That means it always evaluates to a value and can be assigned to a variable — exactly like Python's ternary <code>x if cond else y</code>.</p>
+
+  <h3 class="subsection">if / else if / else</h3>
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python — statement (can't assign)</div>
+      <pre><span class="kw">if</span> isWeekend:      <span class="cm"># can't assign this</span>
+    mood = <span class="str">"happy"</span>
+<span class="kw">else</span>:
+    mood = <span class="str">"sad"</span>
+
+<span class="cm"># Ternary (expression):</span>
+mood = <span class="str">"happy"</span> <span class="kw">if</span> isWeekend <span class="kw">else</span> <span class="str">"sad"</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm — always an expression</div>
+      <pre>mood =
+    <span class="kw">if</span> isWeekend <span class="kw">then</span>
+        <span class="str">"happy"</span>
+    <span class="kw">else</span>
+        <span class="str">"sad"</span>
+
+<span class="cm">-- One-liner:</span>
+mood = <span class="kw">if</span> isWeekend <span class="kw">then</span> <span class="str">"happy"</span> <span class="kw">else</span> <span class="str">"sad"</span></pre>
+    </div>
+  </div>
+
+  <div class="callout danger">
+    <div class="callout-icon"></div>
+    <div><strong>The <code>else</code> branch is mandatory.</strong> In Python you can have <code>if</code> without <code>else</code>. In Elm you cannot — the compiler needs to know what value is produced in every case.</div>
+  </div>
+
+  <p>Chaining with <code>else if</code>:</p>
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — else if chaining</span></div>
+    <pre>mood =
+    <span class="kw">if</span> isRaining <span class="kw">then</span>
+        <span class="str">"gloomy"</span>
+    <span class="kw">else if</span> hasExam <span class="kw">then</span>
+        <span class="str">"scared"</span>
+    <span class="kw">else if</span> isWeekend <span class="kw">then</span>
+        <span class="str">"happy"</span>
+    <span class="kw">else</span>
+        <span class="str">"sad"</span></pre>
+  </div>
+
+  <h3 class="subsection" id="case">case Expression</h3>
+  <p>When you're checking equality against many specific values, <code>case</code> is cleaner than chained <code>if</code>. Think of it as Python's <code>match</code> statement (Python 3.10+) or a long chain of <code>elif`s.</p>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python — match statement</div>
+      <pre><span class="kw">match</span> n:
+    <span class="kw">case</span> <span class="num">1</span>: day = <span class="str">"Sunday"</span>
+    <span class="kw">case</span> <span class="num">2</span>: day = <span class="str">"Monday"</span>
+    <span class="kw">case</span> _: day = <span class="str">"Unknown"</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm — case expression (returns a value)</div>
+      <pre>day =
+    <span class="kw">case</span> n <span class="kw">of</span>
+        <span class="num">1</span> <span class="op">-></span> <span class="str">"Sunday"</span>
+        <span class="num">2</span> <span class="op">-></span> <span class="str">"Monday"</span>
+        <span class="num">3</span> <span class="op">-></span> <span class="str">"Tuesday"</span>
+        <span class="op">_</span> <span class="op">-></span> <span class="str">"Unknown day"</span></pre>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon"></div>
+    <div><code>_</code> is the wildcard — it matches anything. You'll use it constantly in Elm, especially to ignore carried data or provide a catch-all branch.</div>
+  </div>
+
+  <h3 class="subsection" id="let">let Expression</h3>
+  <p>The <code>let</code> expression lets you define temporary variables scoped to a block. Python equivalent: assigning temporary variables inside a function body, but in Elm they're only visible within the <code>in</code> part.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="kw">let</span>
+    x <span class="op">=</span> <span class="num">11</span>
+    y <span class="op">=</span> x <span class="op">+</span> <span class="num">1</span>  <span class="cm">-- can use x here</span>
+<span class="kw">in</span>
+x <span class="op">+</span> y         <span class="cm">-- the result</span>
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> <code>let</code> opens a block for local definitions. All definitions must be indented more than the <code>let</code> keyword.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> Later definitions can reference earlier ones (<code>y</code> uses <code>x</code>).</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>in</code> is followed by the <em>single expression</em> that the entire <code>let...in</code> block evaluates to.</div>
+      <div class="ann-item"><span class="ann-num red">4</span> <code>x</code> and <code>y</code> do <em>not</em> exist outside this block — they are truly local.</div>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-icon"></div>
+    <div><strong>Shadowing is flagged.</strong> If you define a local variable with the same name as an outer one, Elm will warn you. This avoids subtle bugs from accidentally hiding outer values.</div>
+  </div>
+
+  <h3 class="subsection">Statements vs Expressions — The Key Mental Shift</h3>
+  <div class="viz">
+    <div class="viz-title">Almost everything in Elm is an expression (produces a value)</div>
+    <div class="grid2">
+      <div>
+        <p style="color:var(--accent2); font-family:'JetBrains Mono',monospace; font-size:12px; margin-bottom:8px">🚫 STATEMENT (Python)</p>
+        <p style="font-size:13px">Cannot be assigned to a variable. Side-effectful. Examples: <code>if</code> statement, <code>for</code> loop, <code>print()</code> call.</p>
+      </div>
+      <div>
+        <p style="color:var(--accent3); font-family:'JetBrains Mono',monospace; font-size:12px; margin-bottom:8px">✅ EXPRESSION (Elm)</p>
+        <p style="font-size:13px">Evaluates to a value. Can be assigned. In Elm: <code>if</code>, <code>case</code>, <code>let...in</code>, function calls, operators — all expressions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 3. FUNCTIONS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="functions">
+  <div class="section-label">Lecture 15 · Functions</div>
+  <h2 class="section-title">Functions</h2>
+  <p class="section-intro">Functions are the primary building blocks of Elm. They look deceptively simple but behave differently from Python — especially in how arguments are passed and how types work.</p>
+
+  <h3 class="subsection">Declaring & Calling Functions</h3>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python</div>
+      <pre><span class="kw">def</span> <span class="fn">double</span>(n):
+    <span class="kw">return</span> n <span class="op">*</span> <span class="num">2</span>
+
+<span class="fn">double</span>(<span class="num">5</span>)    <span class="cm"># Returns 10</span>
+<span class="fn">min</span>(<span class="num">1.2</span>, <span class="num">1.55</span>)  <span class="cm"># Returns 1.2</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm</div>
+      <pre><span class="fn">double</span> n <span class="op">=</span> n <span class="op">*</span> <span class="num">2</span>
+
+<span class="fn">double</span> <span class="num">5</span>        <span class="cm">-- Returns 10</span>
+<span class="fn">min</span> <span class="num">1.2</span> <span class="num">1.55</span>    <span class="cm">-- Returns 1.2</span></pre>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon"></div>
+    <div><strong>No parentheses around arguments!</strong> In Elm, you separate arguments with spaces, not commas. Parentheses are only used for grouping: <code>factorial (n-1)</code> passes <code>n-1</code> as one argument (otherwise Elm would interpret it as two separate things).</div>
+  </div>
+
+  <h3 class="subsection">Recursion Instead of Loops</h3>
+  <p>Since Elm has no <code>while</code> or <code>for</code>, repetition is done with <strong>recursion</strong> — a function calling itself.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="fn">factorial</span> n <span class="op">=</span>
+    <span class="kw">if</span> n <span class="op">==</span> <span class="num">0</span> <span class="kw">then</span>
+        <span class="num">1</span>
+    <span class="kw">else</span>
+        n <span class="op">*</span> (<span class="fn">factorial</span> (n <span class="op">-</span> <span class="num">1</span>))
+
+<span class="fn">combination</span> n k <span class="op">=</span>
+    <span class="kw">let</span>
+        num <span class="op">=</span> <span class="fn">factorial</span> n
+        den <span class="op">=</span> (<span class="fn">factorial</span> k) <span class="op">*</span>
+              (<span class="fn">factorial</span> (n <span class="op">-</span> k))
+    <span class="kw">in</span>
+    num <span class="op">//</span> den
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> Base case: <code>factorial 0 = 1</code>. Every recursive function needs one.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> Recursive case: multiply <code>n</code> by <code>factorial (n-1)</code>. Parentheses group the argument.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>combination</code> uses a <code>let</code> block for clarity — splitting numerator and denominator into named sub-expressions.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>//</code> is integer division (discards remainder).</div>
+    </div>
+  </div>
+
+  <h3 class="subsection" id="signatures">Type Signatures</h3>
+  <p>Type signatures sit on the line above the function definition. They're optional (Elm infers them) but serve as great documentation and catch type errors early.</p>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — function type signatures</span></div>
+    <pre><span class="cm">-- Syntax: functionName : InputType1 -> InputType2 -> ReturnType</span>
+
+<span class="fn">double</span> : <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span>
+<span class="fn">double</span> n <span class="op">=</span> n <span class="op">*</span> <span class="num">2</span>
+
+<span class="fn">combination</span> : <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span>
+<span class="fn">combination</span> n k <span class="op">=</span> <span class="cm">-- takes 2 Ints, returns 1 Int</span>
+    ...
+
+<span class="fn">parityStr</span> : <span class="ty">Int</span> <span class="op">-></span> <span class="ty">String</span>
+<span class="fn">parityStr</span> n <span class="op">=</span> <span class="kw">if</span> <span class="fn">isOdd</span> n <span class="kw">then</span> <span class="str">"odd"</span> <span class="kw">else</span> <span class="str">"even"</span></pre>
+  </div>
+
+  <div class="viz">
+    <div class="viz-title">Reading a type signature</div>
+    <div class="arrow-row">
+      <div class="box blue" style="font-size:14px;padding:10px 16px;"><code>combination</code></div>
+      <span style="color:var(--text-dim)">:</span>
+      <div class="box yellow">Int</div>
+      <span class="arr">→</span>
+      <div class="box yellow">Int</div>
+      <span class="arr">→</span>
+      <div class="box green">Int</div>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--text-dim)">Read as: "combination takes an Int, then another Int, and returns an Int." The <em>last</em> type is always the return type.</p>
+  </div>
+
+  <h3 class="subsection" id="pipeline">Pipeline Operator <code>|&gt;</code></h3>
+  <p>The pipeline operator <code>|&gt;</code> passes the value on the left as the <strong>last argument</strong> of the function on the right. It makes chained transformations readable — like Unix pipe <code>|</code> in the terminal.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="cm">-- Without pipeline (nested, hard to read):</span>
+<span class="fn">List.reverse</span> (<span class="fn">List.range</span> <span class="num">1</span> <span class="num">5</span>)
+
+<span class="cm">-- With pipeline (reads left-to-right):</span>
+<span class="fn">List.range</span> <span class="num">1</span> <span class="num">5</span>
+    <span class="op">|></span> <span class="fn">List.reverse</span>
+
+<span class="cm">-- Real example from Main.elm:</span>
+<span class="fn">List.repeat</span> c <span class="num">0</span>
+    <span class="op">|></span> <span class="fn">List.repeat</span> r
+<span class="cm">-- Same as: List.repeat r (List.repeat c 0)</span>
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> Nested calls read inside-out, which is confusing. The pipeline reads top-to-bottom, like a recipe.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>List.range 1 5</code> produces <code>[1,2,3,4,5]</code>, which is piped as the last arg to <code>List.reverse</code>.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> In the <code>zeroMatrix</code> example: first create a row of zeros, then repeat that row <code>r</code> times to make a 2D matrix.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 4. LISTS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="lists">
+  <div class="section-label">Lecture 16 · Immutable Data Types</div>
+  <h2 class="section-title">Lists</h2>
+  <p class="section-intro"><code>List a</code> is Elm's go-to sequence type. Like Python lists, but <strong>immutable</strong> (you never modify one — you compute a new one) and <strong>homogeneous</strong> (all elements must be the same type).</p>
+
+  <h3 class="subsection">Creating Lists</h3>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — list creation</span></div>
+    <pre><span class="cm">-- Literal syntax:</span>
+x <span class="op">=</span> []              <span class="cm">-- Empty list (type: List a)</span>
+y <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]       <span class="cm">-- List Int</span>
+z <span class="op">=</span> [<span class="str">"a"</span>, <span class="str">"b"</span>]      <span class="cm">-- List String</span>
+
+<span class="cm">-- List.range start end → [start, start+1, ..., end]</span>
+<span class="fn">List.range</span> <span class="num">1</span> <span class="num">5</span>     <span class="cm">-- [1,2,3,4,5]</span>
+<span class="fn">List.range</span> <span class="num">5</span> <span class="num">1</span>     <span class="cm">-- [] (empty if start > end)</span>
+
+<span class="cm">-- List.repeat n value → list of n copies of value</span>
+<span class="fn">List.repeat</span> <span class="num">3</span> <span class="str">"hi"</span>  <span class="cm">-- ["hi","hi","hi"]</span>
+<span class="fn">List.repeat</span> <span class="num">5</span> <span class="num">0</span>    <span class="cm">-- [0,0,0,0,0]</span>
+
+<span class="cm">-- (::) cons operator — prepend to list:</span>
+<span class="num">1</span> <span class="op">::</span> [<span class="num">2</span>, <span class="num">3</span>]          <span class="cm">-- [1,2,3]</span>
+<span class="num">1</span> <span class="op">::</span> <span class="num">2</span> <span class="op">::</span> <span class="num">3</span> <span class="op">::</span> []  <span class="cm">-- [1,2,3]</span></pre>
+  </div>
+
+  <div class="viz">
+    <div class="viz-title">List as a chain of cons cells (linked list)</div>
+    <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+      <div class="list-cell head">1</div>
+      <span style="color:var(--accent);font-size:18px;">→</span>
+      <div class="list-cell">2</div>
+      <span style="color:var(--accent);font-size:18px;">→</span>
+      <div class="list-cell">3</div>
+      <span style="color:var(--accent);font-size:18px;">→</span>
+      <div class="list-cell" style="color:var(--accent2)">[]</div>
+    </div>
+    <p style="margin-top:10px;font-size:13px;color:var(--text-dim)"><code>[1, 2, 3]</code> is secretly <code>1 :: (2 :: (3 :: []))</code>. The head is fast to access; random access is slow (unlike Python lists).</p>
+  </div>
+
+  <h3 class="subsection" id="list-fns">List Module Functions</h3>
+
+  <table class="type-table">
+    <thead><tr><th>Function</th><th>Signature</th><th>Returns</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><code>List.length</code></td><td><code>List a → Int</code></td><td>length</td><td><code>List.length [1,2,3] == 3</code></td></tr>
+      <tr><td><code>List.reverse</code></td><td><code>List a → List a</code></td><td>reversed list</td><td><code>List.reverse [1,2] == [2,1]</code></td></tr>
+      <tr><td><code>List.member</code></td><td><code>a → List a → Bool</code></td><td>exists?</td><td><code>List.member 5 [1,5,9] == True</code></td></tr>
+      <tr><td><code>List.sum</code></td><td><code>List num → num</code></td><td>sum</td><td><code>List.sum [1,2,3] == 6</code></td></tr>
+      <tr><td><code>List.append</code></td><td><code>List a → List a → List a</code></td><td>combined</td><td><code>List.append [1] [2,3] == [1,2,3]</code></td></tr>
+      <tr><td><code>List.concat</code></td><td><code>List (List a) → List a</code></td><td>flattened</td><td><code>List.concat [[1],[2,3]] == [1,2,3]</code></td></tr>
+      <tr><td><code>List.take</code></td><td><code>Int → List a → List a</code></td><td>first n</td><td><code>List.take 2 [1,2,3] == [1,2]</code></td></tr>
+      <tr><td><code>List.drop</code></td><td><code>Int → List a → List a</code></td><td>after first n</td><td><code>List.drop 2 [1,2,3] == [3]</code></td></tr>
+      <tr><td><code>List.sort</code></td><td><code>List cmp → List cmp</code></td><td>sorted ascending</td><td><code>List.sort [3,1,2] == [1,2,3]</code></td></tr>
+      <tr><td><code>List.maximum</code></td><td><code>List cmp → Maybe cmp</code></td><td>max (or Nothing)</td><td><code>List.maximum [1,5,2] == Just 5</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection" id="maybe">Maybe: Safe Absence of Values</h3>
+  <p>What does <code>List.maximum []</code> return? The list is empty — there's no maximum. In Python this would throw an exception. In Elm, the return type is <code>Maybe a</code> — it either has a value (<code>Just x</code>) or is absent (<code>Nothing</code>).</p>
+
+  <div class="viz">
+    <div class="viz-title">Maybe a — exactly two possibilities</div>
+    <div>
+      <div class="maybe-box just">
+        <div>
+          <span class="maybe-just-label">Just</span>
+          <span class="maybe-val">100</span>
+        </div>
+      </div>
+      <span style="color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:12px;"> ← List.maximum [10, 100, 20]</span>
+    </div>
+    <div style="margin-top:8px">
+      <div class="maybe-box nothing">Nothing</div>
+      <span style="color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:12px;"> ← List.maximum []</span>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python — Optional (same idea)</div>
+      <pre><span class="kw">from</span> typing <span class="kw">import</span> Optional
+
+<span class="kw">def</span> <span class="fn">safe_max</span>(lst) <span class="op">-></span> Optional[<span class="ty">int</span>]:
+    <span class="kw">if not</span> lst:
+        <span class="kw">return None</span>
+    <span class="kw">return</span> <span class="fn">max</span>(lst)
+
+result = <span class="fn">safe_max</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>])
+<span class="kw">if</span> result <span class="kw">is not None</span>:
+    <span class="fn">print</span>(result)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"empty!"</span>)</pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm — Maybe (forced to handle both)</div>
+      <pre><span class="cm">-- Option 1: case expression</span>
+<span class="kw">case</span> <span class="ty">List</span>.<span class="fn">maximum</span> [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>] <span class="kw">of</span>
+    <span class="ty">Just</span> val <span class="op">-></span> <span class="str">"max is "</span> <span class="op">++</span> <span class="ty">String</span>.<span class="fn">fromInt</span> val
+    <span class="ty">Nothing</span>  <span class="op">-></span> <span class="str">"empty!"</span>
+
+<span class="cm">-- Option 2: withDefault (provide a fallback)</span>
+<span class="ty">List</span>.<span class="fn">maximum</span> [] <span class="op">|></span> <span class="ty">Maybe</span>.<span class="fn">withDefault</span> <span class="num">0</span>
+<span class="cm">-- returns 0 if Nothing, else the value</span></pre>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon"></div>
+    <div><code>Maybe.withDefault fallback (maybeValue)</code> is the quick way to "unbox" a Maybe when you have a sensible default. Use <code>case</code> when you need different behavior for <code>Just</code> vs <code>Nothing</code>.</div>
+  </div>
+
+  <h3 class="subsection" id="filter">List.filter — Keeping Elements</h3>
+  <p>Filter takes a <strong>predicate</strong> (a function that returns Bool) and a list, and returns only the elements where the predicate is True.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="fn">isOdd</span> : <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Bool</span>
+<span class="fn">isOdd</span> n <span class="op">=</span> <span class="fn">modBy</span> <span class="num">2</span> n <span class="op">/=</span> <span class="num">0</span>
+
+<span class="fn">isEven</span> : <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Bool</span>
+<span class="fn">isEven</span> n <span class="op">=</span> <span class="fn">isOdd</span> n <span class="op">|></span> <span class="fn">not</span>
+
+x <span class="op">=</span> <span class="fn">List.range</span> <span class="num">1</span> <span class="num">10</span>
+y <span class="op">=</span> <span class="fn">List.filter</span> <span class="fn">isOdd</span> x
+<span class="cm">-- [1,3,5,7,9]</span>
+z <span class="op">=</span> <span class="fn">List.filter</span> <span class="fn">isEven</span> x
+<span class="cm">-- [2,4,6,8,10]</span>
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> <code>modBy 2 n</code> gives remainder of <code>n / 2</code>. Note: in Elm it's <code>modBy divisor dividend</code>, not <code>n % 2</code>.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>/=</code> is "not equal" (Elm's unusual way to say <code>!=</code>).</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>isEven</code> reuses <code>isOdd</code> via pipeline: result of <code>isOdd n</code> is piped into <code>not</code>.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>List.filter</code> keeps elements where the predicate returns <code>True</code>.</div>
+    </div>
+  </div>
+
+  <h3 class="subsection">List.map — Transforming Every Element</h3>
+  <p><code>List.map</code> applies a function to every element and collects the results into a new list. It's the functional replacement for a <code>for</code> loop that transforms elements.</p>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python</div>
+      <pre><span class="kw">def</span> <span class="fn">increment</span>(n): <span class="kw">return</span> n <span class="op">+</span> <span class="num">1</span>
+
+x = [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>]
+
+<span class="cm"># Imperative:</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(x)):
+    x[i] = <span class="fn">increment</span>(x[i])
+
+<span class="cm"># Functional (map):</span>
+y = <span class="fn">list</span>(<span class="fn">map</span>(<span class="fn">increment</span>, x))
+<span class="cm"># [11, 21, 31]</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm</div>
+      <pre><span class="fn">increment</span> : <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span>
+<span class="fn">increment</span> n <span class="op">=</span> n <span class="op">+</span> <span class="num">1</span>
+
+x <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>]
+y <span class="op">=</span> <span class="fn">List.map</span> <span class="fn">increment</span> x
+<span class="cm">-- [11, 21, 31]</span>
+
+<span class="cm">-- map with different types:</span>
+<span class="fn">List.map</span> <span class="fn">parityStr</span> [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>]
+<span class="cm">-- ["odd","even","odd"]</span></pre>
+    </div>
+  </div>
+
+  <div class="viz">
+    <div class="viz-title">List.map : (a → b) → List a → List b</div>
+    <div class="arrow-row">
+      <div class="box">[10, 20, 30]</div>
+      <span class="arr">→</span>
+      <div class="box purple">map increment</div>
+      <span class="arr">→</span>
+      <div class="box green">[11, 21, 31]</div>
+    </div>
+    <p style="margin-top:10px;font-size:13px;color:var(--text-dim)">Key insight: <code>map</code> can change the <em>type</em> of elements (Int → String is fine) but never the <em>count</em>. Three in, three out — always.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 5. ARRAYS & TUPLES -->
+<!-- ══════════════════════════════════════════ -->
+<section id="arrays">
+  <div class="section-label">Lecture 16 · Immutable Data Types</div>
+  <h2 class="section-title">Arrays & Tuples</h2>
+  <p class="section-intro">Lists are efficient for sequential access. Arrays add random access (get element at index i in O(1)). Tuples group a fixed number of differently-typed values together.</p>
+
+  <h3 class="subsection">Array Module</h3>
+
+  <div class="callout info">
+    <div class="callout-icon"></div>
+    <div><code>Array</code> is <strong>not imported by default</strong>. You must write <code>import Array exposing (Array)</code>. The module is <code>Array</code>; the type inside is also <code>Array</code> — which is why you need <code>exposing (Array)</code> to use it without a prefix.</div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — Array usage</span></div>
+    <pre><span class="kw">import</span> <span class="ty">Array</span> <span class="kw">exposing</span> (<span class="ty">Array</span>)
+
+<span class="cm">-- Creation from a List:</span>
+arr : <span class="ty">Array</span> <span class="ty">Int</span>
+arr <span class="op">=</span> <span class="ty">Array</span>.<span class="fn">fromList</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>]
+
+<span class="cm">-- Random access: returns Maybe a (might be out of bounds)</span>
+<span class="ty">Array</span>.<span class="fn">get</span> <span class="num">0</span> arr    <span class="cm">-- Just 10</span>
+<span class="ty">Array</span>.<span class="fn">get</span> <span class="num">5</span> arr    <span class="cm">-- Nothing (index out of bounds)</span>
+
+<span class="cm">-- Set a value (returns a NEW array; original unchanged)</span>
+newArr <span class="op">=</span> <span class="ty">Array</span>.<span class="fn">set</span> <span class="num">2</span> <span class="num">100</span> arr
+<span class="cm">-- arr    == Array.fromList [10, 20, 30]  (unchanged!)</span>
+<span class="cm">-- newArr == Array.fromList [10, 20, 100]</span>
+
+<span class="cm">-- Other useful functions:</span>
+<span class="ty">Array</span>.<span class="fn">length</span> arr         <span class="cm">-- 3</span>
+<span class="ty">Array</span>.<span class="fn">push</span> <span class="num">40</span> arr         <span class="cm">-- Array [10,20,30,40]</span>
+<span class="ty">Array</span>.<span class="fn">toList</span> arr          <span class="cm">-- [10,20,30]</span>
+<span class="ty">Array</span>.<span class="fn">slice</span> <span class="num">1</span> <span class="num">3</span> arr        <span class="cm">-- Array [20,30]</span>
+<span class="ty">Array</span>.<span class="fn">repeat</span> <span class="num">3</span> <span class="num">0</span>          <span class="cm">-- Array [0,0,0]</span>
+<span class="ty">Array</span>.<span class="fn">toIndexedList</span> arr    <span class="cm">-- [(0,10),(1,20),(2,30)]</span></pre>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-icon"></div>
+    <div><strong>Immutability is real.</strong> <code>Array.set</code> does <em>not</em> change the original array — it returns a brand new one. Always capture the result: <code>newArr = Array.set 0 99 arr</code>. If you don't capture it, the change is lost.</div>
+  </div>
+
+  <h3 class="subsection" id="tuples">Tuples</h3>
+  <p>A tuple groups 2–3 values of (potentially) different types. Perfect for returning multiple values from a function without defining a full record.</p>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python</div>
+      <pre><span class="cm"># Python tuples — any length, any types</span>
+point = (<span class="num">3</span>, <span class="num">4</span>)
+triple = (<span class="num">1</span>, <span class="str">"hello"</span>, <span class="num">True</span>)
+
+x, y = point   <span class="cm"># destructuring</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm</div>
+      <pre><span class="cm">-- Max 3 elements; use Records for more</span>
+point : (<span class="ty">Int</span>, <span class="ty">Int</span>)
+point <span class="op">=</span> (<span class="num">3</span>, <span class="num">4</span>)
+
+triple : (<span class="ty">Int</span>, <span class="ty">String</span>, <span class="ty">Bool</span>)
+triple <span class="op">=</span> (<span class="num">1</span>, <span class="str">"hello"</span>, <span class="num">True</span>)
+
+<span class="cm">-- Destructuring (only inside let):</span>
+<span class="kw">let</span>
+    (a, b) <span class="op">=</span> point    <span class="cm">-- a=3, b=4</span>
+    (x, _, z) <span class="op">=</span> triple <span class="cm">-- _ means "ignore"</span>
+<span class="kw">in</span>
+a <span class="op">+</span> b <span class="cm">-- 7</span></pre>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 6. RECORDS & DICTS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="records">
+  <div class="section-label">Lecture 17 · Records, Fold, Recursion</div>
+  <h2 class="section-title">Records & Dictionaries</h2>
+  <p class="section-intro">When you need more than 3 fields, use a Record (fixed field names, like a dataclass) or a Dict (dynamic keys, like a Python dict).</p>
+
+  <h3 class="subsection">Records</h3>
+  <p>A record is like a Python dataclass or named tuple — a fixed set of named fields with specific types.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="cm">-- 1. Define a type alias for the record shape</span>
+<span class="kw">type alias</span> <span class="ty">Class</span> <span class="op">=</span>
+    { section : <span class="ty">String</span>
+    , students : <span class="ty">Int</span>
+    , handler : <span class="ty">String</span>
+    }
+
+<span class="cm">-- 2. Create an instance</span>
+myClass : <span class="ty">Class</span>
+myClass <span class="op">=</span>
+    { section <span class="op">=</span> <span class="str">"CS 12 FRU1"</span>
+    , students <span class="op">=</span> <span class="num">19</span>
+    , handler <span class="op">=</span> <span class="str">"Martinez"</span>
+    }
+
+<span class="cm">-- 3. Access a field</span>
+myClass.section   <span class="cm">-- "CS 12 FRU1"</span>
+myClass.students  <span class="cm">-- 19</span>
+
+<span class="cm">-- 4. "Update" (creates a NEW record)</span>
+newClass <span class="op">=</span> { myClass <span class="op">|</span> students <span class="op">=</span> myClass.students <span class="op">+</span> <span class="num">1</span> }
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> <code>type alias</code> gives a name to a record shape. Like <code>@dataclass</code> in Python.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> Creation uses <code>=</code> inside the braces (not <code>:</code> like the type definition).</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> Access fields with <code>record.fieldName</code> — same as Python's <code>obj.attr</code>.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>{ myClass | students = 20 }</code> makes a NEW record with only <code>students</code> changed. <code>myClass</code> is still <code>19</code>. Immutability!</div>
+    </div>
+  </div>
+
+  <h3 class="subsection" id="dicts">Dictionaries</h3>
+  <p>Dict is Elm's equivalent of Python's <code>dict</code> — stores key-value pairs. Unlike records, keys are dynamic. Also immutable, so all "mutations" return a new Dict.</p>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — Dict usage</span></div>
+    <pre><span class="kw">import</span> <span class="ty">Dict</span> <span class="kw">exposing</span> (<span class="ty">Dict</span>)
+
+<span class="cm">-- Create from a list of (key, value) pairs:</span>
+myDict <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">fromList</span> [(<span class="str">"a"</span>, <span class="num">1</span>), (<span class="str">"b"</span>, <span class="num">2</span>)]
+
+<span class="cm">-- Get (returns Maybe):</span>
+<span class="ty">Dict</span>.<span class="fn">get</span> <span class="str">"a"</span> myDict    <span class="cm">-- Just 1</span>
+<span class="ty">Dict</span>.<span class="fn">get</span> <span class="str">"z"</span> myDict    <span class="cm">-- Nothing</span>
+
+<span class="cm">-- Insert (returns new Dict):</span>
+<span class="ty">Dict</span>.<span class="fn">insert</span> <span class="str">"c"</span> <span class="num">3</span> myDict   <span class="cm">-- {"a":1,"b":2,"c":3}</span>
+
+<span class="cm">-- Remove (returns new Dict):</span>
+<span class="ty">Dict</span>.<span class="fn">remove</span> <span class="str">"a"</span> myDict    <span class="cm">-- {"b":2}</span>
+
+<span class="cm">-- Other functions:</span>
+<span class="ty">Dict</span>.<span class="fn">member</span> <span class="str">"a"</span> myDict   <span class="cm">-- True</span>
+<span class="ty">Dict</span>.<span class="fn">size</span> myDict          <span class="cm">-- 2</span>
+<span class="ty">Dict</span>.<span class="fn">keys</span> myDict           <span class="cm">-- ["a","b"]</span>
+<span class="ty">Dict</span>.<span class="fn">values</span> myDict         <span class="cm">-- [1,2]</span>
+<span class="ty">Dict</span>.<span class="fn">toList</span> myDict         <span class="cm">-- [("a",1),("b",2)]</span>
+<span class="ty">Dict</span>.<span class="fn">isEmpty</span> <span class="ty">Dict</span>.empty    <span class="cm">-- True</span></pre>
+  </div>
+
+  <div class="compare">
+    <div class="compare-box python">
+      <div class="compare-header">🐍 Python dict</div>
+      <pre>d = {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>}
+d[<span class="str">"c"</span>] = <span class="num">3</span>     <span class="cm"># mutates d in place</span>
+<span class="kw">del</span> d[<span class="str">"a"</span>]    <span class="cm"># mutates d in place</span>
+d.get(<span class="str">"z"</span>)    <span class="cm"># None (no Maybe!)</span></pre>
+    </div>
+    <div class="compare-box elm">
+      <div class="compare-header">🌳 Elm Dict</div>
+      <pre>d <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">fromList</span> [(<span class="str">"a"</span>,<span class="num">1</span>),(<span class="str">"b"</span>,<span class="num">2</span>)]
+d2 <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">insert</span> <span class="str">"c"</span> <span class="num">3</span> d   <span class="cm">-- new dict!</span>
+d3 <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">remove</span> <span class="str">"a"</span> d2   <span class="cm">-- new dict!</span>
+<span class="ty">Dict</span>.<span class="fn">get</span> <span class="str">"z"</span> d             <span class="cm">-- Nothing</span></pre>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 7. FOLD -->
+<!-- ══════════════════════════════════════════ -->
+<section id="fold">
+  <div class="section-label">Lecture 17 · Fold / Reduce</div>
+  <h2 class="section-title">Fold: The Universal Loop</h2>
+  <p class="section-intro">Elm has no <code>for</code> or <code>while</code>. Instead, most "aggregate over a list" patterns are captured by <code>fold</code>. Understanding fold is essential to thinking in Elm.</p>
+
+  <h3 class="subsection">The Pattern Behind Every Aggregation Loop</h3>
+
+  <div class="viz">
+    <div class="viz-title">Common Python for-loop pattern → Fold</div>
+    <div class="code-block" style="margin:0">
+      <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>python — the universal aggregation template</span></div>
+      <pre>elems = [...]
+result = STARTING_VALUE         <span class="cm"># accumulator</span>
+<span class="kw">for</span> elem <span class="kw">in</span> elems:
+    result = FUNCTION(result, elem)  <span class="cm"># reducer</span></pre>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--text-dim)">Every <code>sum</code>, <code>product</code>, <code>max</code>, <code>concat</code> loop fits this template. The only things that change are STARTING_VALUE and FUNCTION.</p>
+  </div>
+
+  <h3 class="subsection">foldl and foldr</h3>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — List.foldl and List.foldr signatures</span></div>
+    <pre><span class="cm">-- Both have the same signature!</span>
+<span class="fn">List.foldl</span> : (a <span class="op">-></span> b <span class="op">-></span> b) <span class="op">-></span> b <span class="op">-></span> <span class="ty">List</span> a <span class="op">-></span> b
+<span class="fn">List.foldr</span> : (a <span class="op">-></span> b <span class="op">-></span> b) <span class="op">-></span> b <span class="op">-></span> <span class="ty">List</span> a <span class="op">-></span> b
+<span class="cm">--           REDUCER        START  LIST     RESULT</span></pre>
+  </div>
+
+  <div class="viz">
+    <div class="viz-title">foldl trace: sum [1, 2, 3] starting from 0</div>
+    <div class="fold-step">
+      <div class="fold-acc">acc = 0</div>
+      <span class="arr">+</span>
+      <div class="fold-elem">elem = 1</div>
+      <span class="arr">→</span>
+      <div class="fold-res">acc = 1</div>
+    </div>
+    <div class="fold-step">
+      <div class="fold-acc">acc = 1</div>
+      <span class="arr">+</span>
+      <div class="fold-elem">elem = 2</div>
+      <span class="arr">→</span>
+      <div class="fold-res">acc = 3</div>
+    </div>
+    <div class="fold-step">
+      <div class="fold-acc">acc = 3</div>
+      <span class="arr">+</span>
+      <div class="fold-elem">elem = 3</div>
+      <span class="arr">→</span>
+      <div class="fold-res">acc = 6 ✓</div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — classic folds</span></div>
+    <pre><span class="fn">sum</span> : <span class="ty">List</span> <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span>
+<span class="fn">sum</span> nums <span class="op">=</span> <span class="fn">List.foldl</span> (+) <span class="num">0</span> nums
+
+<span class="fn">product</span> : <span class="ty">List</span> <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span>
+<span class="fn">product</span> nums <span class="op">=</span> <span class="fn">List.foldl</span> (*) <span class="num">1</span> nums
+
+<span class="fn">nonNegMax</span> : <span class="ty">List</span> <span class="ty">Int</span> <span class="op">-></span> <span class="ty">Int</span>
+<span class="fn">nonNegMax</span> nums <span class="op">=</span> <span class="fn">List.foldl</span> <span class="fn">max</span> <span class="num">0</span> nums
+
+<span class="fn">concatStrs</span> : <span class="ty">List</span> <span class="ty">String</span> <span class="op">-></span> <span class="ty">String</span>
+<span class="fn">concatStrs</span> strs <span class="op">=</span> <span class="fn">List.foldr</span> (<span class="op">++</span>) <span class="str">""</span> strs</pre>
+  </div>
+
+  <h3 class="subsection">foldl vs foldr — Order Matters</h3>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>foldl — Left to Right</div>
+      <p style="font-size:13px">Processes leftmost element first. For <code>["a","b","c"]</code> with <code>append</code>:</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;margin-top:10px;color:var(--text)">
+        append("c", append("b", append("a", "")))<br>
+        → append("c", append("b", "a"))<br>
+        → append("c", "ba") → <span style="color:var(--accent4)">"cba"</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>foldr — Right to Left</div>
+      <p style="font-size:13px">Processes rightmost element first. For <code>["a","b","c"]</code> with <code>append</code>:</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;margin-top:10px;color:var(--text)">
+        append("a", append("b", append("c", "")))<br>
+        → append("a", append("b", "c"))<br>
+        → append("a", "bc") → <span style="color:var(--accent3)">"abc"</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon"></div>
+    <div>For <strong>commutative</strong> operations (addition, multiplication — order doesn't matter), use either. For <strong>non-commutative</strong> ones (string append, list cons), the choice of <code>foldl</code> vs <code>foldr</code> changes the result.</div>
+  </div>
+
+  <h3 class="subsection" id="fold-state">Intermediate State with Tuples</h3>
+  <p>What if your reducer needs to track extra state — like a counter for "which iteration am I on"? Use a <strong>tuple as the accumulator</strong>.</p>
+
+  <div class="viz">
+    <div class="viz-title">extend "abc" → "abbccc" — needs to track position k</div>
+    <p style="font-size:13px;margin-bottom:12px">The accumulator is a pair <code>(answer, k)</code> — the string built so far, and the current position count.</p>
+    <div class="fold-step">
+      <div class="fold-acc" style="min-width:110px">("", 1)</div>
+      <span class="arr">+</span>
+      <div class="fold-elem">'a'</div>
+      <span class="arr">→</span>
+      <div class="fold-res" style="min-width:110px">("a", 2)</div>
+    </div>
+    <div class="fold-step">
+      <div class="fold-acc" style="min-width:110px">("a", 2)</div>
+      <span class="arr">+</span>
+      <div class="fold-elem">'b'</div>
+      <span class="arr">→</span>
+      <div class="fold-res" style="min-width:110px">("abb", 3)</div>
+    </div>
+    <div class="fold-step">
+      <div class="fold-acc" style="min-width:110px">("abb", 3)</div>
+      <span class="arr">+</span>
+      <div class="fold-elem">'c'</div>
+      <span class="arr">→</span>
+      <div class="fold-res" style="min-width:110px">("abbccc", 4)</div>
+    </div>
+  </div>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="fn">extend</span> : <span class="ty">String</span> <span class="op">-></span> <span class="ty">String</span>
+<span class="fn">extend</span> str <span class="op">=</span>
+    <span class="kw">let</span>
+        reducer : <span class="ty">Char</span> <span class="op">-></span> (<span class="ty">String</span>, <span class="ty">Int</span>) <span class="op">-></span> (<span class="ty">String</span>, <span class="ty">Int</span>)
+        reducer ch acc <span class="op">=</span>
+            <span class="kw">let</span>
+                (answer, k) <span class="op">=</span> acc
+                nextAnswer <span class="op">=</span> answer <span class="op">++</span>
+                    <span class="ty">String</span>.<span class="fn">repeat</span> k (<span class="ty">String</span>.<span class="fn">fromChar</span> ch)
+                nextK <span class="op">=</span> k <span class="op">+</span> <span class="num">1</span>
+            <span class="kw">in</span>
+            (nextAnswer, nextK)
+
+        (finalAns, _) <span class="op">=</span>
+            <span class="ty">String</span>.<span class="fn">foldl</span> reducer (<span class="str">""</span>, <span class="num">1</span>) str
+    <span class="kw">in</span>
+    finalAns
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> The reducer is defined locally inside <code>let</code>. Its accumulator type is a tuple <code>(String, Int)</code> — the answer string and the current repeat count <code>k</code>.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> Destructuring <code>(answer, k) = acc</code> unpacks the tuple inside another <code>let</code>.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>String.repeat k ch_str</code> repeats the character string <code>k</code> times.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>String.foldl</code> works character by character on a String. Starting value is <code>("", 1)</code>.</div>
+      <div class="ann-item"><span class="ann-num red">5</span> <code>(finalAns, _)</code> — we only need the answer, so we discard the final <code>k</code> with <code>_</code>.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 8. ALGEBRAIC DATA TYPES -->
+<!-- ══════════════════════════════════════════ -->
+<section id="adt">
+  <div class="section-label">Lecture 18 · Algebraic Data Types</div>
+  <h2 class="section-title">Algebraic Data Types</h2>
+  <p class="section-intro">Elm lets you create new types that can be exactly one of several variants. This is Elm's most powerful concept for data modeling, and the key to making invalid states <em>impossible to represent</em>.</p>
+
+  <h3 class="subsection">type vs type alias</h3>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>type alias — rename an existing type</div>
+      <div class="code-block" style="margin:8px 0 0">
+        <pre style="font-size:12px"><span class="cm">-- Just a new name for an existing shape</span>
+<span class="kw">type alias</span> <span class="ty">Name</span> <span class="op">=</span> <span class="ty">String</span>
+<span class="kw">type alias</span> <span class="ty">Model</span> <span class="op">=</span> <span class="ty">Int</span>
+<span class="kw">type alias</span> <span class="ty">Class</span> <span class="op">=</span>
+    { section : <span class="ty">String</span>
+    , students : <span class="ty">Int</span>
+    }</pre>
+      </div>
+      <p style="font-size:13px;margin-top:8px">Like <code>TypeAlias = OriginalType</code> in Python typing. No new type is created — just a shorter name.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>type — create a brand new type</div>
+      <div class="code-block" style="margin:8px 0 0">
+        <pre style="font-size:12px"><span class="cm">-- Creates a new type with named variants</span>
+<span class="kw">type</span> <span class="ty">Bool</span> <span class="op">=</span> <span class="ty">True</span> <span class="op">|</span> <span class="ty">False</span>
+<span class="kw">type</span> <span class="ty">Standing</span> <span class="op">=</span>
+    <span class="ty">Freshman</span> <span class="op">|</span> <span class="ty">Sophomore</span>
+    <span class="op">|</span> <span class="ty">Junior</span> <span class="op">|</span> <span class="ty">Senior</span> <span class="op">|</span> <span class="ty">Other</span>
+<span class="kw">type</span> <span class="ty">DayOfWeek</span> <span class="op">=</span>
+    <span class="ty">Sunday</span> <span class="op">|</span> <span class="ty">Monday</span> <span class="op">|</span> <span class="ty">Tuesday</span>
+    <span class="op">|</span> ...</pre>
+      </div>
+      <p style="font-size:13px;margin-top:8px">Like Python's <code>Enum</code>, but much more powerful — variants can carry data too.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection">Types as Sets — Why It Matters</h3>
+
+  <div class="viz">
+    <div class="viz-title">Cardinality (number of possible values) of types</div>
+    <div class="grid2">
+      <div>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:8px">Product Type (AND — record)</p>
+        <div style="font-size:13px;line-height:2">
+          <code>type alias R = { a: Bool, b: Bool }</code><br>
+          |R| = |Bool| × |Bool| = 2 × 2 = <span style="color:var(--accent3)">4 values</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-bottom:8px">Sum Type (OR — union)</p>
+        <div style="font-size:13px;line-height:2">
+          <code>type Standing = Freshman | Sophomore | Junior | Senior | Other</code><br>
+          |Standing| = 1+1+1+1+1 = <span style="color:var(--accent3)">5 values</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px;margin-top:12px;color:var(--text-dim)">Choose the type with the exact right number of states. Using <code>String</code> for student standing has ∞ values and allows nonsense like <code>"Freshman "</code> or <code>"fr3shm4n"</code>. A sum type with 5 variants allows exactly 5 — no more, no less.</p>
+  </div>
+
+  <h3 class="subsection" id="tagged-union">Tagged Unions — Variants with Data</h3>
+  <p>Variants can carry data. This is like a Python discriminated union or a sealed class in Kotlin — each variant has a tag and optionally some payload.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="kw">type</span> <span class="ty">CrSectionSlots</span>
+    <span class="op">=</span> <span class="ty">WithSlots</span> <span class="ty">Int</span>
+    <span class="op">|</span> <span class="ty">Full</span>
+    <span class="op">|</span> <span class="ty">Overbooked</span> <span class="ty">Int</span>
+    <span class="op">|</span> <span class="ty">Dissolved</span>
+
+<span class="cm">-- Maybe is just a tagged union too!</span>
+<span class="kw">type</span> <span class="ty">Maybe</span> a <span class="op">=</span> <span class="ty">Just</span> a <span class="op">|</span> <span class="ty">Nothing</span>
+
+<span class="cm">-- Creating values:</span>
+slot1 <span class="op">=</span> <span class="ty">WithSlots</span> <span class="num">14</span>
+slot2 <span class="op">=</span> <span class="ty">Full</span>
+slot3 <span class="op">=</span> <span class="ty">Overbooked</span> <span class="num">3</span>
+slot4 <span class="op">=</span> <span class="ty">Dissolved</span>
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> <code>WithSlots Int</code> — the variant tag is <code>WithSlots</code>, and it carries one <code>Int</code> (the number of remaining slots).</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>Full</code> and <code>Dissolved</code> carry no data — they're like singleton enum values.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>Maybe a</code> is generic — the <code>a</code> is a type variable (like Python's <code>Generic[T]</code>). <code>Just 5</code> is a <code>Maybe Int</code>; <code>Just "hi"</code> is a <code>Maybe String</code>.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> To create a value, write the variant name followed by any carried data.</div>
+    </div>
+  </div>
+
+  <div class="viz">
+    <div class="viz-title">CrSectionSlots — four possible states</div>
+    <div class="tu-row">
+      <div class="tu-variant tv-1"><span class="tv-tag">WithSlots</span>14 slots left</div>
+      <div class="tu-variant tv-2"><span class="tv-tag">Full</span>No data</div>
+      <div class="tu-variant tv-3"><span class="tv-tag">Overbooked</span>3 over capacity</div>
+      <div class="tu-variant tv-5"><span class="tv-tag">Dissolved</span>No data</div>
+    </div>
+  </div>
+
+  <h3 class="subsection" id="pattern">Pattern Matching on Tagged Unions</h3>
+  <p>Use <code>case</code> to destructure and handle each variant. Elm checks exhaustiveness — if you forget a branch, it won't compile.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="fn">toSlotStr</span> : <span class="ty">CrSectionSlots</span> <span class="op">-></span> <span class="ty">String</span>
+<span class="fn">toSlotStr</span> slots <span class="op">=</span>
+    <span class="kw">case</span> slots <span class="kw">of</span>
+        <span class="ty">WithSlots</span> left <span class="op">-></span>
+            <span class="str">"OPEN: "</span> <span class="op">++</span> <span class="ty">String</span>.<span class="fn">fromInt</span> left
+        <span class="ty">Full</span> <span class="op">-></span>
+            <span class="str">"FULL"</span>
+        <span class="ty">Overbooked</span> over <span class="op">-></span>
+            <span class="str">"OVERBOOKED by "</span> <span class="op">++</span> <span class="ty">String</span>.<span class="fn">fromInt</span> over
+        <span class="ty">Dissolved</span> <span class="op">-></span>
+            <span class="str">"DISSOLVED"</span>
+
+<span class="cm">-- Wildcard to ignore carried data:</span>
+<span class="fn">hasSlots</span> : <span class="ty">CrSectionSlots</span> <span class="op">-></span> <span class="ty">Bool</span>
+<span class="fn">hasSlots</span> slots <span class="op">=</span>
+    <span class="kw">case</span> slots <span class="kw">of</span>
+        <span class="ty">WithSlots</span> <span class="op">_</span> <span class="op">-></span> <span class="num">True</span>
+        <span class="op">_</span> <span class="op">-></span> <span class="num">False</span>
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> Each branch pattern starts with the variant name. For variants with data (<code>WithSlots left</code>), the name after the tag (<code>left</code>) binds the carried value locally.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>Full</code> and <code>Dissolved</code> have no data, so the pattern is just the tag name.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> All four variants must be covered. Remove any branch and Elm won't compile — it tells you exactly which cases are missing.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>WithSlots _</code> — we don't need the number, so we use <code>_</code> to ignore it. The <code>_</code> in the second branch catches <em>all other variants</em>.</div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon"></div>
+    <div><strong>Exhaustiveness checking</strong> is one of Elm's killer features. If you add a new variant to a type later, Elm will immediately point to every <code>case</code> expression that needs to be updated. This prevents the "forgot to handle the new case" bug.</div>
+  </div>
+
+  <h3 class="subsection">Food Ordering Example (Data Modeling)</h3>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — modeling a food ordering system</span></div>
+    <pre><span class="kw">type</span> <span class="ty">Dip</span> <span class="op">=</span> <span class="ty">Ketchup</span> <span class="op">|</span> <span class="ty">BBQSauce</span>
+<span class="kw">type</span> <span class="ty">SugarPercent</span> <span class="op">=</span> <span class="ty">Percent0</span> <span class="op">|</span> <span class="ty">Percent25</span> <span class="op">|</span> <span class="ty">Percent50</span> <span class="op">|</span> <span class="ty">Percent75</span> <span class="op">|</span> <span class="ty">Percent100</span>
+
+<span class="kw">type</span> <span class="ty">FoodItem</span>
+    <span class="op">=</span> <span class="ty">Tapsilog</span> { vinegar : <span class="ty">Bool</span>, atchara : <span class="ty">Bool</span> }
+    <span class="op">|</span> <span class="ty">Water</span>
+    <span class="op">|</span> <span class="ty">Fries</span> <span class="ty">Dip</span>
+    <span class="op">|</span> <span class="ty">MilkTea</span> <span class="ty">SugarPercent</span>
+
+<span class="cm">-- Using them:</span>
+order = [ <span class="ty">Tapsilog</span> { vinegar = <span class="num">True</span>, atchara = <span class="num">False</span> }
+        , <span class="ty">Fries</span> <span class="ty">Ketchup</span>
+        , <span class="ty">MilkTea</span> <span class="ty">Percent50</span>
+        , <span class="ty">Water</span>
+        ]
+
+<span class="fn">getItemCost</span> : <span class="ty">FoodItem</span> <span class="op">-></span> <span class="ty">Float</span>
+<span class="fn">getItemCost</span> item <span class="op">=</span>
+    <span class="kw">case</span> item <span class="kw">of</span>
+        <span class="ty">Tapsilog</span> <span class="op">_</span> <span class="op">-></span> <span class="num">150</span>   <span class="cm">-- ignore the record details</span>
+        <span class="ty">Fries</span> <span class="op">_</span>    <span class="op">-></span> <span class="num">120</span>
+        <span class="ty">MilkTea</span> <span class="op">_</span> <span class="op">-></span> <span class="num">100</span>
+        <span class="ty">Water</span>     <span class="op">-></span> <span class="num">25</span></pre>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 9. MVU ARCHITECTURE -->
+<!-- ══════════════════════════════════════════ -->
+<section id="mvu">
+  <div class="section-label">Lectures 19–20 · MVU Architecture</div>
+  <h2 class="section-title">The MVU Architecture</h2>
+  <p class="section-intro">MVU (Model-View-Update), also called The Elm Architecture (TEA), is how every interactive Elm program is organized. Once you get it, it clicks forever.</p>
+
+  <h3 class="subsection">The Big Picture</h3>
+
+  <div class="viz">
+    <div class="viz-title">MVU Cycle</div>
+    <div class="mvu-diagram">
+      <div>
+        <div class="mvu-box model">Model<div class="mvu-sub">State of the app</div></div>
+        <div class="mvu-label">e.g. counter = 5</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+        <div class="mvu-arr">→</div>
+        <div class="mvu-label">view renders UI</div>
+      </div>
+      <div>
+        <div class="mvu-box view">View<div class="mvu-sub">UI from state</div></div>
+        <div class="mvu-label">HTML on screen</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+        <div class="mvu-arr">→</div>
+        <div class="mvu-label">user clicks → Msg</div>
+      </div>
+      <div>
+        <div class="mvu-box update">Update<div class="mvu-sub">Msg + Model → Model</div></div>
+        <div class="mvu-label">produces new Model</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+        <div class="mvu-arr">→</div>
+        <div class="mvu-label">new state loops back</div>
+      </div>
+      <div>
+        <div class="mvu-box model">Model'<div class="mvu-sub">Updated state</div></div>
+        <div class="mvu-label">e.g. counter = 6</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>Model</div>
+      <p style="font-size:13px">The complete state of your app at any moment. A single data structure (often a record). Think of it as your database.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>View</div>
+      <p style="font-size:13px">A pure function <code>Model → Html Msg</code>. Given the current state, produce the HTML. No side effects. Same input → same output, always.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-purple"></span>Update</div>
+      <p style="font-size:13px">A pure function <code>Msg → Model → Model</code>. Given a message (user action) and current state, produce the new state.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection">Building a Counter App — Step by Step</h3>
+
+  <p><strong>Step 1: Define Model and initial state</strong></p>
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — step 1: model</span></div>
+    <pre><span class="kw">type alias</span> <span class="ty">Model</span> <span class="op">=</span> <span class="ty">Int</span>     <span class="cm">-- The counter is just an Int</span>
+
+init : <span class="ty">Model</span>
+init <span class="op">=</span> <span class="num">0</span>                   <span class="cm">-- Starts at 0</span></pre>
+  </div>
+
+  <p style="margin-top:16px"><strong>Step 2: Define all possible user actions (Msg)</strong></p>
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — step 2: msg</span></div>
+    <pre><span class="kw">type</span> <span class="ty">Msg</span>
+    <span class="op">=</span> <span class="ty">MsgIncrement</span>
+    <span class="op">|</span> <span class="ty">MsgDecrement</span>
+    <span class="op">|</span> <span class="ty">MsgReset</span>     <span class="cm">-- Added later</span></pre>
+  </div>
+
+  <p style="margin-top:16px"><strong>Step 3: Define update — how each message changes the state</strong></p>
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — step 3: update</span></div>
+    <pre><span class="fn">update</span> : <span class="ty">Msg</span> <span class="op">-></span> <span class="ty">Model</span> <span class="op">-></span> <span class="ty">Model</span>
+<span class="fn">update</span> msg model <span class="op">=</span>
+    <span class="kw">case</span> msg <span class="kw">of</span>
+        <span class="ty">MsgIncrement</span> <span class="op">-></span> model <span class="op">+</span> <span class="num">1</span>
+        <span class="ty">MsgDecrement</span> <span class="op">-></span> model <span class="op">-</span> <span class="num">1</span>
+        <span class="ty">MsgReset</span>     <span class="op">-></span> <span class="num">0</span>
+
+<span class="cm">-- Key: update is a PURE function. It just computes a new value.</span>
+<span class="cm">-- No mutation, no DOM manipulation, no network calls here.</span></pre>
+  </div>
+
+  <p style="margin-top:16px"><strong>Step 4: Define view — HTML from state</strong></p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="kw">import</span> <span class="ty">Html</span> <span class="kw">exposing</span> (<span class="ty">Html</span>, <span class="fn">button</span>, <span class="fn">div</span>, <span class="fn">p</span>, <span class="fn">text</span>)
+<span class="kw">import</span> <span class="ty">Html.Events</span> <span class="kw">exposing</span> (<span class="fn">onClick</span>)
+
+<span class="fn">view</span> : <span class="ty">Model</span> <span class="op">-></span> <span class="ty">Html</span> <span class="ty">Msg</span>
+<span class="fn">view</span> model <span class="op">=</span>
+    <span class="fn">div</span> []
+        [ <span class="fn">button</span> [ <span class="fn">onClick</span> <span class="ty">MsgIncrement</span> ] [ <span class="fn">text</span> <span class="str">"+"</span> ]
+        , <span class="fn">p</span> [] [ <span class="fn">text</span> (<span class="ty">String</span>.<span class="fn">fromInt</span> model) ]
+        , <span class="fn">button</span> [ <span class="fn">onClick</span> <span class="ty">MsgDecrement</span> ] [ <span class="fn">text</span> <span class="str">"-"</span> ]
+        , <span class="fn">button</span> [ <span class="fn">onClick</span> <span class="ty">MsgReset</span> ] [ <span class="fn">text</span> <span class="str">"Reset"</span> ]
+        ]
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> <code>Html Msg</code> means "an HTML node that can emit Msg values." The type parameter tracks what kinds of messages buttons etc. can fire.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>div attrs children</code> — first arg is a list of HTML attributes, second is a list of child nodes.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> <code>onClick MsgIncrement</code> attaches an event listener. When clicked, <code>MsgIncrement</code> is sent to <code>update</code>.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>text</code> makes a text node. It takes a <code>String</code>, so we must convert <code>model</code> (an Int) with <code>String.fromInt</code>.</div>
+      <div class="ann-item"><span class="ann-num red">5</span> The entire view is ONE <code>Html Msg</code> value. You can't return two top-level nodes — wrap them in a <code>div</code>.</div>
+    </div>
+  </div>
+
+  <p style="margin-top:16px"><strong>Step 5: Wire it together with main</strong></p>
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — complete main</span></div>
+    <pre><span class="kw">import</span> <span class="ty">Browser</span>
+
+<span class="fn">main</span> : <span class="ty">Program</span> () <span class="ty">Model</span> <span class="ty">Msg</span>
+<span class="fn">main</span> <span class="op">=</span> <span class="ty">Browser</span>.<span class="fn">sandbox</span>
+    { init   <span class="op">=</span> init
+    , update <span class="op">=</span> update
+    , view   <span class="op">=</span> view
+    }</pre>
+  </div>
+
+  <h3 class="subsection" id="html">HTML Nodes in Elm</h3>
+  <p>Elm's Html module mirrors the HTML DOM tree. Every node is a function call: <code>nodeName attributes children</code>.</p>
+
+  <table class="type-table">
+    <thead><tr><th>Node</th><th>Signature</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>div</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Block container (like <code>&lt;div&gt;</code>)</td></tr>
+      <tr><td><code>p</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Paragraph block</td></tr>
+      <tr><td><code>button</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Clickable button</td></tr>
+      <tr><td><code>input</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Text input field</td></tr>
+      <tr><td><code>span</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Inline container</td></tr>
+      <tr><td><code>br</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Line break</td></tr>
+      <tr><td><code>text</code></td><td><code>String → Html m</code></td><td>Plain text node (no attributes!)</td></tr>
+      <tr><td><code>h1</code>–<code>h6</code></td><td><code>List (Attribute m) → List (Html m) → Html m</code></td><td>Headings</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection">Event Attributes</h3>
+  <table class="type-table">
+    <thead><tr><th>Attribute</th><th>Signature</th><th>When it fires</th></tr></thead>
+    <tbody>
+      <tr><td><code>onClick</code></td><td><code>m → Attribute m</code></td><td>User clicks the element</td></tr>
+      <tr><td><code>onInput</code></td><td><code>(String → m) → Attribute m</code></td><td>Text changes in an <code>input</code></td></tr>
+      <tr><td><code>value</code></td><td><code>String → Attribute m</code></td><td>Sets displayed text in an input</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection">Handling Text Input (onInput)</h3>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="cm">-- From SumIntegers.elm</span>
+<span class="kw">type</span> <span class="ty">Msg</span>
+    <span class="op">=</span> <span class="ty">MsgNumOne</span> <span class="ty">String</span>
+    <span class="op">|</span> <span class="ty">MsgNumTwo</span> <span class="ty">String</span>
+
+<span class="kw">type alias</span> <span class="ty">Model</span> <span class="op">=</span>
+    { intOne : <span class="ty">String</span>
+    , intTwo : <span class="ty">String</span>
+    , display : <span class="ty">String</span>
+    }
+
+<span class="fn">update</span> msg model <span class="op">=</span>
+    <span class="kw">let</span>
+        updatedModel <span class="op">=</span>
+            <span class="kw">case</span> msg <span class="kw">of</span>
+                <span class="ty">MsgNumOne</span> s <span class="op">-></span> { model <span class="op">|</span> intOne <span class="op">=</span> s }
+                <span class="ty">MsgNumTwo</span> t <span class="op">-></span> { model <span class="op">|</span> intTwo <span class="op">=</span> t }
+        newDisplay <span class="op">=</span> <span class="fn">addTwoIntegerStrings</span>
+                     updatedModel.intOne updatedModel.intTwo
+    <span class="kw">in</span>
+    { updatedModel <span class="op">|</span> display <span class="op">=</span> newDisplay }
+
+<span class="fn">view</span> model <span class="op">=</span>
+    <span class="fn">div</span> []
+        [ <span class="fn">p</span> [] [ <span class="fn">text</span> model.display ]
+        , <span class="fn">input</span> [ <span class="fn">onInput</span> <span class="ty">MsgNumOne</span> ] []
+        , <span class="fn">input</span> [ <span class="fn">onInput</span> <span class="ty">MsgNumTwo</span> ] []
+        ]
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> <code>MsgNumOne String</code> — this variant carries the new text content. <code>onInput</code> passes the text box's new value automatically.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> The Model stores both input strings and the display text. All state lives in one place.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> In update, first update the relevant field, then recompute the display. Both steps happen in a single <code>let</code> block — no mutation.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>onInput MsgNumOne</code> — Elm passes the current text as the String payload of <code>MsgNumOne</code> automatically when the user types.</div>
+    </div>
+  </div>
+
+  <h3 class="subsection" id="dynamic">Dynamic Counters — Real-World MVU</h3>
+  <p>The <code>DynamicCounters.elm</code> demo shows a Model with a Dict of counters, each with its own ID, and messages that carry the counter's ID.</p>
+
+  <div class="annotated">
+    <div class="code-side">
+<span class="kw">type</span> <span class="ty">Msg</span>
+    <span class="op">=</span> <span class="ty">MsgNewCounter</span>
+    <span class="op">|</span> <span class="ty">MsgIncrement</span> <span class="ty">Int</span>  <span class="cm">-- carries counter ID</span>
+    <span class="op">|</span> <span class="ty">MsgDecrement</span> <span class="ty">Int</span>
+    <span class="op">|</span> <span class="ty">MsgReset</span> <span class="ty">Int</span>
+    <span class="op">|</span> <span class="ty">MsgDelete</span> <span class="ty">Int</span>
+
+<span class="kw">type alias</span> <span class="ty">CounterInfo</span> <span class="op">=</span>
+    { cid : <span class="ty">Int</span>, count : <span class="ty">Int</span> }
+
+<span class="kw">type alias</span> <span class="ty">Model</span> <span class="op">=</span>
+    { nextId : <span class="ty">Int</span>
+    , counters : <span class="ty">Dict</span> <span class="ty">Int</span> <span class="ty">CounterInfo</span>
+    }
+
+<span class="fn">init</span> : <span class="ty">Model</span>
+<span class="fn">init</span> <span class="op">=</span> { nextId <span class="op">=</span> <span class="num">0</span>, counters <span class="op">=</span> <span class="ty">Dict</span>.empty }
+    </div>
+    <div class="note-side">
+      <div class="ann-item"><span class="ann-num">1</span> Messages carry the counter's ID so <code>update</code> knows which counter to affect. E.g. <code>MsgIncrement 3</code> increments counter #3.</div>
+      <div class="ann-item"><span class="ann-num green">2</span> <code>CounterInfo</code> is a record with a counter's ID and current count.</div>
+      <div class="ann-item"><span class="ann-num yellow">3</span> The Model's <code>counters</code> is a <code>Dict Int CounterInfo</code> — a map from counter ID to its info. Adding a counter = inserting into this dict.</div>
+      <div class="ann-item"><span class="ann-num purple">4</span> <code>nextId</code> tracks the next available ID (auto-increment, like a database primary key).</div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — dynamic counters update function (key parts)</span></div>
+    <pre><span class="fn">update</span> : <span class="ty">Msg</span> <span class="op">-></span> <span class="ty">Model</span> <span class="op">-></span> <span class="ty">Model</span>
+<span class="fn">update</span> msg model <span class="op">=</span>
+    <span class="kw">case</span> msg <span class="kw">of</span>
+        <span class="ty">MsgNewCounter</span> <span class="op">-></span>
+            { model
+            <span class="op">|</span> nextId <span class="op">=</span> model.nextId <span class="op">+</span> <span class="num">1</span>
+            , counters <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">insert</span> model.nextId
+                { cid <span class="op">=</span> model.nextId, count <span class="op">=</span> <span class="num">0</span> }
+                model.counters
+            }
+
+        <span class="ty">MsgIncrement</span> cid <span class="op">-></span>
+            <span class="kw">let</span>
+                cinfo <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">get</span> cid model.counters
+                    <span class="op">|></span> <span class="ty">Maybe</span>.<span class="fn">withDefault</span> defaultInfo
+            <span class="kw">in</span>
+            { model <span class="op">|</span> counters <span class="op">=</span>
+                <span class="ty">Dict</span>.<span class="fn">insert</span> cid { cinfo <span class="op">|</span> count <span class="op">=</span> cinfo.count <span class="op">+</span> <span class="num">1</span> }
+                    model.counters }
+
+        <span class="ty">MsgDelete</span> cid <span class="op">-></span>
+            { model <span class="op">|</span> counters <span class="op">=</span> <span class="ty">Dict</span>.<span class="fn">remove</span> cid model.counters }
+
+        <span class="cm">-- MsgDecrement and MsgReset are similar to MsgIncrement</span></pre>
+  </div>
+
+  <h3 class="subsection" id="http">Http & Commands (Browser.element)</h3>
+  <p>For network requests, you need <code>Browser.element</code> instead of <code>Browser.sandbox</code>. The update function now returns <code>(Model, Cmd Msg)</code> — the new state plus a command to execute.</p>
+
+  <div class="viz">
+    <div class="viz-title">Browser.sandbox vs Browser.element</div>
+    <div class="grid2">
+      <div class="card">
+        <div class="card-title"><span class="dot dot-blue"></span>Browser.sandbox</div>
+        <p style="font-size:13px">For pure apps with no side effects. <code>update</code> returns just a <code>Model</code>. No HTTP, no randomness.</p>
+        <div class="code-block" style="margin-top:10px"><pre style="font-size:11px">update : <span class="ty">Msg</span> <span class="op">-></span> <span class="ty">Model</span> <span class="op">-></span> <span class="ty">Model</span></pre></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot dot-green"></span>Browser.element</div>
+        <p style="font-size:13px">For apps that talk to the world. <code>update</code> returns a tuple of (new model, command). <code>Cmd.none</code> means "no command".</p>
+        <div class="code-block" style="margin-top:10px"><pre style="font-size:11px">update : <span class="ty">Msg</span> <span class="op">-></span> <span class="ty">Model</span> <span class="op">-></span> (<span class="ty">Model</span>, <span class="ty">Cmd</span> <span class="ty">Msg</span>)</pre></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>elm — fetching data from an API</span></div>
+    <pre><span class="kw">import</span> <span class="ty">Http</span>
+
+<span class="kw">type</span> <span class="ty">Model</span>
+    <span class="op">=</span> <span class="ty">LoadingJoke</span>
+    <span class="op">|</span> <span class="ty">ShowingJoke</span> <span class="ty">String</span>
+    <span class="op">|</span> <span class="ty">ErrorPage</span> <span class="ty">String</span>
+
+<span class="kw">type</span> <span class="ty">Msg</span>
+    <span class="op">=</span> <span class="ty">MsgGotJoke</span> (<span class="ty">Result</span> <span class="ty">Http.Error</span> <span class="ty">String</span>)
+
+<span class="cm">-- Result is like Maybe, but with error info:</span>
+<span class="cm">-- Ok value  → success</span>
+<span class="cm">-- Err error → failure with reason</span>
+
+<span class="fn">getJoke</span> : <span class="ty">Cmd</span> <span class="ty">Msg</span>
+<span class="fn">getJoke</span> <span class="op">=</span>
+    <span class="ty">Http</span>.<span class="fn">get</span>
+        { url    <span class="op">=</span> <span class="str">"https://v2.jokeapi.dev/joke/programming?format=txt"</span>
+        , expect <span class="op">=</span> <span class="ty">Http</span>.<span class="fn">expectString</span> <span class="ty">MsgGotJoke</span>
+        }
+
+<span class="fn">init</span> : () <span class="op">-></span> (<span class="ty">Model</span>, <span class="ty">Cmd</span> <span class="ty">Msg</span>)
+<span class="fn">init</span> _ <span class="op">=</span> (<span class="ty">LoadingJoke</span>, <span class="fn">getJoke</span>)  <span class="cm">-- fetch on start</span>
+
+<span class="fn">update</span> : <span class="ty">Msg</span> <span class="op">-></span> <span class="ty">Model</span> <span class="op">-></span> (<span class="ty">Model</span>, <span class="ty">Cmd</span> <span class="ty">Msg</span>)
+<span class="fn">update</span> msg model <span class="op">=</span>
+    <span class="kw">case</span> msg <span class="kw">of</span>
+        <span class="ty">MsgGotJoke</span> result <span class="op">-></span>
+            <span class="kw">case</span> result <span class="kw">of</span>
+                <span class="ty">Ok</span> joke  <span class="op">-></span> (<span class="ty">ShowingJoke</span> joke, <span class="ty">Cmd</span>.none)
+                <span class="ty">Err</span> err  <span class="op">-></span> (<span class="ty">ErrorPage</span> (<span class="ty">Debug</span>.<span class="fn">toString</span> err), <span class="ty">Cmd</span>.none)
+
+<span class="fn">view</span> : <span class="ty">Model</span> <span class="op">-></span> <span class="ty">Html</span> <span class="ty">Msg</span>
+<span class="fn">view</span> model <span class="op">=</span>
+    <span class="kw">case</span> model <span class="kw">of</span>
+        <span class="ty">LoadingJoke</span>     <span class="op">-></span> <span class="fn">text</span> <span class="str">"Loading..."</span>
+        <span class="ty">ShowingJoke</span> joke <span class="op">-></span> <span class="fn">text</span> joke
+        <span class="ty">ErrorPage</span> err    <span class="op">-></span> <span class="fn">text</span> err
+
+<span class="fn">main</span> <span class="op">=</span> <span class="ty">Browser</span>.<span class="fn">element</span>
+    { init          <span class="op">=</span> init
+    , update        <span class="op">=</span> update
+    , subscriptions <span class="op">=</span> \_ <span class="op">-></span> <span class="ty">Sub</span>.none
+    , view          <span class="op">=</span> view
+    }</pre>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon"></div>
+    <div><code>Result error value</code> is like <code>Maybe</code> but the "unhappy path" also carries information. <code>Ok 42</code> means success with value 42. <code>Err "network timeout"</code> means failure with a reason. Handle with <code>case</code> just like <code>Maybe</code>.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ QUICK REFERENCE CHEAT SHEET ══ -->
+<section id="cheatsheet">
+  <div class="section-label">Quick Reference</div>
+  <h2 class="section-title">Elm Cheat Sheet</h2>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>Imports</div>
+      <div class="code-block"><pre style="font-size:11.5px"><span class="kw">import</span> <span class="ty">Html</span> <span class="kw">exposing</span> (..)          <span class="cm">-- all</span>
+<span class="kw">import</span> <span class="ty">Array</span> <span class="kw">exposing</span> (<span class="ty">Array</span>)      <span class="cm">-- specific</span>
+<span class="kw">import</span> <span class="ty">Dict</span> <span class="kw">exposing</span> (<span class="ty">Dict</span>)        <span class="cm">-- specific</span>
+<span class="kw">import</span> <span class="ty">Html.Events</span> <span class="kw">exposing</span> (..)   <span class="cm">-- events</span>
+<span class="kw">import</span> <span class="ty">Html.Attributes</span> <span class="kw">exposing</span> (..) <span class="cm">-- attrs</span></pre></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>String Operations</div>
+      <div class="code-block"><pre style="font-size:11.5px"><span class="str">"a"</span> <span class="op">++</span> <span class="str">"b"</span>               <span class="cm">-- "ab"</span>
+<span class="ty">String</span>.<span class="fn">length</span> <span class="str">"hi"</span>        <span class="cm">-- 2</span>
+<span class="ty">String</span>.<span class="fn">toInt</span> <span class="str">"5"</span>         <span class="cm">-- Just 5</span>
+<span class="ty">String</span>.<span class="fn">toInt</span> <span class="str">"x"</span>         <span class="cm">-- Nothing</span>
+<span class="ty">String</span>.<span class="fn">split</span> <span class="str">","</span> <span class="str">"a,b"</span>   <span class="cm">-- ["a","b"]</span>
+<span class="ty">String</span>.<span class="fn">repeat</span> <span class="num">3</span> <span class="str">"ab"</span>     <span class="cm">-- "ababab"</span>
+<span class="ty">String</span>.<span class="fn">words</span> <span class="str">"a b c"</span>     <span class="cm">-- ["a","b","c"]</span>
+<span class="ty">String</span>.<span class="fn">lines</span> <span class="str">"a\nb"</span>      <span class="cm">-- ["a","b"]</span></pre></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-yellow"></span>Char Operations</div>
+      <div class="code-block"><pre style="font-size:11.5px"><span class="ty">Char</span>.<span class="fn">isAlpha</span> <span class="str">'a'</span>        <span class="cm">-- True</span>
+<span class="ty">Char</span>.<span class="fn">isDigit</span> <span class="str">'3'</span>        <span class="cm">-- True</span>
+<span class="ty">Char</span>.<span class="fn">isUpper</span> <span class="str">'A'</span>        <span class="cm">-- True</span>
+<span class="ty">Char</span>.<span class="fn">isLower</span> <span class="str">'a'</span>        <span class="cm">-- True</span>
+<span class="ty">Char</span>.<span class="fn">toUpper</span> <span class="str">'a'</span>        <span class="cm">-- 'A'</span>
+<span class="ty">String</span>.<span class="fn">fromChar</span> <span class="str">'x'</span>     <span class="cm">-- "x"</span>
+<span class="ty">String</span>.<span class="fn">toList</span> <span class="str">"abc"</span>     <span class="cm">-- ['a','b','c']</span></pre></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-purple"></span>Pattern Matching Quick Reference</div>
+      <div class="code-block"><pre style="font-size:11.5px"><span class="cm">-- On a Maybe:</span>
+<span class="kw">case</span> maybeThing <span class="kw">of</span>
+    <span class="ty">Just</span> val <span class="op">-></span> ...
+    <span class="ty">Nothing</span>  <span class="op">-></span> ...
+
+<span class="cm">-- On a Result:</span>
+<span class="kw">case</span> result <span class="kw">of</span>
+    <span class="ty">Ok</span> val   <span class="op">-></span> ...
+    <span class="ty">Err</span> err  <span class="op">-></span> ...
+
+<span class="cm">-- On a tuple (in let only):</span>
+<span class="kw">let</span>
+    (a, b, c) <span class="op">=</span> myTuple
+<span class="kw">in</span> ...</pre></div>
+    </div>
+  </div>
+
+  <h3 class="subsection">The 5 Things Elm Beginners Must Remember</h3>
+  <div class="grid2">
+    <div class="callout danger" style="margin:4px 0">
+      <div class="callout-icon"></div>
+      <div><strong>No reassignment.</strong> <code>x = x + 1</code> is a compile error. Compute new values instead.</div>
+    </div>
+    <div class="callout danger" style="margin:4px 0">
+      <div class="callout-icon"></div>
+      <div><strong>No <code>for</code>/<code>while</code> loops.</strong> Use <code>List.map</code>, <code>List.filter</code>, <code>List.foldl</code>, or recursion.</div>
+    </div>
+    <div class="callout danger" style="margin:4px 0">
+      <div class="callout-icon"></div>
+      <div><strong><code>if</code> requires <code>else</code>.</strong> Always. Every branch must return a value of the same type.</div>
+    </div>
+    <div class="callout danger" style="margin:4px 0">
+      <div class="callout-icon"></div>
+      <div><strong>No implicit type conversion.</strong> Can't mix <code>Int</code> and <code>Float</code>. Use <code>toFloat</code> or <code>round</code>.</div>
+    </div>
+    <div class="callout warning" style="margin:4px 0">
+      <div class="callout-icon"></div>
+      <div><strong>Mutation returns new values.</strong> <code>List.filter</code>, <code>Array.set</code>, <code>Dict.insert</code> all return a new container. The original is unchanged.</div>
+    </div>
+    <div class="callout tip" style="margin:4px 0">
+      <div class="callout-icon"></div>
+      <div><strong>Exhaustiveness is your friend.</strong> <code>case</code> must cover all branches. If you add a variant, the compiler tells you where to update.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// Active TOC highlight
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('#toc a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`#toc a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.25 });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
