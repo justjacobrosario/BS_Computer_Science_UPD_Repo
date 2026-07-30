@@ -1,0 +1,707 @@
+from __future__ import annotations
+from abc import ABC, abstractmethod
+from collections.abc import Sequence
+import math
+from random import Random, choice, choices
+import pyxel
+from typing import Protocol
+from enum import Enum, auto
+from enemies import Color, EnemyType
+from random import choice
+import json
+from math import sqrt, pow
+
+from player import Dir, Msg, Player
+from map import Map
+
+
+class Model:
+    def __init__(self, width: int = 1080, height: int = 720, data: dict | None = None):
+        self._width: int = width
+        self._height: int = height
+        self._map: Map | None = Map(width, height, self.fetch_json_data("settings.json"))
+        self._player: Player = Player()
+
+    @property
+    def width(self):
+        return self._width
+    
+    @property
+    def height(self):
+        return self._height
+
+    @property
+    def map(self) -> Map | None:
+        return self._map
+    @map.setter
+    def map(self, temp_input: Map | None) -> None:
+        self._map = temp_input
+
+    @property
+    def player(self) -> Player:
+        return self._player
+    @player.setter 
+    def player(self, temp_input: Player) -> None:
+        self._player = temp_input
+
+    def start_round(self):
+        self.map.waiting_for_start = False
+
+    def will_quit(self):
+        if pyxel.btn(self.player.keys_map[Msg.QUIT]):
+            pyxel.quit()
+
+    def check_is_game_over(self):
+        self.map._is_game_over
+
+    def fetch_json_data(self, file):
+        with open(file, 'r') as file:
+            data = json.load(file)
+        return data
+    def endless_modifier(self):
+        temp_map = self.map 
+        if temp_map.current_round >= temp_map.rounds:
+            temp_map._is_game_over = False
+            temp_map._rounds += 4
+            temp_map._enemies_per_round += 10
+            temp_map._enemies = [
+            [choice(temp_map.colors) for _ in range(temp_map.enemies_per_round)] for _ in range(4)]
+    def reset_map(self, file):
+        self._map: Map | None = Map(self.width, self.height, self.fetch_json_data(file))
+
+"""
+direction_velocities = {
+    Dir.UP: (0, -14.4),
+    Dir.DOWN: (0, 14.4),
+    Dir.LEFT: (-14.4, 0),
+    Dir.RIGHT: (14.4, 0)
+}
+
+class Phase1Model(ABC):
+    '''
+    Base Model
+
+    Grid Coords and Pixel Coords:
+    
+    Pixel-based Attributes:
+    `cell_size` cell side length in pixels
+    `total_grid_height` total height of the map in pixels
+    `bullet.radius` and `enemy.radius` are in pixels, used for collision detection
+
+    Grid-based Attributes:
+    `path` list of grid coords (col, row) that the enemies will pass through consecutively
+    `gun_coords` grid coord (col, row) of the gun
+    
+    The following attributes are in grid_coords within their class attributes:
+    `tower_locs` list of towers with their grid coords (col, row)
+    `enemies` list of enemies with their grid coords (col, row) and other attributes
+    `displayed_enemies` list of enemies that are currently displayed on the screen
+    `displayed_bullets` list of bullets that are currently displayed on the screen
+    `pending_bullets` list of bullets that are not yet displayed on the screen
+
+    Other Attributes:
+    `tick` basically the number of times the update function is called, used to record how many frames have passed
+    `exp` experience points
+    `hp` health points
+    `rounds` number of rounds in the game
+    `current_round` current round number
+    `waiting_for_start` indicates if the game is waiting for the player to start the next round, used to pause the game before the next round starts
+    `next_color` the color of the next bullet
+    `is_game_over` indicates if the game is over
+    `allowed_dirs` the allowed shooting directions in phase1
+
+    '''
+    
+    def __init__(self, width: int = 1080, height: int = 720):
+        self._width: int = width
+        self._height: int = height
+        self._is_game_over = False
+        
+         # (cols, rows)
+        cols, rows  = self._dimensions
+        self._cell_size = self._width // cols
+        self._total_grid_height = rows * self._cell_size
+        self._path = [(3, i) for i in range(14)]
+        self._tunnel_path = [(5, i) for i in range(3, 6)] # ! Temp test value
+        self._start_row = self._path[0][0]
+        self._start_col = self._path[0][1]
+        self._rounds = 2
+        self._enemies = [[Color.Orange for _ in range(5)] for _ in range(self._rounds)]
+        self._current_round = 1
+        self._waiting_for_start = True # start in waiting before round 1 starts
+        self._transformed_gun_coords = (0, 0)
+
+        self._displayed_enemies = []
+        self._tick = 0
+        self._gun_coords = (7, 5) # gun position (col, row)
+
+        # consts
+        self.VERT_OFFSET = (self.height - self.total_grid_height) // 2
+
+        self._colors = [Color.Orange, Color.Red, Color.Blue]
+        self._pending_bullets: Color = choice(self.colors) # always needs a bullet in the pending list to refer the next color sa cursor
+        
+        self._displayed_bullets: list[Bullet] = []
+        self._next_color = 7
+        self._exp = 100 # ! Testing value only
+        self._hp = 2
+        self._max_hp = self._hp # prevent healing over the max
+
+        self._choice_weights = [34, 33, 33]
+       
+
+        self._data = self.fetch_json_data()
+
+        self._tower_locs: list[Tower] = []
+
+
+    @property
+    def colors(self):
+        return self._colors
+        
+    @property
+    def width(self):
+        return self._width
+    
+    @property
+    def height(self):
+        return self._height
+    
+    @property
+    def data(self):
+        return self._data
+    
+    @property
+    def is_game_over(self) -> bool:
+        return self._is_game_over
+
+    @property
+    def dimensions(self) -> bool:
+        return self._dimensions
+
+    @property
+    def cell_size(self):
+        return self._cell_size
+
+    @property
+    def total_grid_height(self):
+        return self._total_grid_height
+    
+    @property
+    def next_color(self):
+        return self._next_color
+
+    @property
+    def path(self) -> bool:
+        return self._path
+    
+    @property
+    def tunnel_path(self) -> bool:
+        return self._tunnel_path
+
+    @property
+    def enemies(self):
+        return self._enemies
+
+    @property
+    def displayed_enemies(self):
+        return self._displayed_enemies
+
+    @property
+    def tick(self):
+        return self._tick
+    
+    @property
+    def pending_bullets(self):
+        return self._pending_bullets
+    
+    @property
+    def displayed_bullets(self):
+        return self._displayed_bullets
+
+    @property
+    def gun_coords(self):
+        return self._gun_coords
+    
+    @property
+    def choice_weights(self):
+        return self._choice_weights
+    
+    @property
+    def exp(self):
+        return self._exp
+    
+    @property
+    def hp(self):
+        return self._hp
+    
+    @property
+    def allowed_dirs(self):
+        return [Dir.UP]
+
+    @property
+    def current_round(self):
+        return self._current_round
+    
+    @property
+    def rounds(self):
+        return self._rounds
+    
+    @property
+    def waiting_for_start(self):
+        return self._waiting_for_start
+    
+    @property 
+    def towers_locs(self):
+        return self._tower_locs
+    
+    @property
+    def transformed_gun_coords(self):
+        return self._transformed_gun_coords
+    
+    def start_round(self):
+        self._waiting_for_start = False
+
+    def inc_tick(self):
+        self._tick += 1
+
+    def will_quit(self):
+        if pyxel.btn(pyxel.KEY_Q):
+            pyxel.quit()
+
+    def check_is_game_over(self):
+        if self._hp <= 0:
+            self._is_game_over = True
+
+    def check_if_next_round(self):
+        if (len(self._enemies[self._current_round - 1]) == 0) and (len(self._displayed_enemies) == 0) and ((self._current_round) < self._rounds):
+                self.heal_towers() # trigger medic towers between rounds
+                self._current_round += 1
+                self._waiting_for_start = True # pause between rounds
+
+    def display_next_enemy(self):
+        if (self._tick%50 == 0) and (len(self._enemies[self._current_round - 1]) != 0):
+            color = self._enemies[self._current_round - 1].pop()
+            enemy = Enemy()
+            enemy.color = color
+            self._displayed_enemies.append(enemy)
+            
+    def move_enemy(self, enemy: Enemy):
+        '''
+        Move enemy using the progress attribute of the enemy
+
+        `progress` 
+        - the whole number part is the current path indx the enemy is at
+        - the decimal part is the percent progress towards the next path coord
+        e.g. progress = 2.1 means it is currently at index path[2] and it needs to cover 90% more distance to go to path[3]
+
+        it incremenents by the val of the walk_speed per frame to smoothly translate from path[n] to path[n+1]
+        if the enemy passes the last path coord, enemy health will be 0 to clear it and hp will be decremented
+        '''
+
+        path = self._path
+
+        enemy.progress += enemy.walk_speed 
+        
+        current_path_idx = int(enemy.progress)
+        next_path_idx = current_path_idx + 1
+
+        if next_path_idx >= len(path): # if nakalagpas na yung enemy, -1 hp
+            if enemy.current_health > 0:
+                enemy.current_health = 0
+                self._hp -= 1
+            return
+
+        # percent until next path (ex. from idx 0 to 1, 0.5 yung progress, so meaning halfway pa lang sya to the next)
+        percent = enemy.progress - current_path_idx
+
+        p1 = path[current_path_idx]
+        p2 = path[next_path_idx]
+
+        # update row and col
+        enemy.row = p1[0] + (p2[0] - p1[0]) * percent
+        enemy.col = p1[1] + (p2[1] - p1[1]) * percent
+
+    def delete_enemy_out_of_bounds(self):
+        '''
+        Clear dead enemies and used bullets
+        '''
+        self._displayed_enemies = [e for e in self._displayed_enemies if e.current_health > 0]
+        if len(self._displayed_enemies) == 0 and len(self.enemies[self.current_round - 1]) == 0:
+            self._displayed_bullets = []
+        elif self.is_game_over:
+            self._displayed_bullets = []
+        else:
+            self._displayed_bullets = [b for b in self._displayed_bullets if not b.is_used]
+        
+    
+    def heal_towers(self):
+        for tower in self._tower_locs:
+            if isinstance(tower, MedicTower):
+                self._hp = min(self._hp + tower.heal_amount, self._max_hp)
+
+    # * Must check if a bug may occur in process_shot
+    # Implement spatial hash
+    def process_shot(self):
+        
+        Checks the list of displayed bullets and displayed enemies if there exists
+        a pair that intersects. If there is an intersection, it updates the attribute
+        `is_used` of the bullet. And updates the `current_health` attribute of the enemy
+        by decrementing it by 1. Finally, since it intersects it increases the `exp`
+        attribute by 1.
+        
+        if self._pending_bullets:
+            self._next_color = self.pending_bullets.value
+        else:
+            self._next_color = Color.Black.value
+
+        new_bullets = [] # for usage with splitter bullet
+
+        for bullet in self._displayed_bullets:
+            if bullet.is_used:
+                continue
+
+            # bullet radius in pixels
+            r1 = bullet.radius
+
+            for enemy in self._displayed_enemies:
+                enemy_x = enemy.col * self.cell_size + (self.cell_size // 2)
+                enemy_y = self.VERT_OFFSET + (enemy.row * self.cell_size) + (self.cell_size // 2)
+
+                # enemy radius in pixels
+                r2 = enemy.radius
+                dist_sq = (bullet.x - enemy_x)**2 + (bullet.y - enemy_y)**2
+                
+                enemy_cell = (int(enemy.row), int(enemy.col))
+                if enemy_cell in self._tunnel_path:
+                    continue
+
+                if dist_sq > ((r1 + r2)**2):
+                    continue
+
+                if bullet.color == enemy.color:
+                    enemy.current_health -= 1
+                    self._exp += 1
+
+                    if isinstance(bullet, PiercingBullet):
+                        bullet.piercing_power -= 1
+                        if bullet.piercing_power <= 0:
+                            bullet.is_used = True
+                    else:
+                        bullet.is_used = True
+
+                elif isinstance(bullet, SplitterBullet) and not bullet.has_split:
+                    bullet.has_split = True
+                    bullet.is_used = True
+                    speed = math.sqrt(bullet.vx**2 + bullet.vy**2)
+                    base_angle = math.atan2(bullet.vy, bullet.vx)
+                    
+                    angles = [-30, 0, 30] if bullet.is_upgraded else [-20, 20]
+                    for deg in angles:
+                        angle = base_angle + math.radians(deg)
+                        new_bullet = SplitterBullet(bullet.x, bullet.y)
+                        new_bullet.color = bullet.color
+                        new_bullet.direction = Dir.CURSOR
+                        new_bullet.vx = speed * math.cos(angle)
+                        new_bullet.vy = speed * math.sin(angle)
+                        new_bullet.radius = bullet.radius // 2
+                        new_bullet.has_split = True # prevent infinite splitting
+                        new_bullets.append(new_bullet)
+                    break
+        
+        self._displayed_bullets.extend(new_bullets)
+        return False
+
+    def shoot(self, dir: Dir):
+        
+        Shoots the first element in `_pending_bullets` and then appends a new 
+        bullet to the list through `random.choice()`. The shot bullet's direction
+        is updated through the input parameter `dir`. Afterwards, the bullet is
+        appended to the `_displayed_bullets` list.
+        
+        if self._pending_bullets:
+            color = self._pending_bullets
+            self._pending_bullets = choice(self.colors)
+
+            x_coord = self._gun_coords[1]
+            y_coord = self._gun_coords[0]
+
+            # x_coord = self.transformed_gun_coords[0]
+            # y_coord = self.transformed_gun_coords[1]
+
+            bullet = Bullet(x_coord, y_coord)
+            bullet.color = color
+            bullet.direction = dir
+
+            self._displayed_bullets.append(bullet)
+
+    def move_bullet(self):
+        
+        Updates the coordinate of the bullet based on its coordinates.
+        
+        for bullet in self._displayed_bullets:
+            if not bullet.is_used:
+
+                bullet.x -= 0.2
+                if bullet.x < -1:
+                    bullet.is_used = True
+
+    def transform_gun_coords(self, gun_col: int, gun_row: int):
+        x = gun_col * self.cell_size
+        y = self.VERT_OFFSET + (gun_row * self.cell_size)
+
+        tile_side = 16
+        offset = (self.cell_size - tile_side) // 2
+
+        x += offset
+        y += offset
+
+        self._transformed_gun_coords = (x, y)
+
+    def fetch_json_data(self):
+        with open("settings.json", 'r') as file:
+            data = json.load(file)
+
+        return data
+
+
+# TODO: Add tower feature and get details from setting.json
+class Phase2Model(Phase1Model):
+    def __init__(self):
+        super().__init__()
+        self._path = [
+            (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (5, 9), (5, 10), (5, 11), (5, 12), (5, 13),
+            (4, 13), (3, 13), (3, 12), (3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6), (3, 5), (3, 4), (3, 3), (3, 2), (3, 1),
+            (2, 1), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11), (1, 12), (1, 13), (1, 14)]
+        self._gun_coords = (7, 4)
+        self._enemies_per_round = self.data["enemies_per_round"]
+        self._rounds = self.data["rounds"]
+        self._enemies = [
+            [Color.Orange for _ in range(self.enemies_per_round)] for _ in range(self.rounds)]
+        self._hp = self.data["player_lives"]
+
+    @property
+    def allowed_dirs(self):
+        return [Dir.UP, Dir.DOWN, Dir.LEFT, Dir.RIGHT]
+    
+    @property
+    def enemies_per_round(self):
+        return self._enemies_per_round
+
+    def place_tower(self, tower_class: type[Tower], col, row):
+        # 
+        if tower_class is None:
+            return
+        if (row, col) in self._path:
+            # that location is the path
+            return
+        if any(tower.col == col and tower.row == row for tower in self._tower_locs):
+            # tower already exists in that location
+            return
+        tower = tower_class(col, row)
+        if self._exp >= tower.exp_cost:
+            self._exp -= tower.exp_cost
+            self._tower_locs.append(tower)
+
+    def upgrade_tower(self, tower: Tower): # temp: until a phase 3 model is made since no tower upgrades in phase 2
+        if self._exp >= tower._upgrade_cost and not tower.upgraded:
+            self._exp -= tower._upgrade_cost
+            tower.upgrade()
+
+    def tick_towers(self):
+        for tower in self._tower_locs:
+            tower.fire_cooldown -= tower.fire_rate / 30 # 30 fps
+
+            if tower.fire_cooldown <= 0:
+
+                tower_x = tower.col * self.cell_size + (self.cell_size // 2)
+                tower_y = self.VERT_OFFSET + (tower.row * self.cell_size) + (self.cell_size // 2)
+                vx, vy = direction_velocities[tower.direction]
+
+                for i, color in enumerate(tower.pick_bullet_color()):
+                    if isinstance(tower, SniperTower):
+                        bullet = PiercingBullet(tower_x, tower_y)
+                    elif isinstance(tower, SplitterTower):
+                        bullet = SplitterBullet(tower_x, tower_y)
+                        bullet.is_upgraded = tower.upgraded # pass upgrade status from tower to bullet
+                    else:
+                        bullet = Bullet(tower_x, tower_y)
+
+                    bullet.color = color
+                    bullet.direction = tower.direction
+                    bullet.vy = vy
+                    bullet.vx = vx
+
+                    if tower.direction in [Dir.UP, Dir.DOWN]: # offset for upgraded tower that shoots 2
+                        bullet.y += i * (self.cell_size // 2)
+                    else:
+                        bullet.x += i * (self.cell_size // 2)
+
+                    bullet.radius = self.cell_size // 4
+                    self._displayed_bullets.append(bullet)
+                tower.fire_cooldown = 1.0  # reset to full interval
+
+
+    def move_bullet(self):
+        for bullet in self._displayed_bullets:
+            if not bullet.is_used:
+                match bullet.direction:
+                    case Dir.UP:
+                        bullet.x -= 0.2
+                        if bullet.x < -1:
+                            bullet.is_used = True
+
+                    case Dir.DOWN:
+                        bullet.x += 0.2
+                        if self._dimensions[1] < bullet.x:
+                            bullet.is_used = True
+
+                    case Dir.LEFT:
+                        bullet.y -= 0.2
+                        if bullet.y < -1:
+                            bullet.is_used = True
+                    case Dir.RIGHT:
+                        bullet.y += 0.2
+                        if self._width < bullet.x:
+                            bullet.is_used = True
+
+class Phase3Model(Phase2Model):
+    def __init__(self):
+        super().__init__()
+        self._enemies = [
+            [choice(self.colors) for _ in range(self.enemies_per_round)] for _ in range(self._rounds)]
+        self._regenerator_gain_hp = self.data["regenerator_gain_hp"]
+        self._chameleon_freq_change = self.data["chameleon_freq_change"]
+
+    @property
+    def regenerator_gain_hp(self):
+        return self._regenerator_gain_hp
+    
+    @property
+    def chameleon_freq_change(self):
+        return self._chameleon_freq_change
+
+    def display_next_enemy(self):
+        if (self._tick%50 == 0) and (len(self._enemies[self._current_round - 1]) != 0):
+            color = self._enemies[self._current_round - 1].pop()
+            type = choices(
+                [EnemyType.NORMAL, EnemyType.REGENERATOR, EnemyType.CHAMELEON], 
+                weights=self.choice_weights, 
+                k=1
+            )
+            enemy = Enemy()
+            enemy.color = color
+            enemy.enemy_type = type[0]  # Since type returns list
+
+            self._displayed_enemies.append(enemy)
+
+    def shoot(self, dir: Dir):
+        if self._pending_bullets:
+            color = self._pending_bullets
+            self._pending_bullets = choice(self.colors)
+
+            x_coord = self.transformed_gun_coords[0]
+            y_coord = self.transformed_gun_coords[1]
+            bullet_coords = (x_coord, y_coord)
+
+            bullet = Bullet(x_coord, y_coord)
+            bullet.color = color
+            bullet.direction = dir
+            bullet.radius = self.cell_size // bullet.radius
+
+            if bullet.direction is Dir.CURSOR:
+                mouse_coords = pyxel.mouse_x, pyxel.mouse_y
+                vx, vy = self.calculate_velocity(bullet_coords, mouse_coords)
+                bullet.vx = vx
+                bullet.vy = vy
+            else:
+                bullet.vx, bullet.vy = direction_velocities[bullet.direction]                
+
+            self._displayed_bullets.append(bullet)
+
+    def calculate_velocity(self, pointA: tuple[float, float], 
+                           pointB: tuple[float, float]) -> tuple[float, float]:
+        x1, y1 = pointA
+        x2, y2 = pointB
+        dx: float = x2 - x1
+        dy: float = y2 - y1
+        norm = self.normalize(pointA, pointB)
+
+        vx = dx/norm * 14.4
+        vy = dy/norm * 14.4
+        return vx, vy
+
+    def normalize(self, pointA: tuple[float, float], 
+                  pointB: tuple[float, float]) -> float:
+        x1, y1 = pointA
+        x2, y2 = pointB
+        ans = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2))
+
+        return ans
+
+    def move_bullet(self):
+        for bullet in self._displayed_bullets:
+            if not bullet.is_used:
+                match bullet.direction:
+                    case Dir.UP:
+                        bullet.y += bullet.vy
+                        if bullet.y < 0:
+                            bullet.is_used = True
+
+                    case Dir.DOWN:
+                        bullet.y += bullet.vy
+                        if bullet.y > self.height:
+                            bullet.is_used = True
+
+                    case Dir.LEFT:
+                        bullet.x += bullet.vx
+                        if bullet.x < 0:
+                            bullet.is_used = True
+                            
+                    case Dir.RIGHT:
+                        bullet.x += bullet.vx
+                        if bullet.x > self.width:
+                            bullet.is_used = True
+
+                    case Dir.CURSOR:
+                        bullet.x += bullet.vx
+                        bullet.y += bullet.vy
+                        if bullet.x > self.width:
+                            bullet.is_used = True
+    def move_enemy(self, enemy: Enemy):
+        path = self._path
+
+        enemy.progress += enemy.walk_speed 
+        
+        current_path_idx = int(enemy.progress)
+        next_path_idx = current_path_idx + 1
+
+        if next_path_idx >= len(path): # if nakalagpas na yung enemy, -1 hp
+            if enemy.current_health > 0:
+                enemy.current_health = 0
+                self._hp -= 1
+            return
+
+        # percent until next path (ex. from idx 0 to 1, 0.5 yung progress, so meaning halfway pa lang sya to the next)
+        percent = enemy.progress - current_path_idx
+
+        p1 = path[current_path_idx]
+        p2 = path[next_path_idx]
+
+        if enemy.enemy_type == EnemyType.REGENERATOR:
+            if (int(enemy.progress) + 1) % self.regenerator_gain_hp == 0 and int(enemy.progress) != 0:
+                if not enemy.gained_hp:
+                    enemy.current_health += 1
+                    enemy.gained_hp = True
+            else:
+                enemy.gained_hp = False
+
+        elif enemy.enemy_type == EnemyType.CHAMELEON:
+            if self.tick % self.chameleon_freq_change == 0:
+                color = list({enemy.color} ^ set(self.colors))
+                enemy.color = choice(color)
+
+        # update row and col
+        enemy.row = p1[0] + (p2[0] - p1[0]) * percent
+        enemy.col = p1[1] + (p2[1] - p1[1]) * percent
+"""

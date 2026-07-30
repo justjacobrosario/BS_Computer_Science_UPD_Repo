@@ -1,0 +1,8 @@
+{
+    "rounds": 4,
+    "enemies_per_round": 5,
+    "player_lives": 3,
+    "regenerator_gain_hp": 15,
+    "chameleon_freq_change": 67,
+    "path_maps" : "path_maps.txt"
+}
