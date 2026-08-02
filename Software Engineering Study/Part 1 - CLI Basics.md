@@ -149,7 +149,7 @@ $ ls -F
 
 ##### E. `rm <file_name.file_exten>` : removes/deletes the file
 
-##### F. `rm -r -i <file_name.file_exten>` : removes/deletes the folder recursively (-r)
+##### F. `rm -r -i <directory>` : removes/deletes the folder recursively (-r)
 : the `-i` option makes it interactive to avoid accidentally deleting files
 
 > **G and H** are different usages of `mv` command (renames or moves files)

@@ -9,7 +9,7 @@ field: programming
 
 1:  ==Hypertext Markup Language (HTML)==
 ===================================
-![[HTML]]
+![[HTML Quick Basics]]
   
 
 ==2: Pyscript and DOM Manipulation==
