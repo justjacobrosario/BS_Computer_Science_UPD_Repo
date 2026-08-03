@@ -64,18 +64,7 @@ div {
 - **property** : a certain attribute of the selector
 - **value** : a certain value assigned to a specific property
 
-: selectors can be modified simultaneously
-
-e.g.
-```css
-div, p, h1 {
-	font-weight: 700;
-	color: darkblue;
-}
-```
-: here both `div`, `p`, and `h1` selectors are being modified
-
-## 2.1 Common selectors
+### 2.1 Common selectors
 
 : selectors may represent every element (**universal**), a certain tag (**type**), a unique element (**id**), or a group of elements (**class**)
 ##### A. universal selector `*`
@@ -118,7 +107,7 @@ p {
 
 : suppose we have these html and css files
 ```html
-<p id = "age"> I am 19 years old.</p>
+<div id = "age"> I am 19 years old.</div>
 ```
 
 ```css
@@ -137,9 +126,9 @@ p {
 
 : suppose we have these html and css files
 ```html
-<p class = "animal">Kangaroo</p>
-<p>Orange</p>
-<p class = "animal">Orangutan</p>
+<div class = "animal">Kangaroo</div>
+<div>Orange</div>
+<div class = "animal">Orangutan</div>
 ```
 
 ```css
@@ -151,3 +140,133 @@ p {
 
 *Note: do not start the class name with a number*
 
+##### E. Grouping selector
+
+: selectors can be modified simultaneously
+
+e.g.
+```css
+div, p, h1 {
+	font-weight: 700;
+	color: darkblue;
+}
+```
+: here both `div`, `p`, and `h1` selectors are being modified
+
+##### F. Chaining selector
+
+: an element can have multiple class, (and a single id)
+
+1. multiple classes
+
+e.g. suppose we have classes `sex`, and then `age`
+```html
+<div class = "male kid">John</div>
+<div class = "male adult">Juan</div>
+<div class = "female kid">Mary</div>
+<div class = "female adult">Maria</div>
+```
+
+```css
+
+.female {
+	font-weight : 800;
+}
+
+.female.kid {
+	color : pink;
+}
+```
+
+: we can see that elements have multiple classes separated by a `space`. We chain classes to specify by simply linking the class name with `.`
+
+2. class and id
+
+: suppose we have class `nationality`, and id `name`
+```html
+<div class = "Filipino" id = "Juan">Magandang Umaga!</div>
+<div class = "Filipino" id = "Bien">Mayag na aga!</div>
+```
+
+```css
+.Filipino#Juan {
+	color : blue;
+}
+```
+
+##### G. Descendant selector
+
+: we can select elements according to their parent's class/id and their own class/id
+
+: suppose we have class `course` and id `year`
+
+```html
+<div class = "computer_science">
+	<div id = "first">CS11</div>
+</div>
+
+<div class = "mathematics">
+	<div class id = "first">MATH23</div>
+</div>
+```
+
+```css
+.computer_science #first {
+	color : blue;
+}
+```
+
+: we can see here that only the div with `#first` AND inside the  `.computer_science` is being modified
+
+
+### 2.2. Common Properties
+
+: these will be the properties commonly used in modifying  texts, links, and images
+
+##### A. Color
+: there are multiple possible values of color
+
+```css
+div {
+	/* hexadecimal */
+	color: #00000;
+}
+
+div {
+	/* word */
+	color: white;
+}
+
+div {
+	/* rgb */
+	color: rgb(255, 255, 255);
+}
+
+div {
+	/* hsl */
+	color: hsl(0, 0%, 100);
+}
+```
+
+
+##### B. Typography Properties
+
+```css
+
+div {
+	font-family : "Times New Roman";
+	font-size : 22px; /* NO SPACE IN 22 AND px */
+	font-weight : 800; /* 1-1000 */
+	text-align : center; /* left/right/justify */
+}
+
+```
+
+##### C. Image Properties
+
+```css
+img {
+	height : auto;
+	width : 1000px;
+}
+```
