@@ -1,6 +1,6 @@
 : before learning how to write in CSS, lets first know how to link CSS to HTML
 
-## 1. Linking CSS to HTML
+## **1. Linking CSS to HTML**
 : there are three ways
 
 ##### A. External CSS
@@ -48,8 +48,12 @@ e.g.
 : every CSS content is contained as attributes per line of elements
 : i.e. every style is declared as an attribute for each line of elements (unlike external or internal CSS which are grouped together in one place)
 
+```html
+<div style = "color: red; font-size: 12px;">Hello</div>
+```
 
-## 2. CSS Basic Syntax
+
+## **2. CSS Basic Syntax**
 
 : CSS is comprised of several rules. A rule containes: **selector, property-value declarations**
 
@@ -157,7 +161,7 @@ div, p, h1 {
 
 : an element can have multiple class, (and a single id)
 
-1. multiple classes
+**F.1. multiple classes**
 
 e.g. suppose we have classes `sex`, and then `age`
 ```html
@@ -180,7 +184,7 @@ e.g. suppose we have classes `sex`, and then `age`
 
 : we can see that elements have multiple classes separated by a `space`. We chain classes to specify by simply linking the class name with `.`
 
-2. class and id
+**F.2. class and id**
 
 : suppose we have class `nationality`, and id `name`
 ```html
@@ -246,6 +250,12 @@ div {
 	/* hsl */
 	color: hsl(0, 0%, 100);
 }
+
+/* aside from color, background-color cna also be used*/
+div {
+	color: ___ ;
+	background-color: ___;
+}
 ```
 
 
@@ -254,10 +264,17 @@ div {
 ```css
 
 div {
-	font-family : "Times New Roman";
-	font-size : 22px; /* NO SPACE IN 22 AND px */
-	font-weight : 800; /* 1-1000 */
-	text-align : center; /* left/right/justify */
+	font-family : "Times New Roman", "Helvetica", "sans-serif";
+	/* you can list consecutive fonts for css to fallback in case one is unavailable */
+	
+	font-size : 22px; 
+	/* NO SPACE IN 22 AND px */
+	
+	font-weight : 800; 
+	/* 1-1000 or simply bold*/
+	
+	text-align : center; 
+	/* left/right/justify */
 }
 
 ```
@@ -270,3 +287,156 @@ img {
 	width : 1000px;
 }
 ```
+
+## **3. CSS Cascade**
+
+: cascade determines which rules to apply
+
+: suppose **a > b**, that means property a will be applied rather than b
+: **Cascade Priority list:**
+
+> **inheritance > id > specificity > class > type > order**
+
+NOTE: only similar conflicting properties will be affected by this. Properties without conflicts will be done.
+##### A. Inheritance
+
+: the property of the child is chosen than the property of the parent ( even if the parent has an id )
+
+```html
+<div id = "parent">
+	<div class = "child1">Hello</div>
+</div>
+```
+
+```css
+.child1 {
+	color: red;
+}
+
+#parent {
+	color: blue;
+}
+```
+
+: the parent forces blue, the child forces red. Thus the color will be red.
+
+##### B. id beats all class
+
+
+```html
+<div class = "parent">
+
+	<div id = "itemid" class = "child">Hello</div>
+
+</div>
+```
+
+```css
+#itemid {
+	color: green;
+}
+
+.child {
+	color: red;
+}
+
+.parent .child {
+	color: blue;
+}
+```
+
+: the id selector is greater than the class selector and the descendant selector (of all classes). Thus the color will be green.
+
+: the id selector will only be ignored if there is a more specific (a descendant or chain selector) that ALSO has an id
+
+```html
+<div id = "parent">
+
+	<div id = "itemid" class = "child">Hello</div>
+
+</div>
+```
+
+```css
+#itemid {
+	color: green;
+}
+
+#parent .child {
+	color: blue;
+}
+```
+
+: since the `#parent .child` is more specific and also has an id selector, it will be focused than the id selector of the child. Thus its color is blue
+
+##### C. Specificity over classes
+
+
+```html
+<div class = "parent">
+
+	<div class = "child">Hello</div>
+
+</div>
+```
+
+```css
+
+.child {
+	color: red;
+}
+
+.parent .child {
+	color: blue;
+}
+```
+
+: `.parent .child` is more specific than the class selector. Thus the color is blue.
+
+##### D. Class over type
+
+: basically class selectors will be done than generalized tag-type selectors
+
+##### E. Order
+
+: if both selectors have equal priority, the last declared selector will be done.
+
+```html
+<div class = "parent">
+	<div class = "child greet">Hello</div>
+</div>
+```
+
+```css
+.parent .child {
+	color: green;
+}
+
+.child.greet {
+	color: blue;
+}
+```
+
+: we mentioned that descendant selectors and chain selectors are of equal specificity and priority. The last selector will be done. Thus the color is blue.
+
+## 4. **Chrome Devtools**
+
+: simply click `f12` to enter inspect mode
+: in there, you can inspect the HTML, CSS, AND JS contents, the latency of loading objects, and errors where you can debug and modify various parts of the webpage in real time via the Inspect Mode
+
+: for more info, visit https://developer.chrome.com/docs/devtools/overview/
+
+## **5.  The Box Model**
+
+: See every element as a box consisting of different measurements in terms of its **border, padding, and margin**
+
+##### A. Border
+
+: The outline of the box
+
+##### B. Padding
+
+: Basically the space in between the border and the content of the box
+##### C. Margin
+
+: The space in between the element to other adjacent elements
