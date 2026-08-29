@@ -36,3 +36,6 @@ indentation = 8 spaces
 4. Add Images
 
 ## 4. Sync: Evaluation of Outputs
+
+# 💻 Scribus Layouting Tutorial
+Prepared by **Justin Jacob  Rosario**

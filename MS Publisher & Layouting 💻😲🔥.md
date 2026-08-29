@@ -1,4 +1,4 @@
-[[Scribus Layouting Tutorial]]
+[[💻😲🔥Scribus Layouting Tutorial]]
 
 ## 1. Page Setup
  - Page details
