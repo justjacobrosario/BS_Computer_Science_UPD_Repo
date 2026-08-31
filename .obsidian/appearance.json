@@ -1,8 +1,8 @@
 {
-  "cssTheme": "Typomagical",
+  "cssTheme": "LaTeX",
   "interfaceFontFamily": "Menlo",
   "textFontFamily": "Menlo",
   "accentColor": "#cb4848",
-  "theme": "obsidian",
+  "theme": "moonstone",
   "baseFontSize": 24
 }

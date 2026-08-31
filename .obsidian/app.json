@@ -4,5 +4,8 @@
   "newFileLocation": "current",
   "newFileFolderPath": "1st Year 2nd Sem/CS 12/CS12 Lecture Notes",
   "alwaysUpdateLinks": true,
-  "spellcheck": false
+  "spellcheck": false,
+  "tabSize": 4,
+  "readableLineLength": false,
+  "showInlineTitle": true
 }

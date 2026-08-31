@@ -20,6 +20,41 @@
         "a": 1,
         "rgb": 14731602
       }
+    },
+    {
+      "query": "[\"problem type\":enumeration problem",
+      "color": {
+        "a": 1,
+        "rgb": 11392604
+      }
+    },
+    {
+      "query": "[\"problem type\":decision problem",
+      "color": {
+        "a": 1,
+        "rgb": 6084302
+      }
+    },
+    {
+      "query": "[\"problem type\":function problem",
+      "color": {
+        "a": 1,
+        "rgb": 15636991
+      }
+    },
+    {
+      "query": "[\"problem type\":optimization problem",
+      "color": {
+        "a": 1,
+        "rgb": 16764037
+      }
+    },
+    {
+      "query": "[\"problem type\":counting problem",
+      "color": {
+        "a": 1,
+        "rgb": 16751001
+      }
     }
   ],
   "collapse-display": false,
@@ -32,6 +67,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 142,
-  "scale": 1.251320660237595,
-  "close": true
+  "scale": 0.7250213740323318,
+  "close": false
 }
