@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Prove It — Exercise Tracker</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1e222b;
+    --panel-3: #23283311;
+    --border: #2a2f3a;
+    --text: #e8eaed;
+    --muted: #8b93a3;
+    --accent: #6ee7b7;
+    --accent-2: #38bdf8;
+    --danger: #f87171;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px 16px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+
+  .overall {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    position: sticky;
+    top: 12px;
+    z-index: 10;
+  }
+  .overall-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .overall-top span:first-child { font-weight: 600; }
+  .overall-top span:last-child { color: var(--muted); font-size: 13px; }
+  .bar-track {
+    background: var(--panel-2);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    border-radius: 999px;
+    transition: width 0.25s ease;
+  }
+
+  .controls-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  input[type="text"] {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+  }
+  input[type="text"]:focus { border-color: var(--accent-2); }
+
+  button {
+    background: var(--accent-2);
+    color: #0f1115;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:hover { opacity: 0.9; }
+  button.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    font-weight: 500;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  button.ghost:hover { color: var(--text); border-color: var(--muted); }
+  button.icon-btn {
+    background: transparent;
+    color: var(--muted);
+    padding: 4px 8px;
+    font-size: 15px;
+  }
+  button.icon-btn:hover { color: var(--danger); }
+  button.small {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  /* Chapter */
+  .chapter {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    cursor: pointer;
+  }
+  .chapter-header-left { flex: 1; min-width: 0; }
+  .chapter-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .progress-row .bar-track { flex: 1; height: 6px; }
+  .progress-row .count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+  .caret {
+    color: var(--muted);
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  .collapsed > .caret,
+  .chapter.collapsed .chapter-header .caret,
+  .section.collapsed .section-header .caret { transform: rotate(-90deg); }
+
+  .chapter-body {
+    border-top: 1px solid var(--border);
+    padding: 10px 12px 14px;
+  }
+  .chapter.collapsed .chapter-body { display: none; }
+
+  /* Section (nested inside chapter) */
+  .section {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin: 8px 0;
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    cursor: pointer;
+  }
+  .section-header-left { flex: 1; min-width: 0; }
+  .section-title {
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 5px;
+  }
+  .section-body {
+    border-top: 1px solid var(--border);
+    padding: 6px 12px 10px;
+  }
+  .section.collapsed .section-body { display: none; }
+
+  .exercise-list { list-style: none; margin: 0 0 10px; padding: 0; }
+  .exercise-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exercise-item:last-child { border-bottom: none; }
+  .exercise-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .exercise-item label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 13.5px;
+  }
+  .exercise-item.done label {
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+
+  .add-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .add-row input { flex: 1; }
+
+  .empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+
+  .reset-row {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    margin-left: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📘 How to Prove It — Exercise Tracker</h1>
+  <div class="subtitle">Track your progress through every chapter, section, and exercise. Saves automatically in this browser.</div>
+
+  <div class="overall">
+    <div class="overall-top">
+      <span>Overall progress</span>
+      <span id="overallCount">0 / 0</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill" id="overallBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="controls-row">
+    <button class="ghost small" onclick="expandAll()">Expand all</button>
+    <button class="ghost small" onclick="collapseAll()">Collapse all</button>
+    <button class="ghost small" onclick="addChapter()">+ Add chapter</button>
+  </div>
+
+  <div id="chapterList"></div>
+  <div class="empty" id="emptyState">No chapters yet.</div>
+
+  <div class="reset-row">
+    <button class="ghost" onclick="resetAll()">Reset all progress</button>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = "how-to-prove-it-tracker-v1";
+
+const INITIAL_DATA = { chapters: [{"id": "c1-chapter-1-sentential-logic", "name": "Chapter 1: Sentential Logic", "collapsed": false, "sections": [{"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi", "name": "Section 1.1: Deductive Reasoning and Logical Connectives", "collapsed": false, "exercises": [{"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e1", "name": "Exercise 1", "done": false}, {"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e2", "name": "Exercise 2", "done": false}, {"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e3", "name": "Exercise 3", "done": false}, {"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e4", "name": "Exercise 4", "done": false}, {"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e5", "name": "Exercise 5", "done": false}, {"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e6", "name": "Exercise 6", "done": false}, {"id": "c1-chapter-1-sentential-logic-s1-section-1-1-deductive-reasoning-and-logi-e7", "name": "Exercise 7", "done": false}]}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables", "name": "Section 1.2: Truth Tables", "collapsed": false, "exercises": [{"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e1", "name": "Exercise 1", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e2", "name": "Exercise 2", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e3", "name": "Exercise 3", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e4", "name": "Exercise 4", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e5", "name": "Exercise 5", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e6", "name": "Exercise 6", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e7", "name": "Exercise 7", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e8", "name": "Exercise 8", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e9", "name": "Exercise 9", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e10", "name": "Exercise 10", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e11", "name": "Exercise 11", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e12", "name": "Exercise 12", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e13", "name": "Exercise 13", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e14", "name": "Exercise 14", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e15", "name": "Exercise 15", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e16", "name": "Exercise 16", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e17", "name": "Exercise 17", "done": false}, {"id": "c1-chapter-1-sentential-logic-s2-section-1-2-truth-tables-e18", "name": "Exercise 18", "done": false}]}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets", "name": "Section 1.3: Variables and Sets", "collapsed": false, "exercises": [{"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e1", "name": "Exercise 1", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e2", "name": "Exercise 2", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e3", "name": "Exercise 3", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e4", "name": "Exercise 4", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e5", "name": "Exercise 5", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e6", "name": "Exercise 6", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e7", "name": "Exercise 7", "done": false}, {"id": "c1-chapter-1-sentential-logic-s3-section-1-3-variables-and-sets-e8", "name": "Exercise 8", "done": false}]}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets", "name": "Section 1.4: Operations on Sets", "collapsed": false, "exercises": [{"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e1", "name": "Exercise 1", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e2", "name": "Exercise 2", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e3", "name": "Exercise 3", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e4", "name": "Exercise 4", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e5", "name": "Exercise 5", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e6", "name": "Exercise 6", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e7", "name": "Exercise 7", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e8", "name": "Exercise 8", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e9", "name": "Exercise 9", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e10", "name": "Exercise 10", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e11", "name": "Exercise 11", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e12", "name": "Exercise 12", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e13", "name": "Exercise 13", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e14", "name": "Exercise 14", "done": false}, {"id": "c1-chapter-1-sentential-logic-s4-section-1-4-operations-on-sets-e15", "name": "Exercise 15", "done": false}]}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit", "name": "Section 1.5: The Conditional and Biconditional Connectives", "collapsed": false, "exercises": [{"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e1", "name": "Exercise 1", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e2", "name": "Exercise 2", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e3", "name": "Exercise 3", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e4", "name": "Exercise 4", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e5", "name": "Exercise 5", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e6", "name": "Exercise 6", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e7", "name": "Exercise 7", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e8", "name": "Exercise 8", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e9", "name": "Exercise 9", "done": false}, {"id": "c1-chapter-1-sentential-logic-s5-section-1-5-the-conditional-and-bicondit-e10", "name": "Exercise 10", "done": false}]}]}, {"id": "c2-chapter-2-quantificational-logic", "name": "Chapter 2: Quantificational Logic", "collapsed": true, "sections": [{"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers", "name": "Section 2.1: Quantifiers", "collapsed": false, "exercises": [{"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e1", "name": "Exercise 1", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e2", "name": "Exercise 2", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e3", "name": "Exercise 3", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e4", "name": "Exercise 4", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e5", "name": "Exercise 5", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e6", "name": "Exercise 6", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e7", "name": "Exercise 7", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e8", "name": "Exercise 8", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s1-section-2-1-quantifiers-e9", "name": "Exercise 9", "done": false}]}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant", "name": "Section 2.2: Equivalences Involving Quantifiers", "collapsed": false, "exercises": [{"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e1", "name": "Exercise 1", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e2", "name": "Exercise 2", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e3", "name": "Exercise 3", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e4", "name": "Exercise 4", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e5", "name": "Exercise 5", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e6", "name": "Exercise 6", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e7", "name": "Exercise 7", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e8", "name": "Exercise 8", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e9", "name": "Exercise 9", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e10", "name": "Exercise 10", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e11", "name": "Exercise 11", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s2-section-2-2-equivalences-involving-quant-e12", "name": "Exercise 12", "done": false}]}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets", "name": "Section 2.3: More Operations on Sets", "collapsed": false, "exercises": [{"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e1", "name": "Exercise 1", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e2", "name": "Exercise 2", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e3", "name": "Exercise 3", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e4", "name": "Exercise 4", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e5", "name": "Exercise 5", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e6", "name": "Exercise 6", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e7", "name": "Exercise 7", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e8", "name": "Exercise 8", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e9", "name": "Exercise 9", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e10", "name": "Exercise 10", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e11", "name": "Exercise 11", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e12", "name": "Exercise 12", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e13", "name": "Exercise 13", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e14", "name": "Exercise 14", "done": false}, {"id": "c2-chapter-2-quantificational-logic-s3-section-2-3-more-operations-on-sets-e15", "name": "Exercise 15", "done": false}]}]}, {"id": "c3-chapter-3-proofs", "name": "Chapter 3: Proofs", "collapsed": true, "sections": [{"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies", "name": "Section 3.1: Proof Strategies", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e9", "name": "Exercise 9", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e10", "name": "Exercise 10", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e11", "name": "Exercise 11", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e12", "name": "Exercise 12", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e13", "name": "Exercise 13", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e14", "name": "Exercise 14", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e15", "name": "Exercise 15", "done": false}, {"id": "c3-chapter-3-proofs-s1-section-3-1-proof-strategies-e16", "name": "Exercise 16", "done": false}]}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a", "name": "Section 3.2: Proofs Involving Negations and Conditionals", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e9", "name": "Exercise 9", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e10", "name": "Exercise 10", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e11", "name": "Exercise 11", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e12", "name": "Exercise 12", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e13", "name": "Exercise 13", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e14", "name": "Exercise 14", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e15", "name": "Exercise 15", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e16", "name": "Exercise 16", "done": false}, {"id": "c3-chapter-3-proofs-s2-section-3-2-proofs-involving-negations-a-e17", "name": "Exercise 17", "done": false}]}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers", "name": "Section 3.3: Proofs Involving Quantifiers", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e9", "name": "Exercise 9", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e10", "name": "Exercise 10", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e11", "name": "Exercise 11", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e12", "name": "Exercise 12", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e13", "name": "Exercise 13", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e14", "name": "Exercise 14", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e15", "name": "Exercise 15", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e16", "name": "Exercise 16", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e17", "name": "Exercise 17", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e18", "name": "Exercise 18", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e19", "name": "Exercise 19", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e20", "name": "Exercise 20", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e21", "name": "Exercise 21", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e22", "name": "Exercise 22", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e23", "name": "Exercise 23", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e24", "name": "Exercise 24", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e25", "name": "Exercise 25", "done": false}, {"id": "c3-chapter-3-proofs-s3-section-3-3-proofs-involving-quantifiers-e26", "name": "Exercise 26", "done": false}]}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction", "name": "Section 3.4: Proofs Involving Conjunctions and Biconditionals", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e9", "name": "Exercise 9", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e10", "name": "Exercise 10", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e11", "name": "Exercise 11", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e12", "name": "Exercise 12", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e13", "name": "Exercise 13", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e14", "name": "Exercise 14", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e15", "name": "Exercise 15", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e16", "name": "Exercise 16", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e17", "name": "Exercise 17", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e18", "name": "Exercise 18", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e19", "name": "Exercise 19", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e20", "name": "Exercise 20", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e21", "name": "Exercise 21", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e22", "name": "Exercise 22", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e23", "name": "Exercise 23", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e24", "name": "Exercise 24", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e25", "name": "Exercise 25", "done": false}, {"id": "c3-chapter-3-proofs-s4-section-3-4-proofs-involving-conjunction-e26", "name": "Exercise 26", "done": false}]}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction", "name": "Section 3.5: Proofs Involving Disjunctions", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e9", "name": "Exercise 9", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e10", "name": "Exercise 10", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e11", "name": "Exercise 11", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e12", "name": "Exercise 12", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e13", "name": "Exercise 13", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e14", "name": "Exercise 14", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e15", "name": "Exercise 15", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e16", "name": "Exercise 16", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e17", "name": "Exercise 17", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e18", "name": "Exercise 18", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e19", "name": "Exercise 19", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e20", "name": "Exercise 20", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e21", "name": "Exercise 21", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e22", "name": "Exercise 22", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e23", "name": "Exercise 23", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e24", "name": "Exercise 24", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e25", "name": "Exercise 25", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e26", "name": "Exercise 26", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e27", "name": "Exercise 27", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e28", "name": "Exercise 28", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e29", "name": "Exercise 29", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e30", "name": "Exercise 30", "done": false}, {"id": "c3-chapter-3-proofs-s5-section-3-5-proofs-involving-disjunction-e31", "name": "Exercise 31", "done": false}]}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro", "name": "Section 3.6: Existence and Uniqueness Proofs", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e9", "name": "Exercise 9", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e10", "name": "Exercise 10", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e11", "name": "Exercise 11", "done": false}, {"id": "c3-chapter-3-proofs-s6-section-3-6-existence-and-uniqueness-pro-e12", "name": "Exercise 12", "done": false}]}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs", "name": "Section 3.7: More Examples of Proofs", "collapsed": false, "exercises": [{"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e1", "name": "Exercise 1", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e2", "name": "Exercise 2", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e3", "name": "Exercise 3", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e4", "name": "Exercise 4", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e5", "name": "Exercise 5", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e6", "name": "Exercise 6", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e7", "name": "Exercise 7", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e8", "name": "Exercise 8", "done": false}, {"id": "c3-chapter-3-proofs-s7-section-3-7-more-examples-of-proofs-e9", "name": "Exercise 9", "done": false}]}]}, {"id": "c4-chapter-4-relations", "name": "Chapter 4: Relations", "collapsed": true, "sections": [{"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian-", "name": "Section 4.1: Ordered Pairs and Cartesian Products", "collapsed": false, "exercises": [{"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e1", "name": "Exercise 1", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e2", "name": "Exercise 2", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e3", "name": "Exercise 3", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e4", "name": "Exercise 4", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e5", "name": "Exercise 5", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e6", "name": "Exercise 6", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e7", "name": "Exercise 7", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e8", "name": "Exercise 8", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e9", "name": "Exercise 9", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e10", "name": "Exercise 10", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e11", "name": "Exercise 11", "done": false}, {"id": "c4-chapter-4-relations-s1-section-4-1-ordered-pairs-and-cartesian--e12", "name": "Exercise 12", "done": false}]}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations", "name": "Section 4.2: Relations", "collapsed": false, "exercises": [{"id": "c4-chapter-4-relations-s2-section-4-2-relations-e1", "name": "Exercise 1", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e2", "name": "Exercise 2", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e3", "name": "Exercise 3", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e4", "name": "Exercise 4", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e5", "name": "Exercise 5", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e6", "name": "Exercise 6", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e7", "name": "Exercise 7", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e8", "name": "Exercise 8", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e9", "name": "Exercise 9", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e10", "name": "Exercise 10", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e11", "name": "Exercise 11", "done": false}, {"id": "c4-chapter-4-relations-s2-section-4-2-relations-e12", "name": "Exercise 12", "done": false}]}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations", "name": "Section 4.3: More About Relations", "collapsed": false, "exercises": [{"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e1", "name": "Exercise 1", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e2", "name": "Exercise 2", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e3", "name": "Exercise 3", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e4", "name": "Exercise 4", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e5", "name": "Exercise 5", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e6", "name": "Exercise 6", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e7", "name": "Exercise 7", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e8", "name": "Exercise 8", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e9", "name": "Exercise 9", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e10", "name": "Exercise 10", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e11", "name": "Exercise 11", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e12", "name": "Exercise 12", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e13", "name": "Exercise 13", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e14", "name": "Exercise 14", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e15", "name": "Exercise 15", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e16", "name": "Exercise 16", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e17", "name": "Exercise 17", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e18", "name": "Exercise 18", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e19", "name": "Exercise 19", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e20", "name": "Exercise 20", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e21", "name": "Exercise 21", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e22", "name": "Exercise 22", "done": false}, {"id": "c4-chapter-4-relations-s3-section-4-3-more-about-relations-e23", "name": "Exercise 23", "done": false}]}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations", "name": "Section 4.4: Ordering Relations", "collapsed": false, "exercises": [{"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e1", "name": "Exercise 1", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e2", "name": "Exercise 2", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e3", "name": "Exercise 3", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e4", "name": "Exercise 4", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e5", "name": "Exercise 5", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e6", "name": "Exercise 6", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e7", "name": "Exercise 7", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e8", "name": "Exercise 8", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e9", "name": "Exercise 9", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e10", "name": "Exercise 10", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e11", "name": "Exercise 11", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e12", "name": "Exercise 12", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e13", "name": "Exercise 13", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e14", "name": "Exercise 14", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e15", "name": "Exercise 15", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e16", "name": "Exercise 16", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e17", "name": "Exercise 17", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e18", "name": "Exercise 18", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e19", "name": "Exercise 19", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e20", "name": "Exercise 20", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e21", "name": "Exercise 21", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e22", "name": "Exercise 22", "done": false}, {"id": "c4-chapter-4-relations-s4-section-4-4-ordering-relations-e23", "name": "Exercise 23", "done": false}]}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures", "name": "Section 4.5: Closures", "collapsed": false, "exercises": [{"id": "c4-chapter-4-relations-s5-section-4-5-closures-e1", "name": "Exercise 1", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e2", "name": "Exercise 2", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e3", "name": "Exercise 3", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e4", "name": "Exercise 4", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e5", "name": "Exercise 5", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e6", "name": "Exercise 6", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e7", "name": "Exercise 7", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e8", "name": "Exercise 8", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e9", "name": "Exercise 9", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e10", "name": "Exercise 10", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e11", "name": "Exercise 11", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e12", "name": "Exercise 12", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e13", "name": "Exercise 13", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e14", "name": "Exercise 14", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e15", "name": "Exercise 15", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e16", "name": "Exercise 16", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e17", "name": "Exercise 17", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e18", "name": "Exercise 18", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e19", "name": "Exercise 19", "done": false}, {"id": "c4-chapter-4-relations-s5-section-4-5-closures-e20", "name": "Exercise 20", "done": false}]}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations", "name": "Section 4.6: Equivalence Relations", "collapsed": false, "exercises": [{"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e1", "name": "Exercise 1", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e2", "name": "Exercise 2", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e3", "name": "Exercise 3", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e4", "name": "Exercise 4", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e5", "name": "Exercise 5", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e6", "name": "Exercise 6", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e7", "name": "Exercise 7", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e8", "name": "Exercise 8", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e9", "name": "Exercise 9", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e10", "name": "Exercise 10", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e11", "name": "Exercise 11", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e12", "name": "Exercise 12", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e13", "name": "Exercise 13", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e14", "name": "Exercise 14", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e15", "name": "Exercise 15", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e16", "name": "Exercise 16", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e17", "name": "Exercise 17", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e18", "name": "Exercise 18", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e19", "name": "Exercise 19", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e20", "name": "Exercise 20", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e21", "name": "Exercise 21", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e22", "name": "Exercise 22", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e23", "name": "Exercise 23", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e24", "name": "Exercise 24", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e25", "name": "Exercise 25", "done": false}, {"id": "c4-chapter-4-relations-s6-section-4-6-equivalence-relations-e26", "name": "Exercise 26", "done": false}]}]}, {"id": "c5-chapter-5-functions", "name": "Chapter 5: Functions", "collapsed": true, "sections": [{"id": "c5-chapter-5-functions-s1-section-5-1-functions", "name": "Section 5.1: Functions", "collapsed": false, "exercises": [{"id": "c5-chapter-5-functions-s1-section-5-1-functions-e1", "name": "Exercise 1", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e2", "name": "Exercise 2", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e3", "name": "Exercise 3", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e4", "name": "Exercise 4", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e5", "name": "Exercise 5", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e6", "name": "Exercise 6", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e7", "name": "Exercise 7", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e8", "name": "Exercise 8", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e9", "name": "Exercise 9", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e10", "name": "Exercise 10", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e11", "name": "Exercise 11", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e12", "name": "Exercise 12", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e13", "name": "Exercise 13", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e14", "name": "Exercise 14", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e15", "name": "Exercise 15", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e16", "name": "Exercise 16", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e17", "name": "Exercise 17", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e18", "name": "Exercise 18", "done": false}, {"id": "c5-chapter-5-functions-s1-section-5-1-functions-e19", "name": "Exercise 19", "done": false}]}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto", "name": "Section 5.2: One-to-one and Onto", "collapsed": false, "exercises": [{"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e1", "name": "Exercise 1", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e2", "name": "Exercise 2", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e3", "name": "Exercise 3", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e4", "name": "Exercise 4", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e5", "name": "Exercise 5", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e6", "name": "Exercise 6", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e7", "name": "Exercise 7", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e8", "name": "Exercise 8", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e9", "name": "Exercise 9", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e10", "name": "Exercise 10", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e11", "name": "Exercise 11", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e12", "name": "Exercise 12", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e13", "name": "Exercise 13", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e14", "name": "Exercise 14", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e15", "name": "Exercise 15", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e16", "name": "Exercise 16", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e17", "name": "Exercise 17", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e18", "name": "Exercise 18", "done": false}, {"id": "c5-chapter-5-functions-s2-section-5-2-one-to-one-and-onto-e19", "name": "Exercise 19", "done": false}]}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions", "name": "Section 5.3: Inverses of Functions", "collapsed": false, "exercises": [{"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e1", "name": "Exercise 1", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e2", "name": "Exercise 2", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e3", "name": "Exercise 3", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e4", "name": "Exercise 4", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e5", "name": "Exercise 5", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e6", "name": "Exercise 6", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e7", "name": "Exercise 7", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e8", "name": "Exercise 8", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e9", "name": "Exercise 9", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e10", "name": "Exercise 10", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e11", "name": "Exercise 11", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e12", "name": "Exercise 12", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e13", "name": "Exercise 13", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e14", "name": "Exercise 14", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e15", "name": "Exercise 15", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e16", "name": "Exercise 16", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e17", "name": "Exercise 17", "done": false}, {"id": "c5-chapter-5-functions-s3-section-5-3-inverses-of-functions-e18", "name": "Exercise 18", "done": false}]}, {"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a-", "name": "Section 5.4: Images and Inverse Images: A Research Project", "collapsed": false, "exercises": [{"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a--e1", "name": "Exercise 1", "done": false}, {"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a--e2", "name": "Exercise 2", "done": false}, {"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a--e3", "name": "Exercise 3", "done": false}, {"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a--e4", "name": "Exercise 4", "done": false}, {"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a--e5", "name": "Exercise 5", "done": false}, {"id": "c5-chapter-5-functions-s4-section-5-4-images-and-inverse-images-a--e6", "name": "Exercise 6", "done": false}]}]}, {"id": "c6-chapter-6-mathematical-induction", "name": "Chapter 6: Mathematical Induction", "collapsed": true, "sections": [{"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct", "name": "Section 6.1: Proof by Mathematical Induction", "collapsed": false, "exercises": [{"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e1", "name": "Exercise 1", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e2", "name": "Exercise 2", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e3", "name": "Exercise 3", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e4", "name": "Exercise 4", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e5", "name": "Exercise 5", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e6", "name": "Exercise 6", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e7", "name": "Exercise 7", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e8", "name": "Exercise 8", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e9", "name": "Exercise 9", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e10", "name": "Exercise 10", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e11", "name": "Exercise 11", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e12", "name": "Exercise 12", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e13", "name": "Exercise 13", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e14", "name": "Exercise 14", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e15", "name": "Exercise 15", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e16", "name": "Exercise 16", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e17", "name": "Exercise 17", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e18", "name": "Exercise 18", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s1-section-6-1-proof-by-mathematical-induct-e19", "name": "Exercise 19", "done": false}]}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples", "name": "Section 6.2: More Examples", "collapsed": false, "exercises": [{"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e1", "name": "Exercise 1", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e2", "name": "Exercise 2", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e3", "name": "Exercise 3", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e4", "name": "Exercise 4", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e5", "name": "Exercise 5", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e6", "name": "Exercise 6", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e7", "name": "Exercise 7", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e8", "name": "Exercise 8", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e9", "name": "Exercise 9", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e10", "name": "Exercise 10", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e11", "name": "Exercise 11", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e12", "name": "Exercise 12", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e13", "name": "Exercise 13", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e14", "name": "Exercise 14", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e15", "name": "Exercise 15", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s2-section-6-2-more-examples-e16", "name": "Exercise 16", "done": false}]}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion", "name": "Section 6.3: Recursion", "collapsed": false, "exercises": [{"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e1", "name": "Exercise 1", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e2", "name": "Exercise 2", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e3", "name": "Exercise 3", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e4", "name": "Exercise 4", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e5", "name": "Exercise 5", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e6", "name": "Exercise 6", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e7", "name": "Exercise 7", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e8", "name": "Exercise 8", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e9", "name": "Exercise 9", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e10", "name": "Exercise 10", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e11", "name": "Exercise 11", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e12", "name": "Exercise 12", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e13", "name": "Exercise 13", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e14", "name": "Exercise 14", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e15", "name": "Exercise 15", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e16", "name": "Exercise 16", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e17", "name": "Exercise 17", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e18", "name": "Exercise 18", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e19", "name": "Exercise 19", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e20", "name": "Exercise 20", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s3-section-6-3-recursion-e21", "name": "Exercise 21", "done": false}]}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction", "name": "Section 6.4: Strong Induction", "collapsed": false, "exercises": [{"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e1", "name": "Exercise 1", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e2", "name": "Exercise 2", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e3", "name": "Exercise 3", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e4", "name": "Exercise 4", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e5", "name": "Exercise 5", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e6", "name": "Exercise 6", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e7", "name": "Exercise 7", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e8", "name": "Exercise 8", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e9", "name": "Exercise 9", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e10", "name": "Exercise 10", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e11", "name": "Exercise 11", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e12", "name": "Exercise 12", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e13", "name": "Exercise 13", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e14", "name": "Exercise 14", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e15", "name": "Exercise 15", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e16", "name": "Exercise 16", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e17", "name": "Exercise 17", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e18", "name": "Exercise 18", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e19", "name": "Exercise 19", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s4-section-6-4-strong-induction-e20", "name": "Exercise 20", "done": false}]}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again", "name": "Section 6.5: Closures Again", "collapsed": false, "exercises": [{"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e1", "name": "Exercise 1", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e2", "name": "Exercise 2", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e3", "name": "Exercise 3", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e4", "name": "Exercise 4", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e5", "name": "Exercise 5", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e6", "name": "Exercise 6", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e7", "name": "Exercise 7", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e8", "name": "Exercise 8", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e9", "name": "Exercise 9", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e10", "name": "Exercise 10", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e11", "name": "Exercise 11", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e12", "name": "Exercise 12", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e13", "name": "Exercise 13", "done": false}, {"id": "c6-chapter-6-mathematical-induction-s5-section-6-5-closures-again-e14", "name": "Exercise 14", "done": false}]}]}, {"id": "c7-chapter-7-infinite-sets", "name": "Chapter 7: Infinite Sets", "collapsed": true, "sections": [{"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets", "name": "Section 7.1: Equinumerous Sets", "collapsed": false, "exercises": [{"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e1", "name": "Exercise 1", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e2", "name": "Exercise 2", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e3", "name": "Exercise 3", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e4", "name": "Exercise 4", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e5", "name": "Exercise 5", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e6", "name": "Exercise 6", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e7", "name": "Exercise 7", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e8", "name": "Exercise 8", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e9", "name": "Exercise 9", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e10", "name": "Exercise 10", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e11", "name": "Exercise 11", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e12", "name": "Exercise 12", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e13", "name": "Exercise 13", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e14", "name": "Exercise 14", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e15", "name": "Exercise 15", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e16", "name": "Exercise 16", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e17", "name": "Exercise 17", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e18", "name": "Exercise 18", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e19", "name": "Exercise 19", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e20", "name": "Exercise 20", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e21", "name": "Exercise 21", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e22", "name": "Exercise 22", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e23", "name": "Exercise 23", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e24", "name": "Exercise 24", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e25", "name": "Exercise 25", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e26", "name": "Exercise 26", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e27", "name": "Exercise 27", "done": false}, {"id": "c7-chapter-7-infinite-sets-s1-section-7-1-equinumerous-sets-e28", "name": "Exercise 28", "done": false}]}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se", "name": "Section 7.2: Countable and Uncountable Sets", "collapsed": false, "exercises": [{"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e1", "name": "Exercise 1", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e2", "name": "Exercise 2", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e3", "name": "Exercise 3", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e4", "name": "Exercise 4", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e5", "name": "Exercise 5", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e6", "name": "Exercise 6", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e7", "name": "Exercise 7", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e8", "name": "Exercise 8", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e9", "name": "Exercise 9", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e10", "name": "Exercise 10", "done": false}, {"id": "c7-chapter-7-infinite-sets-s2-section-7-2-countable-and-uncountable-se-e11", "name": "Exercise 11", "done": false}]}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei", "name": "Section 7.3: The Cantor-Schr\u00f6der-Bernstein Theorem", "collapsed": false, "exercises": [{"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e1", "name": "Exercise 1", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e2", "name": "Exercise 2", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e3", "name": "Exercise 3", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e4", "name": "Exercise 4", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e5", "name": "Exercise 5", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e6", "name": "Exercise 6", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e7", "name": "Exercise 7", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e8", "name": "Exercise 8", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e9", "name": "Exercise 9", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e10", "name": "Exercise 10", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e11", "name": "Exercise 11", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e12", "name": "Exercise 12", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e13", "name": "Exercise 13", "done": false}, {"id": "c7-chapter-7-infinite-sets-s3-section-7-3-the-cantor-schr-der-bernstei-e14", "name": "Exercise 14", "done": false}]}]}]
+ };
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return JSON.parse(JSON.stringify(INITIAL_DATA));
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error("Failed to load data", e);
+    return JSON.parse(JSON.stringify(INITIAL_DATA));
+  }
+}
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.error("Failed to save data", e);
+  }
+}
+
+let data = loadData();
+
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+function addChapter() {
+  const name = prompt("Chapter name (e.g. Chapter 8: New Chapter)");
+  if (!name || !name.trim()) return;
+  data.chapters.push({ id: uid(), name: name.trim(), collapsed: false, sections: [] });
+  saveData();
+  render();
+}
+
+function deleteChapter(chapterId) {
+  if (!confirm("Delete this chapter and everything in it?")) return;
+  data.chapters = data.chapters.filter(c => c.id !== chapterId);
+  saveData();
+  render();
+}
+
+function toggleChapterCollapsed(chapterId) {
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (ch) ch.collapsed = !ch.collapsed;
+  saveData();
+  render();
+}
+
+function addSection(chapterId) {
+  const name = prompt("Section name (e.g. Section 8.1: New Section)");
+  if (!name || !name.trim()) return;
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (!ch) return;
+  ch.sections.push({ id: uid(), name: name.trim(), collapsed: false, exercises: [] });
+  saveData();
+  render();
+}
+
+function deleteSection(chapterId, sectionId) {
+  if (!confirm("Delete this section and its exercises?")) return;
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (!ch) return;
+  ch.sections = ch.sections.filter(s => s.id !== sectionId);
+  saveData();
+  render();
+}
+
+function toggleSectionCollapsed(chapterId, sectionId) {
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (!ch) return;
+  const sec = ch.sections.find(s => s.id === sectionId);
+  if (sec) sec.collapsed = !sec.collapsed;
+  saveData();
+  render();
+}
+
+function addExercise(chapterId, sectionId, inputEl) {
+  const name = inputEl.value.trim();
+  if (!name) return;
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (!ch) return;
+  const sec = ch.sections.find(s => s.id === sectionId);
+  if (!sec) return;
+  sec.exercises.push({ id: uid(), name, done: false });
+  inputEl.value = "";
+  saveData();
+  render();
+}
+
+function toggleExercise(chapterId, sectionId, exerciseId) {
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (!ch) return;
+  const sec = ch.sections.find(s => s.id === sectionId);
+  if (!sec) return;
+  const ex = sec.exercises.find(e => e.id === exerciseId);
+  if (ex) ex.done = !ex.done;
+  saveData();
+  render();
+}
+
+function deleteExercise(chapterId, sectionId, exerciseId) {
+  const ch = data.chapters.find(c => c.id === chapterId);
+  if (!ch) return;
+  const sec = ch.sections.find(s => s.id === sectionId);
+  if (!sec) return;
+  sec.exercises = sec.exercises.filter(e => e.id !== exerciseId);
+  saveData();
+  render();
+}
+
+function resetAll() {
+  if (!confirm("This will erase all your checked progress and any custom chapters/sections/exercises you've added, restoring the original book structure. Are you sure?")) return;
+  data = JSON.parse(JSON.stringify(INITIAL_DATA));
+  saveData();
+  render();
+}
+
+function expandAll() {
+  data.chapters.forEach(ch => {
+    ch.collapsed = false;
+    ch.sections.forEach(sec => sec.collapsed = false);
+  });
+  saveData();
+  render();
+}
+
+function collapseAll() {
+  data.chapters.forEach(ch => {
+    ch.collapsed = true;
+  });
+  saveData();
+  render();
+}
+
+function sectionStats(sec) {
+  const total = sec.exercises.length;
+  const done = sec.exercises.filter(e => e.done).length;
+  return { total, done, pct: total ? Math.round((done / total) * 100) : 0 };
+}
+
+function chapterStats(ch) {
+  let total = 0, done = 0;
+  ch.sections.forEach(sec => {
+    total += sec.exercises.length;
+    done += sec.exercises.filter(e => e.done).length;
+  });
+  return { total, done, pct: total ? Math.round((done / total) * 100) : 0 };
+}
+
+function render() {
+  const list = document.getElementById("chapterList");
+  const empty = document.getElementById("emptyState");
+  list.innerHTML = "";
+
+  empty.style.display = data.chapters.length === 0 ? "block" : "none";
+
+  let totalAll = 0, doneAll = 0;
+
+  data.chapters.forEach(ch => {
+    const { total, done, pct } = chapterStats(ch);
+    totalAll += total;
+    doneAll += done;
+
+    const chapterEl = document.createElement("div");
+    chapterEl.className = "chapter" + (ch.collapsed ? " collapsed" : "");
+
+    const sectionsHtml = ch.sections.map(sec => {
+      const s = sectionStats(sec);
+      return `
+        <div class="section ${sec.collapsed ? 'collapsed' : ''}">
+          <div class="section-header" data-toggle-section="${ch.id}|${sec.id}">
+            <div class="section-header-left">
+              <div class="section-title">${escapeHtml(sec.name)}</div>
+              <div class="progress-row">
+                <div class="bar-track"><div class="bar-fill" style="width:${s.pct}%"></div></div>
+                <span class="count">${s.done}/${s.total}</span>
+              </div>
+            </div>
+            <button class="icon-btn" data-delete-section="${ch.id}|${sec.id}" title="Delete section">✕</button>
+            <span class="caret">▾</span>
+          </div>
+          <div class="section-body">
+            <ul class="exercise-list">
+              ${sec.exercises.map(ex => `
+                <li class="exercise-item ${ex.done ? 'done' : ''}">
+                  <input type="checkbox" id="ex-${ex.id}" ${ex.done ? 'checked' : ''} data-toggle-exercise="${ch.id}|${sec.id}|${ex.id}">
+                  <label for="ex-${ex.id}">${escapeHtml(ex.name)}</label>
+                  <button class="icon-btn" data-delete-exercise="${ch.id}|${sec.id}|${ex.id}" title="Delete exercise">✕</button>
+                </li>
+              `).join("")}
+            </ul>
+            <div class="add-row">
+              <input type="text" placeholder="e.g. Exercise ${sec.exercises.length + 1}" data-exercise-input="${ch.id}|${sec.id}">
+              <button class="small" data-add-exercise="${ch.id}|${sec.id}">Add</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    chapterEl.innerHTML = `
+      <div class="chapter-header" data-toggle-chapter="${ch.id}">
+        <div class="chapter-header-left">
+          <div class="chapter-title">${escapeHtml(ch.name)}</div>
+          <div class="progress-row">
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+            <span class="count">${done}/${total}</span>
+          </div>
+        </div>
+        <button class="icon-btn" data-delete-chapter="${ch.id}" title="Delete chapter">✕</button>
+        <span class="caret">▾</span>
+      </div>
+      <div class="chapter-body">
+        ${sectionsHtml}
+        <div class="add-row">
+          <button class="small ghost" data-add-section="${ch.id}">+ Add section</button>
+        </div>
+      </div>
+    `;
+    list.appendChild(chapterEl);
+  });
+
+  document.getElementById("overallCount").textContent = `${doneAll} / ${totalAll}`;
+  document.getElementById("overallBar").style.width = totalAll ? `${Math.round((doneAll / totalAll) * 100)}%` : "0%";
+
+  attachEvents();
+}
+
+function attachEvents() {
+  document.querySelectorAll("[data-toggle-chapter]").forEach(el => {
+    el.addEventListener("click", (e) => {
+      if (e.target.closest("[data-delete-chapter]")) return;
+      toggleChapterCollapsed(el.getAttribute("data-toggle-chapter"));
+    });
+  });
+  document.querySelectorAll("[data-delete-chapter]").forEach(el => {
+    el.addEventListener("click", (e) => {
+      e.stopPropagation();
+      deleteChapter(el.getAttribute("data-delete-chapter"));
+    });
+  });
+  document.querySelectorAll("[data-toggle-section]").forEach(el => {
+    el.addEventListener("click", (e) => {
+      if (e.target.closest("[data-delete-section]")) return;
+      const [chapterId, sectionId] = el.getAttribute("data-toggle-section").split("|");
+      toggleSectionCollapsed(chapterId, sectionId);
+    });
+  });
+  document.querySelectorAll("[data-delete-section]").forEach(el => {
+    el.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const [chapterId, sectionId] = el.getAttribute("data-delete-section").split("|");
+      deleteSection(chapterId, sectionId);
+    });
+  });
+  document.querySelectorAll("[data-toggle-exercise]").forEach(el => {
+    el.addEventListener("change", () => {
+      const [chapterId, sectionId, exerciseId] = el.getAttribute("data-toggle-exercise").split("|");
+      toggleExercise(chapterId, sectionId, exerciseId);
+    });
+  });
+  document.querySelectorAll("[data-delete-exercise]").forEach(el => {
+    el.addEventListener("click", () => {
+      const [chapterId, sectionId, exerciseId] = el.getAttribute("data-delete-exercise").split("|");
+      deleteExercise(chapterId, sectionId, exerciseId);
+    });
+  });
+  document.querySelectorAll("[data-add-exercise]").forEach(el => {
+    el.addEventListener("click", () => {
+      const [chapterId, sectionId] = el.getAttribute("data-add-exercise").split("|");
+      const input = document.querySelector(`[data-exercise-input="${chapterId}|${sectionId}"]`);
+      addExercise(chapterId, sectionId, input);
+    });
+  });
+  document.querySelectorAll("[data-exercise-input]").forEach(el => {
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const [chapterId, sectionId] = el.getAttribute("data-exercise-input").split("|");
+        addExercise(chapterId, sectionId, el);
+      }
+    });
+  });
+  document.querySelectorAll("[data-add-section]").forEach(el => {
+    el.addEventListener("click", () => {
+      addSection(el.getAttribute("data-add-section"));
+    });
+  });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+render();
+</script>
+</body>
+</html>
